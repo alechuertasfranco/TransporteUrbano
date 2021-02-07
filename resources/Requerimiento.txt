@@ -1,0 +1,11 @@
+Requerimientos funcionales
+Requerimientos no funcionales
+Diagrama Normalizado de 1NF a 5FN
+1 procedimiento almacenado
+1 Trigger for instead
+2 transacciones
+2 reportes y graficos de RS
+Usuarios en base
+Aplicacion en Visual Basic .NET
+Aplicacion QlikView
+Video de 8 a 10 min
