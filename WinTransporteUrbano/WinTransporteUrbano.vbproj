@@ -73,6 +73,17 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BD_TransporteUrbanoDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BD_TransporteUrbanoDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBus.Designer.vb">
+      <DependentUpon>FrmBus.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBus.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmLogin.Designer.vb">
       <DependentUpon>FrmLogin.vb</DependentUpon>
     </Compile>
@@ -103,6 +114,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FrmBus.resx">
+      <DependentUpon>FrmBus.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.vb</DependentUpon>
     </EmbeddedResource>
@@ -117,6 +131,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="BD_TransporteUrbanoDataSet.xsc">
+      <DependentUpon>BD_TransporteUrbanoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BD_TransporteUrbanoDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BD_TransporteUrbanoDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BD_TransporteUrbanoDataSet.xss">
+      <DependentUpon>BD_TransporteUrbanoDataSet.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
