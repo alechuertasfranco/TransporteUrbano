@@ -2,6 +2,8 @@
 End Class
 
 Namespace BD_TransporteUrbanoDataSetTableAdapters
+    Partial Public Class PENALIZACIONESTableAdapter
+    End Class
 
     Partial Public Class CONDUCTORESTableAdapter
     End Class
