@@ -12,7 +12,6 @@
     Private nro_datagrid As Integer
 
     Private Sub FrmConductor_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
         Me.dtConductor = Me.taConductor.GetData()
         dg_conductores.DataSource = Me.dtConductor
     End Sub

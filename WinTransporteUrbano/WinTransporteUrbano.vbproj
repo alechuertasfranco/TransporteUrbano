@@ -94,6 +94,18 @@
     <Compile Include="FrmConductor.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmControladorPersonal.Designer.vb">
+      <DependentUpon>FrmControladorPersonal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmControladorPersonal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmControlUbicacion.Designer.vb">
+      <DependentUpon>FrmControlUbicacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmControlUbicacion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmLogin.Designer.vb">
       <DependentUpon>FrmLogin.vb</DependentUpon>
     </Compile>
@@ -129,6 +141,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConductor.resx">
       <DependentUpon>FrmConductor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmControladorPersonal.resx">
+      <DependentUpon>FrmControladorPersonal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmControlUbicacion.resx">
+      <DependentUpon>FrmControlUbicacion.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.vb</DependentUpon>
