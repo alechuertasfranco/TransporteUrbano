@@ -52,6 +52,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -78,10 +79,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BD_TransporteUrbanoDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BD_TransporteUrbanoDataSet.vb">
+      <DependentUpon>BD_TransporteUrbanoDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FrmBus.Designer.vb">
       <DependentUpon>FrmBus.vb</DependentUpon>
     </Compile>
     <Compile Include="FrmBus.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConductor.Designer.vb">
+      <DependentUpon>FrmConductor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConductor.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmLogin.Designer.vb">
@@ -116,6 +126,9 @@
   <ItemGroup>
     <EmbeddedResource Include="FrmBus.resx">
       <DependentUpon>FrmBus.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConductor.resx">
+      <DependentUpon>FrmConductor.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.vb</DependentUpon>

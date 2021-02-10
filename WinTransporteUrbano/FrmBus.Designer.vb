@@ -22,12 +22,13 @@ Partial Class FrmBus
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmBus))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.btn_ver_todo = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txt_buscar = New System.Windows.Forms.TextBox()
@@ -43,7 +44,14 @@ Partial Class FrmBus
         Me.btn_guardar = New System.Windows.Forms.Button()
         Me.txt_modelo = New System.Windows.Forms.TextBox()
         Me.lbl_modelo = New System.Windows.Forms.Label()
+        Me.ConductorComboBox = New System.Windows.Forms.ComboBox()
+        Me.lbl_conductores = New System.Windows.Forms.Label()
+        Me.BD_TransporteUrbanoDataSet = New WinTransporteUrbano.BD_TransporteUrbanoDataSet()
+        Me.CONDUCTORESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CONDUCTORESTableAdapter = New WinTransporteUrbano.BD_TransporteUrbanoDataSetTableAdapters.CONDUCTORESTableAdapter()
         CType(Me.dg_buses, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BD_TransporteUrbanoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CONDUCTORESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btn_ver_todo
@@ -52,7 +60,7 @@ Partial Class FrmBus
         Me.btn_ver_todo.BackColor = System.Drawing.SystemColors.Control
         Me.btn_ver_todo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.btn_ver_todo.Font = New System.Drawing.Font("Arial Rounded MT Bold", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_ver_todo.Location = New System.Drawing.Point(362, 204)
+        Me.btn_ver_todo.Location = New System.Drawing.Point(362, 239)
         Me.btn_ver_todo.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.btn_ver_todo.Name = "btn_ver_todo"
         Me.btn_ver_todo.Size = New System.Drawing.Size(99, 26)
@@ -65,7 +73,7 @@ Partial Class FrmBus
         Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(20, 184)
+        Me.Label2.Location = New System.Drawing.Point(20, 219)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(157, 18)
         Me.Label2.TabIndex = 24
@@ -75,7 +83,7 @@ Partial Class FrmBus
         '
         Me.txt_buscar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txt_buscar.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_buscar.Location = New System.Drawing.Point(20, 205)
+        Me.txt_buscar.Location = New System.Drawing.Point(20, 240)
         Me.txt_buscar.Name = "txt_buscar"
         Me.txt_buscar.Size = New System.Drawing.Size(335, 26)
         Me.txt_buscar.TabIndex = 23
@@ -164,42 +172,42 @@ Partial Class FrmBus
         '
         Me.dg_buses.AllowUserToAddRows = False
         Me.dg_buses.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("MS Reference Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dg_buses.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle11.Font = New System.Drawing.Font("MS Reference Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dg_buses.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle11
         Me.dg_buses.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("MS Reference Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dg_buses.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle12.Font = New System.Drawing.Font("MS Reference Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight
+        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dg_buses.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle12
         Me.dg_buses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("MS Reference Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dg_buses.DefaultCellStyle = DataGridViewCellStyle3
-        Me.dg_buses.Location = New System.Drawing.Point(18, 262)
+        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle13.Font = New System.Drawing.Font("MS Reference Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight
+        DataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dg_buses.DefaultCellStyle = DataGridViewCellStyle13
+        Me.dg_buses.Location = New System.Drawing.Point(18, 297)
         Me.dg_buses.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.dg_buses.Name = "dg_buses"
         Me.dg_buses.ReadOnly = True
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("MS Reference Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dg_buses.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("MS Reference Sans Serif", 12.0!)
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight
-        Me.dg_buses.RowsDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle14.Font = New System.Drawing.Font("MS Reference Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight
+        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dg_buses.RowHeadersDefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle15.Font = New System.Drawing.Font("MS Reference Sans Serif", 12.0!)
+        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.dg_buses.RowsDefaultCellStyle = DataGridViewCellStyle15
         Me.dg_buses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dg_buses.Size = New System.Drawing.Size(491, 187)
         Me.dg_buses.TabIndex = 14
@@ -234,11 +242,51 @@ Partial Class FrmBus
         Me.lbl_modelo.TabIndex = 26
         Me.lbl_modelo.Text = "Modelo"
         '
+        'ConductorComboBox
+        '
+        Me.ConductorComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.CONDUCTORESBindingSource, "COND_IdConductor", True))
+        Me.ConductorComboBox.DataSource = Me.CONDUCTORESBindingSource
+        Me.ConductorComboBox.DisplayMember = "COND_Nombres"
+        Me.ConductorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ConductorComboBox.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ConductorComboBox.FormattingEnabled = True
+        Me.ConductorComboBox.Location = New System.Drawing.Point(20, 177)
+        Me.ConductorComboBox.Name = "ConductorComboBox"
+        Me.ConductorComboBox.Size = New System.Drawing.Size(234, 26)
+        Me.ConductorComboBox.TabIndex = 44
+        Me.ConductorComboBox.ValueMember = "COND_IdConductor"
+        '
+        'lbl_conductores
+        '
+        Me.lbl_conductores.AutoSize = True
+        Me.lbl_conductores.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_conductores.Location = New System.Drawing.Point(20, 145)
+        Me.lbl_conductores.Name = "lbl_conductores"
+        Me.lbl_conductores.Size = New System.Drawing.Size(93, 18)
+        Me.lbl_conductores.TabIndex = 45
+        Me.lbl_conductores.Text = "Conductor"
+        '
+        'BD_TransporteUrbanoDataSet
+        '
+        Me.BD_TransporteUrbanoDataSet.DataSetName = "BD_TransporteUrbanoDataSet"
+        Me.BD_TransporteUrbanoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'CONDUCTORESBindingSource
+        '
+        Me.CONDUCTORESBindingSource.DataMember = "CONDUCTORES"
+        Me.CONDUCTORESBindingSource.DataSource = Me.BD_TransporteUrbanoDataSet
+        '
+        'CONDUCTORESTableAdapter
+        '
+        Me.CONDUCTORESTableAdapter.ClearBeforeFill = True
+        '
         'FrmBus
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(527, 463)
+        Me.ClientSize = New System.Drawing.Size(527, 498)
+        Me.Controls.Add(Me.lbl_conductores)
+        Me.Controls.Add(Me.ConductorComboBox)
         Me.Controls.Add(Me.txt_modelo)
         Me.Controls.Add(Me.lbl_modelo)
         Me.Controls.Add(Me.btn_ver_todo)
@@ -257,6 +305,8 @@ Partial Class FrmBus
         Me.Name = "FrmBus"
         Me.Text = "FrmBus"
         CType(Me.dg_buses, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BD_TransporteUrbanoDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CONDUCTORESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -277,4 +327,9 @@ Partial Class FrmBus
     Friend WithEvents btn_guardar As Button
     Friend WithEvents txt_modelo As TextBox
     Friend WithEvents lbl_modelo As Label
+    Friend WithEvents ConductorComboBox As ComboBox
+    Friend WithEvents lbl_conductores As Label
+    Friend WithEvents BD_TransporteUrbanoDataSet As BD_TransporteUrbanoDataSet
+    Friend WithEvents CONDUCTORESBindingSource As BindingSource
+    Friend WithEvents CONDUCTORESTableAdapter As BD_TransporteUrbanoDataSetTableAdapters.CONDUCTORESTableAdapter
 End Class
