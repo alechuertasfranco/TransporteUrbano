@@ -18,7 +18,7 @@
 
     'Tabla simple
     'Guardar
-    Private Sub btn_guardar_Click(sender As Object, e As EventArgs) Handles btn_guardar.Click
+    Private Sub btn_guardar_Click(sender As Object, e As EventArgs) Handles btn_guardar.Click, Button1.Click
         If (Me.editar) Then
             'Editar un registro
             Me.registro = dtConductor.FindByCOND_IdConductor(Me.campoLlave)
@@ -61,7 +61,7 @@
         Me.limpiar_txt()
     End Sub
     'Editar
-    Private Sub btn_editar_Click(sender As Object, e As EventArgs) Handles btn_editar.Click
+    Private Sub btn_editar_Click(sender As Object, e As EventArgs) Handles btn_editar.Click, Button2.Click
         Me.editar = True
         cargar_datos()
     End Sub
@@ -87,7 +87,7 @@
         txt_nroLicencia.Text = ""
     End Sub
     'Borrar registro
-    Private Sub btn_borrar_Click(sender As Object, e As EventArgs) Handles btn_borrar.Click
+    Private Sub btn_borrar_Click(sender As Object, e As EventArgs) Handles btn_borrar.Click, Button3.Click
         Me.registro = dtConductor.Rows(Me.nro_datagrid)
         Me.registro.Delete()
         Try
@@ -98,7 +98,7 @@
         End Try
     End Sub
     'Seleccionar registro
-    Private Sub dg_conductores_SelectionChanged(sender As Object, e As EventArgs) Handles dg_conductores.SelectionChanged
+    Private Sub dg_conductores_SelectionChanged(sender As Object, e As EventArgs) Handles dg_conductores.SelectionChanged, DataGridView1.SelectionChanged
         Try
             Me.nro_datagrid = dg_conductores.CurrentRow.Index
         Catch ex As Exception
