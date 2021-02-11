@@ -34,6 +34,7 @@ Partial Class FrmTarifa
         Me.btn_guardar = New System.Windows.Forms.Button()
         Me.txt_descripcion = New System.Windows.Forms.TextBox()
         Me.lbl_descripcion = New System.Windows.Forms.Label()
+        Me.lbl_tittle = New System.Windows.Forms.Label()
         CType(Me.dg_tarifas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -42,7 +43,7 @@ Partial Class FrmTarifa
         Me.btn_borrar.BackColor = System.Drawing.Color.White
         Me.btn_borrar.BackgroundImage = CType(resources.GetObject("btn_borrar.BackgroundImage"), System.Drawing.Image)
         Me.btn_borrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btn_borrar.Location = New System.Drawing.Point(336, 137)
+        Me.btn_borrar.Location = New System.Drawing.Point(266, 139)
         Me.btn_borrar.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.btn_borrar.Name = "btn_borrar"
         Me.btn_borrar.Size = New System.Drawing.Size(50, 47)
@@ -54,7 +55,7 @@ Partial Class FrmTarifa
         Me.btn_editar.BackColor = System.Drawing.Color.White
         Me.btn_editar.BackgroundImage = CType(resources.GetObject("btn_editar.BackgroundImage"), System.Drawing.Image)
         Me.btn_editar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btn_editar.Location = New System.Drawing.Point(336, 85)
+        Me.btn_editar.Location = New System.Drawing.Point(190, 139)
         Me.btn_editar.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.btn_editar.Name = "btn_editar"
         Me.btn_editar.Size = New System.Drawing.Size(50, 47)
@@ -111,7 +112,7 @@ Partial Class FrmTarifa
         Me.btn_guardar.BackColor = System.Drawing.SystemColors.Control
         Me.btn_guardar.BackgroundImage = CType(resources.GetObject("btn_guardar.BackgroundImage"), System.Drawing.Image)
         Me.btn_guardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btn_guardar.Location = New System.Drawing.Point(336, 32)
+        Me.btn_guardar.Location = New System.Drawing.Point(113, 139)
         Me.btn_guardar.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.btn_guardar.Name = "btn_guardar"
         Me.btn_guardar.Size = New System.Drawing.Size(50, 47)
@@ -121,26 +122,37 @@ Partial Class FrmTarifa
         'txt_descripcion
         '
         Me.txt_descripcion.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_descripcion.Location = New System.Drawing.Point(38, 100)
+        Me.txt_descripcion.Location = New System.Drawing.Point(25, 98)
         Me.txt_descripcion.Name = "txt_descripcion"
-        Me.txt_descripcion.Size = New System.Drawing.Size(265, 26)
+        Me.txt_descripcion.Size = New System.Drawing.Size(309, 26)
         Me.txt_descripcion.TabIndex = 67
         '
         'lbl_descripcion
         '
         Me.lbl_descripcion.AutoSize = True
         Me.lbl_descripcion.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_descripcion.Location = New System.Drawing.Point(36, 70)
+        Me.lbl_descripcion.Location = New System.Drawing.Point(23, 65)
         Me.lbl_descripcion.Name = "lbl_descripcion"
         Me.lbl_descripcion.Size = New System.Drawing.Size(104, 18)
         Me.lbl_descripcion.TabIndex = 66
-        Me.lbl_descripcion.Text = "Descripcion"
+        Me.lbl_descripcion.Text = "Descripción"
+        '
+        'lbl_tittle
+        '
+        Me.lbl_tittle.AutoSize = True
+        Me.lbl_tittle.Font = New System.Drawing.Font("Arial Rounded MT Bold", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_tittle.Location = New System.Drawing.Point(101, 32)
+        Me.lbl_tittle.Name = "lbl_tittle"
+        Me.lbl_tittle.Size = New System.Drawing.Size(233, 22)
+        Me.lbl_tittle.TabIndex = 72
+        Me.lbl_tittle.Text = "REGISTRO DE TARIFAS"
         '
         'FrmTarifa
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(429, 398)
+        Me.Controls.Add(Me.lbl_tittle)
         Me.Controls.Add(Me.btn_borrar)
         Me.Controls.Add(Me.btn_editar)
         Me.Controls.Add(Me.dg_tarifas)
@@ -161,4 +173,5 @@ Partial Class FrmTarifa
     Friend WithEvents btn_guardar As Button
     Friend WithEvents txt_descripcion As TextBox
     Friend WithEvents lbl_descripcion As Label
+    Friend WithEvents lbl_tittle As Label
 End Class

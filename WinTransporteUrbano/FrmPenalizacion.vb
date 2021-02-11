@@ -91,4 +91,5 @@
         Me.dtPenalizacion = Me.taPenalizacion.GetData()
         dg_penalizaciones.DataSource = Me.dtPenalizacion
     End Sub
+
 End Class

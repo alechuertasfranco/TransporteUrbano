@@ -118,4 +118,24 @@
         dg_conductores.DataSource = dtConductor
     End Sub
 
+    Private Sub txt_DNI_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txt_DNI.KeyPress
+        e.Handled = Not IsNumeric(e.KeyChar) And Not Char.IsControl(e.KeyChar)
+        If Not IsNumeric(e.KeyChar) And Not Char.IsControl(e.KeyChar) Then
+            MsgBox("Solo Puede digitar numeros")
+        End If
+    End Sub
+
+    Private Sub txt_telefono_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txt_telefono.KeyPress
+        e.Handled = Not IsNumeric(e.KeyChar) And Not Char.IsControl(e.KeyChar)
+        If Not IsNumeric(e.KeyChar) And Not Char.IsControl(e.KeyChar) Then
+            MsgBox("Solo Puede digitar numeros")
+        End If
+    End Sub
+
+    Private Sub txt_nroLicencia_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txt_nroLicencia.KeyPress
+        e.Handled = Not IsNumeric(e.KeyChar) And Not Char.IsControl(e.KeyChar)
+        If Not IsNumeric(e.KeyChar) And Not Char.IsControl(e.KeyChar) Then
+            MsgBox("Solo Puede digitar numeros")
+        End If
+    End Sub
 End Class

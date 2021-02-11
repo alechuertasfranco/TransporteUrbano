@@ -125,6 +125,12 @@
       <DependentUpon>FrmRegistroU.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmRuta.Designer.vb">
+      <DependentUpon>FrmRuta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRuta.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmTarifa.Designer.vb">
       <DependentUpon>FrmTarifa.vb</DependentUpon>
     </Compile>
@@ -168,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRegistroU.resx">
       <DependentUpon>FrmRegistroU.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRuta.resx">
+      <DependentUpon>FrmRuta.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTarifa.resx">
       <DependentUpon>FrmTarifa.vb</DependentUpon>

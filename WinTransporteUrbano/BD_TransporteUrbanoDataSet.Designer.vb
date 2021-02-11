@@ -85,13 +85,13 @@ Partial Public Class BD_TransporteUrbanoDataSet
     
     Private relationR_96 As Global.System.Data.DataRelation
     
-    Private relationR_99 As Global.System.Data.DataRelation
-    
     Private relationR_150 As Global.System.Data.DataRelation
     
     Private relationR_146 As Global.System.Data.DataRelation
     
     Private relationR_102 As Global.System.Data.DataRelation
+    
+    Private relationR_99 As Global.System.Data.DataRelation
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -625,10 +625,10 @@ Partial Public Class BD_TransporteUrbanoDataSet
         Me.relationR_147 = Me.Relations("R_147")
         Me.relationR_149 = Me.Relations("R_149")
         Me.relationR_96 = Me.Relations("R_96")
-        Me.relationR_99 = Me.Relations("R_99")
         Me.relationR_150 = Me.Relations("R_150")
         Me.relationR_146 = Me.Relations("R_146")
         Me.relationR_102 = Me.Relations("R_102")
+        Me.relationR_99 = Me.Relations("R_99")
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -699,14 +699,14 @@ Partial Public Class BD_TransporteUrbanoDataSet
         Me.Relations.Add(Me.relationR_149)
         Me.relationR_96 = New Global.System.Data.DataRelation("R_96", New Global.System.Data.DataColumn() {Me.tableRUTA.RUT_IdRutaColumn}, New Global.System.Data.DataColumn() {Me.tableTARIFA_RUTA.RUT_IdRutaColumn}, false)
         Me.Relations.Add(Me.relationR_96)
-        Me.relationR_99 = New Global.System.Data.DataRelation("R_99", New Global.System.Data.DataColumn() {Me.tableTARIFA.TAR_IdTarifaColumn}, New Global.System.Data.DataColumn() {Me.tableTARIFA_RUTA.TAR_IdTarifaColumn}, false)
-        Me.Relations.Add(Me.relationR_99)
         Me.relationR_150 = New Global.System.Data.DataRelation("R_150", New Global.System.Data.DataColumn() {Me.tableUSUARIO_ROL.USUR_IdUsuarioRolColumn}, New Global.System.Data.DataColumn() {Me.tableUSUARIO.USUR_IdUsuarioRolColumn}, false)
         Me.Relations.Add(Me.relationR_150)
         Me.relationR_146 = New Global.System.Data.DataRelation("R_146", New Global.System.Data.DataColumn() {Me.tableCONDUCTORES.COND_IdConductorColumn}, New Global.System.Data.DataColumn() {Me.tablePAGO_CONDUCTOR.COND_IdConductorColumn}, false)
         Me.Relations.Add(Me.relationR_146)
         Me.relationR_102 = New Global.System.Data.DataRelation("R_102", New Global.System.Data.DataColumn() {Me.tableCONDUCTORES.COND_IdConductorColumn}, New Global.System.Data.DataColumn() {Me.tableBUSES.COND_IdConductorColumn}, false)
         Me.Relations.Add(Me.relationR_102)
+        Me.relationR_99 = New Global.System.Data.DataRelation("R_99", New Global.System.Data.DataColumn() {Me.tableTARIFA.TAR_IdTarifaColumn}, New Global.System.Data.DataColumn() {Me.tableTARIFA_RUTA.TAR_IdTarifaColumn}, false)
+        Me.Relations.Add(Me.relationR_99)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -13586,24 +13586,23 @@ Namespace BD_TransporteUrbanoDataSetTableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[TARIFA] WHERE (([TAR_IdTarifa] = @Original_TAR_IdTarifa) AND ("& _ 
-                "[TAR_Descripcion] = @Original_TAR_Descripcion))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [TARIFA] WHERE (([TAR_IdTarifa] = @Original_TAR_IdTarifa) AND ([TAR_D"& _ 
+                "escripcion] = @Original_TAR_Descripcion))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TAR_IdTarifa", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TAR_IdTarifa", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TAR_Descripcion", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TAR_Descripcion", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[TARIFA] ([TAR_Descripcion]) VALUES (@TAR_Descripcion);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT"& _ 
-                " TAR_IdTarifa, TAR_Descripcion FROM TARIFA WHERE (TAR_IdTarifa = SCOPE_IDENTITY("& _ 
-                "))"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [TARIFA] ([TAR_Descripcion]) VALUES (@TAR_Descripcion);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT TAR_I"& _ 
+                "dTarifa, TAR_Descripcion FROM TARIFA WHERE (TAR_IdTarifa = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TAR_Descripcion", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TAR_Descripcion", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[TARIFA] SET [TAR_Descripcion] = @TAR_Descripcion WHERE (([TAR_IdTar"& _ 
-                "ifa] = @Original_TAR_IdTarifa) AND ([TAR_Descripcion] = @Original_TAR_Descripcio"& _ 
-                "n));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT TAR_IdTarifa, TAR_Descripcion FROM TARIFA WHERE (TAR_IdTarifa = @TA"& _ 
-                "R_IdTarifa)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [TARIFA] SET [TAR_Descripcion] = @TAR_Descripcion WHERE (([TAR_IdTarifa] ="& _ 
+                " @Original_TAR_IdTarifa) AND ([TAR_Descripcion] = @Original_TAR_Descripcion));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
+                "SELECT TAR_IdTarifa, TAR_Descripcion FROM TARIFA WHERE (TAR_IdTarifa = @TAR_IdTa"& _ 
+                "rifa)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TAR_Descripcion", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TAR_Descripcion", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TAR_IdTarifa", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TAR_IdTarifa", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -13624,7 +13623,7 @@ Namespace BD_TransporteUrbanoDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT TAR_IdTarifa, TAR_Descripcion FROM dbo.TARIFA"
+            Me._commandCollection(0).CommandText = "SELECT        TAR_IdTarifa, TAR_Descripcion"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            TARIFA"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -13906,36 +13905,36 @@ Namespace BD_TransporteUrbanoDataSetTableAdapters
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
             Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[TARIFA_RUTA] WHERE (([RUT_IdRuta] = @Original_RUT_IdRuta) AND "& _ 
-                "([TR_Monto] = @Original_TR_Monto) AND ([TAR_IdTarifa] = @Original_TAR_IdTarifa))"& _ 
+                "([TAR_IdTarifa] = @Original_TAR_IdTarifa) AND ([TR_Monto] = @Original_TR_Monto))"& _ 
                 ""
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_RUT_IdRuta", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RUT_IdRuta", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TR_Monto", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TR_Monto", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TAR_IdTarifa", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TAR_IdTarifa", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TR_Monto", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TR_Monto", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[TARIFA_RUTA] ([RUT_IdRuta], [TR_Monto], [TAR_IdTarifa]) VALUES"& _ 
-                " (@RUT_IdRuta, @TR_Monto, @TAR_IdTarifa);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT RUT_IdRuta, TR_Monto, TAR_IdTa"& _ 
-                "rifa FROM TARIFA_RUTA WHERE (RUT_IdRuta = @RUT_IdRuta) AND (TAR_IdTarifa = @TAR_"& _ 
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[TARIFA_RUTA] ([RUT_IdRuta], [TAR_IdTarifa], [TR_Monto]) VALUES"& _ 
+                " (@RUT_IdRuta, @TAR_IdTarifa, @TR_Monto);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT RUT_IdRuta, TAR_IdTarifa, TR_M"& _ 
+                "onto FROM TARIFA_RUTA WHERE (RUT_IdRuta = @RUT_IdRuta) AND (TAR_IdTarifa = @TAR_"& _ 
                 "IdTarifa)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RUT_IdRuta", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RUT_IdRuta", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TR_Monto", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TR_Monto", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TAR_IdTarifa", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TAR_IdTarifa", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TR_Monto", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TR_Monto", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[TARIFA_RUTA] SET [RUT_IdRuta] = @RUT_IdRuta, [TR_Monto] = @TR_Monto"& _ 
-                ", [TAR_IdTarifa] = @TAR_IdTarifa WHERE (([RUT_IdRuta] = @Original_RUT_IdRuta) AN"& _ 
-                "D ([TR_Monto] = @Original_TR_Monto) AND ([TAR_IdTarifa] = @Original_TAR_IdTarifa"& _ 
-                "));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT RUT_IdRuta, TR_Monto, TAR_IdTarifa FROM TARIFA_RUTA WHERE (RUT_IdRut"& _ 
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[TARIFA_RUTA] SET [RUT_IdRuta] = @RUT_IdRuta, [TAR_IdTarifa] = @TAR_"& _ 
+                "IdTarifa, [TR_Monto] = @TR_Monto WHERE (([RUT_IdRuta] = @Original_RUT_IdRuta) AN"& _ 
+                "D ([TAR_IdTarifa] = @Original_TAR_IdTarifa) AND ([TR_Monto] = @Original_TR_Monto"& _ 
+                "));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT RUT_IdRuta, TAR_IdTarifa, TR_Monto FROM TARIFA_RUTA WHERE (RUT_IdRut"& _ 
                 "a = @RUT_IdRuta) AND (TAR_IdTarifa = @TAR_IdTarifa)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RUT_IdRuta", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RUT_IdRuta", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TR_Monto", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TR_Monto", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TAR_IdTarifa", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TAR_IdTarifa", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TR_Monto", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TR_Monto", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_RUT_IdRuta", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RUT_IdRuta", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TR_Monto", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TR_Monto", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TAR_IdTarifa", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TAR_IdTarifa", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TR_Monto", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TR_Monto", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -13948,11 +13947,17 @@ Namespace BD_TransporteUrbanoDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT RUT_IdRuta, TR_Monto, TAR_IdTarifa FROM dbo.TARIFA_RUTA"
+            Me._commandCollection(0).CommandText = "SELECT RUT_IdRuta,  TAR_IdTarifa, TR_Monto FROM dbo.TARIFA_RUTA"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT        RUT_IdRuta, TAR_IdTarifa, TR_Monto"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            TARIFA_RUTA"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WH"& _ 
+                "ERE        (RUT_IdRuta = @valor)"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@valor", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "RUT_IdRuta", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -13974,6 +13979,32 @@ Namespace BD_TransporteUrbanoDataSetTableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
         Public Overloads Overridable Function GetData() As BD_TransporteUrbanoDataSet.TARIFA_RUTADataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As BD_TransporteUrbanoDataSet.TARIFA_RUTADataTable = New BD_TransporteUrbanoDataSet.TARIFA_RUTADataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy(ByVal dataTable As BD_TransporteUrbanoDataSet.TARIFA_RUTADataTable, ByVal valor As Integer) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(valor,Integer)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataById_Ruta(ByVal valor As Integer) As BD_TransporteUrbanoDataSet.TARIFA_RUTADataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(valor,Integer)
             Dim dataTable As BD_TransporteUrbanoDataSet.TARIFA_RUTADataTable = New BD_TransporteUrbanoDataSet.TARIFA_RUTADataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -14011,10 +14042,10 @@ Namespace BD_TransporteUrbanoDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_RUT_IdRuta As Integer, ByVal Original_TR_Monto As Decimal, ByVal Original_TAR_IdTarifa As Integer) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_RUT_IdRuta As Integer, ByVal Original_TAR_IdTarifa As Integer, ByVal Original_TR_Monto As Decimal) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_RUT_IdRuta,Integer)
-            Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_TR_Monto,Decimal)
-            Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_TAR_IdTarifa,Integer)
+            Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_TAR_IdTarifa,Integer)
+            Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_TR_Monto,Decimal)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -14034,10 +14065,10 @@ Namespace BD_TransporteUrbanoDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal RUT_IdRuta As Integer, ByVal TR_Monto As Decimal, ByVal TAR_IdTarifa As Integer) As Integer
+        Public Overloads Overridable Function Insert(ByVal RUT_IdRuta As Integer, ByVal TAR_IdTarifa As Integer, ByVal TR_Monto As Decimal) As Integer
             Me.Adapter.InsertCommand.Parameters(0).Value = CType(RUT_IdRuta,Integer)
-            Me.Adapter.InsertCommand.Parameters(1).Value = CType(TR_Monto,Decimal)
-            Me.Adapter.InsertCommand.Parameters(2).Value = CType(TAR_IdTarifa,Integer)
+            Me.Adapter.InsertCommand.Parameters(1).Value = CType(TAR_IdTarifa,Integer)
+            Me.Adapter.InsertCommand.Parameters(2).Value = CType(TR_Monto,Decimal)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -14057,13 +14088,13 @@ Namespace BD_TransporteUrbanoDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal RUT_IdRuta As Integer, ByVal TR_Monto As Decimal, ByVal TAR_IdTarifa As Integer, ByVal Original_RUT_IdRuta As Integer, ByVal Original_TR_Monto As Decimal, ByVal Original_TAR_IdTarifa As Integer) As Integer
+        Public Overloads Overridable Function Update(ByVal RUT_IdRuta As Integer, ByVal TAR_IdTarifa As Integer, ByVal TR_Monto As Decimal, ByVal Original_RUT_IdRuta As Integer, ByVal Original_TAR_IdTarifa As Integer, ByVal Original_TR_Monto As Decimal) As Integer
             Me.Adapter.UpdateCommand.Parameters(0).Value = CType(RUT_IdRuta,Integer)
-            Me.Adapter.UpdateCommand.Parameters(1).Value = CType(TR_Monto,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(TAR_IdTarifa,Integer)
+            Me.Adapter.UpdateCommand.Parameters(1).Value = CType(TAR_IdTarifa,Integer)
+            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(TR_Monto,Decimal)
             Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Original_RUT_IdRuta,Integer)
-            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_TR_Monto,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_TAR_IdTarifa,Integer)
+            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_TAR_IdTarifa,Integer)
+            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_TR_Monto,Decimal)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -14083,8 +14114,8 @@ Namespace BD_TransporteUrbanoDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal TR_Monto As Decimal, ByVal Original_RUT_IdRuta As Integer, ByVal Original_TR_Monto As Decimal, ByVal Original_TAR_IdTarifa As Integer) As Integer
-            Return Me.Update(Original_RUT_IdRuta, TR_Monto, Original_TAR_IdTarifa, Original_RUT_IdRuta, Original_TR_Monto, Original_TAR_IdTarifa)
+        Public Overloads Overridable Function Update(ByVal TR_Monto As Decimal, ByVal Original_RUT_IdRuta As Integer, ByVal Original_TAR_IdTarifa As Integer, ByVal Original_TR_Monto As Decimal) As Integer
+            Return Me.Update(Original_RUT_IdRuta, Original_TAR_IdTarifa, TR_Monto, Original_RUT_IdRuta, Original_TAR_IdTarifa, Original_TR_Monto)
         End Function
     End Class
     
