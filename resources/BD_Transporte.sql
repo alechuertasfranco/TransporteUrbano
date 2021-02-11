@@ -1,7 +1,9 @@
 -- BASE DE DATOS 
 create database BD_TransporteUrbano;
+go
 
 use BD_TransporteUrbano;
+go
 
 --drop database BD_TransporteUrbano;
 

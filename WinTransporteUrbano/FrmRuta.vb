@@ -203,4 +203,8 @@
             MsgBox("No se puede seleccionar 2 veces")
         End Try
     End Sub
+
+    Private Sub TarifaComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TarifaComboBox.SelectedIndexChanged
+
+    End Sub
 End Class

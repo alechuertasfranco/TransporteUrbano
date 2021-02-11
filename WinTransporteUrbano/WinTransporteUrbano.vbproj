@@ -106,6 +106,12 @@
     <Compile Include="FrmControlUbicacion.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmIndexAdmin.Designer.vb">
+      <DependentUpon>FrmIndexAdmin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmIndexAdmin.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmLogin.Designer.vb">
       <DependentUpon>FrmLogin.vb</DependentUpon>
     </Compile>
@@ -165,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmControlUbicacion.resx">
       <DependentUpon>FrmControlUbicacion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmIndexAdmin.resx">
+      <DependentUpon>FrmIndexAdmin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.vb</DependentUpon>
