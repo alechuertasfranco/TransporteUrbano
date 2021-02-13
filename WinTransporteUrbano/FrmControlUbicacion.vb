@@ -1,4 +1,6 @@
-﻿Public Class FrmControlUbicacion
+﻿Imports CapaEntidad
+Imports CapaLogicaNegocio
+Public Class FrmControlUbicacion
 
     'Instanciamos DataTable
     Private dtControl_Ubi As New BD_TransporteUrbanoDataSet.CONTROL_UBICACIONDataTable
@@ -34,14 +36,17 @@
             End Try
             Me.editar = False
         Else
-            'Agregar un registro
-            Me.registro = dtControl_Ubi.NewCONTROL_UBICACIONRow()
-            registro.CONTUB_Control = txt_control.Text
-            registro.CONTUB_Codigo = txt_codigo.Text
-            registro.CONTUB_Dirección = txt_direccion.Text
-
-            'Agregar regitro al DataTable
-            dtControl_Ubi.AddCONTROL_UBICACIONRow(Me.registro)
+            Dim obj As New Control_Ubicacion
+            If txt_control.Text <> "" Or txt_codigo.Text <> "" Or txt_direccion.Text <> "" Then
+                obj.Control = CType(txt_control.Text, String)
+                obj.Codigo = CType(txt_codigo.Text, String)
+                obj.Direccion = CType(txt_direccion.Text, String)
+            Else
+                MsgBox("Llene todos los campos de texto")
+            End If
+            Control_UbicacionLN.agregar_controlUbi(obj)
+            Me.dtControl_Ubi = Me.taControl_Ubi.GetData()
+            dg_control_ubicacion.DataSource = Me.dtControl_Ubi
             'Actualizar la Base
             Try
                 taControl_Ubi.Update(dtControl_Ubi)
