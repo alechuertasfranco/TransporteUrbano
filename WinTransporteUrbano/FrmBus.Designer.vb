@@ -60,7 +60,7 @@ Partial Class FrmBus
         Me.btn_ver_todo.BackColor = System.Drawing.SystemColors.Control
         Me.btn_ver_todo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.btn_ver_todo.Font = New System.Drawing.Font("Arial Rounded MT Bold", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_ver_todo.Location = New System.Drawing.Point(362, 239)
+        Me.btn_ver_todo.Location = New System.Drawing.Point(348, 240)
         Me.btn_ver_todo.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.btn_ver_todo.Name = "btn_ver_todo"
         Me.btn_ver_todo.Size = New System.Drawing.Size(99, 26)
@@ -85,7 +85,7 @@ Partial Class FrmBus
         Me.txt_buscar.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_buscar.Location = New System.Drawing.Point(20, 240)
         Me.txt_buscar.Name = "txt_buscar"
-        Me.txt_buscar.Size = New System.Drawing.Size(335, 26)
+        Me.txt_buscar.Size = New System.Drawing.Size(295, 26)
         Me.txt_buscar.TabIndex = 23
         '
         'btn_borrar
@@ -93,7 +93,7 @@ Partial Class FrmBus
         Me.btn_borrar.BackColor = System.Drawing.Color.White
         Me.btn_borrar.BackgroundImage = CType(resources.GetObject("btn_borrar.BackgroundImage"), System.Drawing.Image)
         Me.btn_borrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btn_borrar.Location = New System.Drawing.Point(406, 145)
+        Me.btn_borrar.Location = New System.Drawing.Point(406, 167)
         Me.btn_borrar.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.btn_borrar.Name = "btn_borrar"
         Me.btn_borrar.Size = New System.Drawing.Size(50, 47)
@@ -105,7 +105,7 @@ Partial Class FrmBus
         Me.btn_editar.BackColor = System.Drawing.Color.White
         Me.btn_editar.BackgroundImage = CType(resources.GetObject("btn_editar.BackgroundImage"), System.Drawing.Image)
         Me.btn_editar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btn_editar.Location = New System.Drawing.Point(348, 145)
+        Me.btn_editar.Location = New System.Drawing.Point(348, 167)
         Me.btn_editar.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.btn_editar.Name = "btn_editar"
         Me.btn_editar.Size = New System.Drawing.Size(50, 47)
@@ -210,7 +210,7 @@ Partial Class FrmBus
         DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight
         Me.dg_buses.RowsDefaultCellStyle = DataGridViewCellStyle5
         Me.dg_buses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dg_buses.Size = New System.Drawing.Size(491, 187)
+        Me.dg_buses.Size = New System.Drawing.Size(449, 187)
         Me.dg_buses.TabIndex = 14
         '
         'btn_guardar
@@ -218,7 +218,7 @@ Partial Class FrmBus
         Me.btn_guardar.BackColor = System.Drawing.SystemColors.Control
         Me.btn_guardar.BackgroundImage = CType(resources.GetObject("btn_guardar.BackgroundImage"), System.Drawing.Image)
         Me.btn_guardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btn_guardar.Location = New System.Drawing.Point(290, 145)
+        Me.btn_guardar.Location = New System.Drawing.Point(290, 167)
         Me.btn_guardar.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.btn_guardar.Name = "btn_guardar"
         Me.btn_guardar.Size = New System.Drawing.Size(50, 47)
@@ -285,7 +285,7 @@ Partial Class FrmBus
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(527, 498)
+        Me.ClientSize = New System.Drawing.Size(485, 498)
         Me.Controls.Add(Me.lbl_conductores)
         Me.Controls.Add(Me.ConductorComboBox)
         Me.Controls.Add(Me.txt_modelo)

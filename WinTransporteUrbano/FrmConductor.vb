@@ -1,4 +1,6 @@
-﻿Public Class FrmConductor
+﻿Imports CapaEntidad
+Imports CapaLogicaNegocio
+Public Class FrmConductor
     'Instanciamos DataTable
     Private dtConductor As New BD_TransporteUrbanoDataSet.CONDUCTORESDataTable
     'Levantamos instancia del TableAdapter
@@ -18,7 +20,7 @@
 
     'Tabla simple
     'Guardar
-    Private Sub btn_guardar_Click(sender As Object, e As EventArgs) Handles btn_guardar.Click, Button1.Click
+    Private Sub btn_guardar_Click(sender As Object, e As EventArgs) Handles btn_guardar.Click
         If (Me.editar) Then
             'Editar un registro
             Me.registro = dtConductor.FindByCOND_IdConductor(Me.campoLlave)
@@ -38,30 +40,34 @@
             End Try
             Me.editar = False
         Else
-            'Agregar un registro
-            Me.registro = dtConductor.NewCONDUCTORESRow()
-            registro.COND_DNI = txt_DNI.Text
-            registro.COND_Nombres = txt_nombres.Text
-            registro.COND_ApellidoMaterno = txt_materno.Text
-            registro.COND_ApellidoPaterno = txt_paterno.Text
-            registro.COND_Telefono = txt_telefono.Text
-            registro.COND_FechaNacConductor = dtp_nacimiento.Text
-            registro.COND_NumeroLicencia = txt_nroLicencia.Text
+            Dim obj As New Conductor
+            If txt_DNI.Text <> "" Or txt_nombres.Text <> "" Or txt_paterno.Text <> "" Or txt_materno.Text <> "" Or txt_telefono.Text <> "" Or txt_nroLicencia.Text <> "" Or dtp_nacimiento.Text <> Now.Date Then
 
-            'Agregar regitro al DataTable
-            dtConductor.AddCONDUCTORESRow(Me.registro)
+                obj.DNI = CType(txt_DNI.Text, String)
+                obj.Nombres = CType(txt_nombres.Text, String)
+                obj.ApellidoPaterno = CType(txt_paterno.Text, String)
+                obj.ApellidoMaterno = CType(txt_materno.Text, String)
+                obj.Telefono = CType(txt_telefono.Text, String)
+                obj.FechaNacimiento = CType(dtp_nacimiento.Text, Date)
+                obj.NumeroLicencia = CType(txt_nroLicencia.Text, String)
+            Else
+                MsgBox("Llene todos los campos de texto")
+            End If
+            ConductorLN.agregar_conductor(obj)
+            Me.dtConductor = Me.taConductor.GetData()
+            dg_conductores.DataSource = Me.dtConductor
             'Actualizar la Base
             Try
-                taConductor.Update(dtConductor)
-                MsgBox("Registro insertado exitosamente")
-            Catch ex As Exception
-                MsgBox(ex, , "Error al insertar")
-            End Try
+                    taConductor.Update(dtConductor)
+                    MsgBox("Registro insertado exitosamente")
+                Catch ex As Exception
+                    MsgBox(ex, , "Error al insertar")
+                End Try
+            Me.limpiar_txt()
         End If
-        Me.limpiar_txt()
     End Sub
     'Editar
-    Private Sub btn_editar_Click(sender As Object, e As EventArgs) Handles btn_editar.Click, Button2.Click
+    Private Sub btn_editar_Click(sender As Object, e As EventArgs) Handles btn_editar.Click
         Me.editar = True
         cargar_datos()
     End Sub
@@ -87,7 +93,7 @@
         txt_nroLicencia.Text = ""
     End Sub
     'Borrar registro
-    Private Sub btn_borrar_Click(sender As Object, e As EventArgs) Handles btn_borrar.Click, Button3.Click
+    Private Sub btn_borrar_Click(sender As Object, e As EventArgs) Handles btn_borrar.Click
         Me.registro = dtConductor.Rows(Me.nro_datagrid)
         Me.registro.Delete()
         Try

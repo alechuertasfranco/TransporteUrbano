@@ -1,4 +1,6 @@
-﻿Public Class FrmBus
+﻿Imports CapaEntidad
+Imports CapaLogicaNegocio
+Public Class FrmBus
     'Instanciamos DataTable
     Private dtBus As New BD_TransporteUrbanoDataSet.BUSESDataTable
     'Levantamos instancia del TableAdapter
@@ -37,17 +39,19 @@
             End Try
             Me.editar = False
         Else
-            'Agregar un registro
-            Me.registro = dtBus.NewBUSESRow()
-            registro.BUS_Placa = txt_placa.Text
-            registro.BUS_Capacidad = txt_capacidad.Text
-            registro.BUS_Marca = txt_marca.Text
-            registro.BUS_Modelo = txt_modelo.Text
-            registro.COND_IdConductor = ConductorComboBox.SelectedValue
-
-            'Agregar regitro al DataTable
-            dtBus.AddBUSESRow(Me.registro)
-            'Actualizar la Base
+            Dim obj As New Bus
+            If txt_placa.Text <> "" Or txt_marca.Text <> "" Or txt_modelo.Text <> "" Or txt_capacidad.Text <> "" Then
+                obj.Placa = CType(txt_placa.Text, String)
+                obj.Marca = CType(txt_marca.Text, String)
+                obj.Modelo = CType(txt_modelo.Text, String)
+                obj.Capacidad = CType(txt_capacidad.Text, Integer)
+                obj.IdConductor = CType(ConductorComboBox.SelectedValue, Integer)
+            Else
+                MsgBox("Llene todos los campos de texto")
+            End If
+            BusLN.agregar_bus(obj)
+            Me.dtBus = Me.taBus.GetData()
+            dg_buses.DataSource = Me.dtBus
             Try
                 taBus.Update(dtBus)
                 MsgBox("Registro insertado exitosamente")
