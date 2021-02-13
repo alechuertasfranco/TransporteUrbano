@@ -1,4 +1,6 @@
-﻿Public Class FrmRuta
+﻿Imports CapaEntidad
+Imports CapaLogicaNegocio
+Public Class FrmRuta
     'RUTAS
     'Instanciamos DataTable
     Private dtRuta As New BD_TransporteUrbanoDataSet.RUTADataTable
@@ -51,12 +53,16 @@
             Me.editar = False
         Else
             'Agregar un registro
-            Me.registro = dtRuta.NewRUTARow()
-            registro.RUT_Ruta = txt_letra.Text
-            registro.RUT_CantidadControles = txt_nroControles.Text
-
-            'Agregar regitro al DataTable
-            dtRuta.AddRUTARow(Me.registro)
+            Dim obj As New Ruta
+            If txt_letra.Text <> "" Or txt_nroControles.Text <> "" Then
+                obj.CantidadControles = CType(txt_nroControles.Text, Integer)
+                obj.Ruta = CType(txt_letra.Text, String)
+            Else
+                MsgBox("Llene todos los campos de texto")
+            End If
+            RutaLN.agregar_ruta(obj)
+            Me.dtRuta = Me.taRuta.GetData()
+            dg_rutas.DataSource = Me.dtRuta
             'Actualizar la Base
             Try
                 taRuta.Update(dtRuta)
@@ -137,25 +143,28 @@
                 Me.editarP = False
                 'DestinoComboBox.Enabled = True
             Else
-                Me.registroPasaje = dtPasaje.NewTARIFA_RUTARow()
-                Me.registroPasaje.TR_Monto = txt_monto.Text
-                Me.registroPasaje.RUT_IdRuta = Me.Ruta_ID
-                Me.registroPasaje.TAR_IdTarifa = TarifaComboBox.SelectedValue
+                Dim obj As New Tarifa_Ruta
+                If txt_monto.Text <> "" Then
+                    obj.Monto = CType(txt_monto.Text, Decimal)
+                    obj.IdRuta = CType(Me.Ruta_ID, Integer)
+                    obj.IdTarifa = CType(TarifaComboBox.SelectedValue, Integer)
+                Else
+                    MsgBox("Llene todos los campos de texto")
+                End If
+                Tarifa_RutaLN.agregar_tarifa_ruta(obj)
 
-                'Agregar registro al dataTable
+                'Actualizar tabla
+                Me.nro_datagrid = dg_rutas.CurrentRow.Index.ToString()
+                Me.Ruta_ID = dg_rutas.CurrentRow.Cells.Item(0).Value.ToString()
+                Me.dtPasaje = Me.taPasaje.GetDataById_Ruta(Me.Ruta_ID)
+                dg_pasajes.DataSource = Me.dtPasaje
+
                 Try
-                    dtPasaje.AddTARIFA_RUTARow(Me.registroPasaje)
-                    'Actulizamos la base de datos
-                    Try
                         taPasaje.Update(dtPasaje)
                         MsgBox("Pasaje registrado con éxito")
                     Catch ex As Exception
                         MsgBox("Error al insertar el pasaje")
                     End Try
-
-                Catch ex As Exception
-                    MsgBox("Ese Pasaje ya esta registrado en esta ruta")
-                End Try
             End If
             txt_monto.Text = ""
 

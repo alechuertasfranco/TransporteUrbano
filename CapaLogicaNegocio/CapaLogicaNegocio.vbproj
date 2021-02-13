@@ -82,6 +82,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="RutaLN.vb" />
+    <Compile Include="TarifaLN.vb" />
+    <Compile Include="Tarifa_RutaLN.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

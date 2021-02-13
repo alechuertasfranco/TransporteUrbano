@@ -1,4 +1,6 @@
-﻿Public Class FrmTarifa
+﻿Imports CapaEntidad
+Imports CapaLogicaNegocio
+Public Class FrmTarifa
     'Instanciamos DataTable
     Private dtTarifa As New BD_TransporteUrbanoDataSet.TARIFADataTable
     'Levantamos instancia del TableAdapter
@@ -32,11 +34,15 @@
             Me.editar = False
         Else
             'Agregar un registro
-            Me.registro = dtTarifa.NewTARIFARow()
-            registro.TAR_Descripcion = txt_descripcion.Text
-
-            'Agregar regitro al DataTable
-            dtTarifa.AddTARIFARow(Me.registro)
+            Dim obj As New Tarifa
+            If txt_descripcion.Text <> "" Then
+                obj.Descripcion = CType(txt_descripcion.Text, String)
+            Else
+                MsgBox("Llene todos los campos de texto")
+            End If
+            TarifaLN.agregar_tarifa(obj)
+            Me.dtTarifa = Me.taTarifa.GetData()
+            dg_tarifas.DataSource = Me.dtTarifa
             'Actualizar la Base
             Try
                 taTarifa.Update(dtTarifa)
