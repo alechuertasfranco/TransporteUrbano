@@ -26,7 +26,7 @@ Partial Class FrmIndexAdmin
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.MantenedoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UsuarioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BusesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConductorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ControladorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator()
         Me.BusToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -53,7 +53,7 @@ Partial Class FrmIndexAdmin
         '
         'MantenedoresToolStripMenuItem
         '
-        Me.MantenedoresToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UsuarioToolStripMenuItem, Me.BusesToolStripMenuItem, Me.ControladorToolStripMenuItem, Me.ToolStripMenuItem1, Me.BusToolStripMenuItem, Me.RutaToolStripMenuItem, Me.ControlToolStripMenuItem, Me.ToolStripMenuItem2, Me.TafiraToolStripMenuItem})
+        Me.MantenedoresToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UsuarioToolStripMenuItem, Me.ConductorToolStripMenuItem, Me.ControladorToolStripMenuItem, Me.ToolStripMenuItem1, Me.BusToolStripMenuItem, Me.RutaToolStripMenuItem, Me.ControlToolStripMenuItem, Me.ToolStripMenuItem2, Me.TafiraToolStripMenuItem})
         Me.MantenedoresToolStripMenuItem.Name = "MantenedoresToolStripMenuItem"
         Me.MantenedoresToolStripMenuItem.Size = New System.Drawing.Size(95, 20)
         Me.MantenedoresToolStripMenuItem.Text = "Mantenedores"
@@ -61,54 +61,54 @@ Partial Class FrmIndexAdmin
         'UsuarioToolStripMenuItem
         '
         Me.UsuarioToolStripMenuItem.Name = "UsuarioToolStripMenuItem"
-        Me.UsuarioToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
+        Me.UsuarioToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.UsuarioToolStripMenuItem.Text = "Usuario"
         '
-        'BusesToolStripMenuItem
+        'ConductorToolStripMenuItem
         '
-        Me.BusesToolStripMenuItem.Name = "BusesToolStripMenuItem"
-        Me.BusesToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
-        Me.BusesToolStripMenuItem.Text = "Conductor"
+        Me.ConductorToolStripMenuItem.Name = "ConductorToolStripMenuItem"
+        Me.ConductorToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ConductorToolStripMenuItem.Text = "Conductor"
         '
         'ControladorToolStripMenuItem
         '
         Me.ControladorToolStripMenuItem.Name = "ControladorToolStripMenuItem"
-        Me.ControladorToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
+        Me.ControladorToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ControladorToolStripMenuItem.Text = "Controlador"
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(135, 6)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(177, 6)
         '
         'BusToolStripMenuItem
         '
         Me.BusToolStripMenuItem.Name = "BusToolStripMenuItem"
-        Me.BusToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
+        Me.BusToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.BusToolStripMenuItem.Text = "Bus"
         '
         'RutaToolStripMenuItem
         '
         Me.RutaToolStripMenuItem.Name = "RutaToolStripMenuItem"
-        Me.RutaToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
+        Me.RutaToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.RutaToolStripMenuItem.Text = "Ruta"
         '
         'ControlToolStripMenuItem
         '
         Me.ControlToolStripMenuItem.Name = "ControlToolStripMenuItem"
-        Me.ControlToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
+        Me.ControlToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ControlToolStripMenuItem.Text = "Control"
         '
         'ToolStripMenuItem2
         '
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(135, 6)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(177, 6)
         '
         'TafiraToolStripMenuItem
         '
         Me.TafiraToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PasajeToolStripMenuItem, Me.PenalizaciónToolStripMenuItem})
         Me.TafiraToolStripMenuItem.Name = "TafiraToolStripMenuItem"
-        Me.TafiraToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
+        Me.TafiraToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.TafiraToolStripMenuItem.Text = "Tarifa"
         '
         'PasajeToolStripMenuItem
@@ -147,7 +147,7 @@ Partial Class FrmIndexAdmin
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
-        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(700, 450)
         Me.Controls.Add(Me.MenuStrip1)
         Me.IsMdiContainer = True
@@ -165,7 +165,7 @@ Partial Class FrmIndexAdmin
 
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents MantenedoresToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents BusesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ConductorToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReportesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents VentanaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SalirToolStripMenuItem As ToolStripMenuItem
