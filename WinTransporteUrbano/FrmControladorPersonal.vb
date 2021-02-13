@@ -1,4 +1,6 @@
-﻿Public Class FrmControladorPersonal
+﻿Imports CapaEntidad
+Imports CapaLogicaNegocio
+Public Class FrmControladorPersonal
     'Instanciamos DataTable
     Private dtControlador_Personal As New BD_TransporteUrbanoDataSet.CONTROLADOR_PERSONALDataTable
     'Levantamos instancia del TableAdapter
@@ -33,15 +35,18 @@
             End Try
             Me.editar = False
         Else
-            'Agregar un registro
-            Me.registro = dtControlador_Personal.NewCONTROLADOR_PERSONALRow()
-            registro.CONTP_DNI = txt_DNI.Text
-            registro.CONTP_Nombre = txt_nombres.Text
-            registro.CONTP_ApellidoPaterno = txt_paterno.Text
-            registro.CONTP_ApellidoMaterno = txt_materno.Text
-
-            'Agregar regitro al DataTable
-            dtControlador_Personal.AddCONTROLADOR_PERSONALRow(Me.registro)
+            Dim obj As New Controlador_Personal
+            If txt_DNI.Text <> "" Or txt_nombres.Text <> "" Or txt_paterno.Text <> "" Or txt_materno.Text <> "" Then
+                obj.DNI = CType(txt_DNI.Text, String)
+                obj.Nombres = CType(txt_nombres.Text, String)
+                obj.ApellidoPaterno = CType(txt_paterno.Text, String)
+                obj.ApellidoMaterno = CType(txt_materno.Text, String)
+            Else
+                MsgBox("Llene todos los campos de texto")
+            End If
+            Controlador_PersonalLN.agregar_controlador(obj)
+            Me.dtControlador_Personal = Me.taControlador_Personal.GetData()
+            dg_controladores.DataSource = Me.dtControlador_Personal
             'Actualizar la Base
             Try
                 taControlador_Personal.Update(dtControlador_Personal)

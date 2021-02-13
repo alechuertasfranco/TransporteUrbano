@@ -65,6 +65,8 @@
   <ItemGroup>
     <Compile Include="BusAD.vb" />
     <Compile Include="ConductorAD.vb" />
+    <Compile Include="Controlador_PersonalAD.vb" />
+    <Compile Include="Control_UbicacionAD.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -90,6 +92,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

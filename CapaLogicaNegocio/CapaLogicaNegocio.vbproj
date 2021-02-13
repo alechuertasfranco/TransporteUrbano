@@ -65,6 +65,8 @@
   <ItemGroup>
     <Compile Include="BusLN.vb" />
     <Compile Include="ConductorLN.vb" />
+    <Compile Include="Controlador_PersonalLN.vb" />
+    <Compile Include="Control_UbicacionLN.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
