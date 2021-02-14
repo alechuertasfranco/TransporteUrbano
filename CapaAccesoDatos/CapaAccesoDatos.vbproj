@@ -85,6 +85,7 @@
     <Compile Include="RutaAD.vb" />
     <Compile Include="TarifaAD.vb" />
     <Compile Include="Tarifa_RutaAD.vb" />
+    <Compile Include="UsuarioAD.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

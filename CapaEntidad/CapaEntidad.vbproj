@@ -83,9 +83,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Penalizacion.vb" />
+    <Compile Include="Rol.vb" />
     <Compile Include="Ruta.vb" />
     <Compile Include="Tarifa.vb" />
     <Compile Include="Tarifa_Ruta.vb" />
+    <Compile Include="Usuario.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
