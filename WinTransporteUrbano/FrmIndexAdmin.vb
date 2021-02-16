@@ -46,7 +46,6 @@ Public Class FrmIndexAdmin
         ObjUsuario.Show()
     End Sub
 
-<<<<<<< Updated upstream
     Private Sub ControlUbicaciónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ControlUbicaciónToolStripMenuItem.Click
         Dim ObjControl As New FrmControlUbicacion
         ObjControl.MdiParent = Me
@@ -57,9 +56,8 @@ Public Class FrmIndexAdmin
         Dim ObjControl As New FrmControl
         ObjControl.MdiParent = Me
         ObjControl.Show()
-=======
+    End Sub
     Private Sub FrmIndexAdmin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
->>>>>>> Stashed changes
     End Sub
 End Class

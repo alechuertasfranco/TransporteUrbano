@@ -65,91 +65,64 @@ Partial Class FrmIndexAdmin
         'UsuarioToolStripMenuItem
         '
         Me.UsuarioToolStripMenuItem.Name = "UsuarioToolStripMenuItem"
-<<<<<<< Updated upstream
         Me.UsuarioToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-=======
         Me.UsuarioToolStripMenuItem.Size = New System.Drawing.Size(164, 26)
->>>>>>> Stashed changes
         Me.UsuarioToolStripMenuItem.Text = "Usuario"
         '
         'ConductorToolStripMenuItem
         '
         Me.ConductorToolStripMenuItem.Name = "ConductorToolStripMenuItem"
-<<<<<<< Updated upstream
         Me.ConductorToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-=======
         Me.ConductorToolStripMenuItem.Size = New System.Drawing.Size(164, 26)
->>>>>>> Stashed changes
         Me.ConductorToolStripMenuItem.Text = "Conductor"
         '
         'ControladorToolStripMenuItem
         '
         Me.ControladorToolStripMenuItem.Name = "ControladorToolStripMenuItem"
-<<<<<<< Updated upstream
         Me.ControladorToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-=======
         Me.ControladorToolStripMenuItem.Size = New System.Drawing.Size(164, 26)
->>>>>>> Stashed changes
         Me.ControladorToolStripMenuItem.Text = "Controlador"
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-<<<<<<< Updated upstream
         Me.ToolStripMenuItem1.Size = New System.Drawing.Size(149, 6)
-=======
         Me.ToolStripMenuItem1.Size = New System.Drawing.Size(161, 6)
->>>>>>> Stashed changes
         '
         'BusToolStripMenuItem
         '
         Me.BusToolStripMenuItem.Name = "BusToolStripMenuItem"
-<<<<<<< Updated upstream
         Me.BusToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-=======
         Me.BusToolStripMenuItem.Size = New System.Drawing.Size(164, 26)
->>>>>>> Stashed changes
         Me.BusToolStripMenuItem.Text = "Bus"
         '
         'RutaToolStripMenuItem
         '
         Me.RutaToolStripMenuItem.Name = "RutaToolStripMenuItem"
-<<<<<<< Updated upstream
         Me.RutaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-=======
         Me.RutaToolStripMenuItem.Size = New System.Drawing.Size(164, 26)
->>>>>>> Stashed changes
         Me.RutaToolStripMenuItem.Text = "Ruta"
         '
         'ControlToolStripMenuItem
         '
         Me.ControlToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ControlUbicaciónToolStripMenuItem, Me.ControlTiempoToolStripMenuItem})
         Me.ControlToolStripMenuItem.Name = "ControlToolStripMenuItem"
-<<<<<<< Updated upstream
         Me.ControlToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-=======
         Me.ControlToolStripMenuItem.Size = New System.Drawing.Size(164, 26)
->>>>>>> Stashed changes
         Me.ControlToolStripMenuItem.Text = "Control"
         '
         'ToolStripMenuItem2
         '
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-<<<<<<< Updated upstream
         Me.ToolStripMenuItem2.Size = New System.Drawing.Size(149, 6)
-=======
         Me.ToolStripMenuItem2.Size = New System.Drawing.Size(161, 6)
->>>>>>> Stashed changes
         '
         'TafiraToolStripMenuItem
         '
         Me.TafiraToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PasajeToolStripMenuItem, Me.PenalizaciónToolStripMenuItem})
         Me.TafiraToolStripMenuItem.Name = "TafiraToolStripMenuItem"
-<<<<<<< Updated upstream
         Me.TafiraToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-=======
         Me.TafiraToolStripMenuItem.Size = New System.Drawing.Size(164, 26)
->>>>>>> Stashed changes
         Me.TafiraToolStripMenuItem.Text = "Tarifa"
         '
         'PasajeToolStripMenuItem
