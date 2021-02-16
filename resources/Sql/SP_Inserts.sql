@@ -10,7 +10,11 @@ GO
 SELECT * FROM USUARIO_ROL;
 GO
 
+<<<<<<< Updated upstream
 CREATE PROCEDURE sp_insertaUsuario
+=======
+create PROCEDURE sp_insertaUsuario
+>>>>>>> Stashed changes
     @Usuario                as VARCHAR(30),
     @Contrasena             as VARCHAR(30),
     @Correo                 as VARCHAR(60),
@@ -21,7 +25,7 @@ CREATE PROCEDURE sp_insertaUsuario
     @IdUsuarioRol           as INTEGER
 AS
     BEGIN
-        INSERT INTO USUARIO(
+        INSERT INTO USUARIO (
                         USU_Usuario,
                         USU_Contraseña,
                         USU_Correo,
@@ -44,8 +48,18 @@ AS
     END
 GO
 
+exec sp_insertaUsuario 'Jhanpoul23','password','jzt@gmail.com','Jhanpoul','Zavaleta','Taucett','23/02/2000',1
+exec sp_insertaUsuario 'Drako2711','password','apv@gmail.com','Arturo','Paulino','Vigo','11/07/2000',2
+select * from USUARIO_ROL
+insert USUARIO_ROL values('Controlador')
+insert USUARIO_ROL values('Admin')
+
+
+
+
 SELECT * FROM USUARIO
 GO
+
 
 
 --Inserción en tabla Conductor

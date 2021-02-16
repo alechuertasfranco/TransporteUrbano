@@ -115,6 +115,12 @@
     <Compile Include="FrmIndexAdmin.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmIndexControlador.Designer.vb">
+      <DependentUpon>FrmIndexControlador.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmIndexControlador.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmLogin.Designer.vb">
       <DependentUpon>FrmLogin.vb</DependentUpon>
     </Compile>
