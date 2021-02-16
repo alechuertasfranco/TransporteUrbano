@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="BusAD.vb" />
     <Compile Include="ConductorAD.vb" />
+    <Compile Include="ControlAD.vb" />
     <Compile Include="Controlador_PersonalAD.vb" />
     <Compile Include="Control_UbicacionAD.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />

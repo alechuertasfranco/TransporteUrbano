@@ -10,7 +10,7 @@ GO
 SELECT * FROM USUARIO_ROL;
 GO
 
-ALTER PROCEDURE sp_insertaUsuario
+CREATE PROCEDURE sp_insertaUsuario
     @Usuario                as VARCHAR(30),
     @Contrasena             as VARCHAR(30),
     @Correo                 as VARCHAR(60),
@@ -81,7 +81,7 @@ GO
 		end
 	go
 
-	execute sp_insertaBus 'GAAAA',1,'Marca','Model2','1'
+	--execute sp_insertaBus 'GAAAA',1,'Marca','Model2','1'
 
 	--Inserción en tabla Control_Ubicacion
 	create procedure sp_insertaControl_Ubicacion
@@ -118,6 +118,19 @@ GO
 	values (@Monto, @FechaRegistro)
 	end
 	go
+	use BD_TransporteUrbano
+		
+	--Inserción en tabla Control
+	create procedure sp_insertaControl_T
+		@TiempoAprox float,
+		@IdControlUbicacion int,
+		@IdRuta				int
+		AS
+		begin
+		insert into CONTROL_T(CONT_TiempoAprox,CONTUB_IdControlUbicacion,RUT_IdRuta)
+		values (@TiempoAprox, @IdControlUbicacion, @IdRuta)
+		end
+	go
 
 	--Inserción en tabla Ruta
 	create procedure sp_insertaRuta
@@ -131,7 +144,7 @@ GO
 	go
 	--Inserción en tabla Tarifa
 	create procedure sp_insertaTarifa
-		@Descripcion money
+		@Descripcion char(30)
 		AS
 		begin
 		insert into TARIFA(TAR_Descripcion)

@@ -24,9 +24,7 @@
     End Sub
 
     Private Sub ControlToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ControlToolStripMenuItem.Click
-        Dim ObjControl As New FrmControlUbicacion
-        ObjControl.MdiParent = Me
-        ObjControl.Show()
+
     End Sub
 
     Private Sub PasajeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PasajeToolStripMenuItem.Click
@@ -45,5 +43,17 @@
         Dim ObjUsuario As New FrmRegistroU
         ObjUsuario.MdiParent = Me
         ObjUsuario.Show()
+    End Sub
+
+    Private Sub ControlUbicaciónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ControlUbicaciónToolStripMenuItem.Click
+        Dim ObjControl As New FrmControlUbicacion
+        ObjControl.MdiParent = Me
+        ObjControl.Show()
+    End Sub
+
+    Private Sub ControlTiempoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ControlTiempoToolStripMenuItem.Click
+        Dim ObjControl As New FrmControl
+        ObjControl.MdiParent = Me
+        ObjControl.Show()
     End Sub
 End Class

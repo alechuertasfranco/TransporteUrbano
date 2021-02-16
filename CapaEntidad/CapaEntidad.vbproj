@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="Bus.vb" />
     <Compile Include="Conductor.vb" />
+    <Compile Include="Control.vb" />
     <Compile Include="Controlador_Personal.vb" />
     <Compile Include="Control_Ubicacion.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />

@@ -39,6 +39,8 @@ Partial Class FrmIndexAdmin
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VentanaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ControlUbicaciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ControlTiempoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -61,54 +63,55 @@ Partial Class FrmIndexAdmin
         'UsuarioToolStripMenuItem
         '
         Me.UsuarioToolStripMenuItem.Name = "UsuarioToolStripMenuItem"
-        Me.UsuarioToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.UsuarioToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.UsuarioToolStripMenuItem.Text = "Usuario"
         '
         'ConductorToolStripMenuItem
         '
         Me.ConductorToolStripMenuItem.Name = "ConductorToolStripMenuItem"
-        Me.ConductorToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ConductorToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ConductorToolStripMenuItem.Text = "Conductor"
         '
         'ControladorToolStripMenuItem
         '
         Me.ControladorToolStripMenuItem.Name = "ControladorToolStripMenuItem"
-        Me.ControladorToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ControladorToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ControladorToolStripMenuItem.Text = "Controlador"
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(149, 6)
         '
         'BusToolStripMenuItem
         '
         Me.BusToolStripMenuItem.Name = "BusToolStripMenuItem"
-        Me.BusToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.BusToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.BusToolStripMenuItem.Text = "Bus"
         '
         'RutaToolStripMenuItem
         '
         Me.RutaToolStripMenuItem.Name = "RutaToolStripMenuItem"
-        Me.RutaToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.RutaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.RutaToolStripMenuItem.Text = "Ruta"
         '
         'ControlToolStripMenuItem
         '
+        Me.ControlToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ControlUbicaciónToolStripMenuItem, Me.ControlTiempoToolStripMenuItem})
         Me.ControlToolStripMenuItem.Name = "ControlToolStripMenuItem"
-        Me.ControlToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ControlToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ControlToolStripMenuItem.Text = "Control"
         '
         'ToolStripMenuItem2
         '
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(149, 6)
         '
         'TafiraToolStripMenuItem
         '
         Me.TafiraToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PasajeToolStripMenuItem, Me.PenalizaciónToolStripMenuItem})
         Me.TafiraToolStripMenuItem.Name = "TafiraToolStripMenuItem"
-        Me.TafiraToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.TafiraToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.TafiraToolStripMenuItem.Text = "Tarifa"
         '
         'PasajeToolStripMenuItem
@@ -140,6 +143,18 @@ Partial Class FrmIndexAdmin
         Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
         Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
         Me.SalirToolStripMenuItem.Text = "Salir"
+        '
+        'ControlUbicaciónToolStripMenuItem
+        '
+        Me.ControlUbicaciónToolStripMenuItem.Name = "ControlUbicaciónToolStripMenuItem"
+        Me.ControlUbicaciónToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
+        Me.ControlUbicaciónToolStripMenuItem.Text = "Control Ubicación"
+        '
+        'ControlTiempoToolStripMenuItem
+        '
+        Me.ControlTiempoToolStripMenuItem.Name = "ControlTiempoToolStripMenuItem"
+        Me.ControlTiempoToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
+        Me.ControlTiempoToolStripMenuItem.Text = "Control Tiempo"
         '
         'FrmIndexAdmin
         '
@@ -179,4 +194,6 @@ Partial Class FrmIndexAdmin
     Friend WithEvents PasajeToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PenalizaciónToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents UsuarioToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ControlUbicaciónToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ControlTiempoToolStripMenuItem As ToolStripMenuItem
 End Class
