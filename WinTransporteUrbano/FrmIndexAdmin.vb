@@ -1,4 +1,5 @@
-﻿Public Class FrmIndexAdmin
+﻿
+Public Class FrmIndexAdmin
     Private Sub BusesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConductorToolStripMenuItem.Click
         Dim ObjBus As New FrmBus
         ObjBus.MdiParent = Me
@@ -45,6 +46,7 @@
         ObjUsuario.Show()
     End Sub
 
+<<<<<<< Updated upstream
     Private Sub ControlUbicaciónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ControlUbicaciónToolStripMenuItem.Click
         Dim ObjControl As New FrmControlUbicacion
         ObjControl.MdiParent = Me
@@ -55,5 +57,9 @@
         Dim ObjControl As New FrmControl
         ObjControl.MdiParent = Me
         ObjControl.Show()
+=======
+    Private Sub FrmIndexAdmin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+>>>>>>> Stashed changes
     End Sub
 End Class

@@ -1,5 +1,6 @@
-﻿Imports CapaEntidad
-Imports CapaLogicaNegocio
+﻿Imports CapaLogicaNegocio
+Imports CapaEntidad
+
 Public Class FrmBus
     'Instanciamos DataTable
     Private dtBus As New BD_TransporteUrbanoDataSet.BUSESDataTable
