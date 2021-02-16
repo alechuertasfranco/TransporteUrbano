@@ -79,6 +79,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BD_TransporteUrbanoDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BD_TransporteUrbanoDataSet.vb">
+      <DependentUpon>BD_TransporteUrbanoDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FrmBus.Designer.vb">
       <DependentUpon>FrmBus.vb</DependentUpon>
     </Compile>
@@ -119,6 +122,12 @@
       <DependentUpon>FrmLogin.vb</DependentUpon>
     </Compile>
     <Compile Include="FrmLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPagoControl.Designer.vb">
+      <DependentUpon>FrmPagoControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPagoControl.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmPenalizacion.Designer.vb">
@@ -183,6 +192,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPagoControl.resx">
+      <DependentUpon>FrmPagoControl.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPenalizacion.resx">
       <DependentUpon>FrmPenalizacion.vb</DependentUpon>

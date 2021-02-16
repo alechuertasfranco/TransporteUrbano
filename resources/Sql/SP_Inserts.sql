@@ -131,6 +131,24 @@ GO
 		values (@TiempoAprox, @IdControlUbicacion, @IdRuta)
 		end
 	go
+	--Inserción en tabla Pago_Control
+	create procedure sp_insertaPago_Control
+		@HCont_Codigo	char(08),
+		@IdBus			int,
+		@IdConductor    int,
+		@IdControl	    int,
+		@Fecha		    datetime,
+		@Monto		    money
+		AS
+		begin
+		insert into BUSES_CONTROL(BUS_IdBus,HCONT_Codigo, CONT_IdControl)
+		values (@IdBus, @HCont_Codigo, @IdControl)
+
+		insert into PAGO_CONTROL(BUS_IdBus,COND_IdConductor,HCONT_Codigo,PC_Fecha,PC_Monto)
+		values (@IdBus,@IdConductor, @HCont_Codigo,@Fecha,@Monto)
+		end
+
+	go
 
 	--Inserción en tabla Ruta
 	create procedure sp_insertaRuta

@@ -83,6 +83,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Pago_ControlAD.vb" />
     <Compile Include="RutaAD.vb" />
     <Compile Include="TarifaAD.vb" />
     <Compile Include="Tarifa_RutaAD.vb" />

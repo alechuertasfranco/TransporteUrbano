@@ -104,7 +104,7 @@ Public Class FrmConductor
         End Try
     End Sub
     'Seleccionar registro
-    Private Sub dg_conductores_SelectionChanged(sender As Object, e As EventArgs) Handles dg_conductores.SelectionChanged, DataGridView1.SelectionChanged
+    Private Sub dg_conductores_SelectionChanged(sender As Object, e As EventArgs) Handles dg_conductores.SelectionChanged
         Try
             Me.nro_datagrid = dg_conductores.CurrentRow.Index
         Catch ex As Exception
