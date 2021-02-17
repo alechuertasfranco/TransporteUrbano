@@ -100,6 +100,12 @@
     <Compile Include="FrmControl.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmControladorDatos.Designer.vb">
+      <DependentUpon>FrmControladorDatos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmControladorDatos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmControladorPersonal.Designer.vb">
       <DependentUpon>FrmControladorPersonal.vb</DependentUpon>
     </Compile>
@@ -187,6 +193,9 @@
     <EmbeddedResource Include="FrmControl.resx">
       <DependentUpon>FrmControl.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmControladorDatos.resx">
+      <DependentUpon>FrmControladorDatos.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmControladorPersonal.resx">
       <DependentUpon>FrmControladorPersonal.vb</DependentUpon>
     </EmbeddedResource>
@@ -195,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmIndexAdmin.resx">
       <DependentUpon>FrmIndexAdmin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmIndexControlador.resx">
+      <DependentUpon>FrmIndexControlador.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.vb</DependentUpon>

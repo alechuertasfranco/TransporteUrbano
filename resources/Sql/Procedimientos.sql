@@ -1,15 +1,27 @@
-use BD_TransporteUrbano;
-go
+USE BD_TransporteUrbano;
+GO
 
-create procedure sp_BuscarUsuario
- @usuario varchar(60),
- @contraseña varchar(30)
+CREATE PROCEDURE sp_BuscarUsuario
+	@usuario 			VARCHAR(60),
+	@contraseña 		VARCHAR(30)
 AS
-begin
- select USU_Usuario,USUR_Rol,USU_NombresUsuario,USU_ApellidoPaternoUsuario,USU_ApellidoMaternoUsuario
-from USUARIO
-inner join USUARIO_ROL on USUARIO_ROL.USUR_IdUsuarioRol=USUARIO.USUR_IdUsuarioRol
- where USUARIO.USU_Correo = @usuario
- and USUARIO.USU_Contraseña = @contraseña
-end
-go
+	BEGIN
+		SELECT USU_Usuario,USUR_Rol,USU_NombresUsuario,USU_ApellidoPaternoUsuario,USU_ApellidoMaternoUsuario
+		FROM USUARIO
+			INNER JOIN USUARIO_ROL on USUARIO_ROL.USUR_IdUsuarioRol=USUARIO.USUR_IdUsuarioRol
+		WHERE USUARIO.USU_Correo = @usuario
+		AND USUARIO.USU_Contraseña = @contraseña
+	END
+GO
+
+CREATE PROCEDURE SP_BuscarControlador
+	@idControlador		INT
+AS
+	BEGIN
+		SELECT *
+		FROM CONTROLADOR_PERSONAL
+		WHERE CONTP_IdControlador = @idControlador
+	END
+GO
+
+EXECUTE SP_BuscarControlador 1

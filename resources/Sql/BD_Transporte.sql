@@ -4,8 +4,6 @@ go
 
 use BD_TransporteUrbano;
 go
-use master
---drop database BD_TransporteUrbano;
 
 CREATE TABLE BUSES
 ( 
@@ -67,8 +65,8 @@ CREATE TABLE CONTROL_T
 ( 
 	CONT_IdControl       int IDENTITY ( 1,1 ) ,
 	CONTUB_IdControlUbicacion int  NOT NULL ,
-	RUT_IdRuta           int  NOT NULL ,
-	CONT_TiempoAprox     float  NOT NULL 
+	CONT_TiempoAprox     float  NOT NULL ,
+	RUT_IdRuta           int  NOT NULL
 )
 go
 
@@ -99,14 +97,16 @@ go
 
 CREATE TABLE CONTROLADOR_PERSONAL
 ( 
-	CONTP_IdControlador  int IDENTITY ( 1,1 ) ,
-	CONTP_DNI            char(8)  NOT NULL ,
-	CONTP_Nombre         varchar(30)  NOT NULL ,
-	CONTP_ApellidoPaterno varchar(20)  NOT NULL ,
-	CONTP_ApellidoMaterno varchar(20)  NOT NULL 
+	CONTP_IdControlador		int IDENTITY ( 1,1 ) ,
+	CONTP_Usuario			varchar(30) NOT NULL,
+	CONTP_Contraseña			varchar(30) NOT NULL,
+	CONTP_Correo				varchar(60) NOT NULL,
+	CONTP_DNI				char(8)  NULL ,
+	CONTP_Nombre			varchar(30)  NOT NULL ,
+	CONTP_ApellidoPaterno	varchar(20)  NOT NULL ,
+	CONTP_ApellidoMaterno	varchar(20)  NOT NULL 
 )
 go
-
 
 
 ALTER TABLE CONTROLADOR_PERSONAL

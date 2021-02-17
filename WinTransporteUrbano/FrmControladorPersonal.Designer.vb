@@ -57,7 +57,7 @@ Partial Class FrmControladorPersonal
         Me.GroupBox1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
         Me.GroupBox1.Location = New System.Drawing.Point(309, 40)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(285, 150)
+        Me.GroupBox1.Size = New System.Drawing.Size(277, 150)
         Me.GroupBox1.TabIndex = 48
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Apellidos"

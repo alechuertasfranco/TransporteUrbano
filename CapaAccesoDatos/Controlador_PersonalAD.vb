@@ -21,4 +21,22 @@ Public Class Controlador_PersonalAD
             Exit Sub
         End Try
     End Sub
+
+    Public Sub consultar_controlador(IdControlador As Integer)
+        Dim oConexion As New SqlConnection("server=.; integrated security=true; database=BD_TransporteUrbano")
+        Dim oComando As New SqlCommand("SP_BuscarControlador", oConexion)
+        Dim oLector As SqlDataReader
+        oComando.CommandType = CommandType.StoredProcedure
+        Try
+            oConexion.Open()
+            oComando.Parameters.AddWithValue("@IdControlador", IdControlador)
+            oComando.Connection = oConexion
+            oLector = oComando.ExecuteReader()
+            oConexion.Close()
+            oConexion.Dispose()
+        Catch ex As Exception
+            Throw New Exception(ex.Message)
+            Exit Sub
+        End Try
+    End Sub
 End Class

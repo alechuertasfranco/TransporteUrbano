@@ -10,11 +10,7 @@ GO
 SELECT * FROM USUARIO_ROL;
 GO
 
-<<<<<<< Updated upstream
 CREATE PROCEDURE sp_insertaUsuario
-=======
-create PROCEDURE sp_insertaUsuario
->>>>>>> Stashed changes
     @Usuario                as VARCHAR(30),
     @Contrasena             as VARCHAR(30),
     @Correo                 as VARCHAR(60),
@@ -48,14 +44,9 @@ AS
     END
 GO
 
-exec sp_insertaUsuario 'Jhanpoul23','password','jzt@gmail.com','Jhanpoul','Zavaleta','Taucett','23/02/2000',1
-exec sp_insertaUsuario 'Drako2711','password','apv@gmail.com','Arturo','Paulino','Vigo','11/07/2000',2
-select * from USUARIO_ROL
-insert USUARIO_ROL values('Controlador')
-insert USUARIO_ROL values('Admin')
-
-
-
+EXEC sp_insertaUsuario 'jhanpoulzt','password','jzt@gmail.com','Jhanpoul','Zavaleta','Taucett','23/02/2000',1
+EXEC sp_insertaUsuario 'arturopv','password','apv@gmail.com','Arturo','Paulino','Vigo','11/07/2000', 1
+GO
 
 SELECT * FROM USUARIO
 GO
@@ -63,135 +54,135 @@ GO
 
 
 --Inserción en tabla Conductor
-	create procedure sp_insertaConductor
-	@DNI char(08),
-	@Nombres varchar(50),
-	@ApellidoPaterno varchar(30),
-	@ApellidoMaterno varchar(30),
-	@Telefono		 varchar(11),
-	@FechaNacimiento	date,
-	@NroLicencia		char(9)
-	AS
-	begin
-	insert into CONDUCTORES(COND_DNI,COND_Nombres,COND_ApellidoPaterno,COND_ApellidoMaterno,COND_Telefono,COND_FechaNacConductor,COND_NumeroLicencia)
-	values (@DNI, @Nombres,@ApellidoPaterno ,@ApellidoMaterno ,@Telefono ,@FechaNacimiento ,@NroLicencia )
-	end
-	go
+CREATE PROCEDURE sp_insertaConductor
+	@DNI 				CHAR(08),
+	@Nombres 			VARCHAR(50),
+	@ApellidoPaterno 	VARCHAR(30),
+	@ApellidoMaterno 	VARCHAR(30),
+	@Telefono		 	VARCHAR(11),
+	@FechaNacimiento	DATE,
+	@NroLicencia		CHAR(9)
+AS
+	BEGIN
+		INSERT INTO CONDUCTORES(COND_DNI,COND_Nombres,COND_ApellidoPaterno,COND_ApellidoMaterno,COND_Telefono,COND_FechaNacConductor,COND_NumeroLicencia)
+		VALUES (@DNI, @Nombres,@ApellidoPaterno ,@ApellidoMaterno ,@Telefono ,@FechaNacimiento ,@NroLicencia )
+	END
+GO
 
-	select * from CONDUCTORES
-	select * from BUSES
+SELECT * FROM CONDUCTORES
+SELECT * FROM BUSES
+GO
 
-	--Inserción en tabla Bus
-	create procedure sp_insertaBus
-		@Placa char(06),
-		@Capacidad int,
-		@Marca varchar(30),
-		@Modelo varchar(30),
-		@IdConductor integer
-		AS
-		begin
-		insert into BUSES(BUS_Placa, BUS_Capacidad, BUS_Marca, BUS_Modelo, COND_IdConductor)
-		values (@Placa, @Capacidad, @Marca, @Modelo, @IdConductor)
-		end
-	go
+--Inserción en tabla Bus
+CREATE PROCEDURE sp_insertaBus
+	@Placa 				CHAR(06),
+	@Capacidad 			INT,
+	@Marca 				VARCHAR(30),
+	@Modelo 			VARCHAR(30),
+	@IdConductor 		INTEGER
+AS
+	BEGIN
+		INSERT INTO BUSES(BUS_Placa, BUS_Capacidad, BUS_Marca, BUS_Modelo, COND_IdConductor)
+		VALUES (@Placa, @Capacidad, @Marca, @Modelo, @IdConductor)
+	END
+GO
 
-	--execute sp_insertaBus 'GAAAA',1,'Marca','Model2','1'
 
-	--Inserción en tabla Control_Ubicacion
-	create procedure sp_insertaControl_Ubicacion
-	@Codigo  char(5),
-	@Control  varchar(60),
-	@Direccion varchar(120)
-	AS
-	begin
-	insert into CONTROL_UBICACION(CONTUB_Codigo, CONTUB_Control, CONTUB_Dirección)
-	values (@Codigo, @Control, @Direccion)
-	end
-	go
+--Inserción en tabla Control_Ubicacion
+CREATE PROCEDURE sp_insertaControl_Ubicacion
+	@Codigo  			CHAR(5),
+	@Control  			VARCHAR(60),
+	@Direccion 			VARCHAR(120)
+AS
+	BEGIN
+		INSERT INTO CONTROL_UBICACION(CONTUB_Codigo, CONTUB_Control, CONTUB_Dirección)
+		VALUES (@Codigo, @Control, @Direccion)
+	END
+GO
 
-	--Inserción en tabla Controlador
-	create procedure sp_insertaControlador
-	@DNI char(08),
-	@Nombres varchar(50),
-	@ApellidoPaterno varchar(30),
-	@ApellidoMaterno varchar(30)
-	AS
-	begin
-	insert into CONTROLADOR_PERSONAL(CONTP_DNI, CONTP_Nombre, CONTP_ApellidoPaterno, CONTP_ApellidoMaterno)
-	values (@DNI, @Nombres, @ApellidoPaterno, @ApellidoMaterno)
-	end
-	go
+--Inserción en tabla Controlador
+CREATE PROCEDURE sp_insertaControlador
+	@DNI 				CHAR(08),
+	@Nombres 			VARCHAR(50),
+	@ApellidoPaterno 	VARCHAR(30),
+	@ApellidoMaterno 	VARCHAR(30)
+AS
+	BEGIN
+		INSERT INTO CONTROLADOR_PERSONAL(CONTP_DNI, CONTP_Nombre, CONTP_ApellidoPaterno, CONTP_ApellidoMaterno)
+		VALUES (@DNI, @Nombres, @ApellidoPaterno, @ApellidoMaterno)
+	END
+GO
 
-	--Inserción en tabla Penalizacion
-	create procedure sp_insertaPenalizacion
-	@Monto money,
-	@FechaRegistro date
-	AS
-	begin
-	insert into PENALIZACIONES(PEN_MontoMinuto, PEN_FechaRegistro)
-	values (@Monto, @FechaRegistro)
-	end
-	go
-	use BD_TransporteUrbano
-		
-	--Inserción en tabla Control
-	create procedure sp_insertaControl_T
-		@TiempoAprox float,
-		@IdControlUbicacion int,
-		@IdRuta				int
-		AS
-		begin
-		insert into CONTROL_T(CONT_TiempoAprox,CONTUB_IdControlUbicacion,RUT_IdRuta)
-		values (@TiempoAprox, @IdControlUbicacion, @IdRuta)
-		end
-	go
-	--Inserción en tabla Pago_Control
-	create procedure sp_insertaPago_Control
-		@HCont_Codigo	char(08),
-		@IdBus			int,
-		@IdConductor    int,
-		@IdControl	    int,
-		@Fecha		    datetime,
-		@Monto		    money
-		AS
-		begin
-		insert into BUSES_CONTROL(BUS_IdBus,HCONT_Codigo, CONT_IdControl)
-		values (@IdBus, @HCont_Codigo, @IdControl)
+--Inserción en tabla Penalizacion
+CREATE PROCEDURE sp_insertaPenalizacion
+	@Monto 				MONEY,
+	@FechaRegistro 		DATE
+AS
+	BEGIN
+		INSERT INTO PENALIZACIONES(PEN_MontoMinuto, PEN_FechaRegistro)
+		VALUES (@Monto, @FechaRegistro)
+	END
+GO
 
-		insert into PAGO_CONTROL(BUS_IdBus,COND_IdConductor,HCONT_Codigo,PC_Fecha,PC_Monto)
-		values (@IdBus,@IdConductor, @HCont_Codigo,@Fecha,@Monto)
-		end
+CREATE PROCEDURE sp_insertaControl_T
+	@TiempoAprox 			FLOAT,
+	@IdControlUbicacion 	INT,
+	@IdRuta					INT
+AS
+	BEGIN
+		INSERT INTO CONTROL_T(CONT_TiempoAprox,CONTUB_IdControlUbicacion,RUT_IdRuta)
+		VALUES (@TiempoAprox, @IdControlUbicacion, @IdRuta)
+	END
+GO
 
-	go
 
-	--Inserción en tabla Ruta
-	create procedure sp_insertaRuta
-		@Ruta char(1),
-		@CantidadControles int
-		AS
-		begin
-		insert into RUTA(RUT_Ruta, RUT_CantidadControles)
-		values (@Ruta, @CantidadControles)
-		end
-	go
-	--Inserción en tabla Tarifa
-	create procedure sp_insertaTarifa
-		@Descripcion char(30)
-		AS
-		begin
-		insert into TARIFA(TAR_Descripcion)
-		values (@Descripcion)
-		end
-	go
-		
-	--Inserción en tabla Tarifa
-	create procedure sp_insertaTarifa_Ruta
-		@IdRuta integer,
-		@IdTarifa integer,
-		@Monto	money
-		AS
-		begin
-		insert into TARIFA_RUTA(RUT_IdRuta, TAR_IdTarifa, TR_Monto)
-		values (@IdRuta,@IdTarifa,@Monto)
-		end
-	go
+--Inserción en tabla Pago_Control
+CREATE PROCEDURE sp_insertaPago_Control
+	@HCont_Codigo			CHAR(08),
+	@IdBus					INT,
+	@IdConductor    		INT,
+	@IdControl	    		INT,
+	@Fecha		    		DATETIME,
+	@Monto		    		MONEY
+AS
+	BEGIN
+		INSERT INTO BUSES_CONTROL(BUS_IdBus,HCONT_Codigo, CONT_IdControl)
+		VALUES (@IdBus, @HCont_Codigo, @IdControl)
+
+		INSERT INTO PAGO_CONTROL(BUS_IdBus,COND_IdConductor,HCONT_Codigo,PC_Fecha,PC_Monto)
+		VALUES (@IdBus,@IdConductor, @HCont_Codigo,@Fecha,@Monto)
+	END
+GO
+
+--Inserción en tabla Ruta
+CREATE PROCEDURE sp_insertaRuta
+	@Ruta 				CHAR(1),
+	@CantidadControles 	INT
+AS
+	BEGIN
+		INSERT INTO RUTA(RUT_Ruta, RUT_CantidadControles)
+		VALUES (@Ruta, @CantidadControles)
+	END
+GO
+
+--Inserción en tabla Tarifa
+CREATE PROCEDURE sp_insertaTarifa
+	@Descripcion 		CHAR(30)
+AS
+	BEGIN
+		INSERT INTO TARIFA(TAR_Descripcion)
+		VALUES (@Descripcion)
+	END
+GO
+
+--Inserción en tabla Tarifa
+CREATE PROCEDURE sp_insertaTarifa_Ruta
+	@IdRuta 		INTEGER,
+	@IdTarifa 		INTEGER,
+	@Monto			MONEY
+AS
+	BEGIN
+		INSERT INTO TARIFA_RUTA(RUT_IdRuta, TAR_IdTarifa, TR_Monto)
+		VALUES (@IdRuta,@IdTarifa,@Monto)
+	END
+GO
