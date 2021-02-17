@@ -6,8 +6,8 @@ Public Class Controlador_PersonalLN
         objAD.agregar_controlador(objA)
     End Sub
 
-    Public Shared Sub consultar_controlador(IdControlador As Integer)
+    Public Shared Function consultar_controlador(IdControlador As Integer)
         Dim objAD As New Controlador_PersonalAD
-        objAD.consultar_controlador(IdControlador)
-    End Sub
+        Return objAD.consultar_controlador(IdControlador)
+    End Function
 End Class

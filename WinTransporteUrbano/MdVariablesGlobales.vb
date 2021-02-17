@@ -1,0 +1,3 @@
+﻿Module MdVariablesGlobales
+
+End Module

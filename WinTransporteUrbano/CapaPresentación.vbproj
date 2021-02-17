@@ -167,6 +167,7 @@
     <Compile Include="FrmTarifa.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MdVariablesGlobales.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

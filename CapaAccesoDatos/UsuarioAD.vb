@@ -52,7 +52,6 @@ Public Class UsuarioAD
                     nombreUsu = Lector.Item(2)
                     ApellidoP = Lector.Item(3)
                     ApellidoM = Lector.Item(4)
-
                 End While
             End If
             datos = {Usu, rol, nombreUsu, ApellidoP, ApellidoM}

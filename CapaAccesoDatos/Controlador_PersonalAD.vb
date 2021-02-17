@@ -22,7 +22,7 @@ Public Class Controlador_PersonalAD
         End Try
     End Sub
 
-    Public Sub consultar_controlador(IdControlador As Integer)
+    Public Function consultar_controlador(IdControlador As Integer)
         Dim oConexion As New SqlConnection("server=.; integrated security=true; database=BD_TransporteUrbano")
         Dim oComando As New SqlCommand("SP_BuscarControlador", oConexion)
         Dim oLector As SqlDataReader
@@ -32,11 +32,33 @@ Public Class Controlador_PersonalAD
             oComando.Parameters.AddWithValue("@IdControlador", IdControlador)
             oComando.Connection = oConexion
             oLector = oComando.ExecuteReader()
-            oConexion.Close()
-            oConexion.Dispose()
+
+            Dim Usuario, Contraseña, Correo, DNI, Nombre, ApellidoP, ApellidoM As String
+            Dim datos() As String
+
+            If oLector.HasRows = True Then
+                While oLector.Read
+                    Usuario = oLector.Item(1)
+                    Contraseña = oLector.Item(2)
+                    Correo = oLector.Item(3)
+                    Nombre = oLector.Item(5)
+                    ApellidoP = oLector.Item(6)
+                    ApellidoM = oLector.Item(7)
+                    If (IsDBNull(oLector.Item(4))) Then
+                        DNI = "No registrado"
+                    Else
+                        DNI = oLector.Item(4)
+                    End If
+                End While
+            End If
+
+            datos = {Usuario, Contraseña, Correo, DNI, Nombre, ApellidoP, ApellidoM}
+            Return datos
         Catch ex As Exception
             Throw New Exception(ex.Message)
-            Exit Sub
+        Finally
+            oConexion.Close()
+            oConexion.Dispose()
         End Try
-    End Sub
+    End Function
 End Class
