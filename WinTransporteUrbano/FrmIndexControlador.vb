@@ -20,4 +20,10 @@
         objDatosPersonales.MdiParent = Me
         objDatosPersonales.Show()
     End Sub
+
+    Private Sub RegistrarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarToolStripMenuItem.Click
+        Dim objSeleccionControl As New FrmSeleccionControl
+        objSeleccionControl.MdiParent = Me
+        objSeleccionControl.Show()
+    End Sub
 End Class
