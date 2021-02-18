@@ -22,6 +22,31 @@ Public Class Controlador_PersonalAD
         End Try
     End Sub
 
+    Public Sub editar_controlador(obj As Controlador_Personal)
+        Dim oConexion As New SqlConnection("server=.; integrated security=true; database=BD_TransporteUrbano")
+        Dim oComando As New SqlCommand("SP_ActualizaControlador", oConexion)
+        Dim oLector As SqlDataReader
+        oComando.CommandType = CommandType.StoredProcedure
+        Try
+            oConexion.Open()
+            oComando.Parameters.AddWithValue("@IdControlador", obj.IdControlador)
+            oComando.Parameters.AddWithValue("@Usuario", obj.Usuario)
+            oComando.Parameters.AddWithValue("@Contrasena", obj.Contrasena)
+            oComando.Parameters.AddWithValue("@Correo", obj.Correo)
+            oComando.Parameters.AddWithValue("@DNI", obj.DNI)
+            oComando.Parameters.AddWithValue("@Nombres", obj.Nombres)
+            oComando.Parameters.AddWithValue("@ApellidoPaterno", obj.ApellidoPaterno)
+            oComando.Parameters.AddWithValue("@ApellidoMaterno", obj.ApellidoMaterno)
+            oComando.Connection = oConexion
+            oLector = oComando.ExecuteReader()
+            oConexion.Close()
+            oConexion.Dispose()
+        Catch ex As Exception
+            Throw New Exception(ex.Message)
+            Exit Sub
+        End Try
+    End Sub
+
     Public Function consultar_controlador(IdControlador As Integer)
         Dim oConexion As New SqlConnection("server=.; integrated security=true; database=BD_TransporteUrbano")
         Dim oComando As New SqlCommand("SP_BuscarControlador", oConexion)
