@@ -27,7 +27,7 @@ go
 CREATE TABLE BUSES_CONTROL
 ( 
 	BUS_IdBus            int  NOT NULL ,
-	HCONT_Codigo         char(08)  NOT NULL ,
+	HCONT_Codigo         char(15)  NOT NULL ,
 	CONT_IdControl       int  NULL 
 )
 go
@@ -175,7 +175,7 @@ go
 CREATE TABLE HOJA_CONTROL_RECORRIDOS
 ( 
 	HCONT_IdHojaControl  int IDENTITY ( 1,1 ) ,
-	HCONT_Codigo         char(8)  NOT NULL ,
+	HCONT_Codigo         char(15)  NOT NULL ,
 	HCONT_Fecha          datetime  NOT NULL ,
 	HCONT_TotalPenalizacion money  NOT NULL ,
 	PEN_IdPenalizacion   int  NOT NULL ,
@@ -195,7 +195,7 @@ CREATE TABLE PAGO_CONTROL
 ( 
 	BUS_IdBus            int  NOT NULL ,
 	COND_IdConductor     int  NOT NULL ,
-	HCONT_Codigo         char(08)  NOT NULL ,
+	HCONT_Codigo         char(15)  NOT NULL ,
 	PC_Fecha             datetime  NULL ,
 	PC_Monto             money  NULL 
 )
