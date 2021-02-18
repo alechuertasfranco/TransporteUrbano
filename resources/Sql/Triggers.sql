@@ -14,9 +14,3 @@ AS
 			FROM inserted where USUR_IdUsuarioRol != 2
 	END
 GO
-
-INSERT INTO USUARIO(USU_Usuario, USU_Contraseña, USU_Correo, USU_NombresUsuario, USU_ApellidoPaternoUsuario, USU_ApellidoMaternoUsuario, USU_FechaNacUsuario, USUR_IdUsuarioRol)
-VALUES('maxalechf', 'password', 'max.alec.huertas@gmail.com', 'Max Alec', 'Huertas', 'Franco', '17-02-2021', 2);
-
-SELECT * FROM USUARIO
-SELECT * FROM CONTROLADOR_PERSONAL

@@ -24,7 +24,3 @@ AS
 		WHERE CONTP_IdControlador = @IdControlador
 	END
 GO
-
-SELECT * FROM CONTROLADOR_PERSONAL
-EXECUTE SP_ActualizaControlador 1, 'maxalechf', 'password', 'max.alec.huertas@gmail.com', '70654418', 'Max Alec', 'Huertas', 'Franco'
-SELECT * FROM CONTROLADOR_PERSONAL
