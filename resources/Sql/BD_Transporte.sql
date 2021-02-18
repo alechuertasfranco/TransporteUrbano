@@ -83,7 +83,7 @@ CREATE TABLE CONTROL_UBICACION
 	CONTUB_IdControlUbicacion int IDENTITY ( 1,1 ) ,
 	CONTUB_Control       varchar(60)  NOT NULL ,
 	CONTUB_Codigo        char(5)  NOT NULL ,
-	CONTUB_Dirección     varchar(120)  NOT NULL 
+	CONTUB_Direcciï¿½n     varchar(120)  NOT NULL 
 )
 go
 
@@ -302,7 +302,7 @@ go
 CREATE TABLE USUARIO
 ( 
 	USU_Usuario          varchar(30)  NOT NULL ,
-	USU_Contraseña       varchar(30)  NOT NULL ,
+	USU_Contraseï¿½a       varchar(30)  NOT NULL ,
 	USU_Correo           varchar(60)  NOT NULL ,
 	USU_NombresUsuario   varchar(50)  NOT NULL ,
 	USU_ApellidoPaternoUsuario varchar(30)  NOT NULL ,
