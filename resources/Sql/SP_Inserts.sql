@@ -105,6 +105,19 @@ GO
 --SELECT * FROM CONTROL_UBICACION
 --GO
 
+--Inserción en tabla Controlador
+CREATE PROCEDURE sp_insertaControlador
+	@DNI 				CHAR(08),
+	@Nombres 			VARCHAR(50),
+	@ApellidoPaterno 	VARCHAR(30),
+	@ApellidoMaterno 	VARCHAR(30)
+AS
+	BEGIN
+		INSERT INTO CONTROLADOR_PERSONAL(CONTP_DNI, CONTP_Nombre, CONTP_ApellidoPaterno, CONTP_ApellidoMaterno)
+		VALUES (@DNI, @Nombres, @ApellidoPaterno, @ApellidoMaterno)
+	END
+GO
+
 --Inserción en tabla Penalizacion
 CREATE PROCEDURE sp_insertaPenalizacion
 	@Monto 				MONEY,
