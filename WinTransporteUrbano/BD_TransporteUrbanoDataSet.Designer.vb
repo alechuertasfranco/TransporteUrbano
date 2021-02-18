@@ -83,8 +83,6 @@ Partial Public Class BD_TransporteUrbanoDataSet
     
     Private relationR_143 As Global.System.Data.DataRelation
     
-    Private relationR_88 As Global.System.Data.DataRelation
-    
     Private relationR_156 As Global.System.Data.DataRelation
     
     Private relationR_157 As Global.System.Data.DataRelation
@@ -94,6 +92,8 @@ Partial Public Class BD_TransporteUrbanoDataSet
     Private relationR_99 As Global.System.Data.DataRelation
     
     Private relationR_150 As Global.System.Data.DataRelation
+    
+    Private relationR_88 As Global.System.Data.DataRelation
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -647,12 +647,12 @@ Partial Public Class BD_TransporteUrbanoDataSet
         Me.relationR_84 = Me.Relations("R_84")
         Me.relationR_142 = Me.Relations("R_142")
         Me.relationR_143 = Me.Relations("R_143")
-        Me.relationR_88 = Me.Relations("R_88")
         Me.relationR_156 = Me.Relations("R_156")
         Me.relationR_157 = Me.Relations("R_157")
         Me.relationR_96 = Me.Relations("R_96")
         Me.relationR_99 = Me.Relations("R_99")
         Me.relationR_150 = Me.Relations("R_150")
+        Me.relationR_88 = Me.Relations("R_88")
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -721,8 +721,6 @@ Partial Public Class BD_TransporteUrbanoDataSet
         Me.Relations.Add(Me.relationR_142)
         Me.relationR_143 = New Global.System.Data.DataRelation("R_143", New Global.System.Data.DataColumn() {Me.tableHOJA_CONTROL_RECORRIDOS.HCONT_IdHojaControlColumn}, New Global.System.Data.DataColumn() {Me.tableDETALLE_RECORRIDO.HCONT_IdHojaControlColumn}, false)
         Me.Relations.Add(Me.relationR_143)
-        Me.relationR_88 = New Global.System.Data.DataRelation("R_88", New Global.System.Data.DataColumn() {Me.tablePENALIZACIONES.PEN_IdPenalizacionColumn}, New Global.System.Data.DataColumn() {Me.tableHOJA_CONTROL_RECORRIDOS.PEN_IdPenalizacionColumn}, false)
-        Me.Relations.Add(Me.relationR_88)
         Me.relationR_156 = New Global.System.Data.DataRelation("R_156", New Global.System.Data.DataColumn() {Me.tableBUSES_CONTROL.BUS_IdBusColumn, Me.tableBUSES_CONTROL.HCONT_CodigoColumn}, New Global.System.Data.DataColumn() {Me.tablePAGO_CONTROL.BUS_IdBusColumn, Me.tablePAGO_CONTROL.HCONT_CodigoColumn}, false)
         Me.Relations.Add(Me.relationR_156)
         Me.relationR_157 = New Global.System.Data.DataRelation("R_157", New Global.System.Data.DataColumn() {Me.tableCONDUCTORES.COND_IdConductorColumn}, New Global.System.Data.DataColumn() {Me.tablePAGO_CONTROL.COND_IdConductorColumn}, false)
@@ -733,6 +731,8 @@ Partial Public Class BD_TransporteUrbanoDataSet
         Me.Relations.Add(Me.relationR_99)
         Me.relationR_150 = New Global.System.Data.DataRelation("R_150", New Global.System.Data.DataColumn() {Me.tableUSUARIO_ROL.USUR_IdUsuarioRolColumn}, New Global.System.Data.DataColumn() {Me.tableUSUARIO.USUR_IdUsuarioRolColumn}, false)
         Me.Relations.Add(Me.relationR_150)
+        Me.relationR_88 = New Global.System.Data.DataRelation("R_88", New Global.System.Data.DataColumn() {Me.tablePENALIZACIONES.PEN_IdPenalizacionColumn}, New Global.System.Data.DataColumn() {Me.tableHOJA_CONTROL_RECORRIDOS.PEN_IdPenalizacionColumn}, false)
+        Me.Relations.Add(Me.relationR_88)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -12833,12 +12833,17 @@ Namespace BD_TransporteUrbanoDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT HCONT_IdHojaControl, HCONT_Codigo, HCONT_Fecha, HCONT_TotalPenalizacion, P"& _ 
                 "EN_IdPenalizacion, HCONT_NVuelta FROM dbo.HOJA_CONTROL_RECORRIDOS"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT        TOP (1) HCONT_Codigo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            HOJA_CONTROL_RECORRIDOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDE"& _ 
+                "R BY HCONT_IdHojaControl DESC"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -12860,6 +12865,30 @@ Namespace BD_TransporteUrbanoDataSetTableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
         Public Overloads Overridable Function GetData() As BD_TransporteUrbanoDataSet.HOJA_CONTROL_RECORRIDOSDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As BD_TransporteUrbanoDataSet.HOJA_CONTROL_RECORRIDOSDataTable = New BD_TransporteUrbanoDataSet.HOJA_CONTROL_RECORRIDOSDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy(ByVal dataTable As BD_TransporteUrbanoDataSet.HOJA_CONTROL_RECORRIDOSDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByLastID() As BD_TransporteUrbanoDataSet.HOJA_CONTROL_RECORRIDOSDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
             Dim dataTable As BD_TransporteUrbanoDataSet.HOJA_CONTROL_RECORRIDOSDataTable = New BD_TransporteUrbanoDataSet.HOJA_CONTROL_RECORRIDOSDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
