@@ -59,7 +59,7 @@ Partial Class FrmIndexControlador
         'DatosPersonalesToolStripMenuItem
         '
         Me.DatosPersonalesToolStripMenuItem.Name = "DatosPersonalesToolStripMenuItem"
-        Me.DatosPersonalesToolStripMenuItem.Size = New System.Drawing.Size(163, 22)
+        Me.DatosPersonalesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.DatosPersonalesToolStripMenuItem.Text = "Datos Personales"
         '
         'OperacionesToolStripMenuItem

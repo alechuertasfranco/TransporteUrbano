@@ -18,24 +18,26 @@ Public Class FrmLogin
         Dim idControlador As Integer
         correo = txtUsuario.Text
         contraseña = txtPassword.Text
-        datos = UsuarioLN.listarUsuarios(correo, contraseña)
+        datos = UsuarioLN.buscarUsuario(correo, contraseña)
         idControlador = datos(0)
+        controlador_ingresado = idControlador
         idUsuario = datos(1)
+        usuario_ingresado = idUsuario
         tipo = datos(2)
         rolU = datos(3)
         If tipo <> "" Then
             If tipo = "Controlador" Then
 
                 FrmIndexControlador.Show()
-                MessageBox.Show(idControlador.ToString, "Bienvenido", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show(correo, "Bienvenido", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
             ElseIf tipo = "Usuario" Then
                 If rolU = "1" Then
 
-                    MessageBox.Show(idUsuario.ToString, "Bienvenido", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    MessageBox.Show(correo, "Bienvenido", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     FrmIndexAdmin.Show()
                 Else
-                    mensaje = "Hola Secretaria" + idUsuario.ToString
+                    mensaje = "Hola Secretaria" + correo
                 End If
 
             End If

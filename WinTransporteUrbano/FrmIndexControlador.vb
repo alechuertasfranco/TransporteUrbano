@@ -14,4 +14,10 @@
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Me.Close()
     End Sub
+
+    Private Sub DatosPersonalesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DatosPersonalesToolStripMenuItem.Click
+        Dim objDatosPersonales As New FrmControladorDatos
+        objDatosPersonales.MdiParent = Me
+        objDatosPersonales.Show()
+    End Sub
 End Class

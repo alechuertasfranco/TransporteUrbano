@@ -26,7 +26,7 @@ Public Class UsuarioAD
         End Try
     End Sub
 
-    Public Function listarUsuarios(usuario As String, contraseña As String) As String()
+    Public Function buscarUsuario(usuario As String, contraseña As String) As String()
         Dim cn As New SqlConnection("server=.; integrated security=true; database=BD_TransporteUrbano")
         Dim cmd As New SqlCommand
         Try
@@ -60,9 +60,27 @@ Public Class UsuarioAD
         End Try
     End Function
 
+    Public Function listarUsuarios() As DataTable
+        Dim oConexion As New SqlConnection
+        Try
+            Dim oComando As New SqlCommand
+            Dim oLector As SqlDataReader
 
+            oConexion.ConnectionString = "server=.; Integrated security=true; Initial Catalog=BD_TransporteUrbano"
+            oConexion.Open()
+            oComando.CommandText = "Select * from V_Usuarios"
+            oComando.Connection = oConexion
+            oLector = oComando.ExecuteReader()
 
-
-
-
+            Dim dt = New DataTable()
+            dt.Load(oLector)
+            Return dt
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
+        Finally
+            oConexion.Close()
+            oConexion.Dispose()
+        End Try
+    End Function
 End Class

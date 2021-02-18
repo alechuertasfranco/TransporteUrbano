@@ -44,9 +44,9 @@ AS
     END
 GO
 
-EXEC sp_insertaUsuario 'jhanpoulzt','password','jzt@gmail.com','Jhanpoul','Zavaleta','Taucett','23/02/2000',1
-EXEC sp_insertaUsuario 'arturopv','password','apv@gmail.com','Arturo','Paulino','Vigo','11/07/2000', 1
-GO
+--EXEC sp_insertaUsuario 'jhanpoulzt','password','jzt@gmail.com','Jhanpoul','Zavaleta','Taucett','23/02/2000',1
+--EXEC sp_insertaUsuario 'arturopv','password','apv@gmail.com','Arturo','Paulino','Vigo','11/07/2000', 1
+--GO
 
 SELECT * FROM USUARIO
 GO
