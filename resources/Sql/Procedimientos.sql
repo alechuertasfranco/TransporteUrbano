@@ -40,16 +40,6 @@ AS
 	END
 GO
 
-USE BD_TransporteUrbano;
-GO
-
-
-
-select * from CONTROLADOR_PERSONAL 
-select * from USUARIO
-
-USE BD_TransporteUrbano;
-GO
 CREATE PROCEDURE SP_BuscarControlador
 	@idControlador		INT
 AS
@@ -60,4 +50,30 @@ AS
 	END
 GO
 
-EXECUTE SP_BuscarControlador 1
+CREATE PROCEDURE SP_ListarControlesRuta
+	@IdRuta				INT
+AS
+	BEGIN
+		SELECT CONT_IdControl
+		FROM CONTROL_T C
+			INNER JOIN CONTROL_UBICACION CU
+			ON CU.CONTUB_IdControlUbicacion = C.CONTUB_IdControlUbicacion
+		WHERE RUT_IdRuta = @IdRuta
+	END
+GO
+
+CREATE PROCEDURE SP_BuscarControl
+	@IdControl				INT
+AS
+	BEGIN
+		SELECT	CONTUB_Codigo as Codigo,
+				CONTUB_Control as [Control],
+				CONTUB_Dirección as Dirección 
+		FROM CONTROL_T C
+			INNER JOIN CONTROL_UBICACION CU
+			ON CU.CONTUB_IdControlUbicacion = C.CONTUB_IdControlUbicacion
+		WHERE CONT_IdControl = @IdControl
+	END
+GO
+
+EXECUTE SP_BuscarControl 2
