@@ -1,7 +1,7 @@
 USE BD_TransporteUrbano;
 GO
 
-ALTER TRIGGER TR_InsertUsuario
+create TRIGGER TR_InsertUsuario
    on USUARIO
    instead of Insert
 AS
