@@ -113,7 +113,8 @@ Public Class FrmHojaControl
                     MsgBox(ex.Message)
                 End Try
             Catch ex As Exception
-                MsgBox("Ese bus ya esta registrado en esta hoja de control")
+                MsgBox(ex.Message)
+                'MsgBox("Ese bus ya esta registrado en esta hoja de control")
             End Try
         End If
     End Sub
