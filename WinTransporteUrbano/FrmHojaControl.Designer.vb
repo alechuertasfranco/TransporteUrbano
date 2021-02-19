@@ -23,11 +23,11 @@ Partial Class FrmHojaControl
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
@@ -40,22 +40,22 @@ Partial Class FrmHojaControl
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btn_agregar = New System.Windows.Forms.Button()
         Me.cmb_bus = New System.Windows.Forms.ComboBox()
+        Me.BUSESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BD_TransporteUrbanoDataSet = New WinTransporteUrbano.BD_TransporteUrbanoDataSet()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.btn_Cerrar = New System.Windows.Forms.Button()
+        Me.btn_Quitar = New System.Windows.Forms.Button()
+        Me.btn_Guardar = New System.Windows.Forms.Button()
         Me.dg_detalle = New System.Windows.Forms.DataGridView()
         Me.lblhora = New System.Windows.Forms.Label()
         Me.horafecha = New System.Windows.Forms.Timer(Me.components)
-        Me.BD_TransporteUrbanoDataSet = New WinTransporteUrbano.BD_TransporteUrbanoDataSet()
-        Me.BUSESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.BUSESTableAdapter = New WinTransporteUrbano.BD_TransporteUrbanoDataSetTableAdapters.BUSESTableAdapter()
-        Me.btn_Guardar = New System.Windows.Forms.Button()
-        Me.btn_Quitar = New System.Windows.Forms.Button()
-        Me.btn_Cerrar = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.BUSESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BD_TransporteUrbanoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         CType(Me.dg_detalle, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BD_TransporteUrbanoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BUSESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -126,6 +126,7 @@ Partial Class FrmHojaControl
         '
         'txt_codigo
         '
+        Me.txt_codigo.Enabled = False
         Me.txt_codigo.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_codigo.Location = New System.Drawing.Point(18, 57)
         Me.txt_codigo.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
@@ -189,6 +190,16 @@ Partial Class FrmHojaControl
         Me.cmb_bus.TabIndex = 93
         Me.cmb_bus.ValueMember = "BUS_IdBus"
         '
+        'BUSESBindingSource
+        '
+        Me.BUSESBindingSource.DataMember = "BUSES"
+        Me.BUSESBindingSource.DataSource = Me.BD_TransporteUrbanoDataSet
+        '
+        'BD_TransporteUrbanoDataSet
+        '
+        Me.BD_TransporteUrbanoDataSet.DataSetName = "BD_TransporteUrbanoDataSet"
+        Me.BD_TransporteUrbanoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'GroupBox3
         '
         Me.GroupBox3.Controls.Add(Me.btn_Cerrar)
@@ -203,47 +214,74 @@ Partial Class FrmHojaControl
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "DETALLE_RECORRIDO"
         '
+        'btn_Cerrar
+        '
+        Me.btn_Cerrar.Location = New System.Drawing.Point(459, 280)
+        Me.btn_Cerrar.Name = "btn_Cerrar"
+        Me.btn_Cerrar.Size = New System.Drawing.Size(102, 37)
+        Me.btn_Cerrar.TabIndex = 99
+        Me.btn_Cerrar.Text = "Cerrar"
+        Me.btn_Cerrar.UseVisualStyleBackColor = True
+        '
+        'btn_Quitar
+        '
+        Me.btn_Quitar.Location = New System.Drawing.Point(349, 280)
+        Me.btn_Quitar.Name = "btn_Quitar"
+        Me.btn_Quitar.Size = New System.Drawing.Size(102, 37)
+        Me.btn_Quitar.TabIndex = 98
+        Me.btn_Quitar.Text = "Quitar"
+        Me.btn_Quitar.UseVisualStyleBackColor = True
+        '
+        'btn_Guardar
+        '
+        Me.btn_Guardar.Location = New System.Drawing.Point(240, 280)
+        Me.btn_Guardar.Name = "btn_Guardar"
+        Me.btn_Guardar.Size = New System.Drawing.Size(102, 37)
+        Me.btn_Guardar.TabIndex = 97
+        Me.btn_Guardar.Text = "Guardar"
+        Me.btn_Guardar.UseVisualStyleBackColor = True
+        '
         'dg_detalle
         '
         Me.dg_detalle.AllowUserToAddRows = False
         Me.dg_detalle.AllowUserToDeleteRows = False
-        DataGridViewCellStyle11.Font = New System.Drawing.Font("MS Reference Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dg_detalle.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("MS Reference Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dg_detalle.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dg_detalle.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dg_detalle.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle12.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
-        DataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight
-        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dg_detalle.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dg_detalle.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dg_detalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle13.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
-        DataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight
-        DataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dg_detalle.DefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dg_detalle.DefaultCellStyle = DataGridViewCellStyle3
         Me.dg_detalle.Location = New System.Drawing.Point(18, 25)
         Me.dg_detalle.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.dg_detalle.Name = "dg_detalle"
         Me.dg_detalle.ReadOnly = True
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle14.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
-        DataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight
-        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dg_detalle.RowHeadersDefaultCellStyle = DataGridViewCellStyle14
-        DataGridViewCellStyle15.Font = New System.Drawing.Font("MS Reference Sans Serif", 12.0!)
-        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight
-        Me.dg_detalle.RowsDefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dg_detalle.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("MS Reference Sans Serif", 12.0!)
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.dg_detalle.RowsDefaultCellStyle = DataGridViewCellStyle5
         Me.dg_detalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dg_detalle.Size = New System.Drawing.Size(544, 239)
         Me.dg_detalle.TabIndex = 50
@@ -262,46 +300,9 @@ Partial Class FrmHojaControl
         '
         Me.horafecha.Enabled = True
         '
-        'BD_TransporteUrbanoDataSet
-        '
-        Me.BD_TransporteUrbanoDataSet.DataSetName = "BD_TransporteUrbanoDataSet"
-        Me.BD_TransporteUrbanoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'BUSESBindingSource
-        '
-        Me.BUSESBindingSource.DataMember = "BUSES"
-        Me.BUSESBindingSource.DataSource = Me.BD_TransporteUrbanoDataSet
-        '
         'BUSESTableAdapter
         '
         Me.BUSESTableAdapter.ClearBeforeFill = True
-        '
-        'btn_Guardar
-        '
-        Me.btn_Guardar.Location = New System.Drawing.Point(240, 280)
-        Me.btn_Guardar.Name = "btn_Guardar"
-        Me.btn_Guardar.Size = New System.Drawing.Size(102, 37)
-        Me.btn_Guardar.TabIndex = 97
-        Me.btn_Guardar.Text = "Guardar"
-        Me.btn_Guardar.UseVisualStyleBackColor = True
-        '
-        'btn_Quitar
-        '
-        Me.btn_Quitar.Location = New System.Drawing.Point(349, 280)
-        Me.btn_Quitar.Name = "btn_Quitar"
-        Me.btn_Quitar.Size = New System.Drawing.Size(102, 37)
-        Me.btn_Quitar.TabIndex = 98
-        Me.btn_Quitar.Text = "Quitar"
-        Me.btn_Quitar.UseVisualStyleBackColor = True
-        '
-        'btn_Cerrar
-        '
-        Me.btn_Cerrar.Location = New System.Drawing.Point(459, 280)
-        Me.btn_Cerrar.Name = "btn_Cerrar"
-        Me.btn_Cerrar.Size = New System.Drawing.Size(102, 37)
-        Me.btn_Cerrar.TabIndex = 99
-        Me.btn_Cerrar.Text = "Cerrar"
-        Me.btn_Cerrar.UseVisualStyleBackColor = True
         '
         'FrmHojaControl
         '
@@ -313,15 +314,15 @@ Partial Class FrmHojaControl
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "FrmHojaControl"
-        Me.Text = "FrmHojaControl"
+        Me.Text = "Pen"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        CType(Me.BUSESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BD_TransporteUrbanoDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         CType(Me.dg_detalle, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BD_TransporteUrbanoDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BUSESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
