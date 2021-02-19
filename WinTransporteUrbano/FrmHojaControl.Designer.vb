@@ -70,9 +70,9 @@ Partial Class FrmHojaControl
         Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.GroupBox1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
         Me.GroupBox1.Location = New System.Drawing.Point(31, 36)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Size = New System.Drawing.Size(775, 135)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
@@ -92,27 +92,27 @@ Partial Class FrmHojaControl
         'txt_vuelta
         '
         Me.txt_vuelta.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_vuelta.Location = New System.Drawing.Point(461, 56)
+        Me.txt_vuelta.Location = New System.Drawing.Point(612, 70)
         Me.txt_vuelta.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.txt_vuelta.Name = "txt_vuelta"
-        Me.txt_vuelta.Size = New System.Drawing.Size(61, 26)
+        Me.txt_vuelta.Size = New System.Drawing.Size(61, 31)
         Me.txt_vuelta.TabIndex = 55
         '
         'dtp_fecha
         '
-        Me.dtp_fecha.Location = New System.Drawing.Point(132, 57)
+        Me.dtp_fecha.Location = New System.Drawing.Point(192, 67)
         Me.dtp_fecha.Name = "dtp_fecha"
-        Me.dtp_fecha.Size = New System.Drawing.Size(316, 26)
+        Me.dtp_fecha.Size = New System.Drawing.Size(316, 31)
         Me.dtp_fecha.TabIndex = 54
         '
         'lbl_fecha
         '
         Me.lbl_fecha.AutoSize = True
         Me.lbl_fecha.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_fecha.Location = New System.Drawing.Point(129, 33)
+        Me.lbl_fecha.Location = New System.Drawing.Point(188, 37)
         Me.lbl_fecha.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbl_fecha.Name = "lbl_fecha"
-        Me.lbl_fecha.Size = New System.Drawing.Size(58, 18)
+        Me.lbl_fecha.Size = New System.Drawing.Size(70, 23)
         Me.lbl_fecha.TabIndex = 53
         Me.lbl_fecha.Text = "Fecha"
         '
@@ -145,9 +145,9 @@ Partial Class FrmHojaControl
         Me.GroupBox2.Controls.Add(Me.cmb_bus)
         Me.GroupBox2.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
         Me.GroupBox2.Location = New System.Drawing.Point(31, 187)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Size = New System.Drawing.Size(775, 110)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
@@ -158,7 +158,7 @@ Partial Class FrmHojaControl
         Me.txt_hora.Font = New System.Drawing.Font("Arial Rounded MT Bold", 13.0!)
         Me.txt_hora.Format = System.Windows.Forms.DateTimePickerFormat.Time
         Me.txt_hora.Location = New System.Drawing.Point(389, 44)
-        Me.txt_hora.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txt_hora.Margin = New System.Windows.Forms.Padding(4)
         Me.txt_hora.Name = "txt_hora"
         Me.txt_hora.ShowUpDown = True
         Me.txt_hora.Size = New System.Drawing.Size(128, 33)
@@ -178,7 +178,7 @@ Partial Class FrmHojaControl
         'btn_agregar
         '
         Me.btn_agregar.Location = New System.Drawing.Point(555, 38)
-        Me.btn_agregar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btn_agregar.Margin = New System.Windows.Forms.Padding(4)
         Me.btn_agregar.Name = "btn_agregar"
         Me.btn_agregar.Size = New System.Drawing.Size(193, 46)
         Me.btn_agregar.TabIndex = 94
@@ -193,7 +193,7 @@ Partial Class FrmHojaControl
         Me.cmb_bus.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmb_bus.FormattingEnabled = True
         Me.cmb_bus.Location = New System.Drawing.Point(23, 46)
-        Me.cmb_bus.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmb_bus.Margin = New System.Windows.Forms.Padding(4)
         Me.cmb_bus.Name = "cmb_bus"
         Me.cmb_bus.Size = New System.Drawing.Size(235, 31)
         Me.cmb_bus.TabIndex = 93
@@ -218,9 +218,9 @@ Partial Class FrmHojaControl
         Me.GroupBox3.Controls.Add(Me.dg_detalle)
         Me.GroupBox3.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
         Me.GroupBox3.Location = New System.Drawing.Point(31, 316)
-        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox3.Size = New System.Drawing.Size(775, 410)
         Me.GroupBox3.TabIndex = 2
         Me.GroupBox3.TabStop = False
@@ -238,7 +238,7 @@ Partial Class FrmHojaControl
         'btn_Cerrar
         '
         Me.btn_Cerrar.Location = New System.Drawing.Point(612, 345)
-        Me.btn_Cerrar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btn_Cerrar.Margin = New System.Windows.Forms.Padding(4)
         Me.btn_Cerrar.Name = "btn_Cerrar"
         Me.btn_Cerrar.Size = New System.Drawing.Size(136, 46)
         Me.btn_Cerrar.TabIndex = 99
@@ -248,7 +248,7 @@ Partial Class FrmHojaControl
         'btn_Quitar
         '
         Me.btn_Quitar.Location = New System.Drawing.Point(465, 345)
-        Me.btn_Quitar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btn_Quitar.Margin = New System.Windows.Forms.Padding(4)
         Me.btn_Quitar.Name = "btn_Quitar"
         Me.btn_Quitar.Size = New System.Drawing.Size(136, 46)
         Me.btn_Quitar.TabIndex = 98
@@ -337,7 +337,7 @@ Partial Class FrmHojaControl
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FrmHojaControl"
         Me.Text = "Pen"
         Me.GroupBox1.ResumeLayout(False)
