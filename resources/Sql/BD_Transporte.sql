@@ -42,14 +42,14 @@ go
 
 CREATE TABLE CONDUCTORES
 ( 
-	COND_IdConductor     int IDENTITY ( 1,1 ) ,
-	COND_DNI             char(08)  NOT NULL ,
-	COND_Nombres         varchar(50)  NOT NULL ,
-	COND_ApellidoPaterno varchar(30)  NOT NULL ,
-	COND_ApellidoMaterno varchar(30)  NOT NULL ,
-	COND_Telefono        varchar(11)  NOT NULL ,
-	COND_FechaNacConductor datetime  NOT NULL ,
-	COND_NumeroLicencia  char(9)  NOT NULL 
+	COND_IdConductor		int IDENTITY ( 1,1 ) ,
+	COND_DNI				char(08)  NOT NULL ,
+	COND_Nombres			varchar(50)  NOT NULL ,
+	COND_ApellidoPaterno	varchar(30)  NOT NULL ,
+	COND_ApellidoMaterno	varchar(30)  NOT NULL ,
+	COND_Telefono			varchar(11)  NULL ,
+	COND_FechaNacConductor	datetime  NOT NULL ,
+	COND_NumeroLicencia		char(9)  NULL 
 )
 go
 
@@ -83,7 +83,7 @@ CREATE TABLE CONTROL_UBICACION
 	CONTUB_IdControlUbicacion int IDENTITY ( 1,1 ) ,
 	CONTUB_Control       varchar(60)  NOT NULL ,
 	CONTUB_Codigo        char(5)  NOT NULL ,
-	CONTUB_Direcci�n     varchar(120)  NOT NULL 
+	CONTUB_Direccion     varchar(120)  NOT NULL 
 )
 go
 
@@ -98,7 +98,7 @@ go
 CREATE TABLE CONTROLADOR_PERSONAL
 ( 
 	USU_IdUsuario        int  NOT NULL ,
-	NroControles         int  NOT NULL 
+	CONTP_NroControles         int  NOT NULL 
 )
 go
 
@@ -256,7 +256,7 @@ go
 CREATE TABLE SECRETARIA
 ( 
 	USU_IdUsuario        int  NOT NULL ,
-	Turno                varchar(15)  NOT NULL 
+	SEC_Turno                varchar(15)  NOT NULL 
 )
 go
 
@@ -301,15 +301,15 @@ go
 
 CREATE TABLE USUARIO
 ( 
-	USU_Usuario          varchar(30)  NOT NULL ,
-	USU_Contrase�a       varchar(30)  NOT NULL ,
-	USU_Correo           varchar(60)  NOT NULL ,
-	USU_NombresUsuario   varchar(50)  NOT NULL ,
-	USU_ApellidoPaternoUsuario varchar(30)  NOT NULL ,
-	USU_ApellidoMaternoUsuario varchar(30)  NOT NULL ,
-	USU_FechaNacUsuario  datetime  NOT NULL ,
-	USU_IdUsuario        int IDENTITY ( 1,1 ) ,
-	CONTP_DNI            char(8)  NOT NULL 
+	USU_Usuario						varchar(30)  NOT NULL ,
+	USU_Contrasena					varchar(30)  NOT NULL ,
+	USU_Correo						varchar(60)  NOT NULL ,
+	USU_DNI							char(08)  NOT NULL,
+	USU_NombresUsuario				varchar(50)  NOT NULL ,
+	USU_ApellidoPaternoUsuario		varchar(30)  NOT NULL ,
+	USU_ApellidoMaternoUsuario		varchar(30)  NOT NULL ,
+	USU_FechaNacUsuario				datetime  NOT NULL ,
+	USU_IdUsuario					int IDENTITY ( 1,1 )
 )
 go
 
