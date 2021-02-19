@@ -19,12 +19,11 @@ Public Class FrmLogin
         idUsuario = datos(0)
         usuario_ingresado = idUsuario
         tipo = datos(1)
-        MessageBox.Show("dsda", "Bienvenido", MessageBoxButtons.OK, MessageBoxIcon.Information)
         If tipo <> "" Then
             Select Case tipo
                 Case "Controlador"
-                    MessageBox.Show("asads", "Bienvenido", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
+                    MessageBox.Show(correo, "Bienvenido", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    FrmIndexControlador.Show()
                     Me.Hide()
                 Case "Administrador"
                     MessageBox.Show(correo, "Bienvenido", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -32,7 +31,7 @@ Public Class FrmLogin
                     Me.Hide()
                 Case "Secretaria"
                     MessageBox.Show(correo, "Bienvenido", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
+                    FrmIndexSecretaria.Show()
                     Me.Hide()
             End Select
         Else
