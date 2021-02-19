@@ -167,6 +167,12 @@
     <Compile Include="FrmRuta.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmSeleccionControl.Designer.vb">
+      <DependentUpon>FrmSeleccionControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSeleccionControl.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmTarifa.Designer.vb">
       <DependentUpon>FrmTarifa.vb</DependentUpon>
     </Compile>
@@ -232,6 +238,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRuta.resx">
       <DependentUpon>FrmRuta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSeleccionControl.resx">
+      <DependentUpon>FrmSeleccionControl.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTarifa.resx">
       <DependentUpon>FrmTarifa.vb</DependentUpon>

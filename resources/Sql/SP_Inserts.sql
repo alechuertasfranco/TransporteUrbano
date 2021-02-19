@@ -101,6 +101,11 @@ AS
 	END
 GO
 
+--EXECUTE sp_insertaControl_Ubicacion 'TERM', 'Terminal', 'Panamericana Norte 13014'
+--EXECUTE sp_insertaControl_Ubicacion 'PALM', 'Las Palmeras', 'Alfonso Ugarte 1, Distrito de Víctor Larco Herrera 13014'
+--SELECT * FROM CONTROL_UBICACION
+--GO
+
 --Inserción en tabla Controlador
 CREATE PROCEDURE sp_insertaControlador
 	@DNI 				CHAR(08),
@@ -136,6 +141,11 @@ AS
 	END
 GO
 
+--EXECUTE sp_insertaControl_T 0, 1, 1
+--EXECUTE sp_insertaControl_T 4, 2, 1
+--SELECT * FROM CONTROL_T
+--GO
+
 
 --Inserción en tabla Pago_Control
 CREATE PROCEDURE sp_insertaPago_Control
@@ -166,6 +176,11 @@ AS
 	END
 GO
 
+-- EXECUTE sp_insertaRuta 'A', 20
+-- EXECUTE sp_insertaRuta 'C', 20
+-- SELECT * FROM RUTA
+-- GO
+
 --Inserción en tabla Tarifa
 CREATE PROCEDURE sp_insertaTarifa
 	@Descripcion 		CHAR(30)
@@ -184,6 +199,18 @@ CREATE PROCEDURE sp_insertaTarifa_Ruta
 AS
 	BEGIN
 		INSERT INTO TARIFA_RUTA(RUT_IdRuta, TAR_IdTarifa, TR_Monto)
+		VALUES (@IdRuta,@IdTarifa,@Monto)
+	END
+GO
+
+
+--Inserción en la tabla Controlador_Sistema
+CREATE PROCEDURE sp_insertaTarifa_Ruta
+	@IdControl 			INTEGER,
+	@IdControlador 		INTEGER
+AS
+	BEGIN
+		INSERT INTO CONTROLADOR_SISTEMA(RUT_IdRuta, TAR_IdTarifa, TR_Monto)
 		VALUES (@IdRuta,@IdTarifa,@Monto)
 	END
 GO
