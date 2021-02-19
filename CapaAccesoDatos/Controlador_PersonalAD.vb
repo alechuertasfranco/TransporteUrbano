@@ -27,21 +27,41 @@ Public Class Controlador_PersonalAD
         End Try
     End Sub
 
-    Public Sub editar_usuario(obj As Usuario)
+    Public Sub editar_controlador(objU As Usuario, objC As Controlador_Personal)
         Dim oConexion As New SqlConnection("server=.; integrated security=true; database=BD_TransporteUrbano")
-        Dim oComando As New SqlCommand("SP_ActualizaUsuario", oConexion)
+        Dim oComando As New SqlCommand("SP_ActualizaControlador", oConexion)
         Dim oLector As SqlDataReader
         oComando.CommandType = CommandType.StoredProcedure
         Try
             oConexion.Open()
-            oComando.Parameters.AddWithValue("@IdUsuario", obj.IdUsuario)
-            oComando.Parameters.AddWithValue("@Usuario", obj.Usuario)
-            oComando.Parameters.AddWithValue("@Contrasena", obj.Contrasena)
-            oComando.Parameters.AddWithValue("@Correo", obj.Correo)
-            oComando.Parameters.AddWithValue("@DNI", obj.DNI)
-            oComando.Parameters.AddWithValue("@Nombres", obj.NombresUsuario)
-            oComando.Parameters.AddWithValue("@ApellidoPaterno", obj.ApellidoPaternoUsuario)
-            oComando.Parameters.AddWithValue("@ApellidoMaterno", obj.ApellidoMaternoUsuario)
+            oComando.Parameters.AddWithValue("@IdUsuario", objU.IdUsuario)
+            oComando.Parameters.AddWithValue("@NroControles", objC.NroControles)
+            oComando.Parameters.AddWithValue("@Usuario", objU.Usuario)
+            oComando.Parameters.AddWithValue("@Contrasena", objU.Contrasena)
+            oComando.Parameters.AddWithValue("@Correo", objU.Correo)
+            oComando.Parameters.AddWithValue("@DNI", objU.DNI)
+            oComando.Parameters.AddWithValue("@NombresUsuario", objU.NombresUsuario)
+            oComando.Parameters.AddWithValue("@ApellidoPaternoUsuario", objU.ApellidoPaternoUsuario)
+            oComando.Parameters.AddWithValue("@ApellidoMaternoUsuario", objU.ApellidoMaternoUsuario)
+            oComando.Parameters.AddWithValue("@FechaNacUsuario", objU.FechaNacUsuario)
+            oComando.Connection = oConexion
+            oLector = oComando.ExecuteReader()
+            oConexion.Close()
+            oConexion.Dispose()
+        Catch ex As Exception
+            Throw New Exception(ex.Message)
+            Exit Sub
+        End Try
+    End Sub
+
+    Public Sub borrar_controlador(IdUsuario As Integer)
+        Dim oConexion As New SqlConnection("server=.; integrated security=true; database=BD_TransporteUrbano")
+        Dim oComando As New SqlCommand("SP_EliminaControlador", oConexion)
+        Dim oLector As SqlDataReader
+        oComando.CommandType = CommandType.StoredProcedure
+        Try
+            oConexion.Open()
+            oComando.Parameters.AddWithValue("@IdUsuario", IdUsuario)
             oComando.Connection = oConexion
             oLector = oComando.ExecuteReader()
             oConexion.Close()
