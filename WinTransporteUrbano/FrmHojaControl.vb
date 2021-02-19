@@ -41,26 +41,31 @@ Public Class FrmHojaControl
         'dtHojaControl = Me.taHojaControl.GetDataByLastID()
         txt_codigo.Text = codigoHojaControl
         txt_vuelta.Text = nVuelta
-        If btn_agregar.Enabled Then
-            MsgBox("Aún no hay ninguna hoja de control generada, por favor de click en generar")
-        End If
+        'If btn_agregar.Enabled Then
+        'MsgBox("Aún no hay ninguna hoja de control generada, por favor de click en generar")
+        'End If
+        actualizar_detalle()
     End Sub
     Private Sub btn_Generar_Click(sender As Object, e As EventArgs) Handles btn_Generar.Click
-        btn_agregar.Enabled = True
         Try
-
             Dim obj As New Hoja_Control
-        obj.Codigo = CType(codigoHojaControl, String)
+            obj.Codigo = CType(codigoHojaControl, String)
             obj.fecha = DateTime.Now.ToString("dd/MM/yyyy")
             obj.nVuelta = CType(nVuelta, Integer)
-        obj.idPenalizacion = CType(idPenalizacion, Integer)
+            obj.idPenalizacion = CType(idPenalizacion, String)
             obj.TotalPenalizacion = 0
             MsgBox(obj.fecha)
             Hoja_ControlLN.agregar_hoja(obj)
             MsgBox("Se agrego correctamente la hoja")
+            btn_agregar.Enabled = True
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+    End Sub
+    Public Sub actualizar_detalle()
+
+        Me.dtDetalleHoja = Me.taDetalleHoja.GetDataByIdHoja(id)
+        dg_detalle.DataSource = Me.dtDetalleHoja
     End Sub
     Private Sub btn_agregar_Click(sender As Object, e As EventArgs) Handles btn_agregar.Click
         Hora = Format(DateAdd("n", 6, txt_hora.Text), "HH:mm:ss")
@@ -85,6 +90,7 @@ Public Class FrmHojaControl
                 MsgBox(ex, , "Error al editar")
             End Try
             Me.editar = False
+            actualizar_detalle()
         Else
             'Agregar un registro
             Me.registro = dtDetalleHoja.NewDETALLE_RECORRIDORow()
@@ -94,7 +100,7 @@ Public Class FrmHojaControl
             registro.DREC_HoraSalida = fecha
             registro.DREC_HoraLlegada = DateTime.Now.ToString("dd/MM/yyyy")
             registro.DREC_MontoPenalizacion = 0
-
+            actualizar_detalle()
             'Agregar regitro al DataTable
             Try
                 dtDetalleHoja.AddDETALLE_RECORRIDORow(Me.registro)
@@ -148,5 +154,6 @@ Public Class FrmHojaControl
         Catch ex As Exception
             MsgBox(ex, , "Error al eliminar")
         End Try
+        actualizar_detalle()
     End Sub
 End Class

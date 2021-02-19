@@ -1,6 +1,6 @@
 ﻿
 Public Class FrmIndexAdmin
-    Private Sub BusesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConductorToolStripMenuItem.Click
+    Private Sub BusesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BusToolStripMenuItem.Click
         Dim ObjBus As New FrmBus
         ObjBus.MdiParent = Me
         ObjBus.Show()
@@ -12,7 +12,7 @@ Public Class FrmIndexAdmin
         ObjControlador.Show()
     End Sub
 
-    Private Sub ConductorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BusToolStripMenuItem.Click
+    Private Sub ConductorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConductorToolStripMenuItem.Click
         Dim ObjConductor As New FrmConductor
         ObjConductor.MdiParent = Me
         ObjConductor.Show()

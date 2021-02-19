@@ -1,7 +1,6 @@
 -- BASE DE DATOS 
 create database BD_TransporteUrbano;
 go
-
 use BD_TransporteUrbano;
 go
 
