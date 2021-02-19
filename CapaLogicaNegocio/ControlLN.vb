@@ -14,4 +14,5 @@ Public Class ControlLN
         Dim objAD As New ControlAD
         Return objAD.consultar_control(IdControlador)
     End Function
+
 End Class

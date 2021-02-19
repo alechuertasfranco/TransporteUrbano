@@ -78,14 +78,21 @@ begin
 			 upper(substring(replace(CONVERT(varchar,@fecha,106),' ',''),8,LEN(replace(CONVERT(varchar,@fecha,106),' ',''))-1))+
 			 CONVERT(varchar(10), @vuelta) as codigo
 			 ,
-			 @fecha as fecha ,0 as TotalPenalizacion,@idPenalizacion as idPenalizacion, @vuelta as Vuelta,@cantidadControles as CantidadControles
+			 @fecha as fecha ,0 as TotalPenalizacion,@idPenalizacion as idPenalizacion, @vuelta as Vuelta,@cantidadControles as CantidadControles, @id as HCONT_IdHojaControl
 			FROM HOJA_CONTROL_RECORRIDOS H order by H.HCONT_IdHojaControl desc
 	END
 GO
 
-EXECUTE sp_GenerarHojaRecorrido '17-02-2021'
+EXECUTE sp_GenerarHojaRecorrido '18-02-2021'
 
+insert into HOJA_CONTROL_RECORRIDOS VALUES('HC117FEB211','17-02-2021',0,1,1)
+select * from HOJA_CONTROL_RECORRIDOS
 
+select * from CONTROL_T
+
+select * from PENALIZACIONES
+
+select * from DETALLE_RECORRIDO
 
 delete HOJA_CONTROL_RECORRIDOS
 select * from HOJA_CONTROL_RECORRIDOS

@@ -1,4 +1,5 @@
 ﻿Imports CapaLogicaNegocio
+Imports CapaEntidad
 Public Class FrmHojaControl
     Private Hora As String
     Private HoraAuxiliar As String
@@ -16,9 +17,11 @@ Public Class FrmHojaControl
     Private editar As Boolean
     Private nro_datagrid As Integer
     Private idhoja As String
+
     Dim codigoHojaControl As String
     Dim idPenalizacion As Integer
     Dim nVuelta As String
+    Dim id As Integer
     Dim cantidadControles
     Dim datos() As String
 
@@ -27,20 +30,39 @@ Public Class FrmHojaControl
     End Sub
 
     Private Sub FrmHojaControl_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-        datos = Hoja_ControlLN.GenerarCabecera(Now)
+        datos = Hoja_ControlLN.GenerarCabecera(DateTime.Now.ToString("dd/MM/yyyy"))
         codigoHojaControl = datos(0)
         idPenalizacion = datos(2)
         nVuelta = datos(3)
         cantidadControles = datos(4)
+        id = datos(5)
         'TODO: esta línea de código carga datos en la tabla 'BD_TransporteUrbanoDataSet.BUSES' Puede moverla o quitarla según sea necesario.
         Me.BUSESTableAdapter.Fill(Me.BD_TransporteUrbanoDataSet.BUSES)
         'dtHojaControl = Me.taHojaControl.GetDataByLastID()
         txt_codigo.Text = codigoHojaControl
+        txt_vuelta.Text = nVuelta
+        If btn_agregar.Enabled Then
+            MsgBox("Aún no hay ninguna hoja de control generada, por favor de click en generar")
+        End If
+    End Sub
+    Private Sub btn_Generar_Click(sender As Object, e As EventArgs) Handles btn_Generar.Click
+        btn_agregar.Enabled = True
+        Try
 
+            Dim obj As New Hoja_Control
+        obj.Codigo = CType(codigoHojaControl, String)
+            obj.fecha = DateTime.Now.ToString("dd/MM/yyyy")
+            obj.nVuelta = CType(nVuelta, Integer)
+        obj.idPenalizacion = CType(idPenalizacion, Integer)
+            obj.TotalPenalizacion = 0
+            MsgBox(obj.fecha)
+            Hoja_ControlLN.agregar_hoja(obj)
+            MsgBox("Se agrego correctamente la hoja")
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
     Private Sub btn_agregar_Click(sender As Object, e As EventArgs) Handles btn_agregar.Click
-
         Hora = Format(DateAdd("n", 6, txt_hora.Text), "HH:mm:ss")
         txt_hora.Text = Hora
         txt_hora.Enabled = False
@@ -51,7 +73,7 @@ Public Class FrmHojaControl
             'Editar un registro
             Me.registro = dtDetalleHoja.FindByBUS_IdBusHCONT_IdHojaControlDREC_Controles(Me.campoLlave1, Me.campoLlave2, Me.campoLlave3)
             registro.BUS_IdBus = cmb_bus.SelectedValue
-            registro.DREC_Controles = 20
+            registro.DREC_Controles = cantidadControles
             registro.DREC_HoraSalida = fecha
             registro.DREC_HoraLlegada = DateTime.Now.ToString("dd/MM/yyyy")
             registro.DREC_MontoPenalizacion = 0
@@ -66,9 +88,9 @@ Public Class FrmHojaControl
         Else
             'Agregar un registro
             Me.registro = dtDetalleHoja.NewDETALLE_RECORRIDORow()
-            Me.registro = dtDetalleHoja.FindByBUS_IdBusHCONT_IdHojaControlDREC_Controles(Me.campoLlave1, Me.campoLlave2, Me.campoLlave3)
-            registro.BUS_IdBus = cmb_bus.SelectedValue
-            registro.DREC_Controles = 20
+            registro.HCONT_IdHojaControl = id
+            registro.BUS_IdBus = Convert.ToInt16(cmb_bus.SelectedValue)
+            registro.DREC_Controles = cantidadControles
             registro.DREC_HoraSalida = fecha
             registro.DREC_HoraLlegada = DateTime.Now.ToString("dd/MM/yyyy")
             registro.DREC_MontoPenalizacion = 0
@@ -79,12 +101,13 @@ Public Class FrmHojaControl
                 'Actualizar la Base
                 Try
                     taDetalleHoja.Update(dtDetalleHoja)
+
                     MsgBox("Registro insertado exitosamente")
                 Catch ex As Exception
-                    MsgBox(ex, , "Error al insertar")
+                    MsgBox(ex.Message)
                 End Try
             Catch ex As Exception
-                MsgBox("Este bus ya esta registrado en esta hoja")
+                MsgBox("Ese bus ya esta registrado en esta hoja de control")
             End Try
         End If
     End Sub
