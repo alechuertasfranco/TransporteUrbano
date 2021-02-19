@@ -30,9 +30,9 @@ Partial Class FrmHojaControl
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.txt_fecha = New System.Windows.Forms.Label()
+        Me.txt_vuelta = New System.Windows.Forms.TextBox()
+        Me.dtp_fecha = New System.Windows.Forms.DateTimePicker()
+        Me.lbl_fecha = New System.Windows.Forms.Label()
         Me.lbl_Codigo = New System.Windows.Forms.Label()
         Me.txt_codigo = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -43,6 +43,7 @@ Partial Class FrmHojaControl
         Me.BUSESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.BD_TransporteUrbanoDataSet = New WinTransporteUrbano.BD_TransporteUrbanoDataSet()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.btn_editar = New System.Windows.Forms.Button()
         Me.btn_Cerrar = New System.Windows.Forms.Button()
         Me.btn_Quitar = New System.Windows.Forms.Button()
         Me.btn_Guardar = New System.Windows.Forms.Button()
@@ -61,9 +62,9 @@ Partial Class FrmHojaControl
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
-        Me.GroupBox1.Controls.Add(Me.DateTimePicker1)
-        Me.GroupBox1.Controls.Add(Me.txt_fecha)
+        Me.GroupBox1.Controls.Add(Me.txt_vuelta)
+        Me.GroupBox1.Controls.Add(Me.dtp_fecha)
+        Me.GroupBox1.Controls.Add(Me.lbl_fecha)
         Me.GroupBox1.Controls.Add(Me.lbl_Codigo)
         Me.GroupBox1.Controls.Add(Me.txt_codigo)
         Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System
@@ -88,33 +89,32 @@ Partial Class FrmHojaControl
         Me.Label2.TabIndex = 56
         Me.Label2.Text = "N° Vuelta"
         '
-        'TextBox1
+        'txt_vuelta
         '
-        Me.TextBox1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(615, 69)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(80, 31)
-        Me.TextBox1.TabIndex = 55
+        Me.txt_vuelta.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_vuelta.Location = New System.Drawing.Point(461, 56)
+        Me.txt_vuelta.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.txt_vuelta.Name = "txt_vuelta"
+        Me.txt_vuelta.Size = New System.Drawing.Size(61, 26)
+        Me.txt_vuelta.TabIndex = 55
         '
-        'DateTimePicker1
+        'dtp_fecha
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(176, 70)
-        Me.DateTimePicker1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(420, 31)
-        Me.DateTimePicker1.TabIndex = 54
+        Me.dtp_fecha.Location = New System.Drawing.Point(132, 57)
+        Me.dtp_fecha.Name = "dtp_fecha"
+        Me.dtp_fecha.Size = New System.Drawing.Size(316, 26)
+        Me.dtp_fecha.TabIndex = 54
         '
-        'txt_fecha
+        'lbl_fecha
         '
-        Me.txt_fecha.AutoSize = True
-        Me.txt_fecha.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_fecha.Location = New System.Drawing.Point(172, 41)
-        Me.txt_fecha.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
-        Me.txt_fecha.Name = "txt_fecha"
-        Me.txt_fecha.Size = New System.Drawing.Size(70, 23)
-        Me.txt_fecha.TabIndex = 53
-        Me.txt_fecha.Text = "Fecha"
+        Me.lbl_fecha.AutoSize = True
+        Me.lbl_fecha.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_fecha.Location = New System.Drawing.Point(129, 33)
+        Me.lbl_fecha.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lbl_fecha.Name = "lbl_fecha"
+        Me.lbl_fecha.Size = New System.Drawing.Size(58, 18)
+        Me.lbl_fecha.TabIndex = 53
+        Me.lbl_fecha.Text = "Fecha"
         '
         'lbl_Codigo
         '
@@ -211,6 +211,7 @@ Partial Class FrmHojaControl
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.btn_editar)
         Me.GroupBox3.Controls.Add(Me.btn_Cerrar)
         Me.GroupBox3.Controls.Add(Me.btn_Quitar)
         Me.GroupBox3.Controls.Add(Me.btn_Guardar)
@@ -224,6 +225,15 @@ Partial Class FrmHojaControl
         Me.GroupBox3.TabIndex = 2
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "DETALLE_RECORRIDO"
+        '
+        'btn_editar
+        '
+        Me.btn_editar.Location = New System.Drawing.Point(241, 280)
+        Me.btn_editar.Name = "btn_editar"
+        Me.btn_editar.Size = New System.Drawing.Size(102, 37)
+        Me.btn_editar.TabIndex = 100
+        Me.btn_editar.Text = "Editar"
+        Me.btn_editar.UseVisualStyleBackColor = True
         '
         'btn_Cerrar
         '
@@ -247,8 +257,7 @@ Partial Class FrmHojaControl
         '
         'btn_Guardar
         '
-        Me.btn_Guardar.Location = New System.Drawing.Point(320, 345)
-        Me.btn_Guardar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btn_Guardar.Location = New System.Drawing.Point(133, 280)
         Me.btn_Guardar.Name = "btn_Guardar"
         Me.btn_Guardar.Size = New System.Drawing.Size(136, 46)
         Me.btn_Guardar.TabIndex = 97
@@ -356,14 +365,15 @@ Partial Class FrmHojaControl
     Friend WithEvents lblhora As Label
     Friend WithEvents horafecha As Timer
     Friend WithEvents txt_hora As DateTimePicker
-    Friend WithEvents txt_fecha As Label
-    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents lbl_fecha As Label
+    Friend WithEvents dtp_fecha As DateTimePicker
     Friend WithEvents Label2 As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txt_vuelta As TextBox
     Friend WithEvents BD_TransporteUrbanoDataSet As BD_TransporteUrbanoDataSet
     Friend WithEvents BUSESBindingSource As BindingSource
     Friend WithEvents BUSESTableAdapter As BD_TransporteUrbanoDataSetTableAdapters.BUSESTableAdapter
     Friend WithEvents btn_Cerrar As Button
     Friend WithEvents btn_Quitar As Button
     Friend WithEvents btn_Guardar As Button
+    Friend WithEvents btn_editar As Button
 End Class
