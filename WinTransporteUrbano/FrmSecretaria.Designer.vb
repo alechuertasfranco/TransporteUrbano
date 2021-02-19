@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class FrmRegistroU
+Partial Class FrmSecretaria
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -23,7 +23,7 @@ Partial Class FrmRegistroU
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmRegistroU))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmSecretaria))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -180,15 +180,13 @@ Partial Class FrmRegistroU
         '
         'cbo_rol
         '
-        Me.cbo_rol.DataSource = Me.USUARIOROLBindingSource
-        Me.cbo_rol.DisplayMember = "USUR_Rol"
         Me.cbo_rol.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
         Me.cbo_rol.FormattingEnabled = True
+        Me.cbo_rol.Items.AddRange(New Object() {"Mañana", "Tarde", "Noche"})
         Me.cbo_rol.Location = New System.Drawing.Point(216, 40)
         Me.cbo_rol.Name = "cbo_rol"
         Me.cbo_rol.Size = New System.Drawing.Size(132, 26)
         Me.cbo_rol.TabIndex = 63
-        Me.cbo_rol.ValueMember = "USUR_IdUsuarioRol"
         '
         'USUARIOROLBindingSource
         '

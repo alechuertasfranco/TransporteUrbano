@@ -4,7 +4,7 @@ Imports CapaLogicaNegocio
 Public Class FrmControladorDatos
     Private Sub FrmControladorDatos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim datos() As String
-        datos = Controlador_PersonalLN.consultar_controlador(controlador_ingresado)
+        datos = Controlador_PersonalLN.consultar_controlador(1)
         Me.txt_usuario.Text = datos(0)
         Me.txt_contraseña.Text = datos(1)
         Me.txt_correo.Text = datos(2)
@@ -38,17 +38,17 @@ Public Class FrmControladorDatos
             Me.txt_apellidop.ReadOnly = True
             Me.txt_apellidom.ReadOnly = True
 
-            Dim obj As New Controlador_Personal
+            Dim obj As New Usuario
             If txt_usuario.Text <> "" Or txt_contraseña.Text <> "" Or txt_contraseña.Text <> "" Or txt_correo.Text <> "" Or txt_dni.Text <> "" Or txt_nombres.Text <> "" Or txt_apellidop.Text <> "" Or txt_apellidom.Text <> "" Then
-                obj.IdControlador = CType(controlador_ingresado, String)
+                obj.IdUsuario = CType(1, String)
                 obj.Usuario = CType(txt_usuario.Text, String)
                 obj.Contrasena = CType(txt_contraseña.Text, String)
                 obj.Correo = CType(txt_correo.Text, String)
                 obj.DNI = CType(txt_dni.Text, String)
-                obj.Nombres = CType(txt_nombres.Text, String)
-                obj.ApellidoPaterno = CType(txt_apellidop.Text, String)
-                obj.ApellidoMaterno = CType(txt_apellidom.Text, String)
-                Controlador_PersonalLN.editar_controlador(obj)
+                obj.NombresUsuario = CType(txt_nombres.Text, String)
+                obj.ApellidoPaternoUsuario = CType(txt_apellidop.Text, String)
+                obj.ApellidoMaternoUsuario = CType(txt_apellidom.Text, String)
+                Controlador_PersonalLN.editar_usuario(obj)
                 MsgBox("Datos Actualizados")
             Else
                 MsgBox("Llene todos los campos de texto")

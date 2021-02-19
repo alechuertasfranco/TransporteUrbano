@@ -15,7 +15,6 @@ Public Class UsuarioAD
             cmdU.Parameters.AddWithValue("@ApellidoPaternoUsuario", obj.ApellidoPaternoUsuario)
             cmdU.Parameters.AddWithValue("@ApellidoMaternoUsuario", obj.ApellidoMaternoUsuario)
             cmdU.Parameters.AddWithValue("@FechaNacUsuario", obj.FechaNacUsuario)
-            cmdU.Parameters.AddWithValue("@IdUsuarioRol", obj.IdUsuarioRol)
             cmdU.Connection = cn
             oLector = cmdU.ExecuteReader()
             cn.Close()

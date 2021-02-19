@@ -3,11 +3,11 @@
     Private m_Usuario As String
     Private m_Correo As String
     Private m_Contraseña As String
+    Private m_Dni As String
     Private m_NombresUsuario As String
     Private m_ApellidoPaternoUsuario As String
     Private m_ApellidoMaternoUsuario As String
     Private m_FechaNacUsuario As Date
-    Private m_IdUsuarioRol As Integer
 
 
     Public Property IdUsuario() As Integer
@@ -34,6 +34,15 @@
         End Get
         Set(ByVal value As String)
             m_Correo = value
+        End Set
+    End Property
+
+    Public Property DNI() As String
+        Get
+            Return m_Dni
+        End Get
+        Set(ByVal value As String)
+            m_Dni = value
         End Set
     End Property
 
@@ -81,15 +90,4 @@
             m_FechaNacUsuario = value
         End Set
     End Property
-
-    Public Property IdUsuarioRol() As Integer
-        Get
-            Return m_IdUsuarioRol
-        End Get
-        Set(ByVal value As Integer)
-            m_IdUsuarioRol = value
-        End Set
-    End Property
-
-    
 End Class

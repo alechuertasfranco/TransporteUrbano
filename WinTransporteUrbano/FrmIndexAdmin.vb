@@ -41,7 +41,7 @@ Public Class FrmIndexAdmin
     End Sub
 
     Private Sub UsuarioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UsuarioToolStripMenuItem.Click
-        Dim ObjUsuario As New FrmRegistroU
+        Dim ObjUsuario As New FrmSecretaria
         ObjUsuario.MdiParent = Me
         ObjUsuario.Show()
     End Sub

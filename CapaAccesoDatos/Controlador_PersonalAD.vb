@@ -1,42 +1,47 @@
 ﻿Imports CapaEntidad
 Imports System.Data.SqlClient
 Public Class Controlador_PersonalAD
-    Public Sub agregar_controlador(obj As Controlador_Personal)
-        Dim cn As New SqlConnection("server=.; integrated security=true; database=BD_TransporteUrbano")
-        Dim cmdB As New SqlCommand("sp_insertaControlador", cn)
+    Public Sub agregar_controlador(objU As Usuario, objC As Controlador_Personal)
+        Dim oConexion As New SqlConnection("server=.; integrated security=true; database=BD_TransporteUrbano")
+        Dim oComando As New SqlCommand("sp_insertaControlador", oConexion)
         Dim oLector As SqlDataReader
-        cmdB.CommandType = CommandType.StoredProcedure
+        oComando.CommandType = CommandType.StoredProcedure
         Try
-            cn.Open()
-            cmdB.Parameters.AddWithValue("@DNI", obj.DNI)
-            cmdB.Parameters.AddWithValue("@Nombres", obj.Nombres)
-            cmdB.Parameters.AddWithValue("@ApellidoPaterno", obj.ApellidoPaterno)
-            cmdB.Parameters.AddWithValue("@ApellidoMaterno", obj.ApellidoMaterno)
-            cmdB.Connection = cn
-            oLector = cmdB.ExecuteReader()
-            cn.Close()
-            cn.Dispose()
+            oConexion.Open()
+            oComando.Parameters.AddWithValue("@NroControles", objC.NroControles)
+            oComando.Parameters.AddWithValue("@Usuario", objU.Usuario)
+            oComando.Parameters.AddWithValue("@Contrasena", objU.Contrasena)
+            oComando.Parameters.AddWithValue("@Correo", objU.Correo)
+            oComando.Parameters.AddWithValue("@DNI", objU.DNI)
+            oComando.Parameters.AddWithValue("@NombresUsuario", objU.NombresUsuario)
+            oComando.Parameters.AddWithValue("@ApellidoPaternoUsuario", objU.ApellidoPaternoUsuario)
+            oComando.Parameters.AddWithValue("@ApellidoMaternoUsuario", objU.ApellidoMaternoUsuario)
+            oComando.Parameters.AddWithValue("@FechaNacUsuario", objU.FechaNacUsuario)
+            oComando.Connection = oConexion
+            oLector = oComando.ExecuteReader()
+            oConexion.Close()
+            oConexion.Dispose()
         Catch ex As Exception
             Throw New Exception(ex.Message)
             Exit Sub
         End Try
     End Sub
 
-    Public Sub editar_controlador(obj As Controlador_Personal)
+    Public Sub editar_usuario(obj As Usuario)
         Dim oConexion As New SqlConnection("server=.; integrated security=true; database=BD_TransporteUrbano")
-        Dim oComando As New SqlCommand("SP_ActualizaControlador", oConexion)
+        Dim oComando As New SqlCommand("SP_ActualizaUsuario", oConexion)
         Dim oLector As SqlDataReader
         oComando.CommandType = CommandType.StoredProcedure
         Try
             oConexion.Open()
-            oComando.Parameters.AddWithValue("@IdControlador", obj.IdControlador)
+            oComando.Parameters.AddWithValue("@IdUsuario", obj.IdUsuario)
             oComando.Parameters.AddWithValue("@Usuario", obj.Usuario)
             oComando.Parameters.AddWithValue("@Contrasena", obj.Contrasena)
             oComando.Parameters.AddWithValue("@Correo", obj.Correo)
             oComando.Parameters.AddWithValue("@DNI", obj.DNI)
-            oComando.Parameters.AddWithValue("@Nombres", obj.Nombres)
-            oComando.Parameters.AddWithValue("@ApellidoPaterno", obj.ApellidoPaterno)
-            oComando.Parameters.AddWithValue("@ApellidoMaterno", obj.ApellidoMaterno)
+            oComando.Parameters.AddWithValue("@Nombres", obj.NombresUsuario)
+            oComando.Parameters.AddWithValue("@ApellidoPaterno", obj.ApellidoPaternoUsuario)
+            oComando.Parameters.AddWithValue("@ApellidoMaterno", obj.ApellidoMaternoUsuario)
             oComando.Connection = oConexion
             oLector = oComando.ExecuteReader()
             oConexion.Close()
@@ -73,7 +78,7 @@ Public Class Controlador_PersonalAD
                     If (IsDBNull(oLector.Item(5))) Then
                         DNI = "No registrado"
                     Else
-                        DNI = oLector.Item(4)
+                        DNI = oLector.Item(5)
                     End If
                 End While
             End If
@@ -82,6 +87,30 @@ Public Class Controlador_PersonalAD
             Return datos
         Catch ex As Exception
             Throw New Exception(ex.Message)
+        Finally
+            oConexion.Close()
+            oConexion.Dispose()
+        End Try
+    End Function
+
+    Public Function listarControladores() As DataTable
+        Dim oConexion As New SqlConnection
+        Try
+            Dim oComando As New SqlCommand
+            Dim oLector As SqlDataReader
+
+            oConexion.ConnectionString = "server=.; Integrated security=true; Initial Catalog=BD_TransporteUrbano"
+            oConexion.Open()
+            oComando.CommandText = "SELECT * FROM V_Controladores"
+            oComando.Connection = oConexion
+            oLector = oComando.ExecuteReader()
+
+            Dim dt = New DataTable()
+            dt.Load(oLector)
+            Return dt
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
         Finally
             oConexion.Close()
             oConexion.Dispose()
