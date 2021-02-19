@@ -1,4 +1,14 @@
 USE BD_TransporteUrbano
+go
+
+INSERT INTO USUARIO_ROL(USUR_Rol) 
+        VALUES('Admin')
+INSERT INTO USUARIO_ROL(USUR_Rol) 
+        VALUES('Controlador')
+GO
+insert HOJA_CONTROL_RECORRIDOS values ('HC117FEB211','17-02-2021',20,1,1)
+
+SELECT * FROM USUARIO_ROL;
 GO
 
 --Inserción en tabla Conductor

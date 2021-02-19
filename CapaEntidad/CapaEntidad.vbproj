@@ -68,6 +68,7 @@
     <Compile Include="Control.vb" />
     <Compile Include="Controlador_Personal.vb" />
     <Compile Include="Control_Ubicacion.vb" />
+    <Compile Include="Hoja_Control.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
