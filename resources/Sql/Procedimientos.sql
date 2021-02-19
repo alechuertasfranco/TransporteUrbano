@@ -10,19 +10,22 @@ AS
 		SELECT U.USU_IdUsuario , CAST( 
 		CASE
 			WHEN C.USU_IdUsuario>0 
-			then
-				'Controlador'
+			then 'Controlador'
+			when S.USU_IdUsuario>0
+				then 'Secretaria'	
 				else
-				'Secretaria'
+				'Administrador'
+
 		end as varchar(15))as Tipo
 		FROM USUARIO U
 		left join SECRETARIA S on S.USU_IdUsuario=U.USU_IdUsuario
 		left join CONTROLADOR_PERSONAL C on C.USU_IdUsuario=U.USU_IdUsuario
-		WHERE U.USU_Correo = @usuario  
-		AND U.USU_Contrasena = @contraseña 
+		WHERE U.USU_Correo = @usuario
+		AND U.USU_Contrasena = @contraseña
 	end
 GO
 
+select * from usuario
 
 create PROCEDURE sp_GenerarHojaRecorrido
  @fecha 			datetime
