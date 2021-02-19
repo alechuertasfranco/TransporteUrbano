@@ -12,6 +12,7 @@ Public Class FrmControladorDatos
         Me.txt_nombres.Text = datos(4)
         Me.txt_apellidop.Text = datos(5)
         Me.txt_apellidom.Text = datos(6)
+        Me.txt_nro_controles.Text = datos(7)
         Me.btn_editar.Select()
     End Sub
 

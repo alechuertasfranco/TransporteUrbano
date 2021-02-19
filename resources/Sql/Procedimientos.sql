@@ -1,6 +1,7 @@
 USE BD_TransporteUrbano;
 GO
 
+-- Buscar el usuario para el Login
 create PROCEDURE sp_BuscarUsuario
 	@usuario 			VARCHAR(60),
 	@contraseña 		VARCHAR(30)
@@ -40,25 +41,6 @@ AS
 	END
 GO
 
-CREATE PROCEDURE SP_BuscarControlador
-	@idControlador		INT
-AS
-	BEGIN
-		SELECT *
-		FROM CONTROLADOR_PERSONAL
-		WHERE CONTP_IdControlador = @idControlador
-	END
-GO
-
-
-
-EXECUTE SP_BuscarControlador 1
-
---Generar la cabecera de las hojas de recorrido
-
-
-USE BD_TransporteUrbano;
-GO
 
 create PROCEDURE sp_GenerarHojaRecorrido
  @fecha 			datetime
@@ -116,6 +98,24 @@ insert PENALIZACIONES values(6,GETDATE())
 USE BD_TransporteUrbano;
 GO
 
+
+-- Buscar los datos del controlador por ID
+CREATE PROCEDURE SP_BuscarControlador
+	@idControlador		INT
+AS
+	BEGIN
+		SELECT *
+		FROM CONTROLADOR_PERSONAL C
+			INNER JOIN USUARIO U
+			ON U.USU_IdUsuario = C.USU_IdUsuario
+		WHERE U.USU_IdUsuario = @idControlador
+	END
+GO
+
+EXECUTE SP_BuscarControlador 1
+GO
+
+-- Obtener el ID de todos los controles de una Ruta para un ComboBox
 CREATE PROCEDURE SP_ListarControlesRuta
 	@IdRuta				INT
 AS
@@ -129,14 +129,14 @@ AS
 GO
 
 
-
+-- Buscar los datos del control por ID
 CREATE PROCEDURE SP_BuscarControl
 	@IdControl				INT
 AS
 	BEGIN
 		SELECT	CONTUB_Codigo as Codigo,
 				CONTUB_Control as [Control],
-				CONTUB_Dirección as Dirección
+				CONTUB_Direccion as [Dirección]
 		FROM CONTROL_T C
 			INNER JOIN CONTROL_UBICACION CU
 			ON CU.CONTUB_IdControlUbicacion = C.CONTUB_IdControlUbicacion
@@ -145,3 +145,4 @@ AS
 GO
 
 EXECUTE SP_BuscarControl 2
+GO

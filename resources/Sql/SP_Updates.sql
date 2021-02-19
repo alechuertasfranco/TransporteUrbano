@@ -12,15 +12,15 @@ CREATE PROCEDURE SP_ActualizaControlador
     @ApellidoMaterno		as VARCHAR(30)
 AS
     BEGIN
-        UPDATE CONTROLADOR_PERSONAL
+        UPDATE USUARIO
 		SET
-						CONTP_Usuario = @Usuario,
-						CONTP_Contraseña = @Contrasena,
-						CONTP_Correo = @Correo,
-						CONTP_DNI = @DNI,
-						CONTP_Nombre = @Nombres,
-						CONTP_ApellidoPaterno = @ApellidoPaterno,
-						CONTP_ApellidoMaterno = @ApellidoMaterno
-		WHERE CONTP_IdControlador = @IdControlador
+						USU_Usuario = @Usuario,
+						USU_Contrasena = @Contrasena,
+						USU_Correo = @Correo,
+						USU_DNI = @DNI,
+						USU_NombresUsuario = @Nombres,
+						USU_ApellidoPaternoUsuario = @ApellidoPaterno,
+						USU_ApellidoMaternoUsuario = @ApellidoMaterno
+		WHERE USU_IdUsuario = @IdControlador
 	END
 GO

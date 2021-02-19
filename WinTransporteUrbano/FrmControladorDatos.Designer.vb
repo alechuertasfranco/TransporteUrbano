@@ -38,6 +38,8 @@ Partial Class FrmControladorDatos
         Me.txt_nombres = New System.Windows.Forms.TextBox()
         Me.txt_dni = New System.Windows.Forms.TextBox()
         Me.btn_editar = New System.Windows.Forms.Button()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.txt_nro_controles = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -74,7 +76,7 @@ Partial Class FrmControladorDatos
         Me.txt_correo.Location = New System.Drawing.Point(26, 107)
         Me.txt_correo.Name = "txt_correo"
         Me.txt_correo.ReadOnly = True
-        Me.txt_correo.Size = New System.Drawing.Size(421, 26)
+        Me.txt_correo.Size = New System.Drawing.Size(432, 26)
         Me.txt_correo.TabIndex = 44
         '
         'lbl_materno
@@ -113,11 +115,13 @@ Partial Class FrmControladorDatos
         Me.txt_contraseña.Name = "txt_contraseña"
         Me.txt_contraseña.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txt_contraseña.ReadOnly = True
-        Me.txt_contraseña.Size = New System.Drawing.Size(202, 26)
+        Me.txt_contraseña.Size = New System.Drawing.Size(213, 26)
         Me.txt_contraseña.TabIndex = 42
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.Label5)
+        Me.GroupBox2.Controls.Add(Me.txt_nro_controles)
         Me.GroupBox2.Controls.Add(Me.txt_apellidop)
         Me.GroupBox2.Controls.Add(Me.Label2)
         Me.GroupBox2.Controls.Add(Me.txt_apellidom)
@@ -139,7 +143,7 @@ Partial Class FrmControladorDatos
         Me.txt_apellidop.Location = New System.Drawing.Point(26, 107)
         Me.txt_apellidop.Name = "txt_apellidop"
         Me.txt_apellidop.ReadOnly = True
-        Me.txt_apellidop.Size = New System.Drawing.Size(202, 26)
+        Me.txt_apellidop.Size = New System.Drawing.Size(213, 26)
         Me.txt_apellidop.TabIndex = 45
         '
         'Label2
@@ -158,14 +162,14 @@ Partial Class FrmControladorDatos
         Me.txt_apellidom.Location = New System.Drawing.Point(245, 107)
         Me.txt_apellidom.Name = "txt_apellidom"
         Me.txt_apellidom.ReadOnly = True
-        Me.txt_apellidom.Size = New System.Drawing.Size(202, 26)
+        Me.txt_apellidom.Size = New System.Drawing.Size(213, 26)
         Me.txt_apellidom.TabIndex = 46
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(319, 24)
+        Me.Label3.Location = New System.Drawing.Point(264, 22)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(37, 18)
         Me.Label3.TabIndex = 41
@@ -187,16 +191,16 @@ Partial Class FrmControladorDatos
         Me.txt_nombres.Location = New System.Drawing.Point(26, 45)
         Me.txt_nombres.Name = "txt_nombres"
         Me.txt_nombres.ReadOnly = True
-        Me.txt_nombres.Size = New System.Drawing.Size(278, 26)
+        Me.txt_nombres.Size = New System.Drawing.Size(235, 26)
         Me.txt_nombres.TabIndex = 35
         '
         'txt_dni
         '
         Me.txt_dni.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_dni.Location = New System.Drawing.Point(322, 45)
+        Me.txt_dni.Location = New System.Drawing.Point(267, 45)
         Me.txt_dni.Name = "txt_dni"
         Me.txt_dni.ReadOnly = True
-        Me.txt_dni.Size = New System.Drawing.Size(125, 26)
+        Me.txt_dni.Size = New System.Drawing.Size(108, 26)
         Me.txt_dni.TabIndex = 42
         '
         'btn_editar
@@ -205,13 +209,32 @@ Partial Class FrmControladorDatos
         Me.btn_editar.BackColor = System.Drawing.SystemColors.Control
         Me.btn_editar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.btn_editar.Font = New System.Drawing.Font("Arial Rounded MT Bold", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_editar.Location = New System.Drawing.Point(212, 359)
+        Me.btn_editar.Location = New System.Drawing.Point(204, 359)
         Me.btn_editar.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.btn_editar.Name = "btn_editar"
         Me.btn_editar.Size = New System.Drawing.Size(89, 30)
         Me.btn_editar.TabIndex = 58
         Me.btn_editar.Text = "Editar"
         Me.btn_editar.UseVisualStyleBackColor = False
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(372, 24)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(86, 18)
+        Me.Label5.TabIndex = 47
+        Me.Label5.Text = "Controles"
+        '
+        'txt_nro_controles
+        '
+        Me.txt_nro_controles.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_nro_controles.Location = New System.Drawing.Point(381, 45)
+        Me.txt_nro_controles.Name = "txt_nro_controles"
+        Me.txt_nro_controles.ReadOnly = True
+        Me.txt_nro_controles.Size = New System.Drawing.Size(77, 26)
+        Me.txt_nro_controles.TabIndex = 48
         '
         'FrmControladorDatos
         '
@@ -247,4 +270,6 @@ Partial Class FrmControladorDatos
     Friend WithEvents txt_apellidop As TextBox
     Friend WithEvents txt_apellidom As TextBox
     Friend WithEvents btn_editar As Button
+    Friend WithEvents Label5 As Label
+    Friend WithEvents txt_nro_controles As TextBox
 End Class
