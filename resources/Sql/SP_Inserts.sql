@@ -1,57 +1,5 @@
 USE BD_TransporteUrbano
-go
-
-INSERT INTO USUARIO_ROL(USUR_Rol) 
-        VALUES('Admin')
-INSERT INTO USUARIO_ROL(USUR_Rol) 
-        VALUES('Controlador')
 GO
-
-SELECT * FROM USUARIO_ROL;
-GO
-
-CREATE PROCEDURE sp_insertaUsuario
-    @Usuario                as VARCHAR(30),
-    @Contrasena             as VARCHAR(30),
-    @Correo                 as VARCHAR(60),
-    @NombresUsuario         as VARCHAR(50),
-    @ApellidoPaternoUsuario as VARCHAR(30),
-    @ApellidoMaternoUsuario as VARCHAR(30),
-    @FechaNacUsuario        as DATE,
-    @IdUsuarioRol           as INTEGER
-AS
-    BEGIN
-        INSERT INTO USUARIO (
-                        USU_Usuario,
-                        USU_Contraseña,
-                        USU_Correo,
-                        USU_NombresUsuario,
-                        USU_ApellidoPaternoUsuario,
-                        USU_ApellidoMaternoUsuario,
-                        USU_FechaNacUsuario,
-                        USUR_IdUsuarioRol
-                    )
-                    VALUES(
-                        @Usuario,
-                        @Contrasena,
-                        @Correo,
-                        @NombresUsuario,
-                        @ApellidoPaternoUsuario,
-                        @ApellidoMaternoUsuario,
-                        @FechaNacUsuario,
-                        @IdUsuarioRol
-                    )
-    END
-GO
-
---EXEC sp_insertaUsuario 'jhanpoulzt','password','jzt@gmail.com','Jhanpoul','Zavaleta','Taucett','23/02/2000',1
---EXEC sp_insertaUsuario 'arturopv','password','apv@gmail.com','Arturo','Paulino','Vigo','11/07/2000', 1
---GO
-
-SELECT * FROM USUARIO
-GO
-
-
 
 --Inserción en tabla Conductor
 CREATE PROCEDURE sp_insertaConductor
@@ -107,15 +55,60 @@ GO
 
 --Inserción en tabla Controlador
 CREATE PROCEDURE sp_insertaControlador
-	@DNI 				CHAR(08),
-	@Nombres 			VARCHAR(50),
-	@ApellidoPaterno 	VARCHAR(30),
-	@ApellidoMaterno 	VARCHAR(30)
+	@NroControles 			as INT,
+	@Usuario                as VARCHAR(30),
+    @Contrasena             as VARCHAR(30),
+    @Correo                 as VARCHAR(60),
+	@DNI					as CHAR(08),
+    @NombresUsuario         as VARCHAR(50),
+    @ApellidoPaternoUsuario as VARCHAR(30),
+    @ApellidoMaternoUsuario as VARCHAR(30),
+    @FechaNacUsuario        as DATE
 AS
 	BEGIN
-		INSERT INTO CONTROLADOR_PERSONAL(CONTP_DNI, CONTP_Nombre, CONTP_ApellidoPaterno, CONTP_ApellidoMaterno)
-		VALUES (@DNI, @Nombres, @ApellidoPaterno, @ApellidoMaterno)
+		INSERT INTO USUARIO(USU_Usuario, USU_Contrasena, USU_Correo, USU_DNI, USU_NombresUsuario, USU_ApellidoPaternoUsuario, USU_ApellidoMaternoUsuario, USU_FechaNacUsuario)
+		VALUES (@Usuario, @Contrasena, @Correo, @DNI, @NombresUsuario, @ApellidoPaternoUsuario, @ApellidoMaternoUsuario, @FechaNacUsuario)
+
+		INSERT INTO CONTROLADOR_PERSONAL(USU_IdUsuario, CONTP_NroControles)
+		VALUES (@@IDENTITY, @NroControles)
 	END
+GO
+
+EXEC sp_insertaControlador 3, 'jhanpoulzt','password','jzt@gmail.com','70384470','Jhanpoul','Zavaleta','Taucett','23/02/2000'
+EXEC sp_insertaControlador 4, 'arturopv','password','apv@gmail.com','70469760','Arturo','Paulino','Vigo','11/07/2000'
+GO
+
+SELECT * FROM USUARIO
+SELECT * FROM CONTROLADOR_PERSONAL
+GO
+
+--Inserción en tabla Secretaria
+CREATE PROCEDURE sp_insertaSecretaria
+	@Turno 					as VARCHAR(15),
+	@Usuario                as VARCHAR(30),
+    @Contrasena             as VARCHAR(30),
+    @Correo                 as VARCHAR(60),
+	@DNI					as CHAR(08),
+    @NombresUsuario         as VARCHAR(50),
+    @ApellidoPaternoUsuario as VARCHAR(30),
+    @ApellidoMaternoUsuario as VARCHAR(30),
+    @FechaNacUsuario        as DATE
+AS
+	BEGIN
+		INSERT INTO USUARIO(USU_Usuario, USU_Contrasena, USU_Correo, USU_DNI, USU_NombresUsuario, USU_ApellidoPaternoUsuario, USU_ApellidoMaternoUsuario, USU_FechaNacUsuario)
+		VALUES (@Usuario, @Contrasena, @Correo, @DNI, @NombresUsuario, @ApellidoPaternoUsuario, @ApellidoMaternoUsuario, @FechaNacUsuario)
+
+		INSERT INTO SECRETARIA(USU_IdUsuario, SEC_Turno)
+		VALUES (@@IDENTITY, @Turno)
+	END
+GO
+
+EXEC sp_insertaSecretaria 'Mañana', 'erickasl','password','esl@gmail.com','70558416','Ericka','Salvador','Llaro','05/01/1999'
+EXEC sp_insertaSecretaria 'Tarde', 'geraldiners','password','grs@gmail.com','70246985','Geraldine','Roncal','Sanchez','27/12/1999'
+GO
+
+SELECT * FROM USUARIO
+SELECT * FROM SECRETARIA
 GO
 
 --Inserción en tabla Penalizacion
