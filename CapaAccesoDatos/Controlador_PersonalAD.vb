@@ -29,7 +29,7 @@ Public Class Controlador_PersonalAD
 
     Public Sub editar_controlador(objU As Usuario, objC As Controlador_Personal)
         Dim oConexion As New SqlConnection("server=.; integrated security=true; database=BD_TransporteUrbano")
-        Dim oComando As New SqlCommand("SP_ActualizaUsuario", oConexion)
+        Dim oComando As New SqlCommand("SP_ActualizaControlador", oConexion)
         Dim oLector As SqlDataReader
         oComando.CommandType = CommandType.StoredProcedure
         Try
@@ -44,6 +44,24 @@ Public Class Controlador_PersonalAD
             oComando.Parameters.AddWithValue("@ApellidoPaternoUsuario", objU.ApellidoPaternoUsuario)
             oComando.Parameters.AddWithValue("@ApellidoMaternoUsuario", objU.ApellidoMaternoUsuario)
             oComando.Parameters.AddWithValue("@FechaNacUsuario", objU.FechaNacUsuario)
+            oComando.Connection = oConexion
+            oLector = oComando.ExecuteReader()
+            oConexion.Close()
+            oConexion.Dispose()
+        Catch ex As Exception
+            Throw New Exception(ex.Message)
+            Exit Sub
+        End Try
+    End Sub
+
+    Public Sub borrar_controlador(IdUsuario As Integer)
+        Dim oConexion As New SqlConnection("server=.; integrated security=true; database=BD_TransporteUrbano")
+        Dim oComando As New SqlCommand("SP_EliminaControlador", oConexion)
+        Dim oLector As SqlDataReader
+        oComando.CommandType = CommandType.StoredProcedure
+        Try
+            oConexion.Open()
+            oComando.Parameters.AddWithValue("@IdUsuario", IdUsuario)
             oComando.Connection = oConexion
             oLector = oComando.ExecuteReader()
             oConexion.Close()

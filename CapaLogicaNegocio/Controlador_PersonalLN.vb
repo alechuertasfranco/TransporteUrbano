@@ -11,6 +11,11 @@ Public Class Controlador_PersonalLN
         objAD.editar_controlador(objU, objC)
     End Sub
 
+    Public Shared Sub borrar_controlador(IdUsuario As Integer)
+        Dim objAD As New Controlador_PersonalAD
+        objAD.borrar_controlador(IdUsuario)
+    End Sub
+
     Public Shared Function consultar_controlador(IdControlador As Integer)
         Dim objAD As New Controlador_PersonalAD
         Return objAD.consultar_controlador(IdControlador)

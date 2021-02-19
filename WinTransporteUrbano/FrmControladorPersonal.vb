@@ -51,6 +51,9 @@ Public Class FrmControladorPersonal
             Dim dt As New DataTable
             dt = Controlador_PersonalLN.listarControladores()
             dtg_controladores.DataSource = dt
+            Me.editar = False
+            txt_usuario.Enabled = False
+            limpiar_txt()
         End Try
     End Sub
 
@@ -63,8 +66,8 @@ Public Class FrmControladorPersonal
         Me.campoLlave = Me.dtg_controladores.CurrentRow.Cells.Item(0).Value.ToString()
         txt_usuario.Text = Me.dtg_controladores.CurrentRow.Cells.Item(1).Value.ToString()
         txt_correo.Text = Me.dtg_controladores.CurrentRow.Cells.Item(2).Value.ToString()
-        txt_password.Text = Me.dtg_controladores.CurrentRow.Cells.Item(3).Value.ToString()
-        txt_dni.Text = Me.dtg_controladores.CurrentRow.Cells.Item(4).Value.ToString()
+        txt_dni.Text = Me.dtg_controladores.CurrentRow.Cells.Item(3).Value.ToString()
+        txt_password.Text = Me.dtg_controladores.CurrentRow.Cells.Item(4).Value.ToString()
         txt_nombres.Text = Me.dtg_controladores.CurrentRow.Cells.Item(5).Value.ToString()
         txt_apellidos_paterno.Text = Me.dtg_controladores.CurrentRow.Cells.Item(6).Value.ToString()
         txt_apellidos_materno.Text = Me.dtg_controladores.CurrentRow.Cells.Item(7).Value.ToString()
@@ -87,6 +90,16 @@ Public Class FrmControladorPersonal
     End Sub
 
     Private Sub btn_borrar_Click(sender As Object, e As EventArgs) Handles btn_borrar.Click
+        Me.campoLlave = Me.dtg_controladores.CurrentRow.Cells.Item(0).Value.ToString()
+        Try
+            Controlador_PersonalLN.borrar_controlador(campoLlave)
+            MsgBox("Registro borrado exitosamente")
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
 
+        Dim dt As New DataTable
+        dt = Controlador_PersonalLN.listarControladores()
+        dtg_controladores.DataSource = dt
     End Sub
 End Class
