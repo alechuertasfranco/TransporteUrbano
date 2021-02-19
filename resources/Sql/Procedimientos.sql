@@ -7,38 +7,20 @@ create PROCEDURE sp_BuscarUsuario
 	@contraseña 		VARCHAR(30)
 AS
 	BEGIN
-		SELECT 
-			CASE
-				WHEN CP.CONTP_IdControlador > 0
-				   THEN CP.CONTP_IdControlador
-				   ELSE 0
-			END as Controlador,
-			CASE
-				WHEN U.USU_IdUsuario > 0
-				   THEN U.USU_IdUsuario
-				   ELSE 0
-			END as Usuario,
-			CASE
-				WHEN CP.CONTP_IdControlador > 0
-				   THEN 'Controlador'
-				   ELSE 'Usuario'
-			END as Tipo,
-			CASE
-				WHEN  U.USU_IdUsuario > 0
-				   THEN UR.USUR_IdUsuarioRol
-				   ELSE 0
-			END as Rol
+		SELECT U.USU_IdUsuario , CAST( 
+		CASE
+			WHEN C.USU_IdUsuario>0 
+			then
+				'Controlador'
+				else
+				'Secretaria'
+		end as varchar(15))as Tipo
 		FROM USUARIO U
-			INNER JOIN USUARIO_ROL UR
-			on U.USUR_IdUsuarioRol = UR.USUR_IdUsuarioRol
-			FULL OUTER JOIN CONTROLADOR_PERSONAL CP
-			on CP.CONTP_Correo = U.USU_Correo
-		WHERE U.USU_Correo = @usuario 
-		AND U.USU_Contraseña = @contraseña
-		OR CP.CONTP_Correo= @usuario
-		AND CP.CONTP_Contraseña= @contraseña
-		
-	END
+		left join SECRETARIA S on S.USU_IdUsuario=U.USU_IdUsuario
+		left join CONTROLADOR_PERSONAL C on C.USU_IdUsuario=U.USU_IdUsuario
+		WHERE U.USU_Correo = @usuario  
+		AND U.USU_Contrasena = @contraseña 
+	end
 GO
 
 
