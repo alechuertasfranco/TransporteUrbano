@@ -18,6 +18,7 @@ Public Class Hoja_ControlAD
             Dim nvuelta = 0
             Dim cantidadControles = 0
             Dim datos() As String
+            Dim id = 0
             Lector = cmd.ExecuteReader
             If Lector.HasRows = True Then
                 While Lector.Read
@@ -26,9 +27,10 @@ Public Class Hoja_ControlAD
                     idPenalizacion = Lector.Item(3)
                     nvuelta = Lector.Item(4)
                     cantidadControles = Lector.Item(5)
+                    id = Lector.Item(6)
                 End While
             End If
-            datos = {codigo, fechaH, idPenalizacion, nvuelta, cantidadControles}
+            datos = {codigo, fechaH, idPenalizacion, nvuelta, cantidadControles, id}
             Return datos
         Catch ex As Exception
             Throw New Exception(ex.Message)
@@ -36,4 +38,24 @@ Public Class Hoja_ControlAD
             cn.Close()
         End Try
     End Function
+    Public Sub agregar_hoja(obj As Hoja_Control)
+        Dim cn As New SqlConnection("server=.; integrated security=true; database=BD_TransporteUrbano")
+        Dim cmdB As New SqlCommand("sp_Hoja_Control", cn)
+        Dim oLector As SqlDataReader
+        cmdB.CommandType = CommandType.StoredProcedure
+        Try
+            cn.Open()
+            cmdB.Parameters.AddWithValue("@Codigo", obj.Codigo)
+            cmdB.Parameters.AddWithValue("@Fecha", obj.fecha)
+            cmdB.Parameters.AddWithValue("@IdPen", obj.idPenalizacion)
+            cmdB.Parameters.AddWithValue("@NVuelta", obj.nVuelta)
+            cmdB.Connection = cn
+            oLector = cmdB.ExecuteReader()
+            cn.Close()
+            cn.Dispose()
+        Catch ex As Exception
+            Throw New Exception(ex.Message)
+            Exit Sub
+        End Try
+    End Sub
 End Class

@@ -52,6 +52,18 @@ GO
 SELECT * FROM USUARIO
 GO
 
+--Inserción en tabla Hoja_Control
+CREATE PROCEDURE sp_Hoja_Control
+	@Codigo 			CHAR(15),
+	@Fecha 				Datetime,
+	@IdPen		 		INTEGER,
+	@NVuelta			Integer
+AS
+	BEGIN
+		INSERT INTO HOJA_CONTROL_RECORRIDOS(HCONT_Codigo, HCONT_Fecha, HCONT_TotalPenalizacion, PEN_IdPenalizacion, HCONT_NVuelta)
+		VALUES (@Codigo, @Fecha, 0, @IdPen, @NVuelta)
+	END
+GO
 
 
 --Inserción en tabla Conductor
