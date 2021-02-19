@@ -84,9 +84,13 @@ AS
 	END
 GO
 
-EXEC sp_insertaControlador 3, 'jhanpoulzt','password','jzt@gmail.com','70384470','Jhanpoul','Zavaleta','Taucett','23/02/2000'
-EXEC sp_insertaControlador 4, 'arturopv','password','apv@gmail.com','70469760','Arturo','Paulino','Vigo','11/07/2000'
+EXEC sp_insertaControlador 3, 'jhanpoulzt','password','jzt@california.com','70384470','Jhanpoul','Zavaleta','Taucett','23/02/2000'
+EXEC sp_insertaControlador 4, 'arturopv','password','apv@california.com','70469760','Arturo','Paulino','Vigo','11/07/2000'
 GO
+
+--Insertamos en base el administrador
+INSERT INTO USUARIO(USU_Usuario, USU_Contrasena, USU_Correo, USU_DNI, USU_NombresUsuario, USU_ApellidoPaternoUsuario, USU_ApellidoMaternoUsuario, USU_FechaNacUsuario)
+		VALUES ('luisbc', 'password', 'admin@california.com', '80635737', 'Luis', 'Boy', 'Chavil', '28/07/1970')
 
 SELECT * FROM USUARIO
 SELECT * FROM CONTROLADOR_PERSONAL
@@ -113,8 +117,8 @@ AS
 	END
 GO
 
-EXEC sp_insertaSecretaria 'Mañana', 'erickasl','password','esl@gmail.com','70558416','Ericka','Salvador','Llaro','05/01/1999'
-EXEC sp_insertaSecretaria 'Tarde', 'geraldiners','password','grs@gmail.com','70246985','Geraldine','Roncal','Sanchez','27/12/1999'
+EXEC sp_insertaSecretaria 'Mañana', 'erickasl','password','esl@california.com','70558416','Ericka','Salvador','Llaro','05/01/1999'
+EXEC sp_insertaSecretaria 'Tarde', 'geraldiners','password','grs@california.com','70246985','Geraldine','Roncal','Sanchez','27/12/1999'
 GO
 
 SELECT * FROM USUARIO

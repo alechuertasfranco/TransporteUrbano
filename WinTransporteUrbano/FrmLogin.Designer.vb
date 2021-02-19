@@ -37,18 +37,20 @@ Partial Class FrmLogin
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox1.Location = New System.Drawing.Point(12, 32)
+        Me.PictureBox1.Location = New System.Drawing.Point(16, 39)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(114, 130)
+        Me.PictureBox1.Size = New System.Drawing.Size(152, 160)
         Me.PictureBox1.TabIndex = 11
         Me.PictureBox1.TabStop = False
         '
         'btnIngresar
         '
         Me.btnIngresar.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnIngresar.Location = New System.Drawing.Point(181, 167)
+        Me.btnIngresar.Location = New System.Drawing.Point(241, 206)
+        Me.btnIngresar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnIngresar.Name = "btnIngresar"
-        Me.btnIngresar.Size = New System.Drawing.Size(119, 28)
+        Me.btnIngresar.Size = New System.Drawing.Size(159, 34)
         Me.btnIngresar.TabIndex = 10
         Me.btnIngresar.Text = "Ingresar"
         Me.btnIngresar.UseVisualStyleBackColor = True
@@ -57,9 +59,10 @@ Partial Class FrmLogin
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(142, 98)
+        Me.Label2.Location = New System.Drawing.Point(189, 121)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(102, 18)
+        Me.Label2.Size = New System.Drawing.Size(124, 23)
         Me.Label2.TabIndex = 9
         Me.Label2.Text = "Contraseña"
         '
@@ -67,40 +70,44 @@ Partial Class FrmLogin
         '
         Me.lblUsuario.AutoSize = True
         Me.lblUsuario.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblUsuario.Location = New System.Drawing.Point(142, 56)
+        Me.lblUsuario.Location = New System.Drawing.Point(189, 69)
+        Me.lblUsuario.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblUsuario.Name = "lblUsuario"
-        Me.lblUsuario.Size = New System.Drawing.Size(70, 18)
+        Me.lblUsuario.Size = New System.Drawing.Size(86, 23)
         Me.lblUsuario.TabIndex = 8
         Me.lblUsuario.Text = "Usuario"
         '
         'txtPassword
         '
         Me.txtPassword.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPassword.Location = New System.Drawing.Point(254, 95)
+        Me.txtPassword.Location = New System.Drawing.Point(339, 117)
+        Me.txtPassword.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtPassword.Size = New System.Drawing.Size(216, 26)
+        Me.txtPassword.Size = New System.Drawing.Size(287, 31)
         Me.txtPassword.TabIndex = 7
         '
         'txtUsuario
         '
         Me.txtUsuario.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtUsuario.Location = New System.Drawing.Point(254, 53)
+        Me.txtUsuario.Location = New System.Drawing.Point(339, 65)
+        Me.txtUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtUsuario.Name = "txtUsuario"
-        Me.txtUsuario.Size = New System.Drawing.Size(216, 26)
+        Me.txtUsuario.Size = New System.Drawing.Size(287, 31)
         Me.txtUsuario.TabIndex = 6
         '
         'FrmLogin
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(496, 210)
+        Me.ClientSize = New System.Drawing.Size(661, 258)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.btnIngresar)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.lblUsuario)
         Me.Controls.Add(Me.txtPassword)
         Me.Controls.Add(Me.txtUsuario)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "FrmLogin"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Ingreso al sistema"

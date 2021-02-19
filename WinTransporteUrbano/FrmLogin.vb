@@ -19,16 +19,22 @@ Public Class FrmLogin
         idUsuario = datos(0)
         usuario_ingresado = idUsuario
         tipo = datos(1)
+        MessageBox.Show("dsda", "Bienvenido", MessageBoxButtons.OK, MessageBoxIcon.Information)
         If tipo <> "" Then
-            If tipo = "Controlador" Then
-                MessageBox.Show(correo, "Bienvenido", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                FrmIndexControlador.Show()
-                Me.Hide()
-            ElseIf tipo = "Secretaria" Then
-                MessageBox.Show(correo, "Bienvenido", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                FrmIndexSecretaria.Show()
-                Me.Hide()
-            End If
+            Select Case tipo
+                Case "Controlador"
+                    MessageBox.Show("asads", "Bienvenido", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                    Me.Hide()
+                Case "Administrador"
+                    MessageBox.Show(correo, "Bienvenido", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    FrmIndexAdmin.Show()
+                    Me.Hide()
+                Case "Secretaria"
+                    MessageBox.Show(correo, "Bienvenido", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                    Me.Hide()
+            End Select
         Else
             MessageBox.Show("Error-El usuario no se encuentra registrado", "Ventana de Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             txtPassword.Text = ""
