@@ -1,6 +1,11 @@
 ﻿Imports CapaEntidad
 Imports CapaLogicaNegocio
 Public Class FrmControladorPersonal
+
+    Private campoLlave As String
+    Private editar As Boolean
+    Private nro_datagrid As Integer
+
     Private Sub FrmControladorPersonal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim dt As New DataTable
         dt = Controlador_PersonalLN.listarControladores()
@@ -32,8 +37,14 @@ Public Class FrmControladorPersonal
         End If
 
         Try
-            Controlador_PersonalLN.agregar_controlador(objU, objC)
-            MsgBox("Registro insertado exitosamente")
+            If Me.editar Then
+                objU.IdUsuario = Me.campoLlave
+                Controlador_PersonalLN.editar_controlador(objU, objC)
+                MsgBox("Registro actualizado exitosamente")
+            ElseIf Not Me.editar Then
+                Controlador_PersonalLN.agregar_controlador(objU, objC)
+                MsgBox("Registro insertado exitosamente")
+            End If
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
@@ -44,7 +55,35 @@ Public Class FrmControladorPersonal
     End Sub
 
     Private Sub btn_editar_Click(sender As Object, e As EventArgs) Handles btn_editar.Click
+        Me.editar = True
+        cargar_datos()
+    End Sub
 
+    Private Sub cargar_datos()
+        Me.campoLlave = Me.dtg_controladores.CurrentRow.Cells.Item(0).Value.ToString()
+        txt_usuario.Text = Me.dtg_controladores.CurrentRow.Cells.Item(1).Value.ToString()
+        txt_correo.Text = Me.dtg_controladores.CurrentRow.Cells.Item(2).Value.ToString()
+        txt_password.Text = Me.dtg_controladores.CurrentRow.Cells.Item(3).Value.ToString()
+        txt_dni.Text = Me.dtg_controladores.CurrentRow.Cells.Item(4).Value.ToString()
+        txt_nombres.Text = Me.dtg_controladores.CurrentRow.Cells.Item(5).Value.ToString()
+        txt_apellidos_paterno.Text = Me.dtg_controladores.CurrentRow.Cells.Item(6).Value.ToString()
+        txt_apellidos_materno.Text = Me.dtg_controladores.CurrentRow.Cells.Item(7).Value.ToString()
+        txt_fecha.Text = Me.dtg_controladores.CurrentRow.Cells.Item(8).Value.ToString()
+        txt_controles.Text = Me.dtg_controladores.CurrentRow.Cells.Item(9).Value.ToString()
+
+        txt_usuario.Enabled = True
+    End Sub
+
+    Private Sub limpiar_txt()
+        txt_usuario.Text = ""
+        txt_correo.Text = ""
+        txt_password.Text = ""
+        txt_dni.Text = ""
+        txt_nombres.Text = ""
+        txt_apellidos_paterno.Text = ""
+        txt_apellidos_materno.Text = ""
+        txt_fecha.Text = ""
+        txt_controles.Text = ""
     End Sub
 
     Private Sub btn_borrar_Click(sender As Object, e As EventArgs) Handles btn_borrar.Click

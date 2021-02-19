@@ -47,6 +47,8 @@ Partial Class FrmControladorPersonal
         Me.txt_controles = New System.Windows.Forms.TextBox()
         Me.txt_dni = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.txt_usuario = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         CType(Me.dtg_controladores, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -150,7 +152,7 @@ Partial Class FrmControladorPersonal
         Me.txt_fecha.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
         Me.txt_fecha.Location = New System.Drawing.Point(15, 152)
         Me.txt_fecha.Name = "txt_fecha"
-        Me.txt_fecha.Size = New System.Drawing.Size(529, 26)
+        Me.txt_fecha.Size = New System.Drawing.Size(337, 26)
         Me.txt_fecha.TabIndex = 78
         '
         'Label1
@@ -286,11 +288,34 @@ Partial Class FrmControladorPersonal
         Me.Label5.TabIndex = 86
         Me.Label5.Text = "DNI"
         '
+        'txt_usuario
+        '
+        Me.txt_usuario.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.txt_usuario.Enabled = False
+        Me.txt_usuario.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_usuario.Location = New System.Drawing.Point(378, 152)
+        Me.txt_usuario.Name = "txt_usuario"
+        Me.txt_usuario.Size = New System.Drawing.Size(166, 26)
+        Me.txt_usuario.TabIndex = 89
+        '
+        'Label6
+        '
+        Me.Label6.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(375, 131)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(70, 18)
+        Me.Label6.TabIndex = 88
+        Me.Label6.Text = "Usuario"
+        '
         'FrmControladorPersonal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(570, 487)
+        Me.Controls.Add(Me.txt_usuario)
+        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.txt_dni)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.txt_controles)
@@ -337,4 +362,6 @@ Partial Class FrmControladorPersonal
     Friend WithEvents txt_controles As TextBox
     Friend WithEvents txt_dni As TextBox
     Friend WithEvents Label5 As Label
+    Friend WithEvents txt_usuario As TextBox
+    Friend WithEvents Label6 As Label
 End Class

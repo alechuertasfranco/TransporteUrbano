@@ -39,6 +39,8 @@ Public Class FrmControladorDatos
             Me.txt_apellidom.ReadOnly = True
 
             Dim obj As New Usuario
+            Dim objC As New Controlador_Personal
+
             If txt_usuario.Text <> "" Or txt_contraseña.Text <> "" Or txt_contraseña.Text <> "" Or txt_correo.Text <> "" Or txt_dni.Text <> "" Or txt_nombres.Text <> "" Or txt_apellidop.Text <> "" Or txt_apellidom.Text <> "" Then
                 obj.IdUsuario = CType(1, String)
                 obj.Usuario = CType(txt_usuario.Text, String)
@@ -48,7 +50,7 @@ Public Class FrmControladorDatos
                 obj.NombresUsuario = CType(txt_nombres.Text, String)
                 obj.ApellidoPaternoUsuario = CType(txt_apellidop.Text, String)
                 obj.ApellidoMaternoUsuario = CType(txt_apellidom.Text, String)
-                Controlador_PersonalLN.editar_usuario(obj)
+                Controlador_PersonalLN.editar_controlador(obj, objC)
                 MsgBox("Datos Actualizados")
             Else
                 MsgBox("Llene todos los campos de texto")

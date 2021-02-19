@@ -18,10 +18,14 @@ GO
 
 CREATE VIEW V_Controladores
 AS
-    SELECT  USU_Usuario as [Usuario],
+    SELECT  U.USU_IdUsuario as [ID],
+            USU_Usuario as [Usuario],
             USU_Correo as [Correo],
 			USU_DNI as [DNI],
-            USU_NombresUsuario + ' ' + USU_ApellidoPaternoUsuario + ' ' + USU_ApellidoMaternoUsuario as [Nombre Completo],
+            USU_Contrasena as [Contraseña],
+            USU_NombresUsuario as [Nombres],
+            USU_ApellidoPaternoUsuario as [A. Paterno],
+            USU_ApellidoMaternoUsuario as [A. Materno],
             CONVERT(VARCHAR(10), USU_FechaNacUsuario, 103) as [Fecha de Nacimiento],
             CONTP_NroControles as [Nro de Controles]
     FROM USUARIO U
