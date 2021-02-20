@@ -13,6 +13,8 @@ Public Class FrmPagoControl
     Private nro_datagrid As Integer
 
     Private Sub FrmPagoControl_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'BD_TransporteUrbanoDataSet.PAGO_CONTROL' Puede moverla o quitarla según sea necesario.
+        Me.PAGO_CONTROLTableAdapter.Fill(Me.BD_TransporteUrbanoDataSet.PAGO_CONTROL)
         'TODO: esta línea de código carga datos en la tabla 'BD_TransporteUrbanoDataSet.BUSES' Puede moverla o quitarla según sea necesario.
         Me.BUSESTableAdapter.Fill(Me.BD_TransporteUrbanoDataSet.BUSES)
         'TODO: esta línea de código carga datos en la tabla 'BD_TransporteUrbanoDataSet.HOJA_CONTROL_RECORRIDOS' Puede moverla o quitarla según sea necesario.
@@ -32,9 +34,10 @@ Public Class FrmPagoControl
             obj.IdBus = CType(cmb_bus.SelectedValue, Integer)
             obj.IdConductor = CType(cmb_conductor.SelectedValue, Integer)
             'AGREGAR EL ID DEL CONTROL
-            obj.IdControl = CType(cmb_bus.SelectedValue, Integer)
+            obj.IdControl = 1
             'NO OLVIDARSE
-            obj.Codigo = CType(cmb_codigo.SelectedValue, Integer)
+            obj.Codigo = CType(cmb_codigo.SelectedValue, String)
+            obj.fecha = Now
         Else
             MsgBox("Llene todos los campos de texto")
         End If

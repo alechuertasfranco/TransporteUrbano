@@ -2286,7 +2286,7 @@ Partial Public Class BD_TransporteUrbanoDataSet
         
         Private columnCONTUB_Codigo As Global.System.Data.DataColumn
         
-        Private columnCONTUB_Dirección As Global.System.Data.DataColumn
+        Private columnCONTUB_Direccion As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -2349,9 +2349,9 @@ Partial Public Class BD_TransporteUrbanoDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property CONTUB_DirecciónColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property CONTUB_DireccionColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnCONTUB_Dirección
+                Return Me.columnCONTUB_Direccion
             End Get
         End Property
         
@@ -2392,9 +2392,9 @@ Partial Public Class BD_TransporteUrbanoDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddCONTROL_UBICACIONRow(ByVal CONTUB_Control As String, ByVal CONTUB_Codigo As String, ByVal CONTUB_Dirección As String) As CONTROL_UBICACIONRow
+        Public Overloads Function AddCONTROL_UBICACIONRow(ByVal CONTUB_Control As String, ByVal CONTUB_Codigo As String, ByVal CONTUB_Direccion As String) As CONTROL_UBICACIONRow
             Dim rowCONTROL_UBICACIONRow As CONTROL_UBICACIONRow = CType(Me.NewRow,CONTROL_UBICACIONRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, CONTUB_Control, CONTUB_Codigo, CONTUB_Dirección}
+            Dim columnValuesArray() As Object = New Object() {Nothing, CONTUB_Control, CONTUB_Codigo, CONTUB_Direccion}
             rowCONTROL_UBICACIONRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowCONTROL_UBICACIONRow)
             Return rowCONTROL_UBICACIONRow
@@ -2426,7 +2426,7 @@ Partial Public Class BD_TransporteUrbanoDataSet
             Me.columnCONTUB_IdControlUbicacion = MyBase.Columns("CONTUB_IdControlUbicacion")
             Me.columnCONTUB_Control = MyBase.Columns("CONTUB_Control")
             Me.columnCONTUB_Codigo = MyBase.Columns("CONTUB_Codigo")
-            Me.columnCONTUB_Dirección = MyBase.Columns("CONTUB_Dirección")
+            Me.columnCONTUB_Direccion = MyBase.Columns("CONTUB_Direccion")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2438,8 +2438,8 @@ Partial Public Class BD_TransporteUrbanoDataSet
             MyBase.Columns.Add(Me.columnCONTUB_Control)
             Me.columnCONTUB_Codigo = New Global.System.Data.DataColumn("CONTUB_Codigo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCONTUB_Codigo)
-            Me.columnCONTUB_Dirección = New Global.System.Data.DataColumn("CONTUB_Dirección", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCONTUB_Dirección)
+            Me.columnCONTUB_Direccion = New Global.System.Data.DataColumn("CONTUB_Direccion", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCONTUB_Direccion)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCONTUB_IdControlUbicacion}, true))
             Me.columnCONTUB_IdControlUbicacion.AutoIncrement = true
             Me.columnCONTUB_IdControlUbicacion.AutoIncrementSeed = -1
@@ -2451,8 +2451,8 @@ Partial Public Class BD_TransporteUrbanoDataSet
             Me.columnCONTUB_Control.MaxLength = 60
             Me.columnCONTUB_Codigo.AllowDBNull = false
             Me.columnCONTUB_Codigo.MaxLength = 5
-            Me.columnCONTUB_Dirección.AllowDBNull = false
-            Me.columnCONTUB_Dirección.MaxLength = 120
+            Me.columnCONTUB_Direccion.AllowDBNull = false
+            Me.columnCONTUB_Direccion.MaxLength = 120
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4118,7 +4118,7 @@ Partial Public Class BD_TransporteUrbanoDataSet
             Me.columnHCONT_IdHojaControl.ReadOnly = true
             Me.columnHCONT_IdHojaControl.Unique = true
             Me.columnHCONT_Codigo.AllowDBNull = false
-            Me.columnHCONT_Codigo.MaxLength = 8
+            Me.columnHCONT_Codigo.MaxLength = 15
             Me.columnHCONT_Fecha.AllowDBNull = false
             Me.columnHCONT_TotalPenalizacion.AllowDBNull = false
             Me.columnPEN_IdPenalizacion.AllowDBNull = false
@@ -4440,7 +4440,7 @@ Partial Public Class BD_TransporteUrbanoDataSet
             Me.columnBUS_IdBus.AllowDBNull = false
             Me.columnCOND_IdConductor.AllowDBNull = false
             Me.columnHCONT_Codigo.AllowDBNull = false
-            Me.columnHCONT_Codigo.MaxLength = 8
+            Me.columnHCONT_Codigo.MaxLength = 15
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7207,12 +7207,12 @@ Partial Public Class BD_TransporteUrbanoDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property CONTUB_Dirección() As String
+        Public Property CONTUB_Direccion() As String
             Get
-                Return CType(Me(Me.tableCONTROL_UBICACION.CONTUB_DirecciónColumn),String)
+                Return CType(Me(Me.tableCONTROL_UBICACION.CONTUB_DireccionColumn),String)
             End Get
             Set
-                Me(Me.tableCONTROL_UBICACION.CONTUB_DirecciónColumn) = value
+                Me(Me.tableCONTROL_UBICACION.CONTUB_DireccionColumn) = value
             End Set
         End Property
         
@@ -10839,46 +10839,46 @@ Namespace BD_TransporteUrbanoDataSetTableAdapters
             tableMapping.ColumnMappings.Add("CONTUB_IdControlUbicacion", "CONTUB_IdControlUbicacion")
             tableMapping.ColumnMappings.Add("CONTUB_Control", "CONTUB_Control")
             tableMapping.ColumnMappings.Add("CONTUB_Codigo", "CONTUB_Codigo")
-            tableMapping.ColumnMappings.Add("CONTUB_Dirección", "CONTUB_Dirección")
+            tableMapping.ColumnMappings.Add("CONTUB_Direccion", "CONTUB_Direccion")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
             Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[CONTROL_UBICACION] WHERE (([CONTUB_IdControlUbicacion] = @Orig"& _ 
                 "inal_CONTUB_IdControlUbicacion) AND ([CONTUB_Control] = @Original_CONTUB_Control"& _ 
-                ") AND ([CONTUB_Codigo] = @Original_CONTUB_Codigo) AND ([CONTUB_Dirección] = @Ori"& _ 
-                "ginal_CONTUB_Dirección))"
+                ") AND ([CONTUB_Codigo] = @Original_CONTUB_Codigo) AND ([CONTUB_Direccion] = @Ori"& _ 
+                "ginal_CONTUB_Direccion))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CONTUB_IdControlUbicacion", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CONTUB_IdControlUbicacion", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CONTUB_Control", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CONTUB_Control", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CONTUB_Codigo", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CONTUB_Codigo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CONTUB_Dirección", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CONTUB_Dirección", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CONTUB_Direccion", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CONTUB_Direccion", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[CONTROL_UBICACION] ([CONTUB_Control], [CONTUB_Codigo], [CONTUB"& _ 
-                "_Dirección]) VALUES (@CONTUB_Control, @CONTUB_Codigo, @CONTUB_Dirección);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELEC"& _ 
-                "T CONTUB_IdControlUbicacion, CONTUB_Control, CONTUB_Codigo, CONTUB_Dirección FRO"& _ 
+                "_Direccion]) VALUES (@CONTUB_Control, @CONTUB_Codigo, @CONTUB_Direccion);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELEC"& _ 
+                "T CONTUB_IdControlUbicacion, CONTUB_Control, CONTUB_Codigo, CONTUB_Direccion FRO"& _ 
                 "M CONTROL_UBICACION WHERE (CONTUB_IdControlUbicacion = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONTUB_Control", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CONTUB_Control", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONTUB_Codigo", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CONTUB_Codigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONTUB_Dirección", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CONTUB_Dirección", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONTUB_Direccion", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CONTUB_Direccion", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[CONTROL_UBICACION] SET [CONTUB_Control] = @CONTUB_Control, [CONTUB_"& _ 
-                "Codigo] = @CONTUB_Codigo, [CONTUB_Dirección] = @CONTUB_Dirección WHERE (([CONTUB"& _ 
+                "Codigo] = @CONTUB_Codigo, [CONTUB_Direccion] = @CONTUB_Direccion WHERE (([CONTUB"& _ 
                 "_IdControlUbicacion] = @Original_CONTUB_IdControlUbicacion) AND ([CONTUB_Control"& _ 
                 "] = @Original_CONTUB_Control) AND ([CONTUB_Codigo] = @Original_CONTUB_Codigo) AN"& _ 
-                "D ([CONTUB_Dirección] = @Original_CONTUB_Dirección));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT CONTUB_IdControlUb"& _ 
-                "icacion, CONTUB_Control, CONTUB_Codigo, CONTUB_Dirección FROM CONTROL_UBICACION "& _ 
+                "D ([CONTUB_Direccion] = @Original_CONTUB_Direccion));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT CONTUB_IdControlUb"& _ 
+                "icacion, CONTUB_Control, CONTUB_Codigo, CONTUB_Direccion FROM CONTROL_UBICACION "& _ 
                 "WHERE (CONTUB_IdControlUbicacion = @CONTUB_IdControlUbicacion)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONTUB_Control", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CONTUB_Control", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONTUB_Codigo", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CONTUB_Codigo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONTUB_Dirección", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CONTUB_Dirección", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONTUB_Direccion", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CONTUB_Direccion", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CONTUB_IdControlUbicacion", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CONTUB_IdControlUbicacion", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CONTUB_Control", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CONTUB_Control", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CONTUB_Codigo", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CONTUB_Codigo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CONTUB_Dirección", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CONTUB_Dirección", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CONTUB_Direccion", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CONTUB_Direccion", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CONTUB_IdControlUbicacion", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "CONTUB_IdControlUbicacion", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
@@ -10895,14 +10895,13 @@ Namespace BD_TransporteUrbanoDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT CONTUB_IdControlUbicacion, CONTUB_Control, CONTUB_Codigo, CONTUB_Dirección"& _ 
+            Me._commandCollection(0).CommandText = "SELECT CONTUB_IdControlUbicacion, CONTUB_Control, CONTUB_Codigo, CONTUB_Direccion"& _ 
                 " FROM dbo.CONTROL_UBICACION"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT        CONTUB_IdControlUbicacion, CONTUB_Control, CONTUB_Codigo, CONTUB_Di"& _ 
-                "rección"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CONTROL_UBICACION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (CONTUB_Control LIKE + "& _ 
-                "@valor + '%')"
+            Me._commandCollection(1).CommandText = "SELECT CONTUB_Codigo, CONTUB_Control, CONTUB_Direccion, CONTUB_IdControlUbicacion"& _ 
+                " FROM CONTROL_UBICACION WHERE (CONTUB_Control LIKE + @valor + '%')"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@valor", Global.System.Data.SqlDbType.VarChar, 60, Global.System.Data.ParameterDirection.Input, 0, 0, "CONTUB_Control", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
@@ -10997,7 +10996,7 @@ Namespace BD_TransporteUrbanoDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_CONTUB_IdControlUbicacion As Integer, ByVal Original_CONTUB_Control As String, ByVal Original_CONTUB_Codigo As String, ByVal Original_CONTUB_Dirección As String) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_CONTUB_IdControlUbicacion As Integer, ByVal Original_CONTUB_Control As String, ByVal Original_CONTUB_Codigo As String, ByVal Original_CONTUB_Direccion As String) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_CONTUB_IdControlUbicacion,Integer)
             If (Original_CONTUB_Control Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_CONTUB_Control")
@@ -11009,10 +11008,10 @@ Namespace BD_TransporteUrbanoDataSetTableAdapters
             Else
                 Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_CONTUB_Codigo,String)
             End If
-            If (Original_CONTUB_Dirección Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_CONTUB_Dirección")
+            If (Original_CONTUB_Direccion Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_CONTUB_Direccion")
             Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_CONTUB_Dirección,String)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_CONTUB_Direccion,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -11033,7 +11032,7 @@ Namespace BD_TransporteUrbanoDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal CONTUB_Control As String, ByVal CONTUB_Codigo As String, ByVal CONTUB_Dirección As String) As Integer
+        Public Overloads Overridable Function Insert(ByVal CONTUB_Control As String, ByVal CONTUB_Codigo As String, ByVal CONTUB_Direccion As String) As Integer
             If (CONTUB_Control Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("CONTUB_Control")
             Else
@@ -11044,10 +11043,10 @@ Namespace BD_TransporteUrbanoDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(1).Value = CType(CONTUB_Codigo,String)
             End If
-            If (CONTUB_Dirección Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("CONTUB_Dirección")
+            If (CONTUB_Direccion Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("CONTUB_Direccion")
             Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(CONTUB_Dirección,String)
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(CONTUB_Direccion,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -11068,7 +11067,7 @@ Namespace BD_TransporteUrbanoDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal CONTUB_Control As String, ByVal CONTUB_Codigo As String, ByVal CONTUB_Dirección As String, ByVal Original_CONTUB_IdControlUbicacion As Integer, ByVal Original_CONTUB_Control As String, ByVal Original_CONTUB_Codigo As String, ByVal Original_CONTUB_Dirección As String, ByVal CONTUB_IdControlUbicacion As Integer) As Integer
+        Public Overloads Overridable Function Update(ByVal CONTUB_Control As String, ByVal CONTUB_Codigo As String, ByVal CONTUB_Direccion As String, ByVal Original_CONTUB_IdControlUbicacion As Integer, ByVal Original_CONTUB_Control As String, ByVal Original_CONTUB_Codigo As String, ByVal Original_CONTUB_Direccion As String, ByVal CONTUB_IdControlUbicacion As Integer) As Integer
             If (CONTUB_Control Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("CONTUB_Control")
             Else
@@ -11079,10 +11078,10 @@ Namespace BD_TransporteUrbanoDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(1).Value = CType(CONTUB_Codigo,String)
             End If
-            If (CONTUB_Dirección Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("CONTUB_Dirección")
+            If (CONTUB_Direccion Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("CONTUB_Direccion")
             Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(CONTUB_Dirección,String)
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(CONTUB_Direccion,String)
             End If
             Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Original_CONTUB_IdControlUbicacion,Integer)
             If (Original_CONTUB_Control Is Nothing) Then
@@ -11095,10 +11094,10 @@ Namespace BD_TransporteUrbanoDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_CONTUB_Codigo,String)
             End If
-            If (Original_CONTUB_Dirección Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_CONTUB_Dirección")
+            If (Original_CONTUB_Direccion Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_CONTUB_Direccion")
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_CONTUB_Dirección,String)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_CONTUB_Direccion,String)
             End If
             Me.Adapter.UpdateCommand.Parameters(7).Value = CType(CONTUB_IdControlUbicacion,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
@@ -11120,8 +11119,8 @@ Namespace BD_TransporteUrbanoDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal CONTUB_Control As String, ByVal CONTUB_Codigo As String, ByVal CONTUB_Dirección As String, ByVal Original_CONTUB_IdControlUbicacion As Integer, ByVal Original_CONTUB_Control As String, ByVal Original_CONTUB_Codigo As String, ByVal Original_CONTUB_Dirección As String) As Integer
-            Return Me.Update(CONTUB_Control, CONTUB_Codigo, CONTUB_Dirección, Original_CONTUB_IdControlUbicacion, Original_CONTUB_Control, Original_CONTUB_Codigo, Original_CONTUB_Dirección, Original_CONTUB_IdControlUbicacion)
+        Public Overloads Overridable Function Update(ByVal CONTUB_Control As String, ByVal CONTUB_Codigo As String, ByVal CONTUB_Direccion As String, ByVal Original_CONTUB_IdControlUbicacion As Integer, ByVal Original_CONTUB_Control As String, ByVal Original_CONTUB_Codigo As String, ByVal Original_CONTUB_Direccion As String) As Integer
+            Return Me.Update(CONTUB_Control, CONTUB_Codigo, CONTUB_Direccion, Original_CONTUB_IdControlUbicacion, Original_CONTUB_Control, Original_CONTUB_Codigo, Original_CONTUB_Direccion, Original_CONTUB_IdControlUbicacion)
         End Function
     End Class
     

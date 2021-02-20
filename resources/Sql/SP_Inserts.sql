@@ -3,7 +3,7 @@ go
 
 INSERT INTO USUARIO_ROL(USUR_Rol) 
         VALUES('Admin')
-INSERT INTO USUARIO_ROL(USUR_Rol) 
+	INSERT INTO USUARIO_ROL(USUR_Rol) 
         VALUES('Controlador')
 GO
 insert HOJA_CONTROL_RECORRIDOS values ('HC117FEB211','17-02-2021',20,1,1)
@@ -53,7 +53,7 @@ CREATE PROCEDURE sp_insertaControl_Ubicacion
 	@Direccion 			VARCHAR(120)
 AS
 	BEGIN
-		INSERT INTO CONTROL_UBICACION(CONTUB_Codigo, CONTUB_Control, CONTUB_Dirección)
+		INSERT INTO CONTROL_UBICACION(CONTUB_Codigo, CONTUB_Control, CONTUB_Direccion)
 		VALUES (@Codigo, @Control, @Direccion)
 	END
 GO
@@ -154,8 +154,8 @@ GO
 
 
 --Inserción en tabla Pago_Control
-CREATE PROCEDURE sp_insertaPago_Control
-	@HCont_Codigo			CHAR(08),
+alter PROCEDURE sp_insertaPago_Control
+	@HCont_Codigo			CHAR(15),
 	@IdBus					INT,
 	@IdConductor    		INT,
 	@IdControl	    		INT,
@@ -231,3 +231,6 @@ AS
 		INSERT INTO HOJA_CONTROL_RECORRIDOS(HCONT_Codigo, HCONT_Fecha, HCONT_TotalPenalizacion, PEN_IdPenalizacion, HCONT_NVuelta)
 		VALUES (@Codigo, @Fecha, 0, @IdPen, @NVuelta)
 	END
+
+
+	

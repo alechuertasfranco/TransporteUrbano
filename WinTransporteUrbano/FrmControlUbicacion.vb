@@ -26,7 +26,7 @@ Public Class FrmControlUbicacion
             Me.registro = dtControl_Ubi.FindByCONTUB_IdControlUbicacion(Me.campoLlave)
             registro.CONTUB_Control = txt_control.Text
             registro.CONTUB_Codigo = txt_codigo.Text
-            registro.CONTUB_Dirección = txt_direccion.Text
+            registro.CONTUB_Direccion = txt_direccion.Text
             'Actualizar la base 
             Try
                 taControl_Ubi.Update(dtControl_Ubi)
