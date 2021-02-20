@@ -2,7 +2,7 @@ USE BD_TransporteUrbano;
 GO
 
 -- Buscar el usuario para el Login
-alter PROCEDURE sp_BuscarUsuario
+CREATE PROCEDURE sp_BuscarUsuario
 	@usuario 			VARCHAR(60),
 	@contraseña 		VARCHAR(30)
 AS
@@ -22,13 +22,12 @@ AS
 		left join CONTROLADOR_PERSONAL C on C.USU_IdUsuario=U.USU_IdUsuario
 		WHERE U.USU_Correo = @usuario
 		AND U.USU_Contrasena = @contraseña
-	end
+	END
+GO
+SELECT * FROM USUARIO
 GO
 
-select * from usuario
-GO
-
-create PROCEDURE sp_GenerarHojaRecorrido
+CREATE PROCEDURE sp_GenerarHojaRecorrido
  @fecha 			datetime
 AS
 begin 
@@ -68,7 +67,6 @@ begin
 			FROM HOJA_CONTROL_RECORRIDOS H order by H.HCONT_IdHojaControl desc
 	END
 GO
-
 EXECUTE sp_GenerarHojaRecorrido '18-02-2021'
 
 insert into HOJA_CONTROL_RECORRIDOS VALUES('HC117FEB211','17-02-2021',0,1,1)
@@ -101,11 +99,8 @@ AS
 		WHERE U.USU_IdUsuario = @idControlador
 	END
 GO
-
 EXECUTE SP_BuscarControlador 2
 GO
-
-
 
 -- Buscar los datos del controlador por ID
 CREATE PROCEDURE SP_BuscarSecretaria
@@ -119,7 +114,6 @@ AS
 		WHERE U.USU_IdUsuario = @IdSecretaria
 	END
 GO
-
 EXECUTE SP_BuscarControlador 2
 GO
 
@@ -144,13 +138,53 @@ AS
 	BEGIN
 		SELECT	CONTUB_Codigo as Codigo,
 				CONTUB_Control as [Control],
-				CONTUB_Direccion as [Dirección]
+				CONTUB_Direccion as [Dirección],
+				CONT_IdControl as [ID],
+				CONT_TiempoAprox as [Tiempo Aproximado]
 		FROM CONTROL_T C
 			INNER JOIN CONTROL_UBICACION CU
 			ON CU.CONTUB_IdControlUbicacion = C.CONTUB_IdControlUbicacion
 		WHERE CONT_IdControl = @IdControl
 	END
 GO
-
 EXECUTE SP_BuscarControl 2
+GO
+
+CREATE PROCEDURE SP_BuscarBus
+	@IdBus			as INT
+AS
+	BEGIN
+		SELECT	B.BUS_IdBus as [ID Bus],
+				B.BUS_Placa as [Placa],
+				COND_Nombres as [Nombres],
+				COND_ApellidoPaterno as [ApellidoP],
+				COND_ApellidoMaterno as [ApellidoM] 
+		FROM	BUSES B
+			INNER JOIN CONDUCTORES C
+			ON C.COND_IdConductor = B.COND_IdConductor
+		WHERE	BUS_IdBus = @IdBus
+	END
+GO
+EXECUTE SP_BuscarBus 1
+GO
+
+CREATE PROCEDURE SP_ListarHojasBus
+	@IdBus			as INT
+AS
+	BEGIN
+		SELECT	HC.HCONT_Codigo						as [Codigo Hoja],
+				HC.HCONT_Fecha						as [Fecha],
+				HC.HCONT_NVuelta					as [Vuelta],
+				DR.DREC_HoraSalida					as [Hora de Salida]
+		FROM BUSES B
+			INNER JOIN CONDUCTORES C
+			ON C.COND_IdConductor = B.COND_IdConductor
+			INNER JOIN DETALLE_RECORRIDO DR
+			ON DR.BUS_IdBus = B.BUS_IdBus
+			INNER JOIN HOJA_CONTROL_RECORRIDOS HC
+			ON HC.HCONT_IdHojaControl = DR.HCONT_IdHojaControl
+		WHERE B.BUS_IdBus = @IdBus
+	END
+GO
+EXECUTE SP_ListarHojasBus 1
 GO

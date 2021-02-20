@@ -61,21 +61,21 @@ Public Class ControlAD
             oComando.Connection = oConexion
             oLector = oComando.ExecuteReader()
 
-            Dim Codigo, Control, Dirección As String
+            Dim Codigo, Control, Dirección, ID, Tiempo As String
             Dim datos() As String
 
             If oLector.HasRows = True Then
                 While oLector.Read
                     Codigo = oLector.Item(0)
-                    Console.WriteLine(Codigo)
                     Control = oLector.Item(1)
-                    Console.WriteLine(Control)
                     Dirección = oLector.Item(2)
-                    Console.WriteLine(Dirección)
+                    ID = oLector.Item(3)
+                    Tiempo = oLector.Item(4)
+
                 End While
             End If
 
-            datos = {Codigo, Control, Dirección}
+            datos = {Codigo, Control, Dirección, ID, Tiempo}
             Return datos
         Catch ex As Exception
             Throw New Exception(ex.Message)

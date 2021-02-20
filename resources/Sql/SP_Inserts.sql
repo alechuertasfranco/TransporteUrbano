@@ -20,9 +20,6 @@ AS
 	END
 GO
 
---SELECT * FROM CONDUCTORES
---SELECT * FROM BUSES
---GO
 
 --Inserción en tabla Bus
 CREATE PROCEDURE sp_insertaBus
@@ -49,10 +46,6 @@ AS
 	END
 GO
 
- EXECUTE sp_insertaRuta 'A', 10
- EXECUTE sp_insertaRuta 'C', 10
- SELECT * FROM RUTA
- GO
 
 --Inserción en tabla Control_Ubicacion
 CREATE PROCEDURE sp_insertaControl_Ubicacion
@@ -66,14 +59,6 @@ AS
 	END
 GO
 
-EXECUTE sp_insertaControl_Ubicacion 'TERM', 'Terminal', 'Panamericana Norte 13014'
-EXECUTE sp_insertaControl_Ubicacion 'PALM', 'Las Palmeras', 'Alfonso Ugarte 1, Distrito de Víctor Larco Herrera 13014'
-SELECT * FROM CONTROL_UBICACION
-GO
-
---Insertamos en base el administrador
-INSERT INTO USUARIO(USU_Usuario, USU_Contrasena, USU_Correo, USU_DNI, USU_NombresUsuario, USU_ApellidoPaternoUsuario, USU_ApellidoMaternoUsuario, USU_FechaNacUsuario)
-		VALUES ('luisbc', 'password', 'admin@california.com', '80635737', 'Luis', 'Boy', 'Chavil', '28/07/1970')
 
 --Inserción en tabla Controlador
 CREATE PROCEDURE sp_insertaControlador
@@ -96,12 +81,6 @@ AS
 	END
 GO
 
-EXEC sp_insertaControlador 3, 'jhanpoulzt','password','jzt@california.com','70384470','Jhanpoul','Zavaleta','Taucett','23/02/2000'
-EXEC sp_insertaControlador 4, 'arturopv','password','apv@california.com','70469760','Arturo','Paulino','Vigo','11/07/2000'
-GO
-SELECT * FROM CONTROLADOR_PERSONAL
-GO
-
 --Inserción en tabla Secretaria
 CREATE PROCEDURE sp_insertaSecretaria
 	@Turno 					as VARCHAR(15),
@@ -121,13 +100,6 @@ AS
 		INSERT INTO SECRETARIA(USU_IdUsuario, SEC_Turno)
 		VALUES (@@IDENTITY, @Turno)
 	END
-GO
-
-EXEC sp_insertaSecretaria 'Mañana', 'erickasl','password','esl@california.com','70558416','Ericka','Salvador','Llaro','05/01/1999'
-EXEC sp_insertaSecretaria 'Tarde', 'geraldiners','password','grs@california.com','70246985','Geraldine','Roncal','Sanchez','27/12/1999'
-GO
-
-SELECT * FROM SECRETARIA
 GO
 
 
@@ -154,12 +126,6 @@ AS
 		INSERT INTO CONTROL_T(CONT_TiempoAprox,CONTUB_IdControlUbicacion,RUT_IdRuta)
 		VALUES (@TiempoAprox, @IdControlUbicacion, @IdRuta)
 	END
-GO
-
-EXECUTE sp_insertaControl_T 0, 1, 1
-EXECUTE sp_insertaControl_T 4, 2, 1
-EXECUTE sp_insertaControl_T 0, 1, 2
-SELECT * FROM CONTROL_T
 GO
 
 
@@ -214,9 +180,6 @@ AS
 		VALUES (@IdControl, @IdControlador, GETDATE())
 	END
 GO
-
---SELECT * FROM CONTROLADOR_SISTEMA
---GO
 
 CREATE PROCEDURE sp_Hoja_Control
 	@Codigo 			CHAR(15),
