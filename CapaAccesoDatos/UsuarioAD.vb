@@ -37,20 +37,16 @@ Public Class UsuarioAD
             cmd.Parameters.Add("@contraseña", SqlDbType.VarChar, 30).Value = Trim(contraseña)
             Dim Lector As SqlDataReader
             Dim idUsuario = 0
-            Dim idControlador = 0
             Dim tipo = ""
-            Dim rolU = ""
             Dim datos() As String
             Lector = cmd.ExecuteReader
             If Lector.HasRows = True Then
                 While Lector.Read
                     idUsuario = Lector.Item(0)
-                    idControlador = Lector.Item(1)
-                    tipo = Lector.Item(2)
-                    rolU = Lector.Item(3)
+                    tipo = Lector.Item(1)
                 End While
             End If
-            datos = {idUsuario, idControlador, tipo, rolU}
+            datos = {idUsuario, tipo}
             Return datos
         Catch ex As Exception
             Throw New Exception(ex.Message)
