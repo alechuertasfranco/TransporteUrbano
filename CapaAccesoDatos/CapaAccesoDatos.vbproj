@@ -87,6 +87,7 @@
     </Compile>
     <Compile Include="Pago_ControlAD.vb" />
     <Compile Include="RutaAD.vb" />
+    <Compile Include="SecretariaAD.vb" />
     <Compile Include="TarifaAD.vb" />
     <Compile Include="Tarifa_RutaAD.vb" />
     <Compile Include="UsuarioAD.vb" />

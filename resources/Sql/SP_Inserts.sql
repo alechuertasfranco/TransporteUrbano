@@ -71,6 +71,10 @@ EXECUTE sp_insertaControl_Ubicacion 'PALM', 'Las Palmeras', 'Alfonso Ugarte 1, D
 SELECT * FROM CONTROL_UBICACION
 GO
 
+--Insertamos en base el administrador
+INSERT INTO USUARIO(USU_Usuario, USU_Contrasena, USU_Correo, USU_DNI, USU_NombresUsuario, USU_ApellidoPaternoUsuario, USU_ApellidoMaternoUsuario, USU_FechaNacUsuario)
+		VALUES ('luisbc', 'password', 'admin@california.com', '80635737', 'Luis', 'Boy', 'Chavil', '28/07/1970')
+
 --Inserción en tabla Controlador
 CREATE PROCEDURE sp_insertaControlador
 	@NroControles 			as INT,
@@ -95,12 +99,6 @@ GO
 EXEC sp_insertaControlador 3, 'jhanpoulzt','password','jzt@california.com','70384470','Jhanpoul','Zavaleta','Taucett','23/02/2000'
 EXEC sp_insertaControlador 4, 'arturopv','password','apv@california.com','70469760','Arturo','Paulino','Vigo','11/07/2000'
 GO
-
---Insertamos en base el administrador
-INSERT INTO USUARIO(USU_Usuario, USU_Contrasena, USU_Correo, USU_DNI, USU_NombresUsuario, USU_ApellidoPaternoUsuario, USU_ApellidoMaternoUsuario, USU_FechaNacUsuario)
-		VALUES ('luisbc', 'password', 'admin@california.com', '80635737', 'Luis', 'Boy', 'Chavil', '28/07/1970')
-
-SELECT * FROM USUARIO
 SELECT * FROM CONTROLADOR_PERSONAL
 GO
 
@@ -129,8 +127,11 @@ EXEC sp_insertaSecretaria 'Mañana', 'erickasl','password','esl@california.com',
 EXEC sp_insertaSecretaria 'Tarde', 'geraldiners','password','grs@california.com','70246985','Geraldine','Roncal','Sanchez','27/12/1999'
 GO
 
-SELECT * FROM USUARIO
 SELECT * FROM SECRETARIA
+GO
+
+
+SELECT * FROM USUARIO
 GO
 
 --Inserción en tabla Penalizacion

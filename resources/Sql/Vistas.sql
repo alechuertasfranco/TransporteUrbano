@@ -38,5 +38,5 @@ AS
     on S.USU_IdUsuario = U.USU_IdUsuario
 GO
 
-SELECT * FROM V_Controladores
+SELECT * FROM V_Secretarias
 GO

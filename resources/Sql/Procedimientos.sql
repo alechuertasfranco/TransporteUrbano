@@ -86,9 +86,6 @@ select * from HOJA_CONTROL_RECORRIDOS
 select * from PENALIZACIONES
 insert PENALIZACIONES values(5,GETDATE())
 insert PENALIZACIONES values(6,GETDATE())
-
-
-USE BD_TransporteUrbano;
 GO
 
 
@@ -102,6 +99,24 @@ AS
 			INNER JOIN USUARIO U
 			ON U.USU_IdUsuario = C.USU_IdUsuario
 		WHERE U.USU_IdUsuario = @idControlador
+	END
+GO
+
+EXECUTE SP_BuscarControlador 2
+GO
+
+
+
+-- Buscar los datos del controlador por ID
+CREATE PROCEDURE SP_BuscarSecretaria
+	@IdSecretaria		INT
+AS
+	BEGIN
+		SELECT *
+		FROM SECRETARIA S
+			INNER JOIN USUARIO U
+			ON U.USU_IdUsuario = S.USU_IdUsuario
+		WHERE U.USU_IdUsuario = @IdSecretaria
 	END
 GO
 

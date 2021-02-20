@@ -40,11 +40,11 @@ Partial Class FrmIndexAdmin
         Me.PenalizaciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VentanaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CascadaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripSeparator()
         Me.HorizontalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VerticalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -60,7 +60,7 @@ Partial Class FrmIndexAdmin
         '
         'MantenedoresToolStripMenuItem
         '
-        Me.MantenedoresToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UsuarioToolStripMenuItem, Me.ConductorToolStripMenuItem, Me.ControladorToolStripMenuItem, Me.ToolStripMenuItem1, Me.BusToolStripMenuItem, Me.RutaToolStripMenuItem, Me.ControlToolStripMenuItem, Me.ToolStripMenuItem2, Me.TafiraToolStripMenuItem})
+        Me.MantenedoresToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConductorToolStripMenuItem, Me.ControladorToolStripMenuItem, Me.UsuarioToolStripMenuItem, Me.ToolStripMenuItem1, Me.BusToolStripMenuItem, Me.RutaToolStripMenuItem, Me.ControlToolStripMenuItem, Me.ToolStripMenuItem2, Me.TafiraToolStripMenuItem})
         Me.MantenedoresToolStripMenuItem.Name = "MantenedoresToolStripMenuItem"
         Me.MantenedoresToolStripMenuItem.Size = New System.Drawing.Size(95, 20)
         Me.MantenedoresToolStripMenuItem.Text = "Mantenedores"
@@ -69,7 +69,7 @@ Partial Class FrmIndexAdmin
         '
         Me.UsuarioToolStripMenuItem.Name = "UsuarioToolStripMenuItem"
         Me.UsuarioToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.UsuarioToolStripMenuItem.Text = "Usuario"
+        Me.UsuarioToolStripMenuItem.Text = "Secretaria"
         '
         'ConductorToolStripMenuItem
         '
@@ -156,34 +156,34 @@ Partial Class FrmIndexAdmin
         Me.VentanaToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
         Me.VentanaToolStripMenuItem.Text = "Ventana"
         '
-        'SalirToolStripMenuItem
-        '
-        Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
-        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
-        Me.SalirToolStripMenuItem.Text = "Salir"
-        '
         'CascadaToolStripMenuItem
         '
         Me.CascadaToolStripMenuItem.Name = "CascadaToolStripMenuItem"
-        Me.CascadaToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.CascadaToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
         Me.CascadaToolStripMenuItem.Text = "Cascada"
         '
         'ToolStripMenuItem3
         '
         Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(126, 6)
         '
         'HorizontalToolStripMenuItem
         '
         Me.HorizontalToolStripMenuItem.Name = "HorizontalToolStripMenuItem"
-        Me.HorizontalToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.HorizontalToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
         Me.HorizontalToolStripMenuItem.Text = "Horizontal"
         '
         'VerticalToolStripMenuItem
         '
         Me.VerticalToolStripMenuItem.Name = "VerticalToolStripMenuItem"
-        Me.VerticalToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.VerticalToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
         Me.VerticalToolStripMenuItem.Text = "Vertical"
+        '
+        'SalirToolStripMenuItem
+        '
+        Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
+        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
+        Me.SalirToolStripMenuItem.Text = "Salir"
         '
         'FrmIndexAdmin
         '

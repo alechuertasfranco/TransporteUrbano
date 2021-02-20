@@ -88,6 +88,7 @@
     <Compile Include="Penalizacion.vb" />
     <Compile Include="Rol.vb" />
     <Compile Include="Ruta.vb" />
+    <Compile Include="Secretaria.vb" />
     <Compile Include="Tarifa.vb" />
     <Compile Include="Tarifa_Ruta.vb" />
     <Compile Include="Usuario.vb" />
