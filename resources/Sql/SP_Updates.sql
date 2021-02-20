@@ -1,8 +1,8 @@
 USE BD_TransporteUrbano
 go
 
-CREATE PROCEDURE SP_ActualizaControlador
-    @IdControlador          as INT,
+CREATE PROCEDURE SP_ActualizaUsuario
+    @IdUsuario				as INT,
     @Usuario                as VARCHAR(30),
     @Contrasena             as VARCHAR(30),
     @Correo                 as VARCHAR(60),
@@ -21,6 +21,6 @@ AS
 						USU_NombresUsuario = @Nombres,
 						USU_ApellidoPaternoUsuario = @ApellidoPaterno,
 						USU_ApellidoMaternoUsuario = @ApellidoMaterno
-		WHERE USU_IdUsuario = @IdControlador
+		WHERE USU_IdUsuario = @IdUsuario
 	END
 GO

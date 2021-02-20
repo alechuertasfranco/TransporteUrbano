@@ -1,7 +1,7 @@
 ﻿Imports CapaEntidad
 Imports CapaLogicaNegocio
 Imports System.Data.SqlClient
-Public Class FrmRegistroU
+Public Class FrmSecretaria
 
     Private Sub FrmRegistroU_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'BD_TransporteUrbanoDataSet.USUARIO_ROL' Puede moverla o quitarla según sea necesario.
@@ -21,7 +21,6 @@ Public Class FrmRegistroU
             obj.ApellidoPaternoUsuario = CType(txt_apellidos_paterno.Text, String)
             obj.ApellidoMaternoUsuario = CType(txt_apellidos_materno.Text, String)
             obj.FechaNacUsuario = CType(txt_fecha.Text, Date)
-            obj.IdUsuarioRol = CType(cbo_rol.SelectedValue, String)
             obj.Usuario = CType(obj.NombresUsuario.Replace(" ", "") +
                                 obj.ApellidoPaternoUsuario.First() +
                                 obj.ApellidoMaternoUsuario.First(), String).ToLower()
