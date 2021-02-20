@@ -1,14 +1,7 @@
 USE BD_TransporteUrbano
-go
-
-INSERT INTO USUARIO_ROL(USUR_Rol) 
-        VALUES('Admin')
-INSERT INTO USUARIO_ROL(USUR_Rol) 
-        VALUES('Controlador')
 GO
-insert HOJA_CONTROL_RECORRIDOS values ('HC117FEB211','17-02-2021',20,1,1)
 
-SELECT * FROM USUARIO_ROL;
+INSERT INTO HOJA_CONTROL_RECORRIDOS values ('HC117FEB211','17-02-2021',20,1,1)
 GO
 
 --Inserción en tabla Conductor
@@ -27,9 +20,9 @@ AS
 	END
 GO
 
-SELECT * FROM CONDUCTORES
-SELECT * FROM BUSES
-GO
+--SELECT * FROM CONDUCTORES
+--SELECT * FROM BUSES
+--GO
 
 --Inserción en tabla Bus
 CREATE PROCEDURE sp_insertaBus
@@ -45,6 +38,21 @@ AS
 	END
 GO
 
+--Inserción en tabla Ruta
+CREATE PROCEDURE sp_insertaRuta
+	@Ruta 				CHAR(1),
+	@CantidadControles 	INT
+AS
+	BEGIN
+		INSERT INTO RUTA(RUT_Ruta, RUT_CantidadControles)
+		VALUES (@Ruta, @CantidadControles)
+	END
+GO
+
+ EXECUTE sp_insertaRuta 'A', 10
+ EXECUTE sp_insertaRuta 'C', 10
+ SELECT * FROM RUTA
+ GO
 
 --Inserción en tabla Control_Ubicacion
 CREATE PROCEDURE sp_insertaControl_Ubicacion
@@ -53,15 +61,15 @@ CREATE PROCEDURE sp_insertaControl_Ubicacion
 	@Direccion 			VARCHAR(120)
 AS
 	BEGIN
-		INSERT INTO CONTROL_UBICACION(CONTUB_Codigo, CONTUB_Control, CONTUB_Dirección)
+		INSERT INTO CONTROL_UBICACION(CONTUB_Codigo, CONTUB_Control, CONTUB_Direccion)
 		VALUES (@Codigo, @Control, @Direccion)
 	END
 GO
 
---EXECUTE sp_insertaControl_Ubicacion 'TERM', 'Terminal', 'Panamericana Norte 13014'
---EXECUTE sp_insertaControl_Ubicacion 'PALM', 'Las Palmeras', 'Alfonso Ugarte 1, Distrito de Víctor Larco Herrera 13014'
---SELECT * FROM CONTROL_UBICACION
---GO
+EXECUTE sp_insertaControl_Ubicacion 'TERM', 'Terminal', 'Panamericana Norte 13014'
+EXECUTE sp_insertaControl_Ubicacion 'PALM', 'Las Palmeras', 'Alfonso Ugarte 1, Distrito de Víctor Larco Herrera 13014'
+SELECT * FROM CONTROL_UBICACION
+GO
 
 --Inserción en tabla Controlador
 CREATE PROCEDURE sp_insertaControlador
@@ -147,10 +155,11 @@ AS
 	END
 GO
 
---EXECUTE sp_insertaControl_T 0, 1, 1
---EXECUTE sp_insertaControl_T 4, 2, 1
---SELECT * FROM CONTROL_T
---GO
+EXECUTE sp_insertaControl_T 0, 1, 1
+EXECUTE sp_insertaControl_T 4, 2, 1
+EXECUTE sp_insertaControl_T 0, 1, 2
+SELECT * FROM CONTROL_T
+GO
 
 
 --Inserción en tabla Pago_Control
@@ -170,22 +179,6 @@ AS
 		VALUES (@IdBus,@IdConductor, @HCont_Codigo,@Fecha,@Monto)
 	END
 GO
-
---Inserción en tabla Ruta
-CREATE PROCEDURE sp_insertaRuta
-	@Ruta 				CHAR(1),
-	@CantidadControles 	INT
-AS
-	BEGIN
-		INSERT INTO RUTA(RUT_Ruta, RUT_CantidadControles)
-		VALUES (@Ruta, @CantidadControles)
-	END
-GO
-
--- EXECUTE sp_insertaRuta 'A', 20
--- EXECUTE sp_insertaRuta 'C', 20
--- SELECT * FROM RUTA
--- GO
 
 --Inserción en tabla Tarifa
 CREATE PROCEDURE sp_insertaTarifa
@@ -211,17 +204,20 @@ GO
 
 
 --Inserción en la tabla Controlador_Sistema
-CREATE PROCEDURE sp_insertaTarifa_Ruta
+CREATE PROCEDURE sp_insertaControladorSistema
 	@IdControl 			INTEGER,
 	@IdControlador 		INTEGER
 AS
 	BEGIN
-		INSERT INTO CONTROLADOR_SISTEMA(RUT_IdRuta, TAR_IdTarifa, TR_Monto)
-		VALUES (@IdRuta,@IdTarifa,@Monto)
+		INSERT INTO CONTROLADOR_SISTEMA(CONT_IdControl, USU_IdUsuario, CONTS_InicioSesion)
+		VALUES (@IdControl, @IdControlador, GETDATE())
 	END
 GO
-use BD_TransporteUrbano
-create PROCEDURE sp_Hoja_Control
+
+--SELECT * FROM CONTROLADOR_SISTEMA
+--GO
+
+CREATE PROCEDURE sp_Hoja_Control
 	@Codigo 			CHAR(15),
 	@Fecha 				Datetime,
 	@IdPen		 		INTEGER,

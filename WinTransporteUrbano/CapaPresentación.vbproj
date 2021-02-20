@@ -118,6 +118,12 @@
     <Compile Include="FrmControlUbicacion.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmDetalleControl.Designer.vb">
+      <DependentUpon>FrmDetalleControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDetalleControl.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmHojaControl.Designer.vb">
       <DependentUpon>FrmHojaControl.vb</DependentUpon>
     </Compile>
@@ -220,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmControlUbicacion.resx">
       <DependentUpon>FrmControlUbicacion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDetalleControl.resx">
+      <DependentUpon>FrmDetalleControl.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmHojaControl.resx">
       <DependentUpon>FrmHojaControl.vb</DependentUpon>

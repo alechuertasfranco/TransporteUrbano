@@ -4,7 +4,7 @@ Imports CapaLogicaNegocio
 Public Class FrmControladorDatos
     Private Sub FrmControladorDatos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim datos() As String
-        datos = Controlador_PersonalLN.consultar_controlador(1)
+        datos = Controlador_PersonalLN.consultar_controlador(usuario_ingresado)
         Me.txt_usuario.Text = datos(0)
         Me.txt_contraseña.Text = datos(1)
         Me.txt_correo.Text = datos(2)
@@ -12,7 +12,8 @@ Public Class FrmControladorDatos
         Me.txt_nombres.Text = datos(4)
         Me.txt_apellidop.Text = datos(5)
         Me.txt_apellidom.Text = datos(6)
-        Me.txt_nro_controles.Text = datos(7)
+        Me.txt_fecha.Text = datos(7)
+        Me.txt_nro_controles.Text = datos(8)
         Me.btn_editar.Select()
     End Sub
 
@@ -26,6 +27,7 @@ Public Class FrmControladorDatos
             Me.txt_nombres.ReadOnly = False
             Me.txt_apellidop.ReadOnly = False
             Me.txt_apellidom.ReadOnly = False
+            Me.txt_fecha.Enabled = True
             Me.btn_editar.Text = "Guardar"
             Me.btn_editar.Select()
         ElseIf (Me.btn_editar.Text = "Guardar") Then
@@ -37,6 +39,7 @@ Public Class FrmControladorDatos
             Me.txt_nombres.ReadOnly = True
             Me.txt_apellidop.ReadOnly = True
             Me.txt_apellidom.ReadOnly = True
+            Me.txt_fecha.Enabled = False
 
             Dim obj As New Usuario
             Dim objC As New Controlador_Personal
@@ -50,6 +53,7 @@ Public Class FrmControladorDatos
                 obj.NombresUsuario = CType(txt_nombres.Text, String)
                 obj.ApellidoPaternoUsuario = CType(txt_apellidop.Text, String)
                 obj.ApellidoMaternoUsuario = CType(txt_apellidom.Text, String)
+                obj.FechaNacUsuario = CType(txt_fecha.Text, Date)
                 Controlador_PersonalLN.editar_controlador(obj, objC)
                 MsgBox("Datos Actualizados")
             Else

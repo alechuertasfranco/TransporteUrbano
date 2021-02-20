@@ -23,16 +23,19 @@ Public Class FrmLogin
             Select Case tipo
                 Case "Controlador"
                     MessageBox.Show(correo, "Bienvenido", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    FrmIndexControlador.Show()
-                    Me.Hide()
+                    Dim FrmControlador As New FrmIndexControlador
+                    FrmControlador.Show()
+                    Me.Close()
                 Case "Administrador"
                     MessageBox.Show(correo, "Bienvenido", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    FrmIndexAdmin.Show()
-                    Me.Hide()
+                    Dim FrmAdmin As New FrmIndexAdmin
+                    FrmAdmin.Show()
+                    Me.Close()
                 Case "Secretaria"
                     MessageBox.Show(correo, "Bienvenido", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    FrmIndexSecretaria.Show()
-                    Me.Hide()
+                    Dim FrmSecretaria As New FrmIndexSecretaria
+                    FrmSecretaria.Show()
+                    Me.Close()
             End Select
         Else
             MessageBox.Show("Error-El usuario no se encuentra registrado", "Ventana de Error", MessageBoxButtons.OK, MessageBoxIcon.Error)

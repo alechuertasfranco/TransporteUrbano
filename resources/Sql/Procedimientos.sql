@@ -26,6 +26,7 @@ AS
 GO
 
 select * from usuario
+GO
 
 create PROCEDURE sp_GenerarHojaRecorrido
  @fecha 			datetime
@@ -104,7 +105,7 @@ AS
 	END
 GO
 
-EXECUTE SP_BuscarControlador 1
+EXECUTE SP_BuscarControlador 2
 GO
 
 -- Obtener el ID de todos los controles de una Ruta para un ComboBox

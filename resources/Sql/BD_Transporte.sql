@@ -114,7 +114,7 @@ CREATE TABLE CONTROLADOR_SISTEMA
 	CONT_IdControl       int  NOT NULL ,
 	CONTS_Autoincremental int IDENTITY ( 1,1 ) ,
 	CONTS_InicioSesion   datetime  NOT NULL ,
-	CONTS_FinSesion      datetime  NOT NULL ,
+	CONTS_FinSesion      datetime  NULL ,
 	USU_IdUsuario        int  NULL 
 )
 go

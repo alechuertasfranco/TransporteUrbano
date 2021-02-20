@@ -12,8 +12,7 @@ Public Class FrmSeleccionControl
     Private Sub cmb_ruta_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_ruta.SelectedIndexChanged
         If cmb_ruta.SelectedItem IsNot Nothing Then
             Dim idRuta = cmb_ruta.SelectedValue
-            Dim Ruta = cmb_ruta.Text.ToString()
-            'MsgBox("Ruta " + Ruta + ", ID " + idRuta.ToString())
+            cmb_controles.Items.Clear()
 
             Dim datos As New List(Of Integer)
             datos = ControlLN.listarControles(idRuta)
@@ -37,7 +36,18 @@ Public Class FrmSeleccionControl
         Me.txt_ubicacion.Text = datos(2)
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-
+    Private Sub btn_seleccionar_Click(sender As Object, e As EventArgs) Handles btn_seleccionar.Click
+        Dim idControl = cmb_controles.Text
+        control_ingresado = idControl
+        Try
+            Controlador_SistemaLN.agregar_controlador_sistema(control_ingresado, usuario_ingresado)
+            MsgBox("Control ingresado: N°" + control_ingresado.ToString() & vbNewLine & "Hora de ingreso: " & DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"))
+            Dim objDetalleControl As New FrmDetalleControl
+            objDetalleControl.MdiParent = Me.MdiParent
+            objDetalleControl.Show()
+            Me.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 End Class

@@ -35,7 +35,7 @@ Partial Class FrmSeleccionControl
         Me.CONTROL_TTableAdapter = New WinTransporteUrbano.BD_TransporteUrbanoDataSetTableAdapters.CONTROL_TTableAdapter()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txt_ubicacion = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btn_seleccionar = New System.Windows.Forms.Button()
         Me.txt_codigo = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txt_control = New System.Windows.Forms.TextBox()
@@ -139,15 +139,15 @@ Partial Class FrmSeleccionControl
         Me.txt_ubicacion.Size = New System.Drawing.Size(292, 61)
         Me.txt_ubicacion.TabIndex = 98
         '
-        'Button1
+        'btn_seleccionar
         '
-        Me.Button1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(93, 271)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(120, 30)
-        Me.Button1.TabIndex = 99
-        Me.Button1.Text = "Seleccionar"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btn_seleccionar.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_seleccionar.Location = New System.Drawing.Point(93, 271)
+        Me.btn_seleccionar.Name = "btn_seleccionar"
+        Me.btn_seleccionar.Size = New System.Drawing.Size(120, 30)
+        Me.btn_seleccionar.TabIndex = 99
+        Me.btn_seleccionar.Text = "Seleccionar"
+        Me.btn_seleccionar.UseVisualStyleBackColor = True
         '
         'txt_codigo
         '
@@ -196,7 +196,7 @@ Partial Class FrmSeleccionControl
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txt_codigo)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btn_seleccionar)
         Me.Controls.Add(Me.txt_ubicacion)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -226,7 +226,7 @@ Partial Class FrmSeleccionControl
     Friend WithEvents CONTROL_TTableAdapter As BD_TransporteUrbanoDataSetTableAdapters.CONTROL_TTableAdapter
     Friend WithEvents Label2 As Label
     Friend WithEvents txt_ubicacion As TextBox
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btn_seleccionar As Button
     Friend WithEvents txt_codigo As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents txt_control As TextBox

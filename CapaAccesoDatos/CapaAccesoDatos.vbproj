@@ -67,6 +67,7 @@
     <Compile Include="ConductorAD.vb" />
     <Compile Include="ControlAD.vb" />
     <Compile Include="Controlador_PersonalAD.vb" />
+    <Compile Include="Controlador_SistemaAD.vb" />
     <Compile Include="Control_UbicacionAD.vb" />
     <Compile Include="Hoja_ControlAD.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />

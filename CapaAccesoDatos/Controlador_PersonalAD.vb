@@ -83,7 +83,7 @@ Public Class Controlador_PersonalAD
             oComando.Connection = oConexion
             oLector = oComando.ExecuteReader()
 
-            Dim NroControles, Usuario, Contrasena, Correo, DNI, Nombre, ApellidoP, ApellidoM As String
+            Dim NroControles, Usuario, Contrasena, Correo, DNI, Nombre, ApellidoP, ApellidoM, FechaNacimiento As String
             Dim datos() As String
 
             If oLector.HasRows = True Then
@@ -95,6 +95,7 @@ Public Class Controlador_PersonalAD
                     Nombre = oLector.Item(6)
                     ApellidoP = oLector.Item(7)
                     ApellidoM = oLector.Item(8)
+                    FechaNacimiento = oLector.Item(9)
                     If (IsDBNull(oLector.Item(5))) Then
                         DNI = "No registrado"
                     Else
@@ -103,7 +104,7 @@ Public Class Controlador_PersonalAD
                 End While
             End If
 
-            datos = {Usuario, Contrasena, Correo, DNI, Nombre, ApellidoP, ApellidoM, NroControles}
+            datos = {Usuario, Contrasena, Correo, DNI, Nombre, ApellidoP, ApellidoM, FechaNacimiento, NroControles}
             Return datos
         Catch ex As Exception
             Throw New Exception(ex.Message)

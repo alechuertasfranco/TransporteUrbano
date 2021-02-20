@@ -66,6 +66,7 @@
     <Compile Include="BusLN.vb" />
     <Compile Include="ConductorLN.vb" />
     <Compile Include="Controlador_PersonalLN.vb" />
+    <Compile Include="Controlador_SistemaLN.vb" />
     <Compile Include="ControlLN.vb" />
     <Compile Include="Control_UbicacionLN.vb" />
     <Compile Include="Hoja_ControlLN.vb" />
