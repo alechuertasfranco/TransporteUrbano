@@ -30,21 +30,24 @@ Public Class FrmHojaControl
     End Sub
 
     Private Sub FrmHojaControl_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        datos = Hoja_ControlLN.GenerarCabecera(DateTime.Now.ToString("dd/MM/yyyy"))
-        codigoHojaControl = datos(0)
-        idPenalizacion = datos(2)
-        nVuelta = datos(3)
-        cantidadControles = datos(4)
-        id = datos(5)
+        ActualizarHoja()
         'TODO: esta línea de código carga datos en la tabla 'BD_TransporteUrbanoDataSet.BUSES' Puede moverla o quitarla según sea necesario.
         Me.BUSESTableAdapter.Fill(Me.BD_TransporteUrbanoDataSet.BUSES)
         'dtHojaControl = Me.taHojaControl.GetDataByLastID()
         txt_codigo.Text = codigoHojaControl
         txt_vuelta.Text = nVuelta
         'If btn_agregar.Enabled Then
-        'MsgBox("Aún no hay ninguna hoja de control generada, por favor de click en generar")
-        'End If
+        ' MsgBox("Aún no hay ninguna hoja de control generada, por favor de click en generar")
+        ' End If
         actualizar_detalle()
+    End Sub
+    Private Sub ActualizarHoja()
+        datos = Hoja_ControlLN.GenerarCabecera(DateTime.Now.ToString("dd/MM/yyyy"))
+        codigoHojaControl = datos(0)
+        idPenalizacion = datos(2)
+        nVuelta = datos(3)
+        cantidadControles = datos(4)
+        id = datos(5)
     End Sub
     Private Sub btn_Generar_Click(sender As Object, e As EventArgs) Handles btn_Generar.Click
         Try
@@ -54,8 +57,10 @@ Public Class FrmHojaControl
             obj.nVuelta = CType(nVuelta, Integer)
             obj.idPenalizacion = CType(idPenalizacion, String)
             obj.TotalPenalizacion = 0
-            MsgBox(obj.fecha)
             Hoja_ControlLN.agregar_hoja(obj)
+            ActualizarHoja()
+            txt_codigo.Text = datos(0)
+            txt_vuelta.Text = datos(3)
             MsgBox("Se agrego correctamente la hoja")
             btn_agregar.Enabled = True
         Catch ex As Exception
@@ -90,17 +95,15 @@ Public Class FrmHojaControl
                 MsgBox(ex, , "Error al editar")
             End Try
             Me.editar = False
-            actualizar_detalle()
         Else
             'Agregar un registro
             Me.registro = dtDetalleHoja.NewDETALLE_RECORRIDORow()
             registro.HCONT_IdHojaControl = id
-            registro.BUS_IdBus = Convert.ToInt16(cmb_bus.SelectedValue)
+            registro.BUS_IdBus = cmb_bus.SelectedValue
             registro.DREC_Controles = cantidadControles
             registro.DREC_HoraSalida = fecha
             registro.DREC_HoraLlegada = DateTime.Now.ToString("dd/MM/yyyy")
             registro.DREC_MontoPenalizacion = 0
-            actualizar_detalle()
             'Agregar regitro al DataTable
             Try
                 dtDetalleHoja.AddDETALLE_RECORRIDORow(Me.registro)
@@ -157,4 +160,5 @@ Public Class FrmHojaControl
         End Try
         actualizar_detalle()
     End Sub
+
 End Class

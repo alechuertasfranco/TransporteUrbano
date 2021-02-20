@@ -163,8 +163,8 @@ GO
 
 
 --Inserción en tabla Pago_Control
-CREATE PROCEDURE sp_insertaPago_Control
-	@HCont_Codigo			CHAR(08),
+alter PROCEDURE sp_insertaPago_Control
+	@HCont_Codigo			CHAR(15),
 	@IdBus					INT,
 	@IdConductor    		INT,
 	@IdControl	    		INT,
@@ -227,3 +227,6 @@ AS
 		INSERT INTO HOJA_CONTROL_RECORRIDOS(HCONT_Codigo, HCONT_Fecha, HCONT_TotalPenalizacion, PEN_IdPenalizacion, HCONT_NVuelta)
 		VALUES (@Codigo, @Fecha, 0, @IdPen, @NVuelta)
 	END
+
+
+	
