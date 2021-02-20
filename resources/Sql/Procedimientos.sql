@@ -2,7 +2,7 @@ USE BD_TransporteUrbano;
 GO
 
 -- Buscar el usuario para el Login
-create PROCEDURE sp_BuscarUsuario
+alter PROCEDURE sp_BuscarUsuario
 	@usuario 			VARCHAR(60),
 	@contraseña 		VARCHAR(30)
 AS
