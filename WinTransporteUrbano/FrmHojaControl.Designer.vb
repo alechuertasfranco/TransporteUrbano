@@ -29,6 +29,7 @@ Partial Class FrmHojaControl
         Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btn_Generar = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txt_vuelta = New System.Windows.Forms.TextBox()
         Me.dtp_fecha = New System.Windows.Forms.DateTimePicker()
@@ -46,12 +47,10 @@ Partial Class FrmHojaControl
         Me.btn_editar = New System.Windows.Forms.Button()
         Me.btn_Cerrar = New System.Windows.Forms.Button()
         Me.btn_Quitar = New System.Windows.Forms.Button()
-        Me.btn_Guardar = New System.Windows.Forms.Button()
         Me.dg_detalle = New System.Windows.Forms.DataGridView()
         Me.lblhora = New System.Windows.Forms.Label()
         Me.horafecha = New System.Windows.Forms.Timer(Me.components)
         Me.BUSESTableAdapter = New WinTransporteUrbano.BD_TransporteUrbanoDataSetTableAdapters.BUSESTableAdapter()
-        Me.btn_Generar = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.BUSESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -73,10 +72,21 @@ Partial Class FrmHojaControl
         Me.GroupBox1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
         Me.GroupBox1.Location = New System.Drawing.Point(23, 29)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(597, 110)
+        Me.GroupBox1.Size = New System.Drawing.Size(581, 110)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "HOJA DE CONTROL"
+        '
+        'btn_Generar
+        '
+        Me.btn_Generar.Font = New System.Drawing.Font("Arial Rounded MT Bold", 11.0!)
+        Me.btn_Generar.Location = New System.Drawing.Point(486, 51)
+        Me.btn_Generar.Margin = New System.Windows.Forms.Padding(2)
+        Me.btn_Generar.Name = "btn_Generar"
+        Me.btn_Generar.Size = New System.Drawing.Size(90, 29)
+        Me.btn_Generar.TabIndex = 101
+        Me.btn_Generar.Text = "Generar"
+        Me.btn_Generar.UseVisualStyleBackColor = True
         '
         'Label2
         '
@@ -103,7 +113,7 @@ Partial Class FrmHojaControl
         '
         Me.dtp_fecha.Enabled = False
         Me.dtp_fecha.Location = New System.Drawing.Point(164, 54)
-        Me.dtp_fecha.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.dtp_fecha.Margin = New System.Windows.Forms.Padding(2)
         Me.dtp_fecha.Name = "dtp_fecha"
         Me.dtp_fecha.Size = New System.Drawing.Size(238, 26)
         Me.dtp_fecha.TabIndex = 54
@@ -211,7 +221,6 @@ Partial Class FrmHojaControl
         Me.GroupBox3.Controls.Add(Me.btn_editar)
         Me.GroupBox3.Controls.Add(Me.btn_Cerrar)
         Me.GroupBox3.Controls.Add(Me.btn_Quitar)
-        Me.GroupBox3.Controls.Add(Me.btn_Guardar)
         Me.GroupBox3.Controls.Add(Me.dg_detalle)
         Me.GroupBox3.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
         Me.GroupBox3.Location = New System.Drawing.Point(23, 257)
@@ -224,7 +233,7 @@ Partial Class FrmHojaControl
         'btn_editar
         '
         Me.btn_editar.Location = New System.Drawing.Point(250, 280)
-        Me.btn_editar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btn_editar.Margin = New System.Windows.Forms.Padding(2)
         Me.btn_editar.Name = "btn_editar"
         Me.btn_editar.Size = New System.Drawing.Size(89, 37)
         Me.btn_editar.TabIndex = 100
@@ -248,16 +257,6 @@ Partial Class FrmHojaControl
         Me.btn_Quitar.TabIndex = 98
         Me.btn_Quitar.Text = "Quitar"
         Me.btn_Quitar.UseVisualStyleBackColor = True
-        '
-        'btn_Guardar
-        '
-        Me.btn_Guardar.Location = New System.Drawing.Point(139, 280)
-        Me.btn_Guardar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.btn_Guardar.Name = "btn_Guardar"
-        Me.btn_Guardar.Size = New System.Drawing.Size(102, 37)
-        Me.btn_Guardar.TabIndex = 97
-        Me.btn_Guardar.Text = "Guardar"
-        Me.btn_Guardar.UseVisualStyleBackColor = True
         '
         'dg_detalle
         '
@@ -322,22 +321,11 @@ Partial Class FrmHojaControl
         '
         Me.BUSESTableAdapter.ClearBeforeFill = True
         '
-        'btn_Generar
-        '
-        Me.btn_Generar.Font = New System.Drawing.Font("Arial Rounded MT Bold", 11.0!)
-        Me.btn_Generar.Location = New System.Drawing.Point(491, 51)
-        Me.btn_Generar.Margin = New System.Windows.Forms.Padding(2)
-        Me.btn_Generar.Name = "btn_Generar"
-        Me.btn_Generar.Size = New System.Drawing.Size(90, 29)
-        Me.btn_Generar.TabIndex = 101
-        Me.btn_Generar.Text = "Generar"
-        Me.btn_Generar.UseVisualStyleBackColor = True
-        '
         'FrmHojaControl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(632, 604)
+        Me.ClientSize = New System.Drawing.Size(640, 604)
         Me.Controls.Add(Me.lblhora)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
@@ -378,7 +366,6 @@ Partial Class FrmHojaControl
     Friend WithEvents BUSESTableAdapter As BD_TransporteUrbanoDataSetTableAdapters.BUSESTableAdapter
     Friend WithEvents btn_Cerrar As Button
     Friend WithEvents btn_Quitar As Button
-    Friend WithEvents btn_Guardar As Button
     Friend WithEvents btn_editar As Button
     Friend WithEvents btn_Generar As Button
 End Class
