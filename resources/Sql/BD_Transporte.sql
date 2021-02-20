@@ -188,8 +188,7 @@ go
 CREATE TABLE OPERACION
 ( 
 	HCONT_IdHojaControl  int  NOT NULL ,
-	CONTS_InicioSesion   datetime  NOT NULL ,
-	CONTS_FinSesion      datetime  NOT NULL ,
+	OPE_Hora		     datetime  NOT NULL ,
 	USU_IdUsuario        int  NULL 
 )
 go
