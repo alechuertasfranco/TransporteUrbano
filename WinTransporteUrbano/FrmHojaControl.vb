@@ -81,7 +81,6 @@ Public Class FrmHojaControl
             txt_codigo.Text = datos(0)
             txt_vuelta.Text = datos(3)
             MsgBox("Se agrego correctamente la hoja")
-            btn_agregar.Enabled = True
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -92,12 +91,11 @@ Public Class FrmHojaControl
         dg_detalle.DataSource = Me.dtDetalleHoja
     End Sub
     Private Sub btn_agregar_Click(sender As Object, e As EventArgs) Handles btn_agregar.Click
-        Hora = Format(DateAdd("n", 6, txt_hora.Text), "HH:mm:ss")
-        txt_hora.Text = Hora
-        txt_hora.Enabled = False
+        Hora = txt_hora.Text
         Dim ga = DateTime.Now.ToString("dd/MM/yyyy") + " " + Hora
         Dim fecha As DateTime = Convert.ToDateTime(ga)
-
+        Hora = Format(DateAdd("n", 6, txt_hora.Text), "HH:mm:ss")
+        txt_hora.Text = Hora
         If (Me.editar) Then
             'Editar un registro
             Me.registro = dtDetalleHoja.FindByBUS_IdBusHCONT_IdHojaControlDREC_Controles(Me.campoLlave1, Me.campoLlave2, Me.campoLlave3)
@@ -135,8 +133,7 @@ Public Class FrmHojaControl
                     MsgBox(ex.Message)
                 End Try
             Catch ex As Exception
-                MsgBox(ex.Message)
-                'MsgBox("Ese bus ya esta registrado en esta hoja de control")
+                MsgBox("Ese bus ya esta registrado en esta hoja de control")
             End Try
         End If
     End Sub
@@ -144,17 +141,17 @@ Public Class FrmHojaControl
     'Editar
     Private Sub btn_editar_Click(sender As Object, e As EventArgs) Handles btn_editar.Click
         Me.editar = True
-        txt_hora.Enabled = True
         HoraAuxiliar = Hora
         cargar_datos()
     End Sub
     'Cargar datos
     Private Sub cargar_datos()
-        Me.campoLlave1 = Me.dg_detalle.CurrentRow.Cells.Item(0).Value.ToString()
-        cmb_bus.SelectedValue = dg_detalle.CurrentRow.Cells.Item(0).Value.ToString()
-        Me.campoLlave2 = Me.dg_detalle.CurrentRow.Cells.Item(1).Value.ToString()
-        Me.campoLlave3 = Me.dg_detalle.CurrentRow.Cells.Item(2).Value.ToString()
+        Me.campoLlave1 = Me.dg_detalle.CurrentRow.Cells.Item(1).Value.ToString()
+        cmb_bus.SelectedValue = Int(dg_detalle.CurrentRow.Cells.Item(1).Value.ToString())
+        Me.campoLlave2 = Me.dg_detalle.CurrentRow.Cells.Item(2).Value.ToString()
+        Me.campoLlave3 = Me.dg_detalle.CurrentRow.Cells.Item(5).Value.ToString()
         Hora = Me.dg_detalle.CurrentRow.Cells.Item(3).Value.ToString()
+        txt_hora.Text = Hora
     End Sub
     'Seleccionar registro
     Private Sub dg_penalizaciones_SelectionChanged(sender As Object, e As EventArgs) Handles dg_detalle.SelectionChanged
@@ -184,7 +181,7 @@ Public Class FrmHojaControl
 
     End Sub
 
-    Private Sub btnprueba_Click(sender As Object, e As EventArgs) Handles btnprueba.Click
+    Private Sub btnprueba_Click(sender As Object, e As EventArgs)
 
     End Sub
 
@@ -193,6 +190,10 @@ Public Class FrmHojaControl
         cod = cbxCodigoHojaR.SelectedIndex
         id = codigos(cod, 1)
         txtNvueltaSelect.Text = codigos(cod, 2)
+        btn_agregar.Enabled = True
+
+        Me.dtDetalleHoja = Me.taDetalleHoja.GetDataByIdHoja(id)
+        dg_detalle.DataSource = Me.dtDetalleHoja
 
     End Sub
 End Class

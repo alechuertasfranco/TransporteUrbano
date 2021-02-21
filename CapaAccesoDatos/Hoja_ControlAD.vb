@@ -63,7 +63,8 @@ Public Class Hoja_ControlAD
             End If
             Return datos
         Catch ex As Exception
-            Throw New Exception(ex.Message)
+            'Throw New Exception(ex.Message)
+            MsgBox(ex.Message)
         Finally
             cn.Close()
         End Try
