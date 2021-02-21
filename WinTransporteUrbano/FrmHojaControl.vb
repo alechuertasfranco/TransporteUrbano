@@ -24,6 +24,7 @@ Public Class FrmHojaControl
     Dim id As Integer
     Dim cantidadControles
     Dim datos() As String
+    Dim codigos() As String
 
     Private Sub horafecha_Tick(sender As Object, e As EventArgs) Handles horafecha.Tick
         lblhora.Text = DateTime.Now.ToLongTimeString()
@@ -42,12 +43,19 @@ Public Class FrmHojaControl
         actualizar_detalle()
     End Sub
     Private Sub ActualizarHoja()
+        Me.cbxCodigoHojaR.Items().Clear()
         datos = Hoja_ControlLN.GenerarCabecera(DateTime.Now.ToString("dd/MM/yyyy"))
+        codigos = Hoja_ControlLN.BuscarCodigoHojasControl(DateTime.Now.ToString("dd/MM/yyyy"))
         codigoHojaControl = datos(0)
         idPenalizacion = datos(2)
         nVuelta = datos(3)
         cantidadControles = datos(4)
         id = datos(5)
+        For Each item As String In codigos
+            If (item <> "") Then
+                Me.cbxCodigoHojaR.Items.Add(item)
+            End If
+        Next
     End Sub
     Private Sub btn_Generar_Click(sender As Object, e As EventArgs) Handles btn_Generar.Click
         Try
@@ -161,4 +169,7 @@ Public Class FrmHojaControl
         actualizar_detalle()
     End Sub
 
+    Private Sub txt_codigo_TextChanged(sender As Object, e As EventArgs) Handles txt_codigo.TextChanged
+
+    End Sub
 End Class

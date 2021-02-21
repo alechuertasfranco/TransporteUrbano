@@ -38,6 +38,40 @@ Public Class Hoja_ControlAD
             cn.Close()
         End Try
     End Function
+
+    Public Function BuscarCodigoHojasControl(fecha As Date) As String()
+        Dim cn As New SqlConnection("server=.; integrated security=true; database=BD_TransporteUrbano")
+        Dim cmd As New SqlCommand
+        Try
+            cn.Open()
+            cmd.Connection = cn
+            cmd.CommandText = "sp_BuscarCodigoHojaRecorrido"
+            cmd.CommandType = CommandType.StoredProcedure
+            cmd.Parameters.Add("@fecha", SqlDbType.VarChar, 60).Value = Trim(fecha)
+
+            Dim Lector As SqlDataReader
+            Dim datos(50) As String
+            Dim cont = 0
+            Lector = cmd.ExecuteReader
+            If Lector.HasRows = True Then
+                While Lector.Read
+                    datos(cont) = Lector.Item(0)
+                    cont = cont + 1
+                End While
+            End If
+            Return datos
+        Catch ex As Exception
+            Throw New Exception(ex.Message)
+        Finally
+            cn.Close()
+        End Try
+    End Function
+
+
+
+
+
+
     Public Sub agregar_hoja(obj As Hoja_Control)
         Dim cn As New SqlConnection("server=.; integrated security=true; database=BD_TransporteUrbano")
         Dim cmdB As New SqlCommand("sp_Hoja_Control", cn)

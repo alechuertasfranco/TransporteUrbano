@@ -4,7 +4,7 @@ GO
 -- Buscar el usuario para el Login
 CREATE PROCEDURE sp_BuscarUsuario
 	@usuario 			VARCHAR(60),
-	@contraseña 		VARCHAR(30)
+	@contraseï¿½a 		VARCHAR(30)
 AS
 	BEGIN
 		SELECT U.USU_IdUsuario , CAST( 
@@ -21,13 +21,31 @@ AS
 		left join SECRETARIA S on S.USU_IdUsuario=U.USU_IdUsuario
 		left join CONTROLADOR_PERSONAL C on C.USU_IdUsuario=U.USU_IdUsuario
 		WHERE U.USU_Correo = @usuario
-		AND U.USU_Contrasena = @contraseña
+		AND U.USU_Contrasena = @contraseï¿½a
 	END
 GO
 SELECT * FROM USUARIO
 GO
 
-CREATE PROCEDURE sp_GenerarHojaRecorrido
+create PROCEDURE sp_BuscarCodigoHojaRecorrido
+	@fecha date
+AS
+	BEGIN
+		SELECT H.HCONT_Codigo
+		FROM HOJA_CONTROL_RECORRIDOS H
+		where H.HCONT_Fecha=@fecha
+		order by H.HCONT_IdHojaControl desc
+	end
+GO
+
+select * from usuario
+GO
+
+
+
+
+
+create PROCEDURE sp_GenerarHojaRecorrido
  @fecha 			datetime
 AS
 begin 
@@ -138,7 +156,7 @@ AS
 	BEGIN
 		SELECT	CONTUB_Codigo as Codigo,
 				CONTUB_Control as [Control],
-				CONTUB_Direccion as [Dirección],
+				CONTUB_Direccion as [Direcciï¿½n],
 				CONT_IdControl as [ID],
 				CONT_TiempoAprox as [Tiempo Aproximado]
 		FROM CONTROL_T C
