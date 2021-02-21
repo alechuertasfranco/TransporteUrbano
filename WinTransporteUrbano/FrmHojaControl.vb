@@ -41,6 +41,7 @@ Public Class FrmHojaControl
         ' MsgBox("Aún no hay ninguna hoja de control generada, por favor de click en generar")
         ' End If
         actualizar_detalle()
+        dtp_llegada.Text = "00:00:00.0000"
     End Sub
     Private Sub ActualizarHoja()
         Me.cbxCodigoHojaR.Items().Clear()
@@ -94,24 +95,31 @@ Public Class FrmHojaControl
         Hora = txt_hora.Text
         Dim ga = DateTime.Now.ToString("dd/MM/yyyy") + " " + Hora
         Dim fecha As DateTime = Convert.ToDateTime(ga)
+        Dim llegada As DateTime = Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy") + " " + dtp_llegada.Text)
         Hora = Format(DateAdd("n", 6, txt_hora.Text), "HH:mm:ss")
         txt_hora.Text = Hora
         If (Me.editar) Then
-            'Editar un registro
-            Me.registro = dtDetalleHoja.FindByBUS_IdBusHCONT_IdHojaControlDREC_Controles(Me.campoLlave1, Me.campoLlave2, Me.campoLlave3)
-            registro.BUS_IdBus = cmb_bus.SelectedValue
-            registro.DREC_Controles = cantidadControles
-            registro.DREC_HoraSalida = fecha
-            registro.DREC_HoraLlegada = DateTime.Now.ToString("dd/MM/yyyy")
-            registro.DREC_MontoPenalizacion = 0
-            'Actualizar la base 
-            Try
-                taDetalleHoja.Update(dtDetalleHoja)
-                MsgBox("Registro editado exitosamente")
-            Catch ex As Exception
-                MsgBox(ex, , "Error al editar")
-            End Try
-            Me.editar = False
+            If fecha < llegada Then
+                'Editar un registro
+                Me.registro = dtDetalleHoja.FindByBUS_IdBusHCONT_IdHojaControlDREC_Controles(Me.campoLlave1, Me.campoLlave2, Me.campoLlave3)
+                registro.BUS_IdBus = cmb_bus.SelectedValue
+                registro.DREC_Controles = cantidadControles
+                registro.DREC_HoraSalida = fecha
+                registro.DREC_HoraLlegada = llegada
+                registro.DREC_MontoPenalizacion = 0
+                'Actualizar la base 
+                Try
+                    taDetalleHoja.Update(dtDetalleHoja)
+                    MsgBox("Hora de llegada del bus agregada exitosamente")
+                Catch ex As Exception
+                    MsgBox(ex, , "Error al agregar la hora de llegada")
+                End Try
+                Me.editar = False
+                dtp_llegada.Enabled = False
+                txt_hora.Enabled = True
+            Else
+                MsgBox("La hora de llegada no puede ser menor a la hora de salida")
+            End If
         Else
             'Agregar un registro
             Me.registro = dtDetalleHoja.NewDETALLE_RECORRIDORow()
@@ -119,7 +127,7 @@ Public Class FrmHojaControl
             registro.BUS_IdBus = cmb_bus.SelectedValue
             registro.DREC_Controles = cantidadControles
             registro.DREC_HoraSalida = fecha
-            registro.DREC_HoraLlegada = DateTime.Now.ToString("dd/MM/yyyy")
+            registro.DREC_HoraLlegada = fecha
             registro.DREC_MontoPenalizacion = 0
             'Agregar regitro al DataTable
             Try
@@ -128,7 +136,7 @@ Public Class FrmHojaControl
                 Try
                     taDetalleHoja.Update(dtDetalleHoja)
 
-                    MsgBox("Registro insertado exitosamente")
+                    MsgBox("Bus agregado exitosamente")
                 Catch ex As Exception
                     MsgBox(ex.Message)
                 End Try
@@ -143,6 +151,8 @@ Public Class FrmHojaControl
         Me.editar = True
         HoraAuxiliar = Hora
         cargar_datos()
+        dtp_llegada.Enabled = True
+        txt_hora.Enabled = False
     End Sub
     'Cargar datos
     Private Sub cargar_datos()
@@ -151,6 +161,7 @@ Public Class FrmHojaControl
         Me.campoLlave2 = Me.dg_detalle.CurrentRow.Cells.Item(2).Value.ToString()
         Me.campoLlave3 = Me.dg_detalle.CurrentRow.Cells.Item(5).Value.ToString()
         Hora = Me.dg_detalle.CurrentRow.Cells.Item(3).Value.ToString()
+        dtp_llegada.Text = Me.dg_detalle.CurrentRow.Cells.Item(0).Value.ToString()
         txt_hora.Text = Hora
     End Sub
     'Seleccionar registro
@@ -177,13 +188,6 @@ Public Class FrmHojaControl
         actualizar_detalle()
     End Sub
 
-    Private Sub txt_codigo_TextChanged(sender As Object, e As EventArgs) Handles txt_codigo.TextChanged
-
-    End Sub
-
-    Private Sub btnprueba_Click(sender As Object, e As EventArgs)
-
-    End Sub
 
     Private Sub cbxCodigoHojaR_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxCodigoHojaR.SelectedIndexChanged
         Dim cod = ""
