@@ -6,4 +6,10 @@
     Private Sub FrmIndexSecretaria_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
+
+    Private Sub RegistrarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarToolStripMenuItem.Click
+        Dim ObjHoja As New FrmHojaControl
+        ObjHoja.MdiParent = Me
+        ObjHoja.Show()
+    End Sub
 End Class
