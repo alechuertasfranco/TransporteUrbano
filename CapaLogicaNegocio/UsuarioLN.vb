@@ -5,9 +5,9 @@ Public Class UsuarioLN
         Dim objAD As New UsuarioAD
         objAD.agregar_usuario(objA)
     End Sub
-    Public Shared Function buscarUsuario(usuario As String, contraseña As String) As String()
+    Public Shared Function buscarUsuario(usuario As String, contrasena As String) As String()
         Dim objAD As New UsuarioAD
-        Return objAD.buscarUsuario(usuario, contraseña)
+        Return objAD.buscarUsuario(usuario, contrasena)
     End Function
     Public Shared Function listarUsuarios() As DataTable
         Dim objAD As New UsuarioAD

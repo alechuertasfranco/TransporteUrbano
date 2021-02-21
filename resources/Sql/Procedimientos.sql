@@ -1,6 +1,10 @@
 USE BD_TransporteUrbano;
 GO
 
+-- INSERT PENALIZACIONES
+insert PENALIZACIONES values(5,GETDATE())
+insert PENALIZACIONES values(6,GETDATE())
+GO
 
 -- Buscar el usuario para el Login
 CREATE PROCEDURE sp_BuscarUsuario
@@ -26,10 +30,6 @@ AS
 	END
 GO
 
-select * from HOJA_CONTROL_RECORRIDOS
-GO
-select * from OPERACION
-
 create PROCEDURE sp_BuscarCodigoHojaRecorrido
 	@fecha date
 AS
@@ -40,13 +40,6 @@ AS
 		order by H.HCONT_IdHojaControl desc
 	end
 GO
-
-select * from usuario
-GO
-
-
-
-
 
 create PROCEDURE sp_GenerarHojaRecorrido
  @fecha 			datetime
@@ -89,22 +82,6 @@ begin
 	END
 GO
 EXECUTE sp_GenerarHojaRecorrido '18-02-2021'
-
-insert into HOJA_CONTROL_RECORRIDOS VALUES('HC117FEB211','17-02-2021',0,1,1)
-select * from HOJA_CONTROL_RECORRIDOS
-
-select * from CONTROL_T
-
-select * from PENALIZACIONES
-
-select * from DETALLE_RECORRIDO
-
-delete HOJA_CONTROL_RECORRIDOS
-select * from HOJA_CONTROL_RECORRIDOS
-
-select * from PENALIZACIONES
-insert PENALIZACIONES values(5,GETDATE())
-insert PENALIZACIONES values(6,GETDATE())
 GO
 
 
@@ -196,7 +173,8 @@ AS
 		SELECT	HC.HCONT_Codigo						as [Codigo Hoja],
 				HC.HCONT_Fecha						as [Fecha],
 				HC.HCONT_NVuelta					as [Vuelta],
-				DR.DREC_HoraSalida					as [Hora de Salida]
+				cast(DR.DREC_HoraSalida as time)	as [Hora de Salida],
+				cast(DR.DREC_HoraLlegada as time)	as [Hora de Llegada]
 		FROM BUSES B
 			INNER JOIN CONDUCTORES C
 			ON C.COND_IdConductor = B.COND_IdConductor

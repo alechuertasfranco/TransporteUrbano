@@ -2,7 +2,7 @@
     Private m_IdUsuario As Integer
     Private m_Usuario As String
     Private m_Correo As String
-    Private m_Contraseña As String
+    Private m_Contrasena As String
     Private m_Dni As String
     Private m_NombresUsuario As String
     Private m_ApellidoPaternoUsuario As String
@@ -48,10 +48,10 @@
 
     Public Property Contrasena() As String
         Get
-            Return m_Contraseña
+            Return m_Contrasena
         End Get
         Set(ByVal value As String)
-            m_Contraseña = value
+            m_Contrasena = value
         End Set
     End Property
 

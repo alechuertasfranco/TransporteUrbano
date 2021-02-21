@@ -142,7 +142,7 @@ GO
 
 
 --Inserción en tabla Pago_Control
-alter PROCEDURE sp_insertaPago_Control
+CREATE PROCEDURE sp_insertaPago_Control
 	@HCont_Codigo			CHAR(15),
 	@IdBus					INT,
 	@IdConductor    		INT,
@@ -203,7 +203,56 @@ AS
 		INSERT INTO HOJA_CONTROL_RECORRIDOS(HCONT_Codigo, HCONT_Fecha, HCONT_TotalPenalizacion, PEN_IdPenalizacion, HCONT_NVuelta)
 		VALUES (@Codigo, @Fecha, 0, @IdPen, @NVuelta)
 	END
+GO
 
-	select * from HOJA_CONTROL_RECORRIDOS
 
-	delete HOJA_CONTROL_RECORRIDOS where HCONT_IdHojaControl >3
+CREATE PROCEDURE SP_Detalle_Control
+	@IdControl			as INT,
+	@IdBus				as INT
+AS
+	BEGIN
+		DECLARE @IdHoja				INT,
+				@Controles			INT,
+				@HoraSalida			TIME,
+				@TiempoAprox		INT,
+				@TiempoMax			TIME,
+				@MontoPen			MONEY,
+				@TotalPen			MONEY
+		
+		SELECT	@IdHoja = DR.HCONT_IdHojaControl,
+				@Controles = DREC_Controles,
+				@HoraSalida = CAST(DREC_HoraSalida AS DATETIME),
+				@MontoPen = PEN_MontoMinuto
+		FROM DETALLE_RECORRIDO DR INNER JOIN
+			HOJA_CONTROL_RECORRIDOS HR
+			ON HR.HCONT_IdHojaControl = DR.HCONT_IdHojaControl
+			INNER JOIN PENALIZACIONES P
+			ON P.PEN_IdPenalizacion = HR.PEN_IdPenalizacion
+		WHERE DREC_HoraLlegada = DREC_HoraSalida AND BUS_IdBus = @IdBus
+
+		SELECT @TiempoAprox = CONT_TiempoAprox
+		FROM CONTROL_T WHERE CONT_IdControl = @IdControl
+
+		SET @TiempoMax = DATEADD(MINUTE, @TiempoAprox, @HoraSalida)
+		SET @TotalPen = (DATEDIFF(MINUTE, CAST(GETDATE() AS TIME), @TiempoMax)) * @MontoPen
+
+		INSERT INTO DETALLE_CONTROL (
+			CONT_IdControl,
+			BUS_IdBus,
+			HCONT_IdHojaControl,
+			DREC_Controles,
+			DCONT_FechaHora,
+			DCONT_MontoPenalizacion 
+		)
+		VALUES (
+			@IdControl,
+			@IdBus,
+			@IdHoja,
+			@Controles,
+			GETDATE(),
+			@TotalPen
+		)
+	END
+GO
+
+SELECT * FROM DETALLE_CONTROL

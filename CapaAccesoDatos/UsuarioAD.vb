@@ -25,7 +25,7 @@ Public Class UsuarioAD
         End Try
     End Sub
 
-    Public Function buscarUsuario(usuario As String, contraseña As String) As String()
+    Public Function buscarUsuario(usuario As String, contrasena As String) As String()
         Dim cn As New SqlConnection("server=.; integrated security=true; database=BD_TransporteUrbano")
         Dim cmd As New SqlCommand
         Try
@@ -34,7 +34,7 @@ Public Class UsuarioAD
             cmd.CommandText = "sp_BuscarUsuario"
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Parameters.Add("@usuario", SqlDbType.VarChar, 60).Value = Trim(usuario)
-            cmd.Parameters.Add("@contraseña", SqlDbType.VarChar, 30).Value = Trim(contraseña)
+            cmd.Parameters.Add("@contrasena", SqlDbType.VarChar, 30).Value = Trim(contrasena)
             Dim Lector As SqlDataReader
             Dim idUsuario = 0
             Dim tipo = ""

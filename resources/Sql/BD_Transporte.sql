@@ -129,13 +129,12 @@ go
 
 CREATE TABLE DETALLE_CONTROL
 ( 
-	DCONT_HoraLlegoControl datetime  NOT NULL ,
-	DCONT_Fecha          datetime  NOT NULL ,
-	DCONT_MontoPenalizacion money  NOT NULL ,
-	CONT_IdControl       int  NOT NULL ,
-	BUS_IdBus            int  NOT NULL ,
-	HCONT_IdHojaControl  int  NOT NULL ,
-	DREC_Controles       int  NOT NULL 
+	CONT_IdControl			int  NOT NULL ,
+	BUS_IdBus				int  NOT NULL ,
+	HCONT_IdHojaControl		int  NOT NULL ,
+	DREC_Controles			int  NOT NULL ,
+	DCONT_FechaHora			datetime  NOT NULL ,
+	DCONT_MontoPenalizacion money  NOT NULL 
 )
 go
 
@@ -149,11 +148,11 @@ go
 
 CREATE TABLE DETALLE_RECORRIDO
 ( 
-	DREC_HoraLlegada     datetime  NOT NULL ,
-	BUS_IdBus            int  NOT NULL ,
-	HCONT_IdHojaControl  int  NOT NULL ,
-	DREC_HoraSalida      datetime  NOT NULL ,
-	DREC_MontoPenalizacion money  NOT NULL ,
+	DREC_HoraLlegada     datetime NULL ,
+	BUS_IdBus            int NOT NULL ,
+	HCONT_IdHojaControl  int NOT NULL ,
+	DREC_HoraSalida      datetime NOT NULL ,
+	DREC_MontoPenalizacion money NOT NULL ,
 	DREC_Controles       int  NOT NULL 
 )
 go

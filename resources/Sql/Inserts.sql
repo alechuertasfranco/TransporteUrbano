@@ -1,5 +1,6 @@
 USE BD_TransporteUrbano
 GO
+
 -- Insert RUTA
 -- VALUES (@Ruta, @CantidadControles)
 EXECUTE sp_insertaRuta 'A', 10
@@ -69,4 +70,26 @@ EXEC sp_insertaSecretaria 'Tarde', 'geraldiners','password','grs@california.com'
 SELECT * FROM SECRETARIA
 GO
 
--- 
+-- INSERT HOJA DE CONTROL DE RECORRIDOS
+INSERT INTO HOJA_CONTROL_RECORRIDOS (HCONT_Codigo, HCONT_Fecha, HCONT_TotalPenalizacion, PEN_IdPenalizacion, HCONT_NVuelta)
+VALUES ('HC220FEB211', '20/02/2021', 0, 2, 1)
+INSERT INTO HOJA_CONTROL_RECORRIDOS (HCONT_Codigo, HCONT_Fecha, HCONT_TotalPenalizacion, PEN_IdPenalizacion, HCONT_NVuelta)
+VALUES ('HC320FEB212', '20/02/2021', 0, 2, 2)
+INSERT INTO HOJA_CONTROL_RECORRIDOS (HCONT_Codigo, HCONT_Fecha, HCONT_TotalPenalizacion, PEN_IdPenalizacion, HCONT_NVuelta)
+VALUES ('HC420FEB213', '20/02/2021', 0, 2, 3)
+INSERT INTO HOJA_CONTROL_RECORRIDOS (HCONT_Codigo, HCONT_Fecha, HCONT_TotalPenalizacion, PEN_IdPenalizacion, HCONT_NVuelta)
+VALUES ('HC520FEB214', '20/02/2021', 0, 2, 4)
+INSERT INTO HOJA_CONTROL_RECORRIDOS (HCONT_Codigo, HCONT_Fecha, HCONT_TotalPenalizacion, PEN_IdPenalizacion, HCONT_NVuelta)
+VALUES ('HC620FEB215', '20/02/2021', 0, 2, 5)
+SELECT * FROM HOJA_CONTROL_RECORRIDOS
+GO
+
+-- INSERT DETALLE DE RECORRIDO
+INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
+VALUES (1, 3, 2, convert(datetime,'20-02-21 06:00:00 AM',5), convert(datetime,'20-02-21 07:00:00 AM',5), 5)
+INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
+VALUES (1, 4, 2, convert(datetime,'20-02-21 07:00:00 AM',5), convert(datetime,'20-02-21 08:00:00 AM',5), 5)
+INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
+VALUES (1, 5, 2, convert(datetime,'20-02-21 07:00:00 AM',5), NULL, 5)
+SELECT * FROM DETALLE_RECORRIDO
+GO
