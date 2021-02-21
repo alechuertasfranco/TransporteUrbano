@@ -1,6 +1,7 @@
 USE BD_TransporteUrbano;
 GO
 
+
 -- Buscar el usuario para el Login
 create PROCEDURE sp_BuscarUsuario
 	@usuario 			VARCHAR(60),
@@ -25,14 +26,14 @@ AS
 	end
 GO
 
-select * from usuario
+select * from HOJA_CONTROL_RECORRIDOS
 GO
 
 create PROCEDURE sp_BuscarCodigoHojaRecorrido
 	@fecha date
 AS
 	BEGIN
-		SELECT H.HCONT_Codigo
+		SELECT H.HCONT_Codigo,H.HCONT_IdHojaControl
 		FROM HOJA_CONTROL_RECORRIDOS H
 		where H.HCONT_Fecha=@fecha
 		order by H.HCONT_IdHojaControl desc

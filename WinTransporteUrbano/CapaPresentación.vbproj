@@ -239,6 +239,9 @@
     <EmbeddedResource Include="FrmIndexControlador.resx">
       <DependentUpon>FrmIndexControlador.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmIndexSecretaria.resx">
+      <DependentUpon>FrmIndexSecretaria.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.vb</DependentUpon>
     </EmbeddedResource>

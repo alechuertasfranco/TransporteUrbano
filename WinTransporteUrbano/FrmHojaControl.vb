@@ -24,7 +24,7 @@ Public Class FrmHojaControl
     Dim id As Integer
     Dim cantidadControles
     Dim datos() As String
-    Dim codigos() As String
+    Dim codigos(,) As String
 
     Private Sub horafecha_Tick(sender As Object, e As EventArgs) Handles horafecha.Tick
         lblhora.Text = DateTime.Now.ToLongTimeString()
@@ -53,7 +53,9 @@ Public Class FrmHojaControl
         id = datos(5)
         For Each item As String In codigos
             If (item <> "") Then
-                Me.cbxCodigoHojaR.Items.Add(item)
+                If (item(0) = "H") Then
+                    Me.cbxCodigoHojaR.Items.Add(item)
+                End If
             End If
         Next
     End Sub
@@ -106,6 +108,7 @@ Public Class FrmHojaControl
         Else
             'Agregar un registro
             Me.registro = dtDetalleHoja.NewDETALLE_RECORRIDORow()
+
             registro.HCONT_IdHojaControl = id
             registro.BUS_IdBus = cmb_bus.SelectedValue
             registro.DREC_Controles = cantidadControles
@@ -171,5 +174,20 @@ Public Class FrmHojaControl
 
     Private Sub txt_codigo_TextChanged(sender As Object, e As EventArgs) Handles txt_codigo.TextChanged
 
+    End Sub
+
+    Private Sub btnprueba_Click(sender As Object, e As EventArgs) Handles btnprueba.Click
+        Dim cod = ""
+        cod = cbxCodigoHojaR.SelectedIndex
+        MsgBox(codigos(cod, 1))
+        MsgBox(codigos(cod, 2))
+
+    End Sub
+
+    Private Sub cbxCodigoHojaR_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxCodigoHojaR.SelectedIndexChanged
+        Dim cod = ""
+        cod = cbxCodigoHojaR.SelectedIndex
+        id = codigos(cod, 1)
+        txtNvueltaSelect.Text = codigos(cod, 2)
     End Sub
 End Class

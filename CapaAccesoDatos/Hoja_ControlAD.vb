@@ -39,7 +39,7 @@ Public Class Hoja_ControlAD
         End Try
     End Function
 
-    Public Function BuscarCodigoHojasControl(fecha As Date) As String()
+    Public Function BuscarCodigoHojasControl(fecha As Date) As String(,)
         Dim cn As New SqlConnection("server=.; integrated security=true; database=BD_TransporteUrbano")
         Dim cmd As New SqlCommand
         Try
@@ -50,12 +50,14 @@ Public Class Hoja_ControlAD
             cmd.Parameters.Add("@fecha", SqlDbType.VarChar, 60).Value = Trim(fecha)
 
             Dim Lector As SqlDataReader
-            Dim datos(50) As String
+            Dim datos(50, 50) As String
             Dim cont = 0
             Lector = cmd.ExecuteReader
             If Lector.HasRows = True Then
                 While Lector.Read
-                    datos(cont) = Lector.Item(0)
+                    datos(cont, 0) = Lector.Item(0)
+                    datos(cont, 1) = Lector.Item(1)
+                    datos(cont, 2) = Lector.Item(2)
                     cont = cont + 1
                 End While
             End If

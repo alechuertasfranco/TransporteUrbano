@@ -229,5 +229,6 @@ AS
 		VALUES (@Codigo, @Fecha, 0, @IdPen, @NVuelta)
 	END
 
+	select * from HOJA_CONTROL_RECORRIDOS
 
-	
+	delete HOJA_CONTROL_RECORRIDOS where HCONT_IdHojaControl >3

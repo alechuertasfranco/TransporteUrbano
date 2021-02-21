@@ -5,7 +5,7 @@ Public Class Hoja_ControlLN
         Dim objAD As New Hoja_ControlAD
         Return objAD.GenerarCabecera(fecha)
     End Function
-    Public Shared Function BuscarCodigoHojasControl(fecha As Date) As String()
+    Public Shared Function BuscarCodigoHojasControl(fecha As Date) As String(,)
         Dim objAD As New Hoja_ControlAD
         Return objAD.BuscarCodigoHojasControl(fecha)
     End Function
