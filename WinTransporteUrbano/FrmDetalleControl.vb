@@ -16,7 +16,7 @@ Public Class FrmDetalleControl
         End Try
 
         txt_fecha.Text = Format(Now, "Long Date")
-        cbo_bus.SelectedText = ""
+        getBus(1)
         cbo_bus.Select()
 
     End Sub
@@ -27,6 +27,10 @@ Public Class FrmDetalleControl
 
     Private Sub cbo_bus_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbo_bus.SelectedIndexChanged
         Dim idBus = cbo_bus.Text
+        getBus(idBus)
+    End Sub
+
+    Private Sub getBus(idBus)
         Dim datos() As String
         Dim dt As New DataTable
         Try
@@ -42,6 +46,11 @@ Public Class FrmDetalleControl
     End Sub
 
     Private Sub btn_registrar_Click(sender As Object, e As EventArgs) Handles btn_registrar.Click
-
+        Dim idBus = cbo_bus.Text
+        Try
+            Detalle_ControlLN.agregar_detalle(control_ingresado, idBus)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 End Class

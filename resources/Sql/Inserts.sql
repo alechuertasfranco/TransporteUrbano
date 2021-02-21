@@ -86,10 +86,16 @@ GO
 
 -- INSERT DETALLE DE RECORRIDO
 INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
-VALUES (1, 3, 2, convert(datetime,'20-02-21 06:00:00 AM',5), convert(datetime,'20-02-21 07:00:00 AM',5), 5)
+VALUES (1, 3, 2, convert(datetime,'21-02-21 06:00:00 AM',5), convert(datetime,'21-02-21 08:00:00 AM',5), 5)
 INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
-VALUES (1, 4, 2, convert(datetime,'20-02-21 07:00:00 AM',5), convert(datetime,'20-02-21 08:00:00 AM',5), 5)
+VALUES (1, 4, 2, convert(datetime,'21-02-21 08:00:00 AM',5), convert(datetime,'21-02-21 10:00:00 AM',5), 5)
 INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
-VALUES (1, 5, 2, convert(datetime,'20-02-21 07:00:00 AM',5), NULL, 5)
+VALUES (1, 5, 2, convert(datetime,'21-02-21 10:00:00 AM',5), convert(datetime,'21-02-21 10:00:00 AM',5), 5)
 SELECT * FROM DETALLE_RECORRIDO
+GO
+
+-- INSERT DETALLE DE CONTROL
+EXECUTE SP_Detalle_Control 2, 1
+--DELETE DETALLE_CONTROL
+SELECT * FROM DETALLE_CONTROL
 GO

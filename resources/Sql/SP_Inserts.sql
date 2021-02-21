@@ -115,9 +115,6 @@ AS
 GO
 
 
-SELECT * FROM USUARIO
-GO
-
 --Inserción en tabla Penalizacion
 CREATE PROCEDURE sp_insertaPenalizacion
 	@Monto 				MONEY,
@@ -234,7 +231,11 @@ AS
 		FROM CONTROL_T WHERE CONT_IdControl = @IdControl
 
 		SET @TiempoMax = DATEADD(MINUTE, @TiempoAprox, @HoraSalida)
-		SET @TotalPen = (DATEDIFF(MINUTE, CAST(GETDATE() AS TIME), @TiempoMax)) * @MontoPen
+		SET @TotalPen = (DATEDIFF(MINUTE, @TiempoMax, CAST(GETDATE() AS TIME))) * @MontoPen
+		IF (@TotalPen < 0) 
+			BEGIN
+				SET @TotalPen = 0
+			END
 
 		INSERT INTO DETALLE_CONTROL (
 			CONT_IdControl,
@@ -254,5 +255,3 @@ AS
 		)
 	END
 GO
-
-SELECT * FROM DETALLE_CONTROL
