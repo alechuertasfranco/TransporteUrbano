@@ -22,6 +22,7 @@ Partial Class FrmIndexSecretaria
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmIndexSecretaria))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DatosPersonalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -57,7 +58,7 @@ Partial Class FrmIndexSecretaria
         'DatosPersonalesToolStripMenuItem
         '
         Me.DatosPersonalesToolStripMenuItem.Name = "DatosPersonalesToolStripMenuItem"
-        Me.DatosPersonalesToolStripMenuItem.Size = New System.Drawing.Size(163, 22)
+        Me.DatosPersonalesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.DatosPersonalesToolStripMenuItem.Text = "Datos Personales"
         '
         'OperacionesToolStripMenuItem
@@ -70,7 +71,7 @@ Partial Class FrmIndexSecretaria
         'RegistrarToolStripMenuItem
         '
         Me.RegistrarToolStripMenuItem.Name = "RegistrarToolStripMenuItem"
-        Me.RegistrarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.RegistrarToolStripMenuItem.Size = New System.Drawing.Size(120, 22)
         Me.RegistrarToolStripMenuItem.Text = "Registrar"
         '
         'VentanaToolStripMenuItem
@@ -83,30 +84,30 @@ Partial Class FrmIndexSecretaria
         'CascadaToolStripMenuItem
         '
         Me.CascadaToolStripMenuItem.Name = "CascadaToolStripMenuItem"
-        Me.CascadaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CascadaToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
         Me.CascadaToolStripMenuItem.Text = "Cascada"
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(149, 6)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(126, 6)
         '
         'HorizontalToolStripMenuItem
         '
         Me.HorizontalToolStripMenuItem.Name = "HorizontalToolStripMenuItem"
-        Me.HorizontalToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.HorizontalToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
         Me.HorizontalToolStripMenuItem.Text = "Horizontal"
         '
         'VerticalToolStripMenuItem
         '
         Me.VerticalToolStripMenuItem.Name = "VerticalToolStripMenuItem"
-        Me.VerticalToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.VerticalToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
         Me.VerticalToolStripMenuItem.Text = "Vertical"
         '
         'ToolStripMenuItem2
         '
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(149, 6)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(126, 6)
         '
         'SalirToolStripMenuItem
         '
@@ -118,6 +119,7 @@ Partial Class FrmIndexSecretaria
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(416, 261)
         Me.Controls.Add(Me.MenuStrip1)

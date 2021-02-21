@@ -72,6 +72,48 @@ Public Class SecretariaAD
         End Try
     End Sub
 
+    Public Function consultar_secretaria(IdSecretaria As Integer)
+        Dim oConexion As New SqlConnection("server=.; integrated security=true; database=BD_TransporteUrbano")
+        Dim oComando As New SqlCommand("SP_BuscarSecretaria", oConexion)
+        Dim oLector As SqlDataReader
+        oComando.CommandType = CommandType.StoredProcedure
+        Try
+            oConexion.Open()
+            oComando.Parameters.AddWithValue("@IdSecretaria", IdSecretaria)
+            oComando.Connection = oConexion
+            oLector = oComando.ExecuteReader()
+
+            Dim Turno, Usuario, Contrasena, Correo, DNI, Nombre, ApellidoP, ApellidoM, FechaNacimiento As String
+            Dim datos() As String
+
+            If oLector.HasRows = True Then
+                While oLector.Read
+                    Turno = oLector.Item(1)
+                    Usuario = oLector.Item(2)
+                    Contrasena = oLector.Item(3)
+                    Correo = oLector.Item(4)
+                    Nombre = oLector.Item(6)
+                    ApellidoP = oLector.Item(7)
+                    ApellidoM = oLector.Item(8)
+                    FechaNacimiento = oLector.Item(9)
+                    If (IsDBNull(oLector.Item(5))) Then
+                        DNI = "No registrado"
+                    Else
+                        DNI = oLector.Item(5)
+                    End If
+                End While
+            End If
+
+            datos = {Usuario, Contrasena, Correo, DNI, Nombre, ApellidoP, ApellidoM, FechaNacimiento, Turno}
+            Return datos
+        Catch ex As Exception
+            Throw New Exception(ex.Message)
+        Finally
+            oConexion.Close()
+            oConexion.Dispose()
+        End Try
+    End Function
+
     Public Function listarSecretarias() As DataTable
         Dim oConexion As New SqlConnection
         Try

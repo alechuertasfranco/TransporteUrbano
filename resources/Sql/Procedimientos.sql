@@ -112,7 +112,7 @@ AS
 		WHERE U.USU_IdUsuario = @IdSecretaria
 	END
 GO
-EXECUTE SP_BuscarControlador 2
+EXECUTE SP_BuscarSecretaria 4
 GO
 
 -- Obtener el ID de todos los controles de una Ruta para un ComboBox

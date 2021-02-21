@@ -15,6 +15,10 @@ Public Class SecretariaLN
         Dim objAD As New SecretariaAD
         objAD.borrar_secretaria(IdUsuario)
     End Sub
+    Public Shared Function consultar_secretaria(IdSecretaria As Integer)
+        Dim objAD As New SecretariaAD
+        Return objAD.consultar_secretaria(IdSecretaria)
+    End Function
 
     Public Shared Function listarSecretarias() As DataTable
         Dim objAD As New SecretariaAD
