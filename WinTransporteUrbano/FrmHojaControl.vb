@@ -68,6 +68,15 @@ Public Class FrmHojaControl
             obj.idPenalizacion = CType(idPenalizacion, String)
             obj.TotalPenalizacion = 0
             Hoja_ControlLN.agregar_hoja(obj)
+
+            'Registrando Operacion
+            Dim ope As New Operacion
+            ope.IdHoja = CType(id, Integer)
+            ope.IdUsuario = CType(usuario_ingresado, Integer)
+            ope.Hora = CType(Now, DateTime)
+            OperacionLN.agregar_operacion(ope)
+
+
             ActualizarHoja()
             txt_codigo.Text = datos(0)
             txt_vuelta.Text = datos(3)

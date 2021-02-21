@@ -4,6 +4,18 @@ GO
 INSERT INTO HOJA_CONTROL_RECORRIDOS values ('HC117FEB211','17-02-2021',20,1,1)
 GO
 
+--Inserción en tabla Operacion
+create PROCEDURE sp_insertaOperacion
+	@IdHoja 			int,
+	@Hora				Datetime,
+	@IdUsuario	 		int
+AS
+	BEGIN
+		INSERT INTO OPERACION(HCONT_IdHojaControl, OPE_Hora, USU_IdUsuario)
+		VALUES (@IdHoja, @Hora, @IdUsuario)
+	END
+GO
+
 --Inserción en tabla Conductor
 CREATE PROCEDURE sp_insertaConductor
 	@DNI 				CHAR(08),

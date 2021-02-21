@@ -85,6 +85,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="OperacionLN.vb" />
     <Compile Include="Pago_ControlLN.vb" />
     <Compile Include="RutaLN.vb" />
     <Compile Include="SecretariaLN.vb" />
