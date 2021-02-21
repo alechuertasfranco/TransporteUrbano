@@ -110,12 +110,13 @@ Public Class FrmHojaControl
                 'Actualizar la base 
                 Try
                     taDetalleHoja.Update(dtDetalleHoja)
-                    MsgBox("Hora de llegada agregada exitosamente")
+                    MsgBox("Hora de llegada del bus agregada exitosamente")
                 Catch ex As Exception
-                    MsgBox(ex, , "Error al editar")
+                    MsgBox(ex, , "Error al agregar la hora de llegada")
                 End Try
                 Me.editar = False
                 dtp_llegada.Enabled = False
+                txt_hora.Enabled = True
             Else
                 MsgBox("La hora de llegada no puede ser menor a la hora de salida")
             End If
@@ -135,7 +136,7 @@ Public Class FrmHojaControl
                 Try
                     taDetalleHoja.Update(dtDetalleHoja)
 
-                    MsgBox("Registro insertado exitosamente")
+                    MsgBox("Bus agregado exitosamente")
                 Catch ex As Exception
                     MsgBox(ex.Message)
                 End Try
