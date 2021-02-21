@@ -33,6 +33,7 @@ Partial Class FrmDetalleControl
         Me.txt_IdControl = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.cbo_bus = New System.Windows.Forms.ComboBox()
         Me.BUSESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.BD_TransporteUrbanoDataSet = New WinTransporteUrbano.BD_TransporteUrbanoDataSet()
         Me.txt_Conductor = New System.Windows.Forms.TextBox()
@@ -41,16 +42,20 @@ Partial Class FrmDetalleControl
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.txt_hora = New System.Windows.Forms.TextBox()
+        Me.txt_fecha = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.btn_registrar = New System.Windows.Forms.Button()
         Me.dtg_buses = New System.Windows.Forms.DataGridView()
         Me.BUSESTableAdapter = New WinTransporteUrbano.BD_TransporteUrbanoDataSetTableAdapters.BUSESTableAdapter()
-        Me.txt_fecha = New System.Windows.Forms.TextBox()
-        Me.txt_hora = New System.Windows.Forms.TextBox()
         Me.fecha_hora = New System.Windows.Forms.Timer(Me.components)
-        Me.cbo_bus = New System.Windows.Forms.ComboBox()
         Me.BUSESBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.txt_monto = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.btn_pagar = New System.Windows.Forms.Button()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.BUSESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -58,6 +63,8 @@ Partial Class FrmDetalleControl
         Me.GroupBox3.SuspendLayout()
         CType(Me.dtg_buses, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BUSESBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox4.SuspendLayout()
+        Me.GroupBox5.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -162,6 +169,20 @@ Partial Class FrmDetalleControl
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Selección de Bus"
         '
+        'cbo_bus
+        '
+        Me.cbo_bus.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.BUSESBindingSource, "BUS_IdBus", True))
+        Me.cbo_bus.DataSource = Me.BUSESBindingSource
+        Me.cbo_bus.DisplayMember = "BUS_IdBus"
+        Me.cbo_bus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbo_bus.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbo_bus.FormattingEnabled = True
+        Me.cbo_bus.Location = New System.Drawing.Point(18, 50)
+        Me.cbo_bus.Name = "cbo_bus"
+        Me.cbo_bus.Size = New System.Drawing.Size(61, 26)
+        Me.cbo_bus.TabIndex = 94
+        Me.cbo_bus.ValueMember = "BUS_IdBus"
+        '
         'BUSESBindingSource
         '
         Me.BUSESBindingSource.DataMember = "BUSES"
@@ -229,6 +250,22 @@ Partial Class FrmDetalleControl
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Detalle de registro"
         '
+        'txt_hora
+        '
+        Me.txt_hora.Location = New System.Drawing.Point(365, 54)
+        Me.txt_hora.Name = "txt_hora"
+        Me.txt_hora.ReadOnly = True
+        Me.txt_hora.Size = New System.Drawing.Size(88, 26)
+        Me.txt_hora.TabIndex = 7
+        '
+        'txt_fecha
+        '
+        Me.txt_fecha.Location = New System.Drawing.Point(18, 54)
+        Me.txt_fecha.Name = "txt_fecha"
+        Me.txt_fecha.ReadOnly = True
+        Me.txt_fecha.Size = New System.Drawing.Size(318, 26)
+        Me.txt_fecha.TabIndex = 7
+        '
         'Label6
         '
         Me.Label6.AutoSize = True
@@ -250,11 +287,11 @@ Partial Class FrmDetalleControl
         'btn_registrar
         '
         Me.btn_registrar.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
-        Me.btn_registrar.Location = New System.Drawing.Point(199, 519)
+        Me.btn_registrar.Location = New System.Drawing.Point(18, 37)
         Me.btn_registrar.Name = "btn_registrar"
-        Me.btn_registrar.Size = New System.Drawing.Size(106, 31)
+        Me.btn_registrar.Size = New System.Drawing.Size(143, 48)
         Me.btn_registrar.TabIndex = 8
-        Me.btn_registrar.Text = "Registrar"
+        Me.btn_registrar.Text = "Registrar Control"
         Me.btn_registrar.UseVisualStyleBackColor = True
         '
         'dtg_buses
@@ -269,52 +306,73 @@ Partial Class FrmDetalleControl
         '
         Me.BUSESTableAdapter.ClearBeforeFill = True
         '
-        'txt_fecha
-        '
-        Me.txt_fecha.Location = New System.Drawing.Point(18, 54)
-        Me.txt_fecha.Name = "txt_fecha"
-        Me.txt_fecha.ReadOnly = True
-        Me.txt_fecha.Size = New System.Drawing.Size(318, 26)
-        Me.txt_fecha.TabIndex = 7
-        '
-        'txt_hora
-        '
-        Me.txt_hora.Location = New System.Drawing.Point(365, 54)
-        Me.txt_hora.Name = "txt_hora"
-        Me.txt_hora.ReadOnly = True
-        Me.txt_hora.Size = New System.Drawing.Size(88, 26)
-        Me.txt_hora.TabIndex = 7
-        '
         'fecha_hora
         '
         Me.fecha_hora.Enabled = True
-        '
-        'cbo_bus
-        '
-        Me.cbo_bus.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.BUSESBindingSource, "BUS_IdBus", True))
-        Me.cbo_bus.DataSource = Me.BUSESBindingSource
-        Me.cbo_bus.DisplayMember = "BUS_IdBus"
-        Me.cbo_bus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbo_bus.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbo_bus.FormattingEnabled = True
-        Me.cbo_bus.Location = New System.Drawing.Point(18, 50)
-        Me.cbo_bus.Name = "cbo_bus"
-        Me.cbo_bus.Size = New System.Drawing.Size(61, 26)
-        Me.cbo_bus.TabIndex = 94
-        Me.cbo_bus.ValueMember = "BUS_IdBus"
         '
         'BUSESBindingSource1
         '
         Me.BUSESBindingSource1.DataMember = "BUSES"
         Me.BUSESBindingSource1.DataSource = Me.BD_TransporteUrbanoDataSet
         '
+        'GroupBox4
+        '
+        Me.GroupBox4.Controls.Add(Me.txt_monto)
+        Me.GroupBox4.Controls.Add(Me.Label9)
+        Me.GroupBox4.Controls.Add(Me.btn_pagar)
+        Me.GroupBox4.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
+        Me.GroupBox4.Location = New System.Drawing.Point(198, 519)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(304, 100)
+        Me.GroupBox4.TabIndex = 10
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "Registro Pagos"
+        '
+        'txt_monto
+        '
+        Me.txt_monto.Location = New System.Drawing.Point(197, 59)
+        Me.txt_monto.Name = "txt_monto"
+        Me.txt_monto.Size = New System.Drawing.Size(88, 26)
+        Me.txt_monto.TabIndex = 9
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(204, 37)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(81, 18)
+        Me.Label9.TabIndex = 8
+        Me.Label9.Text = "Monto S/."
+        '
+        'btn_pagar
+        '
+        Me.btn_pagar.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
+        Me.btn_pagar.Location = New System.Drawing.Point(21, 37)
+        Me.btn_pagar.Name = "btn_pagar"
+        Me.btn_pagar.Size = New System.Drawing.Size(151, 48)
+        Me.btn_pagar.TabIndex = 11
+        Me.btn_pagar.Text = "Registrar pago"
+        Me.btn_pagar.UseVisualStyleBackColor = True
+        '
+        'GroupBox5
+        '
+        Me.GroupBox5.Controls.Add(Me.btn_registrar)
+        Me.GroupBox5.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
+        Me.GroupBox5.Location = New System.Drawing.Point(12, 519)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(180, 100)
+        Me.GroupBox5.TabIndex = 11
+        Me.GroupBox5.TabStop = False
+        Me.GroupBox5.Text = "Control"
+        '
         'FrmDetalleControl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(514, 562)
+        Me.ClientSize = New System.Drawing.Size(514, 627)
+        Me.Controls.Add(Me.GroupBox5)
+        Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.dtg_buses)
-        Me.Controls.Add(Me.btn_registrar)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -330,6 +388,9 @@ Partial Class FrmDetalleControl
         Me.GroupBox3.PerformLayout()
         CType(Me.dtg_buses, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BUSESBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
+        Me.GroupBox5.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -363,4 +424,9 @@ Partial Class FrmDetalleControl
     Friend WithEvents fecha_hora As Timer
     Friend WithEvents cbo_bus As ComboBox
     Friend WithEvents BUSESBindingSource1 As BindingSource
+    Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents txt_monto As TextBox
+    Friend WithEvents Label9 As Label
+    Friend WithEvents btn_pagar As Button
+    Friend WithEvents GroupBox5 As GroupBox
 End Class

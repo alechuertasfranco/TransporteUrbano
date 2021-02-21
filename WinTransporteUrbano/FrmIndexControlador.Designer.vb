@@ -37,9 +37,9 @@ Partial Class FrmIndexControlador
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripSeparator()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.PagoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripSeparator()
         Me.ReporteControlesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReportePagosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -67,7 +67,7 @@ Partial Class FrmIndexControlador
         '
         'OperacionesToolStripMenuItem
         '
-        Me.OperacionesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarToolStripMenuItem, Me.PagoToolStripMenuItem, Me.ToolStripMenuItem3, Me.ReporteControlesToolStripMenuItem})
+        Me.OperacionesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarToolStripMenuItem, Me.ToolStripMenuItem3, Me.ReporteControlesToolStripMenuItem, Me.ReportePagosToolStripMenuItem})
         Me.OperacionesToolStripMenuItem.Name = "OperacionesToolStripMenuItem"
         Me.OperacionesToolStripMenuItem.Size = New System.Drawing.Size(85, 20)
         Me.OperacionesToolStripMenuItem.Text = "Operaciones"
@@ -124,12 +124,6 @@ Partial Class FrmIndexControlador
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
         '
-        'PagoToolStripMenuItem
-        '
-        Me.PagoToolStripMenuItem.Name = "PagoToolStripMenuItem"
-        Me.PagoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.PagoToolStripMenuItem.Text = "Registrar Pago"
-        '
         'ToolStripMenuItem3
         '
         Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
@@ -140,6 +134,12 @@ Partial Class FrmIndexControlador
         Me.ReporteControlesToolStripMenuItem.Name = "ReporteControlesToolStripMenuItem"
         Me.ReporteControlesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ReporteControlesToolStripMenuItem.Text = "Reporte Controles"
+        '
+        'ReportePagosToolStripMenuItem
+        '
+        Me.ReportePagosToolStripMenuItem.Name = "ReportePagosToolStripMenuItem"
+        Me.ReportePagosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ReportePagosToolStripMenuItem.Text = "Reporte Pagos"
         '
         'FrmIndexControlador
         '
@@ -174,7 +174,7 @@ Partial Class FrmIndexControlador
     Friend WithEvents HorizontalToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents VerticalToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem2 As ToolStripSeparator
-    Friend WithEvents PagoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem3 As ToolStripSeparator
     Friend WithEvents ReporteControlesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ReportePagosToolStripMenuItem As ToolStripMenuItem
 End Class

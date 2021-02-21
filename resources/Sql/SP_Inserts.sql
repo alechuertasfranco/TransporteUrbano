@@ -140,19 +140,28 @@ GO
 
 --Inserción en tabla Pago_Control
 CREATE PROCEDURE sp_insertaPago_Control
-	@HCont_Codigo			CHAR(15),
 	@IdBus					INT,
-	@IdConductor    		INT,
 	@IdControl	    		INT,
-	@Fecha		    		DATETIME,
 	@Monto		    		MONEY
 AS
 	BEGIN
+		DECLARE @IdConductor			INT,
+				@HCont_Codigo			CHAR(15)
+
+		SELECT @IdConductor = COND_IdConductor
+		FROM BUSES WHERE BUS_IdBus = @IdBus
+
+		SELECT	@HCont_Codigo = HCONT_Codigo
+		FROM DETALLE_RECORRIDO DR INNER JOIN
+			HOJA_CONTROL_RECORRIDOS HR
+			ON HR.HCONT_IdHojaControl = DR.HCONT_IdHojaControl
+		WHERE DREC_HoraLlegada = DREC_HoraSalida AND BUS_IdBus = @IdBus
+
 		INSERT INTO BUSES_CONTROL(BUS_IdBus,HCONT_Codigo, CONT_IdControl)
 		VALUES (@IdBus, @HCont_Codigo, @IdControl)
 
 		INSERT INTO PAGO_CONTROL(BUS_IdBus,COND_IdConductor,HCONT_Codigo,PC_Fecha,PC_Monto)
-		VALUES (@IdBus,@IdConductor, @HCont_Codigo,@Fecha,@Monto)
+		VALUES (@IdBus,@IdConductor, @HCont_Codigo,GETDATE(),@Monto)
 	END
 GO
 

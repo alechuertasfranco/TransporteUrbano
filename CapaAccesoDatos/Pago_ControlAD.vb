@@ -8,11 +8,8 @@ Public Class Pago_ControlAD
         cmdB.CommandType = CommandType.StoredProcedure
         Try
             cn.Open()
-            cmdB.Parameters.AddWithValue("@HCont_Codigo", obj.Codigo)
             cmdB.Parameters.AddWithValue("@IdBus", obj.IdBus)
-            cmdB.Parameters.AddWithValue("@IdConductor", obj.IdConductor)
             cmdB.Parameters.AddWithValue("@IdControl", obj.IdControl)
-            cmdB.Parameters.AddWithValue("@Fecha", obj.fecha)
             cmdB.Parameters.AddWithValue("@Monto", obj.monto)
             cmdB.Connection = cn
             oLector = cmdB.ExecuteReader()

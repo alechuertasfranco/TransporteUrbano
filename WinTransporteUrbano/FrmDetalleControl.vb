@@ -49,6 +49,24 @@ Public Class FrmDetalleControl
         Dim idBus = cbo_bus.Text
         Try
             Detalle_ControlLN.agregar_detalle(control_ingresado, idBus)
+            MsgBox("El registro se ejecutó exitosamente")
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub btn_pagar_Click(sender As Object, e As EventArgs) Handles btn_pagar.Click
+        Dim obj As New Pago_Control
+        If txt_monto.Text <> "" Then
+            obj.monto = CType(txt_monto.Text, Decimal)
+            obj.IdBus = CType(cbo_bus.SelectedValue, Integer)
+            obj.IdControl = control_ingresado
+        Else
+            MsgBox("Ingrese el monto del pago")
+        End If
+        Try
+            Pago_ControlLN.agregar_pago_control(obj)
+            MsgBox("El pago se registro exitosamente con el monto: " & obj.monto)
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try

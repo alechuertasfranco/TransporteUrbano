@@ -26,4 +26,14 @@
         objSeleccionControl.MdiParent = Me
         objSeleccionControl.Show()
     End Sub
+
+    Private Sub ReporteControlesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteControlesToolStripMenuItem.Click
+        Dim objSeleccionControl As New FrmSeleccionControl
+        objSeleccionControl.MdiParent = Me
+        objSeleccionControl.Show()
+    End Sub
+
+    Private Sub ReportePagosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReportePagosToolStripMenuItem.Click
+
+    End Sub
 End Class

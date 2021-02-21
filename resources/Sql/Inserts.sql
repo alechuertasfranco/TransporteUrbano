@@ -11,7 +11,21 @@ GO
 -- INSERT CONTROL_UBICACION
 -- VALUES (@Codigo, @Control, @Direccion)
 EXECUTE sp_insertaControl_Ubicacion 'TERM', 'Terminal', 'Panamericana Norte 13014'
-EXECUTE sp_insertaControl_Ubicacion 'PALM', 'Las Palmeras', 'Alfonso Ugarte 1, Distrito de V�ctor Larco Herrera 13014'
+EXECUTE sp_insertaControl_Ubicacion 'PALM', 'Las Palmeras', 'No detallado'
+EXECUTE sp_insertaControl_Ubicacion 'ECAS', 'Esas Casitas', 'No detallado'
+EXECUTE sp_insertaControl_Ubicacion '1PAR', 'Paradero 1', 'No detallado'
+EXECUTE sp_insertaControl_Ubicacion 'HERM', 'La Hermelinda', 'No detallado'
+EXECUTE sp_insertaControl_Ubicacion 'NORI', 'La Noria', 'No detallado'
+EXECUTE sp_insertaControl_Ubicacion 'INKA', 'Los Inkas', 'No detallado'
+EXECUTE sp_insertaControl_Ubicacion 'PANA', 'Panamericana', 'No detallado'
+EXECUTE sp_insertaControl_Ubicacion 'SLUI', 'Sillas de Luis', 'No detallado'
+EXECUTE sp_insertaControl_Ubicacion 'RRPP', 'Redes Privadas', 'No detallado'
+EXECUTE sp_insertaControl_Ubicacion 'BSAS', 'Besas', 'No detallado'
+EXECUTE sp_insertaControl_Ubicacion 'HUAM', 'Huaman', 'No detallado'
+EXECUTE sp_insertaControl_Ubicacion 'VEA', 'Plaza Vea', 'No detallado'
+EXECUTE sp_insertaControl_Ubicacion 'GRA2', 'Granja 2', 'No detallado'
+EXECUTE sp_insertaControl_Ubicacion 'COMI', 'Comida', 'No detallado'
+EXECUTE sp_insertaControl_Ubicacion 'SENA', 'Senado', 'No detallado'
 SELECT * FROM CONTROL_UBICACION
 GO
 
@@ -19,8 +33,52 @@ GO
 -- VALUES (@TiempoAprox, @IdControlUbicacion, @IdRuta)
 EXECUTE sp_insertaControl_T 0, 1, 1
 EXECUTE sp_insertaControl_T 4, 2, 1
-EXECUTE sp_insertaControl_T 0, 1, 2
+EXECUTE sp_insertaControl_T 6, 3, 1
+EXECUTE sp_insertaControl_T 18, 4, 1
+EXECUTE sp_insertaControl_T 26, 5, 1
+EXECUTE sp_insertaControl_T 34, 6, 1
+EXECUTE sp_insertaControl_T 44, 7, 1
+EXECUTE sp_insertaControl_T 49, 8, 1
+EXECUTE sp_insertaControl_T 54, 9, 1
+EXECUTE sp_insertaControl_T 60, 10, 1
+EXECUTE sp_insertaControl_T 0, 10, 2
+EXECUTE sp_insertaControl_T 15, 11, 2
+EXECUTE sp_insertaControl_T 21, 12, 2
+EXECUTE sp_insertaControl_T 26, 13, 2
+EXECUTE sp_insertaControl_T 34, 14, 2
+EXECUTE sp_insertaControl_T 44, 15, 2
+EXECUTE sp_insertaControl_T 54, 5, 2
+EXECUTE sp_insertaControl_T 63, 4, 2
+EXECUTE sp_insertaControl_T 72, 16, 2
+EXECUTE sp_insertaControl_T 82, 1, 2
 SELECT * FROM CONTROL_T
+GO
+
+-- SELECT RUT_Ruta, CONTUB_Codigo, CONTUB_Control, CONT_TiempoAprox
+-- FROM CONTROL_T C INNER JOIN CONTROL_UBICACION CB
+-- ON C.CONTUB_IdControlUbicacion = CB.CONTUB_IdControlUbicacion
+-- INNER JOIN RUTA R ON R.RUT_IdRuta = C.RUT_IdRuta 
+
+-- INSERT TARFIA
+-- VALUES (@Descripcion)
+EXECUTE sp_insertaTarifa 'Escolar'
+EXECUTE sp_insertaTarifa 'Universitario'
+EXECUTE sp_insertaTarifa 'Urbano'
+EXECUTE sp_insertaTarifa 'Interurbano'
+SELECT * FROM TARIFA
+GO
+
+-- INSERT TARFIA
+-- VALUES (@Descripcion)
+EXECUTE sp_insertaTarifa_Ruta 1, 1, 0.5
+EXECUTE sp_insertaTarifa_Ruta 1, 2, 0.7
+EXECUTE sp_insertaTarifa_Ruta 1, 3, 1
+EXECUTE sp_insertaTarifa_Ruta 1, 4, 1.5
+EXECUTE sp_insertaTarifa_Ruta 2, 1, 0.5
+EXECUTE sp_insertaTarifa_Ruta 2, 2, 0.7
+EXECUTE sp_insertaTarifa_Ruta 2, 3, 1
+EXECUTE sp_insertaTarifa_Ruta 2, 4, 1.5
+SELECT * FROM TARIFA_RUTA TR INNER JOIN TARIFA T ON T.TAR_IdTarifa = TR.TAR_IdTarifa
 GO
 
 -- INSERT CONDUCTOR
@@ -65,7 +123,7 @@ GO
 
 -- INSERT SECRETARIA
 -- VALUES (@Turno, @Usuario, @Contrasena, @Correo, @DNI, @NombresUsuario, @ApellidoPaternoUsuario, @ApellidoMaternoUsuario, @FechaNacUsuario)
-EXEC sp_insertaSecretaria 'Ma�ana', 'erickasl','password','esl@california.com','70558416','Ericka','Salvador','Llaro','05/01/1999'
+EXEC sp_insertaSecretaria 'Mañana', 'erickasl','password','esl@california.com','70558416','Ericka','Salvador','Llaro','05/01/1999'
 EXEC sp_insertaSecretaria 'Tarde', 'geraldiners','password','grs@california.com','70246985','Geraldine','Roncal','Sanchez','27/12/1999'
 SELECT * FROM SECRETARIA
 GO
