@@ -97,10 +97,10 @@ AS
 		WHERE U.USU_IdUsuario = @idControlador
 	END
 GO
-EXECUTE SP_BuscarControlador 2
+EXECUTE SP_BuscarControlador 3
 GO
 
--- Buscar los datos del controlador por ID
+-- Buscar los datos de la secretaria por ID
 CREATE PROCEDURE SP_BuscarSecretaria
 	@IdSecretaria		INT
 AS
@@ -112,7 +112,7 @@ AS
 		WHERE U.USU_IdUsuario = @IdSecretaria
 	END
 GO
-EXECUTE SP_BuscarSecretaria 4
+EXECUTE SP_BuscarSecretaria 5
 GO
 
 -- Obtener el ID de todos los controles de una Ruta para un ComboBox

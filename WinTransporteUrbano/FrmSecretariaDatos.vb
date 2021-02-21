@@ -44,7 +44,7 @@ Public Class FrmSecretariaDatos
             Dim objS As New Secretaria
 
             If txt_usuario.Text <> "" Or txt_contraseña.Text <> "" Or txt_contraseña.Text <> "" Or txt_correo.Text <> "" Or txt_dni.Text <> "" Or txt_nombres.Text <> "" Or txt_apellidop.Text <> "" Or txt_apellidom.Text <> "" Then
-                obj.IdUsuario = CType(1, String)
+                obj.IdUsuario = CType(usuario_ingresado, String)
                 obj.Usuario = CType(txt_usuario.Text, String)
                 obj.Contrasena = CType(txt_contraseña.Text, String)
                 obj.Correo = CType(txt_correo.Text, String)
@@ -53,6 +53,7 @@ Public Class FrmSecretariaDatos
                 obj.ApellidoPaternoUsuario = CType(txt_apellidop.Text, String)
                 obj.ApellidoMaternoUsuario = CType(txt_apellidom.Text, String)
                 obj.FechaNacUsuario = CType(txt_fecha.Text, Date)
+                objS.Turno = CType(txt_turno.Text, String)
                 SecretariaLN.editar_secretaria(obj, objS)
                 MsgBox("Datos Actualizados")
             Else

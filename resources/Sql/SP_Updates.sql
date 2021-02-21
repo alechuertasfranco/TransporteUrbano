@@ -55,13 +55,6 @@ AS
 	END
 GO
 
---SELECT * FROM CONTROLADOR_PERSONAL C INNER JOIN USUARIO U ON C.USU_IdUsuario = U.USU_IdUsuario
---GO
---EXECUTE SP_ActualizaControlador 2, 2, 'arturopv', 'password', 'apv@california.com', '70469760', 'Arturo', 'Paulino', 'Vigo', '2000-07-11 00:00:00.000'
---GO
-
---SELECT * FROM CONTROLADOR_PERSONAL C INNER JOIN USUARIO U ON C.USU_IdUsuario = U.USU_IdUsuario
---GO
 
 CREATE PROCEDURE SP_ActualizaSecretaria
     @IdUsuario				as INT,
@@ -91,11 +84,4 @@ AS
 		SET SEC_Turno = @Turno
 		WHERE USU_IdUsuario = @IdUsuario
 	END
-GO
-
-SELECT * FROM SECRETARIA S INNER JOIN USUARIO U ON S.USU_IdUsuario = U.USU_IdUsuario
-GO
-EXECUTE SP_ActualizaSecretaria 5, 'Noche', 'geraldiners', 'password', 'grs@california.com', '70246985', 'Geraldine', 'Roncal', 'Sanchez', '1999-12-27 00:00:00.000'
-GO
-SELECT * FROM SECRETARIA S INNER JOIN USUARIO U ON S.USU_IdUsuario = U.USU_IdUsuario
 GO

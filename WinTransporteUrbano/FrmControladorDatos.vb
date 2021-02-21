@@ -45,7 +45,7 @@ Public Class FrmControladorDatos
             Dim objC As New Controlador_Personal
 
             If txt_usuario.Text <> "" Or txt_contraseña.Text <> "" Or txt_contraseña.Text <> "" Or txt_correo.Text <> "" Or txt_dni.Text <> "" Or txt_nombres.Text <> "" Or txt_apellidop.Text <> "" Or txt_apellidom.Text <> "" Then
-                obj.IdUsuario = CType(1, String)
+                obj.IdUsuario = CType(usuario_ingresado, String)
                 obj.Usuario = CType(txt_usuario.Text, String)
                 obj.Contrasena = CType(txt_contraseña.Text, String)
                 obj.Correo = CType(txt_correo.Text, String)
