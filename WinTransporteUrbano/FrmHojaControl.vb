@@ -108,7 +108,6 @@ Public Class FrmHojaControl
         Else
             'Agregar un registro
             Me.registro = dtDetalleHoja.NewDETALLE_RECORRIDORow()
-
             registro.HCONT_IdHojaControl = id
             registro.BUS_IdBus = cmb_bus.SelectedValue
             registro.DREC_Controles = cantidadControles
@@ -177,10 +176,6 @@ Public Class FrmHojaControl
     End Sub
 
     Private Sub btnprueba_Click(sender As Object, e As EventArgs) Handles btnprueba.Click
-        Dim cod = ""
-        cod = cbxCodigoHojaR.SelectedIndex
-        MsgBox(codigos(cod, 1))
-        MsgBox(codigos(cod, 2))
 
     End Sub
 
@@ -189,5 +184,6 @@ Public Class FrmHojaControl
         cod = cbxCodigoHojaR.SelectedIndex
         id = codigos(cod, 1)
         txtNvueltaSelect.Text = codigos(cod, 2)
+
     End Sub
 End Class
