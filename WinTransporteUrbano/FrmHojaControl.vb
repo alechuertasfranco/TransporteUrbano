@@ -24,6 +24,8 @@ Public Class FrmHojaControl
     Dim cantidadControles
     Dim datos() As String
     Dim codigos(,) As String
+    Dim codigo_seleccionado As String
+    Dim vuelta_seleccionada As String
 
     Private Sub horafecha_Tick(sender As Object, e As EventArgs) Handles horafecha.Tick
         lblhora.Text = DateTime.Now.ToLongTimeString()
@@ -74,7 +76,7 @@ Public Class FrmHojaControl
             ope.IdHoja = CType(id, Integer)
             ope.IdUsuario = CType(usuario_ingresado, Integer)
             ope.Hora = CType(Now, DateTime)
-            OperacionLN.agregar_operacion(ope)
+            'OperacionLN.agregar_operacion(ope)
 
 
             ActualizarHoja()
@@ -192,21 +194,24 @@ Public Class FrmHojaControl
         End Try
         actualizar_detalle()
     End Sub
-
-
     Private Sub cbxCodigoHojaR_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxCodigoHojaR.SelectedIndexChanged
         Dim cod = ""
         cod = cbxCodigoHojaR.SelectedIndex
+        codigo_seleccionado = codigos(cod, 0)
+        vuelta_seleccionada = codigos(cod, 2)
         id = codigos(cod, 1)
         txtNvueltaSelect.Text = codigos(cod, 2)
         btn_agregar.Enabled = True
 
         Me.dtDetalleHoja = Me.taDetalleHoja.GetDataByIdHoja(id)
         dg_detalle.DataSource = Me.dtDetalleHoja
-
     End Sub
-
-    Private Sub GroupBox3_Enter(sender As Object, e As EventArgs) Handles GroupBox3.Enter
-
+    Private Sub btnReporte_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReporte.Click
+        If codigo_seleccionado <> "" And vuelta_seleccionada <> "" Then
+            Dim frm As New FrmReporteHojasDeControl(codigo_seleccionado, vuelta_seleccionada)
+            frm.Show()
+        Else
+            MsgBox("Seleccione un hoja de control para obtener su reporte")
+        End If
     End Sub
 End Class
