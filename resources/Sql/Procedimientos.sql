@@ -1,11 +1,6 @@
 USE BD_TransporteUrbano;
 GO
 
--- INSERT PENALIZACIONES
-insert PENALIZACIONES values(5,GETDATE())
-insert PENALIZACIONES values(6,GETDATE())
-GO
-
 -- Buscar el usuario para el Login
 CREATE PROCEDURE sp_BuscarUsuario
 	@usuario 			VARCHAR(60),
@@ -237,9 +232,6 @@ begin
 	select HCONT_Codigo from HOJA_CONTROL_RECORRIDOS where HCONT_Fecha = GetDate()
 end
 go
-select * from HOJA_CONTROL_RECORRIDOS
-select * from DETALLE_RECORRIDO
-GO
 
 create procedure SP_BusquedaHojasControl
 	@codigo 			VARCHAR(15)
@@ -251,18 +243,4 @@ As
 	inner join BUSES B on B.BUS_IdBus = D.BUS_IdBus
 	where H.HCONT_Codigo = @codigo
 	end
-go
-
---Fin de reportes
-
-select * from HOJA_CONTROL_RECORRIDOS
-select * from DETALLE_RECORRIDO
-select * from DETALLE_CONTROL
-insert DETALLE_CONTROL values (1,1,8,20,GETDATE(),0)
-insert DETALLE_CONTROL values (1,2,8,20,GETDATE(),0)
-
-insert DETALLE_RECORRIDO values (GETDATE(),1,7,GETDATE(),5,20)
-insert DETALLE_RECORRIDO values (GETDATE(),2,7,GETDATE(),5,20)
-
-insert DETALLE_CONTROL values (1,1,7,20,GETDATE(),0)
-insert DETALLE_CONTROL values (1,2,7,20,GETDATE(),0)
+GO

@@ -23,7 +23,7 @@ Partial Class FrmReporteControles
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmReporteControles))
         Me.SP_ListarDetallesControlBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.BD_TransporteUrbanoDataSet = New WinTransporteUrbano.BD_TransporteUrbanoDataSet()
@@ -32,19 +32,19 @@ Partial Class FrmReporteControles
         Me.cbo_control = New System.Windows.Forms.ComboBox()
         Me.VControlesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.cbo_hoja = New System.Windows.Forms.ComboBox()
+        Me.VHojasFechaActualBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.HOJACONTROLRECORRIDOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.V_ControlesTableAdapter = New WinTransporteUrbano.BD_TransporteUrbanoDataSetTableAdapters.V_ControlesTableAdapter()
         Me.HOJA_CONTROL_RECORRIDOSTableAdapter = New WinTransporteUrbano.BD_TransporteUrbanoDataSetTableAdapters.HOJA_CONTROL_RECORRIDOSTableAdapter()
         Me.rv_DetallesControl = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.btn_consultar = New System.Windows.Forms.Button()
         Me.SP_ListarDetallesControlTableAdapter = New WinTransporteUrbano.BD_TransporteUrbanoDataSetTableAdapters.SP_ListarDetallesControlTableAdapter()
-        Me.VHojasFechaActualBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.V_HojasFechaActualTableAdapter = New WinTransporteUrbano.BD_TransporteUrbanoDataSetTableAdapters.V_HojasFechaActualTableAdapter()
         CType(Me.SP_ListarDetallesControlBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BD_TransporteUrbanoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VControlesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.HOJACONTROLRECORRIDOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VHojasFechaActualBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.HOJACONTROLRECORRIDOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'SP_ListarDetallesControlBindingSource
@@ -102,9 +102,14 @@ Partial Class FrmReporteControles
         Me.cbo_hoja.FormattingEnabled = True
         Me.cbo_hoja.Location = New System.Drawing.Point(193, 43)
         Me.cbo_hoja.Name = "cbo_hoja"
-        Me.cbo_hoja.Size = New System.Drawing.Size(151, 28)
+        Me.cbo_hoja.Size = New System.Drawing.Size(180, 28)
         Me.cbo_hoja.TabIndex = 3
         Me.cbo_hoja.ValueMember = "HCONT_IdHojaControl"
+        '
+        'VHojasFechaActualBindingSource
+        '
+        Me.VHojasFechaActualBindingSource.DataMember = "V_HojasFechaActual"
+        Me.VHojasFechaActualBindingSource.DataSource = Me.BD_TransporteUrbanoDataSet
         '
         'HOJACONTROLRECORRIDOSBindingSource
         '
@@ -124,9 +129,9 @@ Partial Class FrmReporteControles
         Me.rv_DetallesControl.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        ReportDataSource2.Name = "DSet_DetallesControl"
-        ReportDataSource2.Value = Me.SP_ListarDetallesControlBindingSource
-        Me.rv_DetallesControl.LocalReport.DataSources.Add(ReportDataSource2)
+        ReportDataSource1.Name = "DSet_DetallesControl"
+        ReportDataSource1.Value = Me.SP_ListarDetallesControlBindingSource
+        Me.rv_DetallesControl.LocalReport.DataSources.Add(ReportDataSource1)
         Me.rv_DetallesControl.LocalReport.ReportEmbeddedResource = "WinTransporteUrbano.ReporteControles.rdlc"
         Me.rv_DetallesControl.Location = New System.Drawing.Point(16, 92)
         Me.rv_DetallesControl.Name = "rv_DetallesControl"
@@ -149,11 +154,6 @@ Partial Class FrmReporteControles
         '
         Me.SP_ListarDetallesControlTableAdapter.ClearBeforeFill = True
         '
-        'VHojasFechaActualBindingSource
-        '
-        Me.VHojasFechaActualBindingSource.DataMember = "V_HojasFechaActual"
-        Me.VHojasFechaActualBindingSource.DataSource = Me.BD_TransporteUrbanoDataSet
-        '
         'V_HojasFechaActualTableAdapter
         '
         Me.V_HojasFechaActualTableAdapter.ClearBeforeFill = True
@@ -174,8 +174,8 @@ Partial Class FrmReporteControles
         CType(Me.SP_ListarDetallesControlBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BD_TransporteUrbanoDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VControlesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.HOJACONTROLRECORRIDOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VHojasFechaActualBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.HOJACONTROLRECORRIDOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

@@ -18,9 +18,6 @@ AS
     on C.USU_IdUsuario = U.USU_IdUsuario
 GO
 
-SELECT * FROM V_Controladores
-GO
-
 CREATE VIEW V_Secretarias
 AS
     SELECT  U.USU_IdUsuario as [ID],
@@ -46,9 +43,9 @@ AS
 	ON C.CONTUB_IdControlUbicacion = CU.CONTUB_IdControlUbicacion
 GO
 
-CREATE VIEW V_HojasFechaActual
+ALTER VIEW V_HojasFechaActual
 AS
     SELECT *
     FROM HOJA_CONTROL_RECORRIDOS
-    WHERE HCONT_Fecha = GETDATE()
+    WHERE HCONT_Fecha = CAST(GETDATE() AS DATE)
 GO

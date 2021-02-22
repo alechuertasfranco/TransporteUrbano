@@ -1,6 +1,12 @@
 USE BD_TransporteUrbano
 GO
 
+-- INSERT PENALIZACION
+EXECUTE sp_insertaPenalizacion 0.5,'15/02/2021'
+SELECT * FROM PENALIZACIONES
+GO
+
+
 -- Insert RUTA
 -- VALUES (@Ruta, @CantidadControles)
 EXECUTE sp_insertaRuta 'A', 10
@@ -41,16 +47,16 @@ EXECUTE sp_insertaControl_T 44, 7, 1
 EXECUTE sp_insertaControl_T 49, 8, 1
 EXECUTE sp_insertaControl_T 54, 9, 1
 EXECUTE sp_insertaControl_T 60, 10, 1
-EXECUTE sp_insertaControl_T 0, 10, 2
-EXECUTE sp_insertaControl_T 15, 11, 2
-EXECUTE sp_insertaControl_T 21, 12, 2
-EXECUTE sp_insertaControl_T 26, 13, 2
-EXECUTE sp_insertaControl_T 34, 14, 2
-EXECUTE sp_insertaControl_T 44, 15, 2
-EXECUTE sp_insertaControl_T 54, 5, 2
-EXECUTE sp_insertaControl_T 63, 4, 2
-EXECUTE sp_insertaControl_T 72, 16, 2
-EXECUTE sp_insertaControl_T 82, 1, 2
+EXECUTE sp_insertaControl_T 60, 10, 2
+EXECUTE sp_insertaControl_T 75, 11, 2
+EXECUTE sp_insertaControl_T 81, 12, 2
+EXECUTE sp_insertaControl_T 86, 13, 2
+EXECUTE sp_insertaControl_T 94, 14, 2
+EXECUTE sp_insertaControl_T 104, 15, 2
+EXECUTE sp_insertaControl_T 114, 5, 2
+EXECUTE sp_insertaControl_T 123, 4, 2
+EXECUTE sp_insertaControl_T 132, 16, 2
+EXECUTE sp_insertaControl_T 142, 1, 2
 SELECT * FROM CONTROL_T
 GO
 
@@ -126,34 +132,4 @@ GO
 EXEC sp_insertaSecretaria 'Mañana', 'erickasl','password','esl@california.com','70558416','Ericka','Salvador','Llaro','05/01/1999'
 EXEC sp_insertaSecretaria 'Tarde', 'geraldiners','password','grs@california.com','70246985','Geraldine','Roncal','Sanchez','27/12/1999'
 SELECT * FROM SECRETARIA
-GO
-
--- INSERT HOJA DE CONTROL DE RECORRIDOS
-INSERT INTO HOJA_CONTROL_RECORRIDOS (HCONT_Codigo, HCONT_Fecha, HCONT_TotalPenalizacion, PEN_IdPenalizacion, HCONT_NVuelta)
-VALUES ('HC220FEB211', '20/02/2021', 0, 2, 1)
-INSERT INTO HOJA_CONTROL_RECORRIDOS (HCONT_Codigo, HCONT_Fecha, HCONT_TotalPenalizacion, PEN_IdPenalizacion, HCONT_NVuelta)
-VALUES ('HC320FEB212', '20/02/2021', 0, 2, 2)
-INSERT INTO HOJA_CONTROL_RECORRIDOS (HCONT_Codigo, HCONT_Fecha, HCONT_TotalPenalizacion, PEN_IdPenalizacion, HCONT_NVuelta)
-VALUES ('HC420FEB213', '20/02/2021', 0, 2, 3)
-INSERT INTO HOJA_CONTROL_RECORRIDOS (HCONT_Codigo, HCONT_Fecha, HCONT_TotalPenalizacion, PEN_IdPenalizacion, HCONT_NVuelta)
-VALUES ('HC520FEB214', '20/02/2021', 0, 2, 4)
-INSERT INTO HOJA_CONTROL_RECORRIDOS (HCONT_Codigo, HCONT_Fecha, HCONT_TotalPenalizacion, PEN_IdPenalizacion, HCONT_NVuelta)
-VALUES ('HC620FEB215', '20/02/2021', 0, 2, 5)
-SELECT * FROM HOJA_CONTROL_RECORRIDOS
-GO
-
--- INSERT DETALLE DE RECORRIDO
-INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
-VALUES (1, 3, 2, convert(datetime,'21-02-21 06:00:00 AM',5), convert(datetime,'21-02-21 08:00:00 AM',5), 5)
-INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
-VALUES (1, 4, 2, convert(datetime,'21-02-21 08:00:00 AM',5), convert(datetime,'21-02-21 10:00:00 AM',5), 5)
-INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
-VALUES (1, 5, 2, convert(datetime,'21-02-21 10:00:00 AM',5), convert(datetime,'21-02-21 10:00:00 AM',5), 5)
-SELECT * FROM DETALLE_RECORRIDO
-GO
-
--- INSERT DETALLE DE CONTROL
-EXECUTE SP_Detalle_Control 2, 1
---DELETE DETALLE_CONTROL
-SELECT * FROM DETALLE_CONTROL
 GO
