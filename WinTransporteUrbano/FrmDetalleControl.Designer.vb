@@ -42,7 +42,6 @@ Partial Class FrmDetalleControl
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.txt_hora = New System.Windows.Forms.TextBox()
         Me.txt_fecha = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -59,6 +58,7 @@ Partial Class FrmDetalleControl
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.txt_hora = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.BUSESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -274,15 +274,6 @@ Partial Class FrmDetalleControl
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Detalle de registro"
         '
-        'txt_hora
-        '
-        Me.txt_hora.Location = New System.Drawing.Point(537, 66)
-        Me.txt_hora.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.txt_hora.Name = "txt_hora"
-        Me.txt_hora.ReadOnly = True
-        Me.txt_hora.Size = New System.Drawing.Size(116, 31)
-        Me.txt_hora.TabIndex = 7
-        '
         'txt_fecha
         '
         Me.txt_fecha.Location = New System.Drawing.Point(24, 66)
@@ -422,6 +413,15 @@ Partial Class FrmDetalleControl
         Me.Button1.Text = "Ingresar Registro"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'txt_hora
+        '
+        Me.txt_hora.Location = New System.Drawing.Point(537, 66)
+        Me.txt_hora.Margin = New System.Windows.Forms.Padding(4)
+        Me.txt_hora.Name = "txt_hora"
+        Me.txt_hora.ReadOnly = True
+        Me.txt_hora.Size = New System.Drawing.Size(116, 31)
+        Me.txt_hora.TabIndex = 7
+        '
         'FrmDetalleControl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -480,7 +480,6 @@ Partial Class FrmDetalleControl
     Friend WithEvents BUSESBindingSource As BindingSource
     Friend WithEvents BUSESTableAdapter As BD_TransporteUrbanoDataSetTableAdapters.BUSESTableAdapter
     Friend WithEvents txt_fecha As TextBox
-    Friend WithEvents txt_hora As TextBox
     Friend WithEvents fecha_hora As Timer
     Friend WithEvents cbo_bus As ComboBox
     Friend WithEvents BUSESBindingSource1 As BindingSource
@@ -492,4 +491,5 @@ Partial Class FrmDetalleControl
     Friend WithEvents GroupBox6 As GroupBox
     Friend WithEvents Button1 As Button
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents txt_hora As TextBox
 End Class

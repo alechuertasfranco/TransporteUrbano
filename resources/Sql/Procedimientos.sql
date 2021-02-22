@@ -34,7 +34,14 @@ create PROCEDURE sp_BuscarCodigoHojaRecorrido
 	@fecha date
 AS
 	BEGIN
-		SELECT H.HCONT_Codigo,H.HCONT_IdHojaControl,H.HCONT_NVuelta
+	declare @penalizacion			int
+	declare @cantidadControles		int
+	begin
+	select TOP 1 @penalizacion=P.PEN_MontoMinuto from PENALIZACIONES P  order by P.PEN_IdPenalizacion desc
+	select @cantidadControles=count(C.CONT_IdControl) from CONTROL_T C 
+	end
+
+		SELECT H.HCONT_Codigo,H.HCONT_IdHojaControl,H.HCONT_NVuelta,@penalizacion,@cantidadControles
 		FROM HOJA_CONTROL_RECORRIDOS H
 		where H.HCONT_Fecha=@fecha
 		order by H.HCONT_IdHojaControl desc
@@ -189,15 +196,14 @@ EXECUTE SP_ListarHojasBus 1
 GO
 
 
-alter PROCEDURE SP_ListarBusesControl
+create PROCEDURE SP_ListarBusesControl
 	@idHojaControl			as INT,
 	@idControl				as INT
 AS
 	BEGIN
 		SELECT	B.BUS_IdBus as Bus,
 				B.BUS_Placa as Placa,
-				C.COND_Nombres+' '+C.COND_ApellidoPaterno+' '+C.COND_ApellidoMaterno as Conductor,
-				CT.CONT_IdControl
+				C.COND_Nombres+' '+C.COND_ApellidoPaterno+' '+C.COND_ApellidoMaterno as Conductor,DR.DREC_HoraSalida
 		FROM DETALLE_RECORRIDO DR
 			INNER JOIN BUSES B
 			ON B.BUS_IdBus= DR.BUS_IdBus
@@ -205,13 +211,13 @@ AS
 			ON C.COND_IdConductor = B.COND_IdConductor
 			INNER JOIN HOJA_CONTROL_RECORRIDOS HC
 			ON HC.HCONT_IdHojaControl = DR.HCONT_IdHojaControl
-			inner join DETALLE_CONTROL DC
+			left join DETALLE_CONTROL DC
 			on DC.HCONT_IdHojaControl=HC.HCONT_IdHojaControl 
-			inner join CONTROL_T CT
+			left join CONTROL_T CT
 			on CT.CONT_IdControl=DC.CONT_IdControl 
-			WHERE DR.HCONT_IdHojaControl=@idHojaControl
-			and DC.CONT_IdControl!=@idControl
-			group by b.BUS_IdBus,B.BUS_Placa,CT.CONT_IdControl,C.COND_Nombres,C.COND_ApellidoPaterno,C.COND_ApellidoMaterno
+			WHERE DR.HCONT_IdHojaControl=8
+			and DC.CONT_IdControl!=3
+			group by b.BUS_IdBus,B.BUS_Placa,C.COND_Nombres,C.COND_ApellidoPaterno,C.COND_ApellidoMaterno,DR.DREC_HoraSalida
 	END
 GO
 

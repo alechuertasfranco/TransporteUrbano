@@ -101,7 +101,7 @@ Public Class ControlAD
             Lector = cmd.ExecuteReader
             While Lector.Read
                 lista.Add(New Bus_Control With {.bus = Lector.Item(0),
-.placa = Lector.Item(1), .conductor = Lector.Item(2)})
+.placa = Lector.Item(1), .conductor = Lector.Item(2), .horaSalida = Lector.Item(3)})
             End While
             Return lista
         Catch ex As Exception

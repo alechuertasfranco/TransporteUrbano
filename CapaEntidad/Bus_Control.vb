@@ -2,6 +2,15 @@
     Private m_bus As Integer
     Private m_placa As String
     Private m_conductor As String
+    Private m_horaSalida As Date
+    Public Property horaSalida() As Date
+        Get
+            Return m_horaSalida
+        End Get
+        Set(ByVal value As Date)
+            m_horaSalida = value
+        End Set
+    End Property
     Public Property conductor() As String
         Get
             Return m_conductor

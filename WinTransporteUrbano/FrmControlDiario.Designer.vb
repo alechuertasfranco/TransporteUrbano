@@ -40,15 +40,16 @@ Partial Class FrmControlDiario
         Me.txtNvueltaSelect = New System.Windows.Forms.TextBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.txt_hora = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnAgregarBus = New System.Windows.Forms.Button()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.dtgBuses_controlados = New System.Windows.Forms.DataGridView()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.cbxCodigoHojaR = New System.Windows.Forms.ComboBox()
+        Me.txt_hora = New System.Windows.Forms.DateTimePicker()
+        Me.txtprueba = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dtgBuses_control, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -56,7 +57,7 @@ Partial Class FrmControlDiario
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtgBuses_controlados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -177,6 +178,7 @@ Partial Class FrmControlDiario
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.txtprueba)
         Me.GroupBox3.Controls.Add(Me.txtNvueltaSelect)
         Me.GroupBox3.Controls.Add(Me.txtCodigoSeleccionado)
         Me.GroupBox3.Controls.Add(Me.Label6)
@@ -184,7 +186,7 @@ Partial Class FrmControlDiario
         Me.GroupBox3.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox3.Location = New System.Drawing.Point(283, 164)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(401, 152)
+        Me.GroupBox3.Size = New System.Drawing.Size(401, 176)
         Me.GroupBox3.TabIndex = 4
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Datos de Hoja de Recorrido"
@@ -236,8 +238,8 @@ Partial Class FrmControlDiario
         '
         'GroupBox5
         '
-        Me.GroupBox5.Controls.Add(Me.Button1)
         Me.GroupBox5.Controls.Add(Me.txt_hora)
+        Me.GroupBox5.Controls.Add(Me.btnAgregarBus)
         Me.GroupBox5.Controls.Add(Me.Label7)
         Me.GroupBox5.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox5.Location = New System.Drawing.Point(446, 346)
@@ -246,15 +248,6 @@ Partial Class FrmControlDiario
         Me.GroupBox5.TabIndex = 6
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Control"
-        '
-        'txt_hora
-        '
-        Me.txt_hora.Location = New System.Drawing.Point(103, 65)
-        Me.txt_hora.Margin = New System.Windows.Forms.Padding(4)
-        Me.txt_hora.Name = "txt_hora"
-        Me.txt_hora.ReadOnly = True
-        Me.txt_hora.Size = New System.Drawing.Size(116, 31)
-        Me.txt_hora.TabIndex = 9
         '
         'Label7
         '
@@ -266,18 +259,18 @@ Partial Class FrmControlDiario
         Me.Label7.TabIndex = 8
         Me.Label7.Text = "Hora"
         '
-        'Button1
+        'btnAgregarBus
         '
-        Me.Button1.Location = New System.Drawing.Point(80, 125)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(104, 33)
-        Me.Button1.TabIndex = 10
-        Me.Button1.Text = "Agregar"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnAgregarBus.Location = New System.Drawing.Point(75, 125)
+        Me.btnAgregarBus.Name = "btnAgregarBus"
+        Me.btnAgregarBus.Size = New System.Drawing.Size(104, 33)
+        Me.btnAgregarBus.TabIndex = 10
+        Me.btnAgregarBus.Text = "Agregar"
+        Me.btnAgregarBus.UseVisualStyleBackColor = True
         '
         'GroupBox6
         '
-        Me.GroupBox6.Controls.Add(Me.DataGridView2)
+        Me.GroupBox6.Controls.Add(Me.dtgBuses_controlados)
         Me.GroupBox6.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox6.Location = New System.Drawing.Point(28, 571)
         Me.GroupBox6.Name = "GroupBox6"
@@ -286,14 +279,14 @@ Partial Class FrmControlDiario
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Buses Controlados"
         '
-        'DataGridView2
+        'dtgBuses_controlados
         '
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(29, 44)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.RowTemplate.Height = 24
-        Me.DataGridView2.Size = New System.Drawing.Size(598, 150)
-        Me.DataGridView2.TabIndex = 0
+        Me.dtgBuses_controlados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dtgBuses_controlados.Location = New System.Drawing.Point(22, 30)
+        Me.dtgBuses_controlados.Name = "dtgBuses_controlados"
+        Me.dtgBuses_controlados.RowTemplate.Height = 24
+        Me.dtgBuses_controlados.Size = New System.Drawing.Size(598, 150)
+        Me.dtgBuses_controlados.TabIndex = 0
         '
         'Button2
         '
@@ -333,6 +326,24 @@ Partial Class FrmControlDiario
         Me.cbxCodigoHojaR.Size = New System.Drawing.Size(199, 31)
         Me.cbxCodigoHojaR.TabIndex = 0
         '
+        'txt_hora
+        '
+        Me.txt_hora.Font = New System.Drawing.Font("Arial Rounded MT Bold", 13.0!)
+        Me.txt_hora.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.txt_hora.Location = New System.Drawing.Point(86, 73)
+        Me.txt_hora.Margin = New System.Windows.Forms.Padding(4)
+        Me.txt_hora.Name = "txt_hora"
+        Me.txt_hora.ShowUpDown = True
+        Me.txt_hora.Size = New System.Drawing.Size(128, 33)
+        Me.txt_hora.TabIndex = 97
+        '
+        'txtprueba
+        '
+        Me.txtprueba.Location = New System.Drawing.Point(136, 129)
+        Me.txtprueba.Name = "txtprueba"
+        Me.txtprueba.Size = New System.Drawing.Size(220, 31)
+        Me.txtprueba.TabIndex = 4
+        '
         'FrmControlDiario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -359,7 +370,7 @@ Partial Class FrmControlDiario
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
         Me.GroupBox6.ResumeLayout(False)
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtgBuses_controlados, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -382,13 +393,14 @@ Partial Class FrmControlDiario
     Friend WithEvents Label5 As Label
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents GroupBox5 As GroupBox
-    Friend WithEvents Button1 As Button
-    Friend WithEvents txt_hora As TextBox
+    Friend WithEvents btnAgregarBus As Button
     Friend WithEvents Label7 As Label
     Friend WithEvents GroupBox6 As GroupBox
-    Friend WithEvents DataGridView2 As DataGridView
+    Friend WithEvents dtgBuses_controlados As DataGridView
     Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
     Friend WithEvents Button4 As Button
     Friend WithEvents cbxCodigoHojaR As ComboBox
+    Friend WithEvents txt_hora As DateTimePicker
+    Friend WithEvents txtprueba As TextBox
 End Class
