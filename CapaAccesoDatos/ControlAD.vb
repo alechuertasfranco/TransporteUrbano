@@ -84,4 +84,32 @@ Public Class ControlAD
             oConexion.Dispose()
         End Try
     End Function
+
+
+    Public Function listarBuses(idControl As Integer, idHojaRecorrido As Integer) As List(Of Bus_Control)
+        Dim cn As New SqlConnection("server=.; integrated security=true; database=BD_TransporteUrbano")
+        Dim cmd As New SqlCommand
+        Dim lista As New List(Of Bus_Control)
+        Try
+            cn.Open()
+            cmd.Connection = cn
+            cmd.CommandText = "SP_ListarBusesControl"
+            cmd.CommandType = CommandType.StoredProcedure
+            cmd.Parameters.Add("@idHojaControl", SqlDbType.Int).Value = idHojaRecorrido
+            cmd.Parameters.Add("@idControl", SqlDbType.Int).Value = idControl
+            Dim Lector As SqlDataReader
+            Lector = cmd.ExecuteReader
+            While Lector.Read
+                lista.Add(New Bus_Control With {.bus = Lector.Item(0),
+.placa = Lector.Item(1), .conductor = Lector.Item(2), .horaSalida = Lector.Item(3)})
+            End While
+            Return lista
+        Catch ex As Exception
+            Throw New Exception(ex.Message)
+        Finally
+            cn.Close()
+            cn.Dispose()
+        End Try
+    End Function
+
 End Class

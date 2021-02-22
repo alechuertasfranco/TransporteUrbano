@@ -58,6 +58,8 @@ Public Class Hoja_ControlAD
                     datos(cont, 0) = Lector.Item(0)
                     datos(cont, 1) = Lector.Item(1)
                     datos(cont, 2) = Lector.Item(2)
+                    datos(cont, 3) = Lector.Item(3)
+                    datos(cont, 4) = Lector.Item(4)
                     cont = cont + 1
                 End While
             End If

@@ -34,7 +34,14 @@ create PROCEDURE sp_BuscarCodigoHojaRecorrido
 	@fecha date
 AS
 	BEGIN
-		SELECT H.HCONT_Codigo,H.HCONT_IdHojaControl,H.HCONT_NVuelta
+	declare @penalizacion			int
+	declare @cantidadControles		int
+	begin
+	select TOP 1 @penalizacion=P.PEN_MontoMinuto from PENALIZACIONES P  order by P.PEN_IdPenalizacion desc
+	select @cantidadControles=count(C.CONT_IdControl) from CONTROL_T C 
+	end
+
+		SELECT H.HCONT_Codigo,H.HCONT_IdHojaControl,H.HCONT_NVuelta,@penalizacion,@cantidadControles
 		FROM HOJA_CONTROL_RECORRIDOS H
 		where H.HCONT_Fecha=@fecha
 		order by H.HCONT_IdHojaControl desc
@@ -209,34 +216,67 @@ AS
 	END
 GO
 EXECUTE SP_ListarDetallesControl 2, 5
+GO
 
---CREATE PROCEDURE SP_CabeceraReporteControl
---	@IdControl			INT
---AS
---	BEGIN
---		DECLARE @IdHoja			as INT
+create PROCEDURE SP_ListarBusesControl
+	@idHojaControl			as INT,
+	@idControl				as INT
+AS
+	BEGIN
+		SELECT	B.BUS_IdBus as Bus,
+				B.BUS_Placa as Placa,
+				C.COND_Nombres+' '+C.COND_ApellidoPaterno+' '+C.COND_ApellidoMaterno as Conductor,DR.DREC_HoraSalida
+		FROM DETALLE_RECORRIDO DR
+			INNER JOIN BUSES B
+			ON B.BUS_IdBus= DR.BUS_IdBus
+			INNER JOIN CONDUCTORES C
+			ON C.COND_IdConductor = B.COND_IdConductor
+			INNER JOIN HOJA_CONTROL_RECORRIDOS HC
+			ON HC.HCONT_IdHojaControl = DR.HCONT_IdHojaControl
+			left join DETALLE_CONTROL DC
+			on DC.HCONT_IdHojaControl=HC.HCONT_IdHojaControl 
+			left join CONTROL_T CT
+			on CT.CONT_IdControl=DC.CONT_IdControl 
+			WHERE DR.HCONT_IdHojaControl=8
+			and DC.CONT_IdControl!=3
+			group by b.BUS_IdBus,B.BUS_Placa,C.COND_Nombres,C.COND_ApellidoPaterno,C.COND_ApellidoMaterno,DR.DREC_HoraSalida
+	END
+GO
 
---		SELECT 
---			C.CONT_IdControl										as [ID Control],
---			CU.CONTUB_Codigo										as [Codigo Control],
---			CU.CONTUB_Control										as [Control],
---			HC.HCONT_Fecha											as [Fecha],
---			HC.HCONT_Codigo											as [Hoja],
---			HC.HCONT_NVuelta										as [Vuelta],
---			DC.DCONT_FechaHora										as [Tiempo],
---			B.BUS_IdBus												as [ID Bus],
---			CD.COND_Nombres + ' ' + Cd.COND_ApellidoPaterno			as [Conductor],
+--Reportes:
 
---		FROM DETALLE_CONTROL DC 
---			INNER JOIN HOJA_CONTROL_RECORRIDOS HC
---			ON DC.HCONT_IdHojaControl = HC.HCONT_IdHojaControl
---			INNER JOIN BUSES B
---			ON DC.BUS_IdBus = B.BUS_IdBus
---			INNER JOIN CONDUCTORES CD
---			ON B.COND_IdConductor = CD.COND_IdConductor
---			INNER JOIN CONTROL_T C
---			ON C.CONT_IdControl = DC.CONT_IdControl
---			INNER JOIN CONTROL_UBICACION CU
---			ON C.CONTUB_IdControlUbicacion = CU.CONTUB_IdControlUbicacion
---	END
---GO
+create procedure SP_CodigosHojasControl
+as
+begin
+	select HCONT_Codigo from HOJA_CONTROL_RECORRIDOS where HCONT_Fecha = GetDate()
+end
+go
+select * from HOJA_CONTROL_RECORRIDOS
+select * from DETALLE_RECORRIDO
+GO
+
+create procedure SP_BusquedaHojasControl
+	@codigo 			VARCHAR(15)
+As
+	begin
+	select D.BUS_IdBus,B.BUS_Placa,D.DREC_HoraSalida,D.DREC_HoraLlegada,D.DREC_MontoPenalizacion
+		from HOJA_CONTROL_RECORRIDOS H inner join 
+	DETALLE_RECORRIDO D on H.HCONT_IdHojaControl = D.HCONT_IdHojaControl
+	inner join BUSES B on B.BUS_IdBus = D.BUS_IdBus
+	where H.HCONT_Codigo = @codigo
+	end
+go
+
+--Fin de reportes
+
+select * from HOJA_CONTROL_RECORRIDOS
+select * from DETALLE_RECORRIDO
+select * from DETALLE_CONTROL
+insert DETALLE_CONTROL values (1,1,8,20,GETDATE(),0)
+insert DETALLE_CONTROL values (1,2,8,20,GETDATE(),0)
+
+insert DETALLE_RECORRIDO values (GETDATE(),1,7,GETDATE(),5,20)
+insert DETALLE_RECORRIDO values (GETDATE(),2,7,GETDATE(),5,20)
+
+insert DETALLE_CONTROL values (1,1,7,20,GETDATE(),0)
+insert DETALLE_CONTROL values (1,2,7,20,GETDATE(),0)

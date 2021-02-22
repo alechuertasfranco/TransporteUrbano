@@ -1,5 +1,6 @@
 ﻿Imports CapaEntidad
 Imports CapaAccesoDatos
+
 Public Class ControlLN
     Public Shared Sub agregar_control(objA As Control)
         Dim objAD As New ControlAD
@@ -13,6 +14,11 @@ Public Class ControlLN
     Public Shared Function consultar_control(IdControlador As Integer)
         Dim objAD As New ControlAD
         Return objAD.consultar_control(IdControlador)
+    End Function
+    Public Shared Function consultar_buses_control(IdControl As Integer, IdHojaRecorrido As Integer) As List(Of
+Bus_Control)
+        Dim objAD As New ControlAD
+        Return objAD.listarBuses(IdControl, IdHojaRecorrido)
     End Function
 
 End Class

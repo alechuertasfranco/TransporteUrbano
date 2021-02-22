@@ -23,11 +23,11 @@ Partial Class FrmHojaControl
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -58,6 +58,7 @@ Partial Class FrmHojaControl
         Me.horafecha = New System.Windows.Forms.Timer(Me.components)
         Me.BUSESTableAdapter = New WinTransporteUrbano.BD_TransporteUrbanoDataSetTableAdapters.BUSESTableAdapter()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.btnReporte = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.BUSESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -69,6 +70,7 @@ Partial Class FrmHojaControl
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.btnReporte)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.txtNvueltaSelect)
@@ -77,9 +79,11 @@ Partial Class FrmHojaControl
         Me.GroupBox1.Controls.Add(Me.lbl_fecha)
         Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.GroupBox1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
-        Me.GroupBox1.Location = New System.Drawing.Point(23, 30)
+        Me.GroupBox1.Location = New System.Drawing.Point(31, 37)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(352, 188)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
+        Me.GroupBox1.Size = New System.Drawing.Size(469, 231)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "HOJA DE CONTROL"
@@ -108,7 +112,7 @@ Partial Class FrmHojaControl
         '
         Me.txtNvueltaSelect.Enabled = False
         Me.txtNvueltaSelect.Location = New System.Drawing.Point(107, 75)
-        Me.txtNvueltaSelect.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtNvueltaSelect.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtNvueltaSelect.Name = "txtNvueltaSelect"
         Me.txtNvueltaSelect.Size = New System.Drawing.Size(53, 26)
         Me.txtNvueltaSelect.TabIndex = 104
@@ -117,16 +121,16 @@ Partial Class FrmHojaControl
         '
         Me.cbxCodigoHojaR.FormattingEnabled = True
         Me.cbxCodigoHojaR.Location = New System.Drawing.Point(108, 40)
-        Me.cbxCodigoHojaR.Margin = New System.Windows.Forms.Padding(2)
+        Me.cbxCodigoHojaR.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.cbxCodigoHojaR.Name = "cbxCodigoHojaR"
-        Me.cbxCodigoHojaR.Size = New System.Drawing.Size(137, 26)
+        Me.cbxCodigoHojaR.Size = New System.Drawing.Size(124, 26)
         Me.cbxCodigoHojaR.TabIndex = 102
         '
         'dtp_fecha
         '
         Me.dtp_fecha.Enabled = False
         Me.dtp_fecha.Location = New System.Drawing.Point(84, 133)
-        Me.dtp_fecha.Margin = New System.Windows.Forms.Padding(2)
+        Me.dtp_fecha.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.dtp_fecha.Name = "dtp_fecha"
         Me.dtp_fecha.Size = New System.Drawing.Size(238, 26)
         Me.dtp_fecha.TabIndex = 54
@@ -145,7 +149,7 @@ Partial Class FrmHojaControl
         '
         Me.btn_Generar.Font = New System.Drawing.Font("Arial Rounded MT Bold", 11.0!)
         Me.btn_Generar.Location = New System.Drawing.Point(98, 128)
-        Me.btn_Generar.Margin = New System.Windows.Forms.Padding(2)
+        Me.btn_Generar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btn_Generar.Name = "btn_Generar"
         Me.btn_Generar.Size = New System.Drawing.Size(90, 29)
         Me.btn_Generar.TabIndex = 101
@@ -203,9 +207,11 @@ Partial Class FrmHojaControl
         Me.GroupBox2.Controls.Add(Me.btn_agregar)
         Me.GroupBox2.Controls.Add(Me.cmb_bus)
         Me.GroupBox2.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
-        Me.GroupBox2.Location = New System.Drawing.Point(23, 224)
+        Me.GroupBox2.Location = New System.Drawing.Point(31, 276)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(613, 89)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
+        Me.GroupBox2.Size = New System.Drawing.Size(817, 110)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "BUSES"
@@ -215,7 +221,8 @@ Partial Class FrmHojaControl
         Me.dtp_llegada.Enabled = False
         Me.dtp_llegada.Font = New System.Drawing.Font("Arial Rounded MT Bold", 13.0!)
         Me.dtp_llegada.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtp_llegada.Location = New System.Drawing.Point(316, 49)
+        Me.dtp_llegada.Location = New System.Drawing.Point(421, 60)
+        Me.dtp_llegada.Margin = New System.Windows.Forms.Padding(4)
         Me.dtp_llegada.Name = "dtp_llegada"
         Me.dtp_llegada.ShowUpDown = True
         Me.dtp_llegada.Size = New System.Drawing.Size(97, 28)
@@ -235,7 +242,8 @@ Partial Class FrmHojaControl
         '
         Me.txt_hora.Font = New System.Drawing.Font("Arial Rounded MT Bold", 13.0!)
         Me.txt_hora.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.txt_hora.Location = New System.Drawing.Point(165, 50)
+        Me.txt_hora.Location = New System.Drawing.Point(220, 62)
+        Me.txt_hora.Margin = New System.Windows.Forms.Padding(4)
         Me.txt_hora.Name = "txt_hora"
         Me.txt_hora.ShowUpDown = True
         Me.txt_hora.Size = New System.Drawing.Size(97, 28)
@@ -254,7 +262,8 @@ Partial Class FrmHojaControl
         'btn_agregar
         '
         Me.btn_agregar.Enabled = False
-        Me.btn_agregar.Location = New System.Drawing.Point(455, 26)
+        Me.btn_agregar.Location = New System.Drawing.Point(607, 32)
+        Me.btn_agregar.Margin = New System.Windows.Forms.Padding(4)
         Me.btn_agregar.Name = "btn_agregar"
         Me.btn_agregar.Size = New System.Drawing.Size(145, 37)
         Me.btn_agregar.TabIndex = 94
@@ -268,7 +277,8 @@ Partial Class FrmHojaControl
         Me.cmb_bus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmb_bus.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmb_bus.FormattingEnabled = True
-        Me.cmb_bus.Location = New System.Drawing.Point(17, 37)
+        Me.cmb_bus.Location = New System.Drawing.Point(23, 46)
+        Me.cmb_bus.Margin = New System.Windows.Forms.Padding(4)
         Me.cmb_bus.Name = "cmb_bus"
         Me.cmb_bus.Size = New System.Drawing.Size(115, 26)
         Me.cmb_bus.TabIndex = 93
@@ -291,9 +301,11 @@ Partial Class FrmHojaControl
         Me.GroupBox3.Controls.Add(Me.btn_Quitar)
         Me.GroupBox3.Controls.Add(Me.dg_detalle)
         Me.GroupBox3.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
-        Me.GroupBox3.Location = New System.Drawing.Point(23, 326)
+        Me.GroupBox3.Location = New System.Drawing.Point(31, 401)
+        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(613, 333)
+        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4)
+        Me.GroupBox3.Size = New System.Drawing.Size(817, 410)
         Me.GroupBox3.TabIndex = 2
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "DETALLE_RECORRIDO"
@@ -301,7 +313,7 @@ Partial Class FrmHojaControl
         'btn_editar
         '
         Me.btn_editar.Location = New System.Drawing.Point(184, 291)
-        Me.btn_editar.Margin = New System.Windows.Forms.Padding(2)
+        Me.btn_editar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btn_editar.Name = "btn_editar"
         Me.btn_editar.Size = New System.Drawing.Size(152, 37)
         Me.btn_editar.TabIndex = 100
@@ -310,7 +322,8 @@ Partial Class FrmHojaControl
         '
         'btn_Cerrar
         '
-        Me.btn_Cerrar.Location = New System.Drawing.Point(468, 289)
+        Me.btn_Cerrar.Location = New System.Drawing.Point(624, 356)
+        Me.btn_Cerrar.Margin = New System.Windows.Forms.Padding(4)
         Me.btn_Cerrar.Name = "btn_Cerrar"
         Me.btn_Cerrar.Size = New System.Drawing.Size(102, 37)
         Me.btn_Cerrar.TabIndex = 99
@@ -319,7 +332,8 @@ Partial Class FrmHojaControl
         '
         'btn_Quitar
         '
-        Me.btn_Quitar.Location = New System.Drawing.Point(351, 291)
+        Me.btn_Quitar.Location = New System.Drawing.Point(468, 358)
+        Me.btn_Quitar.Margin = New System.Windows.Forms.Padding(4)
         Me.btn_Quitar.Name = "btn_Quitar"
         Me.btn_Quitar.Size = New System.Drawing.Size(102, 37)
         Me.btn_Quitar.TabIndex = 98
@@ -330,43 +344,43 @@ Partial Class FrmHojaControl
         '
         Me.dg_detalle.AllowUserToAddRows = False
         Me.dg_detalle.AllowUserToDeleteRows = False
-        DataGridViewCellStyle11.Font = New System.Drawing.Font("MS Reference Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dg_detalle.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("MS Reference Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dg_detalle.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle6
         Me.dg_detalle.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dg_detalle.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle12.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
-        DataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight
-        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dg_detalle.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
+        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dg_detalle.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
         Me.dg_detalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle13.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
-        DataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight
-        DataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dg_detalle.DefaultCellStyle = DataGridViewCellStyle13
-        Me.dg_detalle.Location = New System.Drawing.Point(17, 33)
-        Me.dg_detalle.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
+        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dg_detalle.DefaultCellStyle = DataGridViewCellStyle8
+        Me.dg_detalle.Location = New System.Drawing.Point(23, 41)
+        Me.dg_detalle.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.dg_detalle.Name = "dg_detalle"
         Me.dg_detalle.ReadOnly = True
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle14.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
-        DataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight
-        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dg_detalle.RowHeadersDefaultCellStyle = DataGridViewCellStyle14
-        DataGridViewCellStyle15.Font = New System.Drawing.Font("MS Reference Sans Serif", 12.0!)
-        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight
-        Me.dg_detalle.RowsDefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
+        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dg_detalle.RowHeadersDefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("MS Reference Sans Serif", 12.0!)
+        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.dg_detalle.RowsDefaultCellStyle = DataGridViewCellStyle10
         Me.dg_detalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dg_detalle.Size = New System.Drawing.Size(575, 239)
         Me.dg_detalle.TabIndex = 50
@@ -398,13 +412,24 @@ Partial Class FrmHojaControl
         Me.GroupBox4.Controls.Add(Me.lbl_Codigo)
         Me.GroupBox4.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
         Me.GroupBox4.Location = New System.Drawing.Point(380, 30)
-        Me.GroupBox4.Margin = New System.Windows.Forms.Padding(2)
+        Me.GroupBox4.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Padding = New System.Windows.Forms.Padding(2)
+        Me.GroupBox4.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.GroupBox4.Size = New System.Drawing.Size(256, 188)
         Me.GroupBox4.TabIndex = 4
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "GENERAR HOJA CONTROL"
+        '
+        'btnReporte
+        '
+        Me.btnReporte.Font = New System.Drawing.Font("Arial Rounded MT Bold", 11.0!)
+        Me.btnReporte.Location = New System.Drawing.Point(246, 30)
+        Me.btnReporte.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnReporte.Name = "btnReporte"
+        Me.btnReporte.Size = New System.Drawing.Size(90, 44)
+        Me.btnReporte.TabIndex = 102
+        Me.btnReporte.Text = "Consultar Reporte"
+        Me.btnReporte.UseVisualStyleBackColor = True
         '
         'FrmHojaControl
         '
@@ -416,6 +441,7 @@ Partial Class FrmHojaControl
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FrmHojaControl"
         Me.Text = "Pen"
         Me.GroupBox1.ResumeLayout(False)
@@ -463,4 +489,5 @@ Partial Class FrmHojaControl
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents dtp_llegada As DateTimePicker
     Friend WithEvents Label5 As Label
+    Friend WithEvents btnReporte As Button
 End Class
