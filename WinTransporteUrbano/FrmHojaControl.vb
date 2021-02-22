@@ -135,6 +135,12 @@ Public Class FrmHojaControl
                 Try
                     taDetalleHoja.Update(dtDetalleHoja)
 
+                    Try
+                        Detalle_ControlLN.agregar_detalle(1, cmb_bus.SelectedValue)
+                    Catch ex As Exception
+                        MsgBox(ex.Message)
+                    End Try
+
                     MsgBox("Bus agregado exitosamente")
                 Catch ex As Exception
                     MsgBox(ex.Message)
