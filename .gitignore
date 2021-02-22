@@ -260,3 +260,5 @@ paket-files/
 __pycache__/
 *.pyc
 WinTransporteUrbano/My Project/Application.Designer.vb
+WinTransporteUrbano/CapaPresentación.vbproj
+WinTransporteUrbano/packages.config
