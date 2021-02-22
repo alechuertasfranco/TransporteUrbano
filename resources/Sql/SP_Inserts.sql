@@ -114,7 +114,6 @@ AS
 	END
 GO
 
-
 --Inserción en tabla Penalizacion
 CREATE PROCEDURE sp_insertaPenalizacion
 	@Monto 				MONEY,
@@ -136,7 +135,6 @@ AS
 		VALUES (@TiempoAprox, @IdControlUbicacion, @IdRuta)
 	END
 GO
-
 
 --Inserción en tabla Pago_Control
 CREATE PROCEDURE sp_insertaPago_Control
@@ -187,7 +185,6 @@ AS
 	END
 GO
 
-
 --Inserción en la tabla Controlador_Sistema
 CREATE PROCEDURE sp_insertaControladorSistema
 	@IdControl 			INTEGER,
@@ -234,7 +231,7 @@ AS
 			ON HR.HCONT_IdHojaControl = DR.HCONT_IdHojaControl
 			INNER JOIN PENALIZACIONES P
 			ON P.PEN_IdPenalizacion = HR.PEN_IdPenalizacion
-		WHERE DREC_HoraLlegada = DREC_HoraSalida AND BUS_IdBus = @IdBus
+		WHERE DREC_HoraLlegada = DREC_HoraSalida AND BUS_IdBus = @IdBus 
 
 		SELECT @TiempoAprox = CONT_TiempoAprox
 		FROM CONTROL_T WHERE CONT_IdControl = @IdControl

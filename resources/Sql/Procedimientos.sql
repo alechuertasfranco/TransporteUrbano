@@ -128,7 +128,6 @@ AS
 	END
 GO
 
-
 -- Buscar los datos del control por ID
 CREATE PROCEDURE SP_BuscarControl
 	@IdControl				INT
@@ -187,3 +186,57 @@ AS
 GO
 EXECUTE SP_ListarHojasBus 1
 GO
+
+CREATE PROCEDURE SP_ListarDetallesControl
+	@IdControl			INT,
+	@IdHoja				INT
+AS
+	BEGIN
+		SELECT 
+			CAST(DC.DCONT_FechaHora AS TIME)						as [Tiempo],
+			B.BUS_IdBus												as [IdBus],
+			CD.COND_Nombres + ' ' + Cd.COND_ApellidoPaterno			as [Conductor],
+			DC.DCONT_MontoPenalizacion								as [Penalización]
+		FROM DETALLE_CONTROL DC 
+			INNER JOIN BUSES B
+			ON DC.BUS_IdBus = B.BUS_IdBus
+			INNER JOIN CONDUCTORES CD
+			ON B.COND_IdConductor = CD.COND_IdConductor
+			INNER JOIN CONTROL_T C 
+			ON C.CONT_IdControl = DC.CONT_IdControl
+		WHERE C.CONT_IdControl = @IdControl
+		AND DC.HCONT_IdHojaControl = @IdHoja
+	END
+GO
+EXECUTE SP_ListarDetallesControl 2, 5
+
+--CREATE PROCEDURE SP_CabeceraReporteControl
+--	@IdControl			INT
+--AS
+--	BEGIN
+--		DECLARE @IdHoja			as INT
+
+--		SELECT 
+--			C.CONT_IdControl										as [ID Control],
+--			CU.CONTUB_Codigo										as [Codigo Control],
+--			CU.CONTUB_Control										as [Control],
+--			HC.HCONT_Fecha											as [Fecha],
+--			HC.HCONT_Codigo											as [Hoja],
+--			HC.HCONT_NVuelta										as [Vuelta],
+--			DC.DCONT_FechaHora										as [Tiempo],
+--			B.BUS_IdBus												as [ID Bus],
+--			CD.COND_Nombres + ' ' + Cd.COND_ApellidoPaterno			as [Conductor],
+
+--		FROM DETALLE_CONTROL DC 
+--			INNER JOIN HOJA_CONTROL_RECORRIDOS HC
+--			ON DC.HCONT_IdHojaControl = HC.HCONT_IdHojaControl
+--			INNER JOIN BUSES B
+--			ON DC.BUS_IdBus = B.BUS_IdBus
+--			INNER JOIN CONDUCTORES CD
+--			ON B.COND_IdConductor = CD.COND_IdConductor
+--			INNER JOIN CONTROL_T C
+--			ON C.CONT_IdControl = DC.CONT_IdControl
+--			INNER JOIN CONTROL_UBICACION CU
+--			ON C.CONTUB_IdControlUbicacion = CU.CONTUB_IdControlUbicacion
+--	END
+--GO

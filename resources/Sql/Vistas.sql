@@ -38,5 +38,10 @@ AS
     on S.USU_IdUsuario = U.USU_IdUsuario
 GO
 
-SELECT * FROM V_Secretarias
+CREATE VIEW V_Controles
+AS
+	SELECT C.CONT_IdControl as id, CU.CONTUB_Codigo as codigo
+	FROM CONTROL_T C
+	INNER JOIN CONTROL_UBICACION CU
+	ON C.CONTUB_IdControlUbicacion = CU.CONTUB_IdControlUbicacion
 GO
