@@ -28,10 +28,10 @@
     End Sub
 
     Private Sub ReporteControlesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteControlesToolStripMenuItem.Click
-        Dim objSeleccionControl As New FrmReporteControles
-        objSeleccionControl.MdiParent = Me
-        objSeleccionControl.WindowState = FormWindowState.Maximized
-        objSeleccionControl.Show()
+        'Dim objSeleccionControl As New FrmReporteControles
+        'objSeleccionControl.MdiParent = Me
+        'objSeleccionControl.WindowState = FormWindowState.Maximized
+        'objSeleccionControl.Show()
     End Sub
 
     Private Sub ReportePagosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReportePagosToolStripMenuItem.Click
