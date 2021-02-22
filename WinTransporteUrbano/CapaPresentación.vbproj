@@ -112,6 +112,12 @@
     <Compile Include="FrmControladorPersonal.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmControlDiario.Designer.vb">
+      <DependentUpon>FrmControlDiario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmControlDiario.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmControlUbicacion.Designer.vb">
       <DependentUpon>FrmControlUbicacion.vb</DependentUpon>
     </Compile>
@@ -229,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmControladorPersonal.resx">
       <DependentUpon>FrmControladorPersonal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmControlDiario.resx">
+      <DependentUpon>FrmControlDiario.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmControlUbicacion.resx">
       <DependentUpon>FrmControlUbicacion.vb</DependentUpon>

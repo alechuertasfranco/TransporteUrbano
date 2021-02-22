@@ -187,3 +187,42 @@ AS
 GO
 EXECUTE SP_ListarHojasBus 1
 GO
+
+
+alter PROCEDURE SP_ListarBusesControl
+	@idHojaControl			as INT,
+	@idControl				as INT
+AS
+	BEGIN
+		SELECT	B.BUS_IdBus as Bus,
+				B.BUS_Placa as Placa,
+				C.COND_Nombres+' '+C.COND_ApellidoPaterno+' '+C.COND_ApellidoMaterno as Conductor,
+				CT.CONT_IdControl
+		FROM DETALLE_RECORRIDO DR
+			INNER JOIN BUSES B
+			ON B.BUS_IdBus= DR.BUS_IdBus
+			INNER JOIN CONDUCTORES C
+			ON C.COND_IdConductor = B.COND_IdConductor
+			INNER JOIN HOJA_CONTROL_RECORRIDOS HC
+			ON HC.HCONT_IdHojaControl = DR.HCONT_IdHojaControl
+			inner join DETALLE_CONTROL DC
+			on DC.HCONT_IdHojaControl=HC.HCONT_IdHojaControl 
+			inner join CONTROL_T CT
+			on CT.CONT_IdControl=DC.CONT_IdControl 
+			WHERE DR.HCONT_IdHojaControl=@idHojaControl
+			and DC.CONT_IdControl!=@idControl
+			group by b.BUS_IdBus,B.BUS_Placa,CT.CONT_IdControl,C.COND_Nombres,C.COND_ApellidoPaterno,C.COND_ApellidoMaterno
+	END
+GO
+
+select * from HOJA_CONTROL_RECORRIDOS
+select * from DETALLE_RECORRIDO
+select * from DETALLE_CONTROL
+insert DETALLE_CONTROL values (1,1,8,20,GETDATE(),0)
+insert DETALLE_CONTROL values (1,2,8,20,GETDATE(),0)
+
+insert DETALLE_RECORRIDO values (GETDATE(),1,7,GETDATE(),5,20)
+insert DETALLE_RECORRIDO values (GETDATE(),2,7,GETDATE(),5,20)
+
+insert DETALLE_CONTROL values (1,1,7,20,GETDATE(),0)
+insert DETALLE_CONTROL values (1,2,7,20,GETDATE(),0)

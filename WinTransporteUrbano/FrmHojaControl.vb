@@ -9,7 +9,6 @@ Public Class FrmHojaControl
     Private taDetalleHoja As New BD_TransporteUrbanoDataSetTableAdapters.DETALLE_RECORRIDOTableAdapter
     'Levantamos instancia de una fila del DataTable
     Private registro As BD_TransporteUrbanoDataSet.DETALLE_RECORRIDORow
-
     'Variables auxiliares
     Private campoLlave1 As String
     Private campoLlave2 As String
@@ -198,6 +197,10 @@ Public Class FrmHojaControl
 
         Me.dtDetalleHoja = Me.taDetalleHoja.GetDataByIdHoja(id)
         dg_detalle.DataSource = Me.dtDetalleHoja
+
+    End Sub
+
+    Private Sub GroupBox3_Enter(sender As Object, e As EventArgs) Handles GroupBox3.Enter
 
     End Sub
 End Class

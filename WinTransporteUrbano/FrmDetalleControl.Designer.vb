@@ -56,6 +56,9 @@ Partial Class FrmDetalleControl
         Me.Label9 = New System.Windows.Forms.Label()
         Me.btn_pagar = New System.Windows.Forms.Button()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.BUSESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -65,6 +68,7 @@ Partial Class FrmDetalleControl
         CType(Me.BUSESBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
+        Me.GroupBox6.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -78,78 +82,88 @@ Partial Class FrmDetalleControl
         Me.GroupBox1.Controls.Add(Me.txt_IdControl)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(16, 15)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(490, 101)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Size = New System.Drawing.Size(685, 124)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos de Control"
         '
         'txt_CodControl
         '
-        Me.txt_CodControl.Location = New System.Drawing.Point(220, 50)
+        Me.txt_CodControl.Location = New System.Drawing.Point(293, 62)
+        Me.txt_CodControl.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txt_CodControl.Name = "txt_CodControl"
         Me.txt_CodControl.ReadOnly = True
-        Me.txt_CodControl.Size = New System.Drawing.Size(90, 26)
+        Me.txt_CodControl.Size = New System.Drawing.Size(119, 31)
         Me.txt_CodControl.TabIndex = 5
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(217, 29)
+        Me.Label4.Location = New System.Drawing.Point(289, 36)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(64, 18)
+        Me.Label4.Size = New System.Drawing.Size(80, 23)
         Me.Label4.TabIndex = 4
         Me.Label4.Text = "Codigo"
         '
         'txt_Control
         '
-        Me.txt_Control.Location = New System.Drawing.Point(325, 50)
+        Me.txt_Control.Location = New System.Drawing.Point(433, 62)
+        Me.txt_Control.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txt_Control.Name = "txt_Control"
         Me.txt_Control.ReadOnly = True
-        Me.txt_Control.Size = New System.Drawing.Size(146, 26)
+        Me.txt_Control.Size = New System.Drawing.Size(193, 31)
         Me.txt_Control.TabIndex = 3
         '
         'txt_TiempoAprox
         '
-        Me.txt_TiempoAprox.Location = New System.Drawing.Point(90, 50)
+        Me.txt_TiempoAprox.Location = New System.Drawing.Point(120, 62)
+        Me.txt_TiempoAprox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txt_TiempoAprox.Name = "txt_TiempoAprox"
         Me.txt_TiempoAprox.ReadOnly = True
-        Me.txt_TiempoAprox.Size = New System.Drawing.Size(113, 26)
+        Me.txt_TiempoAprox.Size = New System.Drawing.Size(149, 31)
         Me.txt_TiempoAprox.TabIndex = 3
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(322, 29)
+        Me.Label3.Location = New System.Drawing.Point(429, 36)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(67, 18)
+        Me.Label3.Size = New System.Drawing.Size(82, 23)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Control"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(87, 29)
+        Me.Label2.Location = New System.Drawing.Point(116, 36)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(120, 18)
+        Me.Label2.Size = New System.Drawing.Size(150, 23)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Tiempo aprox."
         '
         'txt_IdControl
         '
-        Me.txt_IdControl.Location = New System.Drawing.Point(18, 50)
+        Me.txt_IdControl.Location = New System.Drawing.Point(24, 62)
+        Me.txt_IdControl.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txt_IdControl.Name = "txt_IdControl"
         Me.txt_IdControl.ReadOnly = True
-        Me.txt_IdControl.Size = New System.Drawing.Size(51, 26)
+        Me.txt_IdControl.Size = New System.Drawing.Size(67, 31)
         Me.txt_IdControl.TabIndex = 1
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(15, 29)
+        Me.Label1.Location = New System.Drawing.Point(20, 36)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(25, 18)
+        Me.Label1.Size = New System.Drawing.Size(31, 23)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "ID"
         '
@@ -162,9 +176,11 @@ Partial Class FrmDetalleControl
         Me.GroupBox2.Controls.Add(Me.Label7)
         Me.GroupBox2.Controls.Add(Me.Label8)
         Me.GroupBox2.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 129)
+        Me.GroupBox2.Location = New System.Drawing.Point(16, 159)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(490, 93)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Size = New System.Drawing.Size(685, 114)
         Me.GroupBox2.TabIndex = 6
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Selección de Bus"
@@ -177,9 +193,10 @@ Partial Class FrmDetalleControl
         Me.cbo_bus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbo_bus.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbo_bus.FormattingEnabled = True
-        Me.cbo_bus.Location = New System.Drawing.Point(18, 50)
+        Me.cbo_bus.Location = New System.Drawing.Point(24, 62)
+        Me.cbo_bus.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cbo_bus.Name = "cbo_bus"
-        Me.cbo_bus.Size = New System.Drawing.Size(61, 26)
+        Me.cbo_bus.Size = New System.Drawing.Size(80, 31)
         Me.cbo_bus.TabIndex = 94
         Me.cbo_bus.ValueMember = "BUS_IdBus"
         '
@@ -195,44 +212,49 @@ Partial Class FrmDetalleControl
         '
         'txt_Conductor
         '
-        Me.txt_Conductor.Location = New System.Drawing.Point(207, 50)
+        Me.txt_Conductor.Location = New System.Drawing.Point(276, 62)
+        Me.txt_Conductor.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txt_Conductor.Name = "txt_Conductor"
         Me.txt_Conductor.ReadOnly = True
-        Me.txt_Conductor.Size = New System.Drawing.Size(264, 26)
+        Me.txt_Conductor.Size = New System.Drawing.Size(351, 31)
         Me.txt_Conductor.TabIndex = 5
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(204, 29)
+        Me.Label5.Location = New System.Drawing.Point(272, 36)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(93, 18)
+        Me.Label5.Size = New System.Drawing.Size(114, 23)
         Me.Label5.TabIndex = 4
         Me.Label5.Text = "Conductor"
         '
         'txt_Placa
         '
-        Me.txt_Placa.Location = New System.Drawing.Point(101, 50)
+        Me.txt_Placa.Location = New System.Drawing.Point(135, 62)
+        Me.txt_Placa.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txt_Placa.Name = "txt_Placa"
         Me.txt_Placa.ReadOnly = True
-        Me.txt_Placa.Size = New System.Drawing.Size(88, 26)
+        Me.txt_Placa.Size = New System.Drawing.Size(116, 31)
         Me.txt_Placa.TabIndex = 3
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(98, 29)
+        Me.Label7.Location = New System.Drawing.Point(131, 36)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(53, 18)
+        Me.Label7.Size = New System.Drawing.Size(64, 23)
         Me.Label7.TabIndex = 2
         Me.Label7.Text = "Placa"
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(15, 29)
+        Me.Label8.Location = New System.Drawing.Point(20, 36)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(64, 18)
+        Me.Label8.Size = New System.Drawing.Size(80, 23)
         Me.Label8.TabIndex = 0
         Me.Label8.Text = "Codigo"
         '
@@ -243,53 +265,60 @@ Partial Class FrmDetalleControl
         Me.GroupBox3.Controls.Add(Me.Label6)
         Me.GroupBox3.Controls.Add(Me.Label10)
         Me.GroupBox3.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
-        Me.GroupBox3.Location = New System.Drawing.Point(12, 239)
+        Me.GroupBox3.Location = New System.Drawing.Point(16, 294)
+        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(490, 96)
+        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox3.Size = New System.Drawing.Size(685, 118)
         Me.GroupBox3.TabIndex = 7
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Detalle de registro"
         '
         'txt_hora
         '
-        Me.txt_hora.Location = New System.Drawing.Point(365, 54)
+        Me.txt_hora.Location = New System.Drawing.Point(537, 66)
+        Me.txt_hora.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txt_hora.Name = "txt_hora"
         Me.txt_hora.ReadOnly = True
-        Me.txt_hora.Size = New System.Drawing.Size(88, 26)
+        Me.txt_hora.Size = New System.Drawing.Size(116, 31)
         Me.txt_hora.TabIndex = 7
         '
         'txt_fecha
         '
-        Me.txt_fecha.Location = New System.Drawing.Point(18, 54)
+        Me.txt_fecha.Location = New System.Drawing.Point(24, 66)
+        Me.txt_fecha.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txt_fecha.Name = "txt_fecha"
         Me.txt_fecha.ReadOnly = True
-        Me.txt_fecha.Size = New System.Drawing.Size(318, 26)
+        Me.txt_fecha.Size = New System.Drawing.Size(465, 31)
         Me.txt_fecha.TabIndex = 7
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(362, 29)
+        Me.Label6.Location = New System.Drawing.Point(533, 39)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(47, 18)
+        Me.Label6.Size = New System.Drawing.Size(58, 23)
         Me.Label6.TabIndex = 4
         Me.Label6.Text = "Hora"
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(15, 29)
+        Me.Label10.Location = New System.Drawing.Point(20, 36)
+        Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(58, 18)
+        Me.Label10.Size = New System.Drawing.Size(70, 23)
         Me.Label10.TabIndex = 0
         Me.Label10.Text = "Fecha"
         '
         'btn_registrar
         '
         Me.btn_registrar.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
-        Me.btn_registrar.Location = New System.Drawing.Point(18, 37)
+        Me.btn_registrar.Location = New System.Drawing.Point(24, 46)
+        Me.btn_registrar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btn_registrar.Name = "btn_registrar"
-        Me.btn_registrar.Size = New System.Drawing.Size(143, 48)
+        Me.btn_registrar.Size = New System.Drawing.Size(196, 49)
         Me.btn_registrar.TabIndex = 8
         Me.btn_registrar.Text = "Registrar Control"
         Me.btn_registrar.UseVisualStyleBackColor = True
@@ -297,9 +326,10 @@ Partial Class FrmDetalleControl
         'dtg_buses
         '
         Me.dtg_buses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtg_buses.Location = New System.Drawing.Point(12, 341)
+        Me.dtg_buses.Location = New System.Drawing.Point(16, 420)
+        Me.dtg_buses.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.dtg_buses.Name = "dtg_buses"
-        Me.dtg_buses.Size = New System.Drawing.Size(490, 172)
+        Me.dtg_buses.Size = New System.Drawing.Size(429, 212)
         Me.dtg_buses.TabIndex = 9
         '
         'BUSESTableAdapter
@@ -321,35 +351,40 @@ Partial Class FrmDetalleControl
         Me.GroupBox4.Controls.Add(Me.Label9)
         Me.GroupBox4.Controls.Add(Me.btn_pagar)
         Me.GroupBox4.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
-        Me.GroupBox4.Location = New System.Drawing.Point(198, 519)
+        Me.GroupBox4.Location = New System.Drawing.Point(453, 433)
+        Me.GroupBox4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(304, 100)
+        Me.GroupBox4.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox4.Size = New System.Drawing.Size(248, 213)
         Me.GroupBox4.TabIndex = 10
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Registro Pagos"
         '
         'txt_monto
         '
-        Me.txt_monto.Location = New System.Drawing.Point(197, 59)
+        Me.txt_monto.Location = New System.Drawing.Point(62, 85)
+        Me.txt_monto.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txt_monto.Name = "txt_monto"
-        Me.txt_monto.Size = New System.Drawing.Size(88, 26)
+        Me.txt_monto.Size = New System.Drawing.Size(116, 31)
         Me.txt_monto.TabIndex = 9
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(204, 37)
+        Me.Label9.Location = New System.Drawing.Point(67, 45)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(81, 18)
+        Me.Label9.Size = New System.Drawing.Size(100, 23)
         Me.Label9.TabIndex = 8
         Me.Label9.Text = "Monto S/."
         '
         'btn_pagar
         '
         Me.btn_pagar.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
-        Me.btn_pagar.Location = New System.Drawing.Point(21, 37)
+        Me.btn_pagar.Location = New System.Drawing.Point(32, 139)
+        Me.btn_pagar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btn_pagar.Name = "btn_pagar"
-        Me.btn_pagar.Size = New System.Drawing.Size(151, 48)
+        Me.btn_pagar.Size = New System.Drawing.Size(175, 54)
         Me.btn_pagar.TabIndex = 11
         Me.btn_pagar.Text = "Registrar pago"
         Me.btn_pagar.UseVisualStyleBackColor = True
@@ -358,24 +393,48 @@ Partial Class FrmDetalleControl
         '
         Me.GroupBox5.Controls.Add(Me.btn_registrar)
         Me.GroupBox5.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!)
-        Me.GroupBox5.Location = New System.Drawing.Point(12, 519)
+        Me.GroupBox5.Location = New System.Drawing.Point(16, 639)
+        Me.GroupBox5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(180, 100)
+        Me.GroupBox5.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox5.Size = New System.Drawing.Size(240, 114)
         Me.GroupBox5.TabIndex = 11
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Control"
         '
+        'GroupBox6
+        '
+        Me.GroupBox6.Controls.Add(Me.Button1)
+        Me.GroupBox6.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox6.Location = New System.Drawing.Point(287, 653)
+        Me.GroupBox6.Name = "GroupBox6"
+        Me.GroupBox6.Size = New System.Drawing.Size(218, 100)
+        Me.GroupBox6.TabIndex = 12
+        Me.GroupBox6.TabStop = False
+        Me.GroupBox6.Text = "Control Diario"
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(13, 30)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(196, 51)
+        Me.Button1.TabIndex = 0
+        Me.Button1.Text = "Ingresar Registro"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'FrmDetalleControl
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(514, 627)
+        Me.ClientSize = New System.Drawing.Size(732, 767)
+        Me.Controls.Add(Me.GroupBox6)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.dtg_buses)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "FrmDetalleControl"
         Me.Text = "FrmDetalleControl"
         Me.GroupBox1.ResumeLayout(False)
@@ -391,6 +450,7 @@ Partial Class FrmDetalleControl
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         Me.GroupBox5.ResumeLayout(False)
+        Me.GroupBox6.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -429,4 +489,7 @@ Partial Class FrmDetalleControl
     Friend WithEvents Label9 As Label
     Friend WithEvents btn_pagar As Button
     Friend WithEvents GroupBox5 As GroupBox
+    Friend WithEvents GroupBox6 As GroupBox
+    Friend WithEvents Button1 As Button
+    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
 End Class
