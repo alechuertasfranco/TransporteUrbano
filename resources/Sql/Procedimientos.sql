@@ -221,6 +221,31 @@ AS
 	END
 GO
 
+--Reportes:
+
+create procedure SP_CodigosHojasControl
+as
+begin
+	select HCONT_Codigo from HOJA_CONTROL_RECORRIDOS where HCONT_Fecha = GetDate()
+end
+go
+select * from HOJA_CONTROL_RECORRIDOS
+select * from DETALLE_RECORRIDO
+
+create procedure SP_BusquedaHojasControl
+	@codigo 			VARCHAR(15)
+As
+	begin
+	select D.BUS_IdBus,B.BUS_Placa,D.DREC_HoraSalida,D.DREC_HoraLlegada,D.DREC_MontoPenalizacion
+		from HOJA_CONTROL_RECORRIDOS H inner join 
+	DETALLE_RECORRIDO D on H.HCONT_IdHojaControl = D.HCONT_IdHojaControl
+	inner join BUSES B on B.BUS_IdBus = D.BUS_IdBus
+	where H.HCONT_Codigo = @codigo
+	end
+go
+
+--Fin de reportes
+
 select * from HOJA_CONTROL_RECORRIDOS
 select * from DETALLE_RECORRIDO
 select * from DETALLE_CONTROL
