@@ -88,8 +88,6 @@ begin
 			FROM HOJA_CONTROL_RECORRIDOS H order by H.HCONT_IdHojaControl desc
 	END
 GO
-EXECUTE sp_GenerarHojaRecorrido '18-02-2021'
-GO
 
 
 -- Buscar los datos del controlador por ID
@@ -104,8 +102,6 @@ AS
 		WHERE U.USU_IdUsuario = @idControlador
 	END
 GO
-EXECUTE SP_BuscarControlador 3
-GO
 
 -- Buscar los datos de la secretaria por ID
 CREATE PROCEDURE SP_BuscarSecretaria
@@ -118,8 +114,6 @@ AS
 			ON U.USU_IdUsuario = S.USU_IdUsuario
 		WHERE U.USU_IdUsuario = @IdSecretaria
 	END
-GO
-EXECUTE SP_BuscarSecretaria 5
 GO
 
 -- Obtener el ID de todos los controles de una Ruta para un ComboBox
@@ -151,8 +145,6 @@ AS
 		WHERE CONT_IdControl = @IdControl
 	END
 GO
-EXECUTE SP_BuscarControl 2
-GO
 
 CREATE PROCEDURE SP_BuscarBus
 	@IdBus			as INT
@@ -168,8 +160,6 @@ AS
 			ON C.COND_IdConductor = B.COND_IdConductor
 		WHERE	BUS_IdBus = @IdBus
 	END
-GO
-EXECUTE SP_BuscarBus 1
 GO
 
 CREATE PROCEDURE SP_ListarHojasBus
@@ -190,8 +180,6 @@ AS
 			ON HC.HCONT_IdHojaControl = DR.HCONT_IdHojaControl
 		WHERE B.BUS_IdBus = @IdBus
 	END
-GO
-EXECUTE SP_ListarHojasBus 1
 GO
 
 CREATE PROCEDURE SP_ListarDetallesControl
@@ -214,8 +202,6 @@ AS
 		WHERE C.CONT_IdControl = @IdControl
 		AND DC.HCONT_IdHojaControl = @IdHoja
 	END
-GO
-EXECUTE SP_ListarDetallesControl 2, 5
 GO
 
 create PROCEDURE SP_ListarBusesControl

@@ -22,16 +22,21 @@
     End Sub
 
     Private Sub RegistrarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarToolStripMenuItem.Click
-        Dim objSeleccionControl As New FrmSeleccionControl
+        Dim objSeleccionControl As New FrmSeleccionControl("Actual")
+        objSeleccionControl.MdiParent = Me
+        objSeleccionControl.Show()
+    End Sub
+
+    Private Sub RegistroDiarioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistroDiarioToolStripMenuItem.Click
+        Dim objSeleccionControl As New FrmSeleccionControl("Diario")
         objSeleccionControl.MdiParent = Me
         objSeleccionControl.Show()
     End Sub
 
     Private Sub ReporteControlesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteControlesToolStripMenuItem.Click
-        'Dim objSeleccionControl As New FrmReporteControles
-        'objSeleccionControl.MdiParent = Me
-        'objSeleccionControl.WindowState = FormWindowState.Maximized
-        'objSeleccionControl.Show()
+        Dim objSeleccionControl As New FrmReporteControles
+        objSeleccionControl.MdiParent = Me
+        objSeleccionControl.Show()
     End Sub
 
     Private Sub ReportePagosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReportePagosToolStripMenuItem.Click

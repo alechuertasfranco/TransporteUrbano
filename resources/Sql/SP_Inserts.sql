@@ -1,9 +1,6 @@
 USE BD_TransporteUrbano
 GO
 
-INSERT INTO HOJA_CONTROL_RECORRIDOS values ('HC117FEB211','17-02-2021',20,1,1)
-GO
-
 --Inserción en tabla Operacion
 create PROCEDURE sp_insertaOperacion
 	@IdHoja 			int,

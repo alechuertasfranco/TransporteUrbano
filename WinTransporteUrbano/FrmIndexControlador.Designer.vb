@@ -29,6 +29,9 @@ Partial Class FrmIndexControlador
         Me.DatosPersonalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OperacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistrarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ReporteControlesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReportePagosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VentanaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CascadaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator()
@@ -37,9 +40,7 @@ Partial Class FrmIndexControlador
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripSeparator()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ReporteControlesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ReportePagosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RegistroDiarioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -67,7 +68,7 @@ Partial Class FrmIndexControlador
         '
         'OperacionesToolStripMenuItem
         '
-        Me.OperacionesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarToolStripMenuItem, Me.ToolStripMenuItem3, Me.ReporteControlesToolStripMenuItem, Me.ReportePagosToolStripMenuItem})
+        Me.OperacionesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarToolStripMenuItem, Me.RegistroDiarioToolStripMenuItem, Me.ToolStripMenuItem3, Me.ReporteControlesToolStripMenuItem, Me.ReportePagosToolStripMenuItem})
         Me.OperacionesToolStripMenuItem.Name = "OperacionesToolStripMenuItem"
         Me.OperacionesToolStripMenuItem.Size = New System.Drawing.Size(85, 20)
         Me.OperacionesToolStripMenuItem.Text = "Operaciones"
@@ -77,52 +78,6 @@ Partial Class FrmIndexControlador
         Me.RegistrarToolStripMenuItem.Name = "RegistrarToolStripMenuItem"
         Me.RegistrarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.RegistrarToolStripMenuItem.Text = "Registrar Control"
-        '
-        'VentanaToolStripMenuItem
-        '
-        Me.VentanaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CascadaToolStripMenuItem, Me.ToolStripMenuItem1, Me.HorizontalToolStripMenuItem, Me.VerticalToolStripMenuItem, Me.ToolStripMenuItem2})
-        Me.VentanaToolStripMenuItem.Name = "VentanaToolStripMenuItem"
-        Me.VentanaToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
-        Me.VentanaToolStripMenuItem.Text = "Ventana"
-        '
-        'CascadaToolStripMenuItem
-        '
-        Me.CascadaToolStripMenuItem.Name = "CascadaToolStripMenuItem"
-        Me.CascadaToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.CascadaToolStripMenuItem.Text = "Cascada"
-        '
-        'ToolStripMenuItem1
-        '
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(177, 6)
-        '
-        'HorizontalToolStripMenuItem
-        '
-        Me.HorizontalToolStripMenuItem.Name = "HorizontalToolStripMenuItem"
-        Me.HorizontalToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.HorizontalToolStripMenuItem.Text = "Horizontal"
-        '
-        'VerticalToolStripMenuItem
-        '
-        Me.VerticalToolStripMenuItem.Name = "VerticalToolStripMenuItem"
-        Me.VerticalToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.VerticalToolStripMenuItem.Text = "Vertical"
-        '
-        'ToolStripMenuItem2
-        '
-        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(177, 6)
-        '
-        'SalirToolStripMenuItem
-        '
-        Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
-        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
-        Me.SalirToolStripMenuItem.Text = "Salir"
-        '
-        'ContextMenuStrip1
-        '
-        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
         '
         'ToolStripMenuItem3
         '
@@ -140,6 +95,58 @@ Partial Class FrmIndexControlador
         Me.ReportePagosToolStripMenuItem.Name = "ReportePagosToolStripMenuItem"
         Me.ReportePagosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ReportePagosToolStripMenuItem.Text = "Reporte Pagos"
+        '
+        'VentanaToolStripMenuItem
+        '
+        Me.VentanaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CascadaToolStripMenuItem, Me.ToolStripMenuItem1, Me.HorizontalToolStripMenuItem, Me.VerticalToolStripMenuItem, Me.ToolStripMenuItem2})
+        Me.VentanaToolStripMenuItem.Name = "VentanaToolStripMenuItem"
+        Me.VentanaToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
+        Me.VentanaToolStripMenuItem.Text = "Ventana"
+        '
+        'CascadaToolStripMenuItem
+        '
+        Me.CascadaToolStripMenuItem.Name = "CascadaToolStripMenuItem"
+        Me.CascadaToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
+        Me.CascadaToolStripMenuItem.Text = "Cascada"
+        '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(126, 6)
+        '
+        'HorizontalToolStripMenuItem
+        '
+        Me.HorizontalToolStripMenuItem.Name = "HorizontalToolStripMenuItem"
+        Me.HorizontalToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
+        Me.HorizontalToolStripMenuItem.Text = "Horizontal"
+        '
+        'VerticalToolStripMenuItem
+        '
+        Me.VerticalToolStripMenuItem.Name = "VerticalToolStripMenuItem"
+        Me.VerticalToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
+        Me.VerticalToolStripMenuItem.Text = "Vertical"
+        '
+        'ToolStripMenuItem2
+        '
+        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(126, 6)
+        '
+        'SalirToolStripMenuItem
+        '
+        Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
+        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
+        Me.SalirToolStripMenuItem.Text = "Salir"
+        '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
+        '
+        'RegistroDiarioToolStripMenuItem
+        '
+        Me.RegistroDiarioToolStripMenuItem.Name = "RegistroDiarioToolStripMenuItem"
+        Me.RegistroDiarioToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.RegistroDiarioToolStripMenuItem.Text = "Registro Diario"
         '
         'FrmIndexControlador
         '
@@ -177,4 +184,5 @@ Partial Class FrmIndexControlador
     Friend WithEvents ToolStripMenuItem3 As ToolStripSeparator
     Friend WithEvents ReporteControlesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReportePagosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RegistroDiarioToolStripMenuItem As ToolStripMenuItem
 End Class

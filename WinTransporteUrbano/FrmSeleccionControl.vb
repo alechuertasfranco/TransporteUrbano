@@ -1,6 +1,13 @@
 ﻿Imports CapaLogicaNegocio
 Imports CapaEntidad
 Public Class FrmSeleccionControl
+    Dim Tipo As String
+
+    Public Sub New(ByVal Tipo As String)
+        InitializeComponent()
+        Me.Tipo = Tipo
+    End Sub
+
     Private Sub FrmSeleccionControl_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'BD_TransporteUrbanoDataSet.CONTROL_T' Puede moverla o quitarla según sea necesario.
         Me.CONTROL_TTableAdapter.Fill(Me.BD_TransporteUrbanoDataSet.CONTROL_T)
@@ -44,9 +51,15 @@ Public Class FrmSeleccionControl
         Try
             Controlador_SistemaLN.agregar_controlador_sistema(control_ingresado, usuario_ingresado)
             MsgBox("Control ingresado: N°" + control_ingresado.ToString() & vbNewLine & "Hora de ingreso: " & DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"))
-            Dim objDetalleControl As New FrmDetalleControl
-            objDetalleControl.MdiParent = Me.MdiParent
-            objDetalleControl.Show()
+            If Tipo = "Actual" Then
+                Dim obj As New FrmDetalleControl
+                obj.MdiParent = Me.MdiParent
+                obj.Show()
+            ElseIf Tipo = "Diario" Then
+                Dim obj As New FrmControlDiario
+                obj.MdiParent = Me.MdiParent
+                obj.Show()
+            End If
             Me.Close()
         Catch ex As Exception
             MsgBox(ex.Message)
