@@ -40,6 +40,8 @@
     End Sub
 
     Private Sub ReportePagosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReportePagosToolStripMenuItem.Click
-
+        Dim objSeleccionControl As New FrmReportePagos
+        objSeleccionControl.MdiParent = Me
+        objSeleccionControl.Show()
     End Sub
 End Class

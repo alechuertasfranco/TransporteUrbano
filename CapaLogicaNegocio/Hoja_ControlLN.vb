@@ -10,6 +10,11 @@ Public Class Hoja_ControlLN
         Return objAD.BuscarCodigoHojasControl(fecha)
     End Function
 
+    Public Shared Function ListarCodigosFecha(fecha As Date)
+        Dim objAD As New Hoja_ControlAD
+        Return objAD.ListarCodigosFecha(fecha)
+    End Function
+
     Public Shared Sub agregar_hoja(objA As Hoja_Control)
         Dim objAD As New Hoja_ControlAD
         objAD.agregar_hoja(objA)

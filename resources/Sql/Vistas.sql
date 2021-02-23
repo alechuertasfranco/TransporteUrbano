@@ -43,7 +43,7 @@ AS
 	ON C.CONTUB_IdControlUbicacion = CU.CONTUB_IdControlUbicacion
 GO
 
-ALTER VIEW V_HojasFechaActual
+CREATE VIEW V_HojasFechaActual
 AS
     SELECT *
     FROM HOJA_CONTROL_RECORRIDOS

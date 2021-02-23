@@ -23,7 +23,7 @@ Partial Class FrmReporteControles
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource4 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmReporteControles))
         Me.SP_ListarDetallesControlBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.BD_TransporteUrbanoDataSet = New WinTransporteUrbano.BD_TransporteUrbanoDataSet()
@@ -40,6 +40,8 @@ Partial Class FrmReporteControles
         Me.btn_consultar = New System.Windows.Forms.Button()
         Me.SP_ListarDetallesControlTableAdapter = New WinTransporteUrbano.BD_TransporteUrbanoDataSetTableAdapters.SP_ListarDetallesControlTableAdapter()
         Me.V_HojasFechaActualTableAdapter = New WinTransporteUrbano.BD_TransporteUrbanoDataSetTableAdapters.V_HojasFechaActualTableAdapter()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.txt_fecha = New System.Windows.Forms.DateTimePicker()
         CType(Me.SP_ListarDetallesControlBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BD_TransporteUrbanoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VControlesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -71,7 +73,7 @@ Partial Class FrmReporteControles
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(189, 20)
+        Me.Label2.Location = New System.Drawing.Point(346, 20)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(134, 20)
         Me.Label2.TabIndex = 1
@@ -96,15 +98,12 @@ Partial Class FrmReporteControles
         '
         'cbo_hoja
         '
-        Me.cbo_hoja.DataSource = Me.VHojasFechaActualBindingSource
-        Me.cbo_hoja.DisplayMember = "HCONT_Codigo"
         Me.cbo_hoja.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbo_hoja.FormattingEnabled = True
-        Me.cbo_hoja.Location = New System.Drawing.Point(193, 43)
+        Me.cbo_hoja.Location = New System.Drawing.Point(350, 43)
         Me.cbo_hoja.Name = "cbo_hoja"
         Me.cbo_hoja.Size = New System.Drawing.Size(180, 28)
         Me.cbo_hoja.TabIndex = 3
-        Me.cbo_hoja.ValueMember = "HCONT_IdHojaControl"
         '
         'VHojasFechaActualBindingSource
         '
@@ -129,9 +128,9 @@ Partial Class FrmReporteControles
         Me.rv_DetallesControl.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        ReportDataSource1.Name = "DSet_DetallesControl"
-        ReportDataSource1.Value = Me.SP_ListarDetallesControlBindingSource
-        Me.rv_DetallesControl.LocalReport.DataSources.Add(ReportDataSource1)
+        ReportDataSource4.Name = "DSet_DetallesControl"
+        ReportDataSource4.Value = Me.SP_ListarDetallesControlBindingSource
+        Me.rv_DetallesControl.LocalReport.DataSources.Add(ReportDataSource4)
         Me.rv_DetallesControl.LocalReport.ReportEmbeddedResource = "WinTransporteUrbano.ReporteControles.rdlc"
         Me.rv_DetallesControl.Location = New System.Drawing.Point(16, 92)
         Me.rv_DetallesControl.Name = "rv_DetallesControl"
@@ -158,11 +157,32 @@ Partial Class FrmReporteControles
         '
         Me.V_HojasFechaActualTableAdapter.ClearBeforeFill = True
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(174, 20)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(59, 20)
+        Me.Label3.TabIndex = 6
+        Me.Label3.Text = "Fecha"
+        '
+        'txt_fecha
+        '
+        Me.txt_fecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.txt_fecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.txt_fecha.Location = New System.Drawing.Point(178, 43)
+        Me.txt_fecha.Name = "txt_fecha"
+        Me.txt_fecha.Size = New System.Drawing.Size(154, 26)
+        Me.txt_fecha.TabIndex = 7
+        '
         'FrmReporteControles
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(646, 450)
+        Me.Controls.Add(Me.txt_fecha)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.btn_consultar)
         Me.Controls.Add(Me.rv_DetallesControl)
         Me.Controls.Add(Me.cbo_hoja)
@@ -196,4 +216,6 @@ Partial Class FrmReporteControles
     Friend WithEvents SP_ListarDetallesControlTableAdapter As BD_TransporteUrbanoDataSetTableAdapters.SP_ListarDetallesControlTableAdapter
     Friend WithEvents VHojasFechaActualBindingSource As BindingSource
     Friend WithEvents V_HojasFechaActualTableAdapter As BD_TransporteUrbanoDataSetTableAdapters.V_HojasFechaActualTableAdapter
+    Friend WithEvents Label3 As Label
+    Friend WithEvents txt_fecha As DateTimePicker
 End Class

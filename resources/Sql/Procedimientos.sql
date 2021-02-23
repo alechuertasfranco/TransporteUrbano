@@ -25,6 +25,7 @@ AS
 	END
 GO
 
+-- Retorna la información de todas las hojas de control de una fecha
 create PROCEDURE sp_BuscarCodigoHojaRecorrido
 	@fecha date
 AS
@@ -32,17 +33,28 @@ AS
 	declare @penalizacion			int
 	declare @cantidadControles		int
 	begin
-	select TOP 1 @penalizacion=P.PEN_MontoMinuto from PENALIZACIONES P  order by P.PEN_IdPenalizacion desc
-	select @cantidadControles=count(C.CONT_IdControl) from CONTROL_T C 
+
+	select TOP 1 @penalizacion=P.PEN_MontoMinuto 
+	from PENALIZACIONES P 
+	order by P.PEN_IdPenalizacion desc
+
+	select @cantidadControles=count(C.CONT_IdControl) 
+	from CONTROL_T C 
+
 	end
 
-		SELECT H.HCONT_Codigo,H.HCONT_IdHojaControl,H.HCONT_NVuelta,@penalizacion,@cantidadControles
+		SELECT	H.HCONT_Codigo,
+				H.HCONT_IdHojaControl,
+				H.HCONT_NVuelta,
+				@penalizacion,
+				@cantidadControles
 		FROM HOJA_CONTROL_RECORRIDOS H
-		where H.HCONT_Fecha=@fecha
+		where H.HCONT_Fecha = @fecha
 		order by H.HCONT_IdHojaControl desc
 	end
 GO
 
+-- Retorna toda la información para generar un detalle de recorrido
 create PROCEDURE sp_GenerarHojaRecorrido
  @fecha 			datetime
 AS
@@ -75,15 +87,19 @@ begin
 	end
 
 			SELECT TOP 1  'HC'+ CONVERT(varchar(10),@id)+
-			 upper(substring(replace(CONVERT(varchar,@fecha,106),' ',''),1,LEN(replace(CONVERT(varchar,@fecha,106),' ',''))-4))+ 
-			 upper(substring(replace(CONVERT(varchar,@fecha,106),' ',''),8,LEN(replace(CONVERT(varchar,@fecha,106),' ',''))-1))+
-			 CONVERT(varchar(10), @vuelta) as codigo
-			 ,
-			 @fecha as fecha ,0 as TotalPenalizacion,@idPenalizacion as idPenalizacion, @vuelta as Vuelta,@cantidadControles as CantidadControles, @id as HCONT_IdHojaControl
-			FROM HOJA_CONTROL_RECORRIDOS H order by H.HCONT_IdHojaControl desc
+				 upper(substring(replace(CONVERT(varchar,@fecha,106),' ',''),1,LEN(replace(CONVERT(varchar,@fecha,106),' ',''))-4))+ 
+				 upper(substring(replace(CONVERT(varchar,@fecha,106),' ',''),8,LEN(replace(CONVERT(varchar,@fecha,106),' ',''))-1))+
+				 CONVERT(varchar(10), @vuelta) as codigo,
+				 @fecha as fecha,
+				 0 as TotalPenalizacion,
+				 @idPenalizacion as idPenalizacion, 
+				 @vuelta as Vuelta,
+				 @cantidadControles as CantidadControles,
+				 @id as HCONT_IdHojaControl
+			FROM HOJA_CONTROL_RECORRIDOS H
+			order by H.HCONT_IdHojaControl desc
 	END
 GO
-
 
 -- Buscar los datos del controlador por ID
 CREATE PROCEDURE SP_BuscarControlador
@@ -141,6 +157,7 @@ AS
 	END
 GO
 
+-- Busca los datos del Bus y su conductor por ID Bus
 CREATE PROCEDURE SP_BuscarBus
 	@IdBus			as INT
 AS
@@ -157,6 +174,7 @@ AS
 	END
 GO
 
+-- Lista la información de todas las vueltas de un ID Bus
 CREATE PROCEDURE SP_ListarHojasBus
 	@IdBus			as INT
 AS
@@ -177,28 +195,7 @@ AS
 	END
 GO
 
-CREATE PROCEDURE SP_ListarDetallesControl
-	@IdControl			INT,
-	@IdHoja				INT
-AS
-	BEGIN
-		SELECT 
-			CAST(DC.DCONT_FechaHora AS TIME)						as [Tiempo],
-			B.BUS_IdBus												as [IdBus],
-			CD.COND_Nombres + ' ' + Cd.COND_ApellidoPaterno			as [Conductor],
-			DC.DCONT_MontoPenalizacion								as [Penalización]
-		FROM DETALLE_CONTROL DC 
-			INNER JOIN BUSES B
-			ON DC.BUS_IdBus = B.BUS_IdBus
-			INNER JOIN CONDUCTORES CD
-			ON B.COND_IdConductor = CD.COND_IdConductor
-			INNER JOIN CONTROL_T C 
-			ON C.CONT_IdControl = DC.CONT_IdControl
-		WHERE C.CONT_IdControl = @IdControl
-		AND DC.HCONT_IdHojaControl = @IdHoja
-	END
-GO
-
+-- Lista la informaciónd de los buses de un ID Contro y de un ID HojaControl
 create PROCEDURE SP_ListarBusesControl
 	@idHojaControl			as INT,
 	@idControl				as INT
@@ -218,9 +215,9 @@ AS
 			on DC.HCONT_IdHojaControl=HC.HCONT_IdHojaControl 
 			left join CONTROL_T CT
 			on CT.CONT_IdControl=DC.CONT_IdControl 
-			WHERE DR.HCONT_IdHojaControl=8
-			and DC.CONT_IdControl!=3
-			group by b.BUS_IdBus,B.BUS_Placa,C.COND_Nombres,C.COND_ApellidoPaterno,C.COND_ApellidoMaterno,DR.DREC_HoraSalida
+		WHERE DR.HCONT_IdHojaControl = @idHojaControl
+		and DC.CONT_IdControl = @idControl
+		group by b.BUS_IdBus,B.BUS_Placa,C.COND_Nombres,C.COND_ApellidoPaterno,C.COND_ApellidoMaterno,DR.DREC_HoraSalida
 	END
 GO
 
@@ -243,4 +240,52 @@ As
 	inner join BUSES B on B.BUS_IdBus = D.BUS_IdBus
 	where H.HCONT_Codigo = @codigo
 	end
+GO
+
+-- Lista de los datos de detalle de control de los buses por un ID Control y Vuelta
+CREATE PROCEDURE SP_ListarDetallesControl
+	@IdControl			INT,
+	@IdHoja				INT
+AS
+	BEGIN
+		SELECT 
+			CAST(DC.DCONT_FechaHora AS TIME)						as [Tiempo],
+			B.BUS_IdBus												as [IdBus],
+			CD.COND_Nombres + ' ' + Cd.COND_ApellidoPaterno			as [Conductor],
+			DC.DCONT_MontoPenalizacion								as [Penalización]
+		FROM DETALLE_CONTROL DC 
+			INNER JOIN BUSES B
+			ON DC.BUS_IdBus = B.BUS_IdBus
+			INNER JOIN CONDUCTORES CD
+			ON B.COND_IdConductor = CD.COND_IdConductor
+			INNER JOIN CONTROL_T C 
+			ON C.CONT_IdControl = DC.CONT_IdControl
+		WHERE C.CONT_IdControl = @IdControl
+		AND DC.HCONT_IdHojaControl = @IdHoja
+	END
+GO
+
+-- Lista de los datos de Pago de los buses por un ID Control y Vuelta
+CREATE PROCEDURE SP_ListarPagos
+	@IdControl			INT,
+	@IdHoja				INT
+AS
+	BEGIN
+		SELECT 
+			CAST(PC.PC_Fecha AS TIME)								as [Tiempo],
+			B.BUS_IdBus												as [IdBus],
+			CD.COND_Nombres + ' ' + Cd.COND_ApellidoPaterno			as [Conductor],
+			PC.PC_Monto												as [Monto]
+		FROM DETALLE_CONTROL DC 
+			INNER JOIN BUSES B
+			ON DC.BUS_IdBus = B.BUS_IdBus
+			INNER JOIN CONDUCTORES CD
+			ON B.COND_IdConductor = CD.COND_IdConductor
+			INNER JOIN CONTROL_T C 
+			ON C.CONT_IdControl = DC.CONT_IdControl
+			INNER JOIN PAGO_CONTROL PC
+			ON PC.BUS_IdBus = B.BUS_IdBus
+		WHERE C.CONT_IdControl = @IdControl
+		AND DC.HCONT_IdHojaControl = @IdHoja
+	END
 GO

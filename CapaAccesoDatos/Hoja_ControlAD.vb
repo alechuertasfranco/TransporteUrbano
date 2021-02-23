@@ -72,10 +72,39 @@ Public Class Hoja_ControlAD
         End Try
     End Function
 
+    Public Function ListarCodigosFecha (fecha As Date) 
+        Dim oConexion As New SqlConnection("server=.; integrated security=true; database=BD_TransporteUrbano")
+        Dim oComando As New SqlCommand("sp_BuscarCodigoHojaRecorrido", oConexion)
+        Dim oLector As SqlDataReader
+        oComando.CommandType = CommandType.StoredProcedure
+        Try
+            oConexion.Open()
+            oComando.Parameters.AddWithValue("@fecha", fecha)
+            oComando.Connection = oConexion
+            oLector = oComando.ExecuteReader()
 
+            Dim IdHoja As Integer
+            Dim Codigo As String
+            Dim datos As New List(Of Object)
 
-
-
+            If oLector.HasRows = True Then
+                While oLector.Read
+                    IdHoja = oLector.Item(1)
+                    Codigo = oLector.Item(0)
+                    Dim Hoja As Hoja_Control = New Hoja_Control()
+                    Hoja.IdHojaControl = IdHoja
+                    Hoja.Codigo = Codigo
+                    datos.Add(Hoja)
+                End While
+            End If
+            Return datos
+        Catch ex As Exception
+            Throw New Exception(ex.Message)
+        Finally
+            oConexion.Close()
+            oConexion.Dispose()
+        End Try
+    End Function
 
     Public Sub agregar_hoja(obj As Hoja_Control)
         Dim cn As New SqlConnection("server=.; integrated security=true; database=BD_TransporteUrbano")
