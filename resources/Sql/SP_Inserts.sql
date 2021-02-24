@@ -81,12 +81,21 @@ CREATE PROCEDURE sp_insertaControlador
     @ApellidoMaternoUsuario as VARCHAR(30),
     @FechaNacUsuario        as DATE
 AS
-	BEGIN
+	BEGIN transaction TransacControlador
 		INSERT INTO USUARIO(USU_Usuario, USU_Contrasena, USU_Correo, USU_DNI, USU_NombresUsuario, USU_ApellidoPaternoUsuario, USU_ApellidoMaternoUsuario, USU_FechaNacUsuario)
 		VALUES (@Usuario, @Contrasena, @Correo, @DNI, @NombresUsuario, @ApellidoPaternoUsuario, @ApellidoMaternoUsuario, @FechaNacUsuario)
 
 		INSERT INTO CONTROLADOR_PERSONAL(USU_IdUsuario, CONTP_NroControles)
 		VALUES (@@IDENTITY, @NroControles)
+	if @@error=0
+		begin
+			print 'Controlador registrado correctamente'
+			commit tran TransacControlador
+		end
+		else
+		begin
+			print 'Ocurrió error al ingresar el controlador'
+			rollback tran TransacControlador
 	END
 GO
 
@@ -102,12 +111,21 @@ CREATE PROCEDURE sp_insertaSecretaria
     @ApellidoMaternoUsuario as VARCHAR(30),
     @FechaNacUsuario        as DATE
 AS
-	BEGIN
+	BEGIN transaction TransacSecretaria
 		INSERT INTO USUARIO(USU_Usuario, USU_Contrasena, USU_Correo, USU_DNI, USU_NombresUsuario, USU_ApellidoPaternoUsuario, USU_ApellidoMaternoUsuario, USU_FechaNacUsuario)
 		VALUES (@Usuario, @Contrasena, @Correo, @DNI, @NombresUsuario, @ApellidoPaternoUsuario, @ApellidoMaternoUsuario, @FechaNacUsuario)
 
 		INSERT INTO SECRETARIA(USU_IdUsuario, SEC_Turno)
 		VALUES (@@IDENTITY, @Turno)
+	if @@error=0
+		begin
+			print 'Secretaria registrada correctamente'
+			commit tran TransacSecretaria
+		end
+		else
+		begin
+			print 'Ocurrió error al ingresar la secretaria'
+			rollback tran TransacSecretaria
 	END
 GO
 
@@ -134,12 +152,12 @@ AS
 GO
 
 --Inserción en tabla Pago_Control
-CREATE PROCEDURE sp_insertaPago_Control
+create PROCEDURE sp_insertaPago_Control
 	@IdBus					INT,
 	@IdControl	    		INT,
 	@Monto		    		MONEY
 AS
-	BEGIN
+	BEGIN transaction TransacPago
 		DECLARE @IdConductor			INT,
 				@HCont_Codigo			CHAR(15)
 
@@ -157,7 +175,17 @@ AS
 
 		INSERT INTO PAGO_CONTROL(BUS_IdBus,COND_IdConductor,HCONT_Codigo,PC_Fecha,PC_Monto)
 		VALUES (@IdBus,@IdConductor, @HCont_Codigo,GETDATE(),@Monto)
-	END
+		
+		if @@error=0
+		begin
+			print 'Pago registrado correctamente'
+			commit tran TransacPago
+		end
+		else
+		begin
+			print 'Ocurrió error al ingresar pago'
+			rollback tran TransacPago
+		end
 GO
 
 --Inserción en tabla Tarifa
