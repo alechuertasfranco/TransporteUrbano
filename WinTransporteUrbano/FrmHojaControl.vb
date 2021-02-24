@@ -97,7 +97,7 @@ Public Class FrmHojaControl
         Dim ga = DateTime.Now.ToString("dd/MM/yyyy") + " " + Hora
         Dim fecha As DateTime = Convert.ToDateTime(ga)
         Dim llegada As DateTime = Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy") + " " + dtp_llegada.Text)
-        Hora = Format(DateAdd("n", 6, txt_hora.Text), "HH:mm:ss")
+        Hora = Format(DateAdd("n", 5, txt_hora.Text), "HH:mm:ss")
         txt_hora.Text = Hora
         If (Me.editar) Then
             If fecha < llegada Then
