@@ -39,8 +39,9 @@ Public Class FrmSecretaria
 
         Try
             If Me.editar Then
+                objU.Usuario = CType(txt_usuario.Text, String)
                 objU.IdUsuario = Me.campoLlave
-                SecretariaLN.editar_secretaria(objU, objS)
+                SecretariaLN.editar_secretaria(objU, objS, 1)
                 MsgBox("Registro actualizado exitosamente")
             ElseIf Not Me.editar Then
                 SecretariaLN.agregar_secretaria(objU, objS)

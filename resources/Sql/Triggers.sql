@@ -13,7 +13,10 @@ AS
 				@DNI					as CHAR(08),
 				@Nombres		        as VARCHAR(50),
 				@ApellidoPaterno		as VARCHAR(30),
-				@ApellidoMaterno		as VARCHAR(30)
+				@ApellidoMaterno		as VARCHAR(30),
+				@FechaNacimiento		as DATE,
+				@Controlador			as INT,
+				@Secretaria				as INT
  
 		SELECT	@IdUsuario				= USU_IdUsuario,
 				@Usuario				= USU_Usuario,
@@ -22,68 +25,35 @@ AS
 				@DNI					= USU_DNI,
 				@Nombres				= USU_NombresUsuario,
 				@ApellidoPaterno		= USU_ApellidoPaternoUsuario,
-				@ApellidoMaterno		= USU_ApellidoMaternoUsuario
+				@ApellidoMaterno		= USU_ApellidoMaternoUsuario,
+				@FechaNacimiento		= USU_FechaNacUsuario
 		FROM INSERTED
 
-		INSERT INTO SOLICITUDES (USU_IdUsuario, USU_Usuario, USU_Contrasena, USU_Correo, USU_DNI, USU_NombresUsuario, USU_ApellidoPaternoUsuario, USU_ApellidoMaternoUsuario, SOLI_Estado, SOLI_Tipo)
-		VALUES (@IdUsuario, @Usuario, @Contrasena, @Correo, @DNI, @Nombres, @ApellidoPaterno, @ApellidoMaterno, 'PENDIENTE', 'USUARIO')
+		SELECT @Controlador = COUNT(*) FROM CONTROLADOR_PERSONAL WHERE USU_IdUsuario = @IdUsuario
+		SELECT @Secretaria = COUNT(*) FROM SECRETARIA WHERE USU_IdUsuario = @IdUsuario
+		IF @Controlador > 0 
+			BEGIN
+				INSERT INTO SOLICITUDES (USU_IdUsuario, USU_Usuario, USU_Contrasena, USU_Correo, USU_DNI, USU_NombresUsuario, USU_ApellidoPaternoUsuario, USU_ApellidoMaternoUsuario, USU_FechaNacUsuario, SOLI_Estado, SOLI_Tipo)
+				VALUES (@IdUsuario, @Usuario, @Contrasena, @Correo, @DNI, @Nombres, @ApellidoPaterno, @ApellidoMaterno, @FechaNacimiento, 'PENDIENTE', 'CONTROLADOR')
+			END
+		ELSE IF @Secretaria > 0
+			BEGIN
+				INSERT INTO SOLICITUDES (USU_IdUsuario, USU_Usuario, USU_Contrasena, USU_Correo, USU_DNI, USU_NombresUsuario, USU_ApellidoPaternoUsuario, USU_ApellidoMaternoUsuario, USU_FechaNacUsuario, SOLI_Estado, SOLI_Tipo)
+				VALUES (@IdUsuario, @Usuario, @Contrasena, @Correo, @DNI, @Nombres, @ApellidoPaterno, @ApellidoMaterno, @FechaNacimiento, 'PENDIENTE', 'SECRETARIA')
+			END
+		ELSE
+			BEGIN
+				UPDATE USUARIO
+				SET USU_Usuario = @Usuario,
+					USU_Contrasena = @Contrasena,
+					USU_Correo = @Correo,
+					USU_DNI = @DNI,
+					USU_NombresUsuario = @Nombres,
+					USU_ApellidoPaternoUsuario = @ApellidoPaterno,
+					USU_ApellidoMaternoUsuario = @ApellidoMaterno,
+					USU_FechaNacUsuario = @FechaNacimiento
+				WHERE USU_IdUsuario = @IdUsuario
+			END
 	END
 GO
-
-CREATE TRIGGER TRG_SolicitudControlador
-       ON CONTROLADOR_PERSONAL
-INSTEAD OF UPDATE
-AS
-BEGIN 
-    DECLARE	@IdUsuario				as INT,
-			@NroControles           as VARCHAR(15)
- 
-    SELECT	@IdUsuario				= USU_IdUsuario,
-			@NroControles			= CONTP_NroControles
-    FROM INSERTED
-
-	UPDATE SOLICITUDES
-	SET SOLI_CampoCarac = @NroControles,
-		SOLI_Tipo = 'CONTROLADOR'
-	WHERE USU_IdUsuario = @IdUsuario
-END
-GO
-
-CREATE TRIGGER TRG_SolicitudSecretaria
-       ON SECRETARIA
-INSTEAD OF UPDATE
-AS
-	BEGIN 
-		DECLARE	@IdUsuario				as INT,
-				@Turno					as VARCHAR(15)
- 
-		SELECT	@IdUsuario				= USU_IdUsuario,
-				@Turno					= SEC_Turno
-		FROM INSERTED
-
-		UPDATE SOLICITUDES
-		SET SOLI_CampoCarac = @Turno,
-			SOLI_Tipo = 'SECRETARIA'
-		WHERE USU_IdUsuario = @IdUsuario
-	END
-GO
-CREATE TRIGGER trg_DETALLE_CONTROL
-ON DETALLE_CONTROL --Tabla a asignar el Trigger
-FOR INSERT --Evento que se desea lanzar Trigger
-AS
-	DECLARE @Monto Money
-	DECLARE @ID_Hoja INT
-	DECLARE @ID_BUS INT
-	DECLARE @Controles INT
- 	--Asignar varibles
-	SET @Monto = (SELECT DCONT_MontoPenalizacion FROM Inserted)
-	SET @ID_Hoja = (SELECT HCONT_IdHojaControl FROM Inserted)
-	SET @ID_BUS = (SELECT BUS_IdBus FROM Inserted)
-	SET @Controles = (SELECT DREC_Controles FROM Inserted)
- 
---Insertar en tabla AuditoriaTblUsuarios
-	UPDATE DETALLE_RECORRIDO SET DREC_MontoPenalizacion = DREC_MontoPenalizacion + @Monto where HCONT_IdHojaControl = @ID_Hoja 
-	and BUS_IdBus = @ID_BUS and DREC_Controles = @Controles
-
-	UPDATE HOJA_CONTROL_RECORRIDOS SET HCONT_TotalPenalizacion = HCONT_TotalPenalizacion + @Monto where HCONT_IdHojaControl = @ID_Hoja
-GO
+SELECT * FROM SOLICITUDES

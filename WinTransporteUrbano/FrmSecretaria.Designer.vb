@@ -32,7 +32,6 @@ Partial Class FrmSecretaria
         Me.USUARIOROLBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.BD_TransporteUrbanoDataSet = New WinTransporteUrbano.BD_TransporteUrbanoDataSet()
         Me.BDTransporteUrbanoDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.USUARIO_ROLTableAdapter = New WinTransporteUrbano.BD_TransporteUrbanoDataSetTableAdapters.USUARIO_ROLTableAdapter()
         Me.txt_usuario = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txt_dni = New System.Windows.Forms.TextBox()
@@ -60,11 +59,6 @@ Partial Class FrmSecretaria
         CType(Me.dtg_secretarias, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'USUARIOROLBindingSource
-        '
-        Me.USUARIOROLBindingSource.DataMember = "USUARIO_ROL"
-        Me.USUARIOROLBindingSource.DataSource = Me.BD_TransporteUrbanoDataSet
-        '
         'BD_TransporteUrbanoDataSet
         '
         Me.BD_TransporteUrbanoDataSet.DataSetName = "BD_TransporteUrbanoDataSet"
@@ -74,10 +68,6 @@ Partial Class FrmSecretaria
         '
         Me.BDTransporteUrbanoDataSetBindingSource.DataSource = Me.BD_TransporteUrbanoDataSet
         Me.BDTransporteUrbanoDataSetBindingSource.Position = 0
-        '
-        'USUARIO_ROLTableAdapter
-        '
-        Me.USUARIO_ROLTableAdapter.ClearBeforeFill = True
         '
         'txt_usuario
         '
@@ -376,7 +366,6 @@ Partial Class FrmSecretaria
     Friend WithEvents BDTransporteUrbanoDataSetBindingSource As BindingSource
     Friend WithEvents BD_TransporteUrbanoDataSet As BD_TransporteUrbanoDataSet
     Friend WithEvents USUARIOROLBindingSource As BindingSource
-    Friend WithEvents USUARIO_ROLTableAdapter As BD_TransporteUrbanoDataSetTableAdapters.USUARIO_ROLTableAdapter
     Friend WithEvents txt_usuario As TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents txt_dni As TextBox

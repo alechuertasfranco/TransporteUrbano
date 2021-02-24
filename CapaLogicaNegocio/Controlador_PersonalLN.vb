@@ -6,9 +6,9 @@ Public Class Controlador_PersonalLN
         objAD.agregar_controlador(objU, objC)
     End Sub
 
-    Public Shared Sub editar_controlador(objU As Usuario, objC As Controlador_Personal)
+    Public Shared Sub editar_controlador(objU As Usuario, objC As Controlador_Personal, trg As Boolean)
         Dim objAD As New Controlador_PersonalAD
-        objAD.editar_controlador(objU, objC)
+        objAD.editar_controlador(objU, objC, trg)
     End Sub
 
     Public Shared Sub borrar_controlador(IdUsuario As Integer)

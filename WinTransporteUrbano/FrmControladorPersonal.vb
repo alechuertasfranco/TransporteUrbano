@@ -38,8 +38,9 @@ Public Class FrmControladorPersonal
 
         Try
             If Me.editar Then
+                objU.Usuario = CType(txt_usuario.Text, String)
                 objU.IdUsuario = Me.campoLlave
-                Controlador_PersonalLN.editar_controlador(objU, objC)
+                Controlador_PersonalLN.editar_controlador(objU, objC, True)
                 MsgBox("Registro actualizado exitosamente")
             ElseIf Not Me.editar Then
                 Controlador_PersonalLN.agregar_controlador(objU, objC)
@@ -47,6 +48,7 @@ Public Class FrmControladorPersonal
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
+            Throw New Exception(ex.Message)
         Finally
             Dim dt As New DataTable
             dt = Controlador_PersonalLN.listarControladores()

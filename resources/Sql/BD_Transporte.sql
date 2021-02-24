@@ -276,7 +276,6 @@ CREATE TABLE SOLICITUDES
 	USU_ApellidoPaternoUsuario varchar(30)  NULL ,
 	USU_ApellidoMaternoUsuario varchar(30)  NULL ,
 	USU_FechaNacUsuario  datetime  NULL ,
-	SOLI_CampoCarac      varchar(15)  NULL ,
 	SOLI_Estado          varchar(10)  NOT NULL ,
 	SOLI_Tipo            varchar(15)  NOT NULL 
 )

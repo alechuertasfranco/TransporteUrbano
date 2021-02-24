@@ -2,6 +2,10 @@
 Imports CapaLogicaNegocio
 Public Class FrmSecretariaDatos
     Private Sub FrmSecretariaDatos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        getDatos()
+    End Sub
+
+    Private Sub getDatos()
         Dim datos() As String
         datos = SecretariaLN.consultar_secretaria(usuario_ingresado)
         Me.txt_usuario.Text = datos(0)
@@ -54,8 +58,9 @@ Public Class FrmSecretariaDatos
                 obj.ApellidoMaternoUsuario = CType(txt_apellidom.Text, String)
                 obj.FechaNacUsuario = CType(txt_fecha.Text, Date)
                 objS.Turno = CType(txt_turno.Text, String)
-                SecretariaLN.editar_secretaria(obj, objS)
-                MsgBox("Datos Actualizados")
+                SecretariaLN.editar_secretaria(obj, objS, 0)
+                MsgBox("Su solicitud de actualización fue registrada")
+                getDatos()
             Else
                 MsgBox("Llene todos los campos de texto")
             End If
