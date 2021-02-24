@@ -258,3 +258,35 @@ AS
 		)
 	END
 GO
+
+
+create procedure  SP_Detalle_Control_Diario
+ @IdControl integer,
+ @IdBus integer,
+ @Controles integer,
+ @IdHoja integer,
+ @TotalPen money
+AS
+begin
+INSERT INTO DETALLE_CONTROL (
+			CONT_IdControl,
+			BUS_IdBus,
+			HCONT_IdHojaControl,
+			DREC_Controles,
+			DCONT_FechaHora,
+			DCONT_MontoPenalizacion 
+		)
+		VALUES (
+			@IdControl,
+			@IdBus,
+			@IdHoja,
+			@Controles,
+			GETDATE(),
+			@TotalPen
+		)
+end
+go
+
+select * from detalle_control
+
+select * from detalle_recorrido

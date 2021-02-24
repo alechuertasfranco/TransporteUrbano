@@ -15,10 +15,9 @@ Public Class ControlLN
         Dim objAD As New ControlAD
         Return objAD.consultar_control(IdControlador)
     End Function
-    Public Shared Function consultar_buses_control(IdControl As Integer, IdHojaRecorrido As Integer) As List(Of
-Bus_Control)
+    Public Shared Function consultar_buses_control(IdControl As Integer, IdHojaControl As Integer) As List(Of Bus_Control)
         Dim objAD As New ControlAD
-        Return objAD.listarBuses(IdControl, IdHojaRecorrido)
+        Return objAD.listarBuses(IdControl, IdHojaControl)
     End Function
 
 End Class

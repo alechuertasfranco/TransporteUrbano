@@ -41,4 +41,31 @@ Public Class Detalle_ControlAD
             Exit Sub
         End Try
     End Sub
+
+    Public Sub registrar_detalle_control(obj As Detalle_Recorrido)
+        Dim cn As New SqlConnection("server=.; integrated security=true; database=BD_TransporteUrbano")
+        Dim cmdD As New SqlCommand("SP_Detalle_Control_Diario", cn)
+
+        cmdD.CommandType = CommandType.StoredProcedure
+        Dim tr As SqlTransaction = Nothing
+        Try
+            cn.Open()
+            tr = cn.BeginTransaction
+            cmdD.Transaction = tr
+            For Each det As Detalle_Control In obj.listDetalle
+                cmdD.Parameters.Add("@IdControl", SqlDbType.Int).Value = det.idControl
+                cmdD.Parameters.Add("@IdBus", SqlDbType.Int).Value = det.idBus
+                cmdD.Parameters.Add("@Controles", SqlDbType.Int).Value = det.controles
+                cmdD.Parameters.Add("@IdHoja", SqlDbType.Int).Value = det.idHojaRecorrido
+                cmdD.Parameters.Add("@TotalPen", SqlDbType.Money).Value = det.penalidad
+                cmdD.ExecuteNonQuery()
+            Next
+            tr.Commit()
+        Catch ex As Exception
+            tr.Rollback()
+            Throw New Exception(ex.Message)
+            Exit Sub
+        End Try
+    End Sub
+
 End Class

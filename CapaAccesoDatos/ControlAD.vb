@@ -86,7 +86,7 @@ Public Class ControlAD
     End Function
 
 
-    Public Function listarBuses(idControl As Integer, idHojaRecorrido As Integer) As List(Of Bus_Control)
+    Public Function listarBuses(idControl As Integer, idHojaControl As Integer) As List(Of Bus_Control)
         Dim cn As New SqlConnection("server=.; integrated security=true; database=BD_TransporteUrbano")
         Dim cmd As New SqlCommand
         Dim lista As New List(Of Bus_Control)
@@ -95,7 +95,7 @@ Public Class ControlAD
             cmd.Connection = cn
             cmd.CommandText = "SP_ListarBusesControl"
             cmd.CommandType = CommandType.StoredProcedure
-            cmd.Parameters.Add("@idHojaControl", SqlDbType.Int).Value = idHojaRecorrido
+            cmd.Parameters.Add("@idHojaControl", SqlDbType.Int).Value = idHojaControl
             cmd.Parameters.Add("@idControl", SqlDbType.Int).Value = idControl
             Dim Lector As SqlDataReader
             Lector = cmd.ExecuteReader

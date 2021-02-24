@@ -33,13 +33,13 @@ Public Class FrmControlDiario
         cod = cbxCodigoHojaR.SelectedIndex
         codigos = Hoja_ControlLN.BuscarCodigoHojasControl(DateTime.Now.ToString("dd/MM/yyyy"))
         idHojaControl = codigos(cod, 1)
-        txtprueba.Text = codigos(cod, 1)
         txtNvueltaSelect.Text = codigos(cod, 2)
         txtCodigoSeleccionado.Text = codigos(cod, 0)
         listarbuses()
 
     End Sub
     Private Sub listarbuses()
+        dtgBuses_control.Columns.Clear()
         dtgBuses_control.DataSource = ControlLN.consultar_buses_control(control_ingresado, idHojaControl)
     End Sub
     Private Sub GroupBox3_Enter(sender As Object, e As EventArgs) Handles GroupBox3.Enter
@@ -58,15 +58,13 @@ Public Class FrmControlDiario
         cod = cbxCodigoHojaR.SelectedIndex
         obj.controles = codigos(cod, 4)
 
-        horaEnControl = CType(txt_hora.Text, Date)
+        horaEnControl = CType(txt_hora.Text + " " + DateTime.Now.ToString("dd/MM/yyyy"), Date)
         MsgBox(horaEnControl)
-        horaSalida = CType(Format(DateAdd("n", 6, Me.dtgBuses_control.SelectedCells.Item(0).Value), "HH:mm:ss"), Date)
+        horaSalida = CType(Me.dtgBuses_control.SelectedCells.Item(0).Value, Date)
         MsgBox(horaSalida)
         Dim ts As TimeSpan = horaEnControl.Subtract(horaSalida)
         diferenciaMinutos = ts.TotalMinutes
-        If (diferenciaMinutos < 0) Then
-            diferenciaMinutos = 0
-        End If
+        MsgBox(diferenciaMinutos)
         obj.penalidad = codigos(cod, 3) * diferenciaMinutos
         obj.idBus = CType(Me.dtgBuses_control.SelectedCells.Item(3).Value, Integer)
         obj.hora = CType(txt_hora.Text + " " + DateTime.Now.ToString("dd/MM/yyyy"), Date)
@@ -74,11 +72,39 @@ Public Class FrmControlDiario
         listarbuses_controlados()
     End Sub
     Private Sub listarbuses_controlados()
+        dtgBuses_controlados.Columns.Clear()
         dtgBuses_controlados.DataSource = Nothing
         dtgBuses_controlados.DataSource = lista
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-
+    Private Sub limpiar()
+        dtgBuses_controlados.Columns.Clear()
+        dtgBuses_controlados.DataSource = Nothing
+        lista.Clear()
+        dtgBuses_controlados.DataSource = lista
     End Sub
+
+    Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
+        If lista.Count > 0 Then
+            Dim obj As New Detalle_Recorrido
+            obj.listDetalle = lista
+            Detalle_ControlLN.registrar_detalle_control(obj)
+            MessageBox.Show("El registro se realizo con exito", "Sistema")
+            listarbuses()
+            limpiar()
+        Else
+            MessageBox.Show("Debe agregar buses al control")
+        End If
+    End Sub
+
+    Private Sub btnQuitarBus_Click(sender As Object, e As EventArgs) Handles btnQuitarBus.Click
+        If dtgBuses_controlados.SelectedCells.Count = 0 Then Exit Sub
+        Dim obj As New Detalle_Control
+        obj.idBus = CType(Me.dtgBuses_control.SelectedCells.Item(3).Value,
+       Integer)
+        lista.RemoveAt(Me.dtgBuses_controlados.CurrentCell.RowIndex)
+        listarbuses_controlados()
+    End Sub
+
+
 End Class

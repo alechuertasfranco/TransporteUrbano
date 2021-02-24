@@ -70,6 +70,7 @@
     <Compile Include="Controlador_Personal.vb" />
     <Compile Include="Control_Ubicacion.vb" />
     <Compile Include="Detalle_Control.vb" />
+    <Compile Include="Detalle_Recorrido.vb" />
     <Compile Include="Hoja_Control.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

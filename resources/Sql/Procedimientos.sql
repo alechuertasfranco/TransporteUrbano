@@ -147,7 +147,7 @@ AS
 	BEGIN
 		SELECT	CONTUB_Codigo as Codigo,
 				CONTUB_Control as [Control],
-				CONTUB_Direccion as [Direcci�n],
+				CONTUB_Direccion as [Direccion],
 				CONT_IdControl as [ID],
 				CONT_TiempoAprox as [Tiempo Aproximado]
 		FROM CONTROL_T C
@@ -200,6 +200,23 @@ create PROCEDURE SP_ListarBusesControl
 	@idHojaControl			as INT,
 	@idControl				as INT
 AS
+	begin 
+	declare @idBus int
+	set @idBus=0
+	SELECT	@idBus=B.BUS_IdBus
+		FROM DETALLE_RECORRIDO DR
+			INNER JOIN BUSES B
+			ON B.BUS_IdBus= DR.BUS_IdBus
+			INNER JOIN HOJA_CONTROL_RECORRIDOS HC
+			ON HC.HCONT_IdHojaControl = DR.HCONT_IdHojaControl
+			left join DETALLE_CONTROL DC
+			on DC.HCONT_IdHojaControl=HC.HCONT_IdHojaControl 
+			left join CONTROL_T CT
+			on CT.CONT_IdControl=DC.CONT_IdControl 
+		WHERE DR.HCONT_IdHojaControl = @idHojaControl
+		and DC.CONT_IdControl = @idControl
+		group by b.BUS_IdBus,DC.CONT_IdControl
+	end
 	BEGIN
 		SELECT	B.BUS_IdBus as Bus,
 				B.BUS_Placa as Placa,
@@ -216,10 +233,12 @@ AS
 			left join CONTROL_T CT
 			on CT.CONT_IdControl=DC.CONT_IdControl 
 		WHERE DR.HCONT_IdHojaControl = @idHojaControl
-		and DC.CONT_IdControl = @idControl
+		and DC.CONT_IdControl !=@idControl	
+		and B.BUS_IdBus!=@idBus
 		group by b.BUS_IdBus,B.BUS_Placa,C.COND_Nombres,C.COND_ApellidoPaterno,C.COND_ApellidoMaterno,DR.DREC_HoraSalida
 	END
 GO
+
 
 --Reportes:
 
