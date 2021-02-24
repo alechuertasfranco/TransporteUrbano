@@ -236,7 +236,9 @@ go
 CREATE TABLE RUTA
 ( 
 	RUT_IdRuta           int IDENTITY ( 1,1 ) ,
-	RUT_Ruta             char(01)  NOT NULL ,
+	RUT_Ruta             char(01)  NOT NULL 
+		check(RUT_Ruta in ('A', 'C'))
+		default ('A'),
 	RUT_CantidadControles int  NOT NULL 
 )
 go
@@ -253,6 +255,8 @@ CREATE TABLE SECRETARIA
 ( 
 	USU_IdUsuario        int  NOT NULL ,
 	SEC_Turno                varchar(15)  NOT NULL 
+		check(SEC_Turno in ('Mañana', 'Tarde','Noche'))
+		default('Mañana')
 )
 go
 

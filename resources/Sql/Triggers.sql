@@ -57,3 +57,23 @@ AS
 	END
 GO
 SELECT * FROM SOLICITUDES
+
+CREATE TRIGGER trg_DETALLE_CONTROL
+ON DETALLE_CONTROL
+FOR INSERT 
+AS
+	DECLARE @Monto Money
+	DECLARE @ID_Hoja INT
+	DECLARE @ID_BUS INT
+	DECLARE @Controles INT
+
+	SET @Monto = (SELECT DCONT_MontoPenalizacion FROM Inserted)
+	SET @ID_Hoja = (SELECT HCONT_IdHojaControl FROM Inserted)
+	SET @ID_BUS = (SELECT BUS_IdBus FROM Inserted)
+	SET @Controles = (SELECT DREC_Controles FROM Inserted)
+ 
+	UPDATE DETALLE_RECORRIDO SET DREC_MontoPenalizacion = DREC_MontoPenalizacion + @Monto where HCONT_IdHojaControl = @ID_Hoja 
+	and BUS_IdBus = @ID_BUS and DREC_Controles = @Controles
+
+	UPDATE HOJA_CONTROL_RECORRIDOS SET HCONT_TotalPenalizacion = HCONT_TotalPenalizacion + @Monto where HCONT_IdHojaControl = @ID_Hoja
+GO
