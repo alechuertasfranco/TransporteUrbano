@@ -34,6 +34,7 @@ Partial Class FrmSolicitudes
         Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dtg_usuarios = New System.Windows.Forms.DataGridView()
+        Me.BD_TransporteUrbanoDataSet = New WinTransporteUrbano.BD_TransporteUrbanoDataSet()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -43,21 +44,6 @@ Partial Class FrmSolicitudes
         Me.txt_id = New System.Windows.Forms.TextBox()
         Me.txt_usuario = New System.Windows.Forms.TextBox()
         Me.dtg_solicitudes = New System.Windows.Forms.DataGridView()
-        Me.IDDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.UsuarioDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CorreoDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DNIDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ContraseñaDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NombresDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.APaternoDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AMaternoDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FechaDeNacimientoDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TurnoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.VUsuariosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.BD_TransporteUrbanoDataSet = New WinTransporteUrbano.BD_TransporteUrbanoDataSet()
-        Me.V_UsuariosTableAdapter = New WinTransporteUrbano.BD_TransporteUrbanoDataSetTableAdapters.V_UsuariosTableAdapter()
-        Me.VSolicitudesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.V_SolicitudesTableAdapter = New WinTransporteUrbano.BD_TransporteUrbanoDataSetTableAdapters.V_SolicitudesTableAdapter()
         Me.IDSolicitudDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TipoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EstadoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -67,14 +53,42 @@ Partial Class FrmSolicitudes
         Me.DNIDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ContraseñaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NombresDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.APaternoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AMaternoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IDDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UsuarioDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CorreoDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DNIDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ContraseñaDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NombresDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.VSolicitudesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.V_SolicitudesTableAdapter = New WinTransporteUrbano.BD_TransporteUrbanoDataSetTableAdapters.V_SolicitudesTableAdapter()
+        Me.VUsuariosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.V_UsuariosTableAdapter = New WinTransporteUrbano.BD_TransporteUrbanoDataSetTableAdapters.V_UsuariosTableAdapter()
+        Me.UsuarioDataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CorreoDataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DNIDataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ContraseñaDataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NombresDataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ApellidoPaternoDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ApellidoMaternoDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Turno = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FechaDeNacimientoDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IDSolicitudDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TipoDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EstadoDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IDUsuarioDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UsuarioDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CorreoDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DNIDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ContraseñaDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NombresDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ApellidoPaternoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ApellidoMaternoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FechaDeNacimientoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dtg_usuarios, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.dtg_solicitudes, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.VUsuariosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BD_TransporteUrbanoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtg_solicitudes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VSolicitudesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.VUsuariosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dtg_usuarios
@@ -96,7 +110,7 @@ Partial Class FrmSolicitudes
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dtg_usuarios.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dtg_usuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtg_usuarios.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn1, Me.UsuarioDataGridViewTextBoxColumn1, Me.CorreoDataGridViewTextBoxColumn1, Me.DNIDataGridViewTextBoxColumn1, Me.ContraseñaDataGridViewTextBoxColumn1, Me.NombresDataGridViewTextBoxColumn1, Me.APaternoDataGridViewTextBoxColumn1, Me.AMaternoDataGridViewTextBoxColumn1, Me.FechaDeNacimientoDataGridViewTextBoxColumn1, Me.TurnoDataGridViewTextBoxColumn})
+        Me.dtg_usuarios.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.UsuarioDataGridViewTextBoxColumn3, Me.CorreoDataGridViewTextBoxColumn3, Me.DNIDataGridViewTextBoxColumn3, Me.ContraseñaDataGridViewTextBoxColumn3, Me.NombresDataGridViewTextBoxColumn3, Me.ApellidoPaternoDataGridViewTextBoxColumn1, Me.ApellidoMaternoDataGridViewTextBoxColumn1, Me.Turno, Me.FechaDeNacimientoDataGridViewTextBoxColumn1})
         Me.dtg_usuarios.Cursor = System.Windows.Forms.Cursors.Default
         Me.dtg_usuarios.DataSource = Me.VUsuariosBindingSource
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -129,6 +143,11 @@ Partial Class FrmSolicitudes
         Me.dtg_usuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
         Me.dtg_usuarios.Size = New System.Drawing.Size(632, 164)
         Me.dtg_usuarios.TabIndex = 86
+        '
+        'BD_TransporteUrbanoDataSet
+        '
+        Me.BD_TransporteUrbanoDataSet.DataSetName = "BD_TransporteUrbanoDataSet"
+        Me.BD_TransporteUrbanoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Label1
         '
@@ -226,7 +245,7 @@ Partial Class FrmSolicitudes
         DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dtg_solicitudes.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
         Me.dtg_solicitudes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtg_solicitudes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDSolicitudDataGridViewTextBoxColumn, Me.TipoDataGridViewTextBoxColumn, Me.EstadoDataGridViewTextBoxColumn, Me.IDUsuarioDataGridViewTextBoxColumn, Me.UsuarioDataGridViewTextBoxColumn, Me.CorreoDataGridViewTextBoxColumn, Me.DNIDataGridViewTextBoxColumn, Me.ContraseñaDataGridViewTextBoxColumn, Me.NombresDataGridViewTextBoxColumn, Me.APaternoDataGridViewTextBoxColumn, Me.AMaternoDataGridViewTextBoxColumn, Me.FechaDeNacimientoDataGridViewTextBoxColumn})
+        Me.dtg_solicitudes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDSolicitudDataGridViewTextBoxColumn1, Me.TipoDataGridViewTextBoxColumn1, Me.EstadoDataGridViewTextBoxColumn1, Me.IDUsuarioDataGridViewTextBoxColumn1, Me.UsuarioDataGridViewTextBoxColumn2, Me.CorreoDataGridViewTextBoxColumn2, Me.DNIDataGridViewTextBoxColumn2, Me.ContraseñaDataGridViewTextBoxColumn2, Me.NombresDataGridViewTextBoxColumn2, Me.ApellidoPaternoDataGridViewTextBoxColumn, Me.ApellidoMaternoDataGridViewTextBoxColumn, Me.FechaDeNacimientoDataGridViewTextBoxColumn})
         Me.dtg_solicitudes.DataSource = Me.VSolicitudesBindingSource
         DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window
@@ -255,12 +274,74 @@ Partial Class FrmSolicitudes
         Me.dtg_solicitudes.Size = New System.Drawing.Size(632, 164)
         Me.dtg_solicitudes.TabIndex = 95
         '
+        'IDSolicitudDataGridViewTextBoxColumn
+        '
+        Me.IDSolicitudDataGridViewTextBoxColumn.DataPropertyName = "ID Solicitud"
+        Me.IDSolicitudDataGridViewTextBoxColumn.HeaderText = "ID Solicitud"
+        Me.IDSolicitudDataGridViewTextBoxColumn.Name = "IDSolicitudDataGridViewTextBoxColumn"
+        Me.IDSolicitudDataGridViewTextBoxColumn.Width = 90
+        '
+        'TipoDataGridViewTextBoxColumn
+        '
+        Me.TipoDataGridViewTextBoxColumn.DataPropertyName = "Tipo"
+        Me.TipoDataGridViewTextBoxColumn.HeaderText = "Tipo"
+        Me.TipoDataGridViewTextBoxColumn.Name = "TipoDataGridViewTextBoxColumn"
+        Me.TipoDataGridViewTextBoxColumn.Width = 56
+        '
+        'EstadoDataGridViewTextBoxColumn
+        '
+        Me.EstadoDataGridViewTextBoxColumn.DataPropertyName = "Estado"
+        Me.EstadoDataGridViewTextBoxColumn.HeaderText = "Estado"
+        Me.EstadoDataGridViewTextBoxColumn.Name = "EstadoDataGridViewTextBoxColumn"
+        Me.EstadoDataGridViewTextBoxColumn.Width = 70
+        '
+        'IDUsuarioDataGridViewTextBoxColumn
+        '
+        Me.IDUsuarioDataGridViewTextBoxColumn.DataPropertyName = "ID Usuario"
+        Me.IDUsuarioDataGridViewTextBoxColumn.HeaderText = "ID Usuario"
+        Me.IDUsuarioDataGridViewTextBoxColumn.Name = "IDUsuarioDataGridViewTextBoxColumn"
+        Me.IDUsuarioDataGridViewTextBoxColumn.Width = 86
+        '
+        'UsuarioDataGridViewTextBoxColumn
+        '
+        Me.UsuarioDataGridViewTextBoxColumn.DataPropertyName = "Usuario"
+        Me.UsuarioDataGridViewTextBoxColumn.HeaderText = "Usuario"
+        Me.UsuarioDataGridViewTextBoxColumn.Name = "UsuarioDataGridViewTextBoxColumn"
+        Me.UsuarioDataGridViewTextBoxColumn.Width = 75
+        '
+        'CorreoDataGridViewTextBoxColumn
+        '
+        Me.CorreoDataGridViewTextBoxColumn.DataPropertyName = "Correo"
+        Me.CorreoDataGridViewTextBoxColumn.HeaderText = "Correo"
+        Me.CorreoDataGridViewTextBoxColumn.Name = "CorreoDataGridViewTextBoxColumn"
+        Me.CorreoDataGridViewTextBoxColumn.Width = 72
+        '
+        'DNIDataGridViewTextBoxColumn
+        '
+        Me.DNIDataGridViewTextBoxColumn.DataPropertyName = "DNI"
+        Me.DNIDataGridViewTextBoxColumn.HeaderText = "DNI"
+        Me.DNIDataGridViewTextBoxColumn.Name = "DNIDataGridViewTextBoxColumn"
+        Me.DNIDataGridViewTextBoxColumn.Width = 54
+        '
+        'ContraseñaDataGridViewTextBoxColumn
+        '
+        Me.ContraseñaDataGridViewTextBoxColumn.DataPropertyName = "Contraseña"
+        Me.ContraseñaDataGridViewTextBoxColumn.HeaderText = "Contraseña"
+        Me.ContraseñaDataGridViewTextBoxColumn.Name = "ContraseñaDataGridViewTextBoxColumn"
+        Me.ContraseñaDataGridViewTextBoxColumn.Width = 98
+        '
+        'NombresDataGridViewTextBoxColumn
+        '
+        Me.NombresDataGridViewTextBoxColumn.DataPropertyName = "Nombres"
+        Me.NombresDataGridViewTextBoxColumn.HeaderText = "Nombres"
+        Me.NombresDataGridViewTextBoxColumn.Name = "NombresDataGridViewTextBoxColumn"
+        Me.NombresDataGridViewTextBoxColumn.Width = 83
+        '
         'IDDataGridViewTextBoxColumn1
         '
         Me.IDDataGridViewTextBoxColumn1.DataPropertyName = "ID"
         Me.IDDataGridViewTextBoxColumn1.HeaderText = "ID"
         Me.IDDataGridViewTextBoxColumn1.Name = "IDDataGridViewTextBoxColumn1"
-        Me.IDDataGridViewTextBoxColumn1.ReadOnly = True
         Me.IDDataGridViewTextBoxColumn1.Width = 46
         '
         'UsuarioDataGridViewTextBoxColumn1
@@ -268,7 +349,6 @@ Partial Class FrmSolicitudes
         Me.UsuarioDataGridViewTextBoxColumn1.DataPropertyName = "Usuario"
         Me.UsuarioDataGridViewTextBoxColumn1.HeaderText = "Usuario"
         Me.UsuarioDataGridViewTextBoxColumn1.Name = "UsuarioDataGridViewTextBoxColumn1"
-        Me.UsuarioDataGridViewTextBoxColumn1.ReadOnly = True
         Me.UsuarioDataGridViewTextBoxColumn1.Width = 75
         '
         'CorreoDataGridViewTextBoxColumn1
@@ -276,7 +356,6 @@ Partial Class FrmSolicitudes
         Me.CorreoDataGridViewTextBoxColumn1.DataPropertyName = "Correo"
         Me.CorreoDataGridViewTextBoxColumn1.HeaderText = "Correo"
         Me.CorreoDataGridViewTextBoxColumn1.Name = "CorreoDataGridViewTextBoxColumn1"
-        Me.CorreoDataGridViewTextBoxColumn1.ReadOnly = True
         Me.CorreoDataGridViewTextBoxColumn1.Width = 72
         '
         'DNIDataGridViewTextBoxColumn1
@@ -284,7 +363,6 @@ Partial Class FrmSolicitudes
         Me.DNIDataGridViewTextBoxColumn1.DataPropertyName = "DNI"
         Me.DNIDataGridViewTextBoxColumn1.HeaderText = "DNI"
         Me.DNIDataGridViewTextBoxColumn1.Name = "DNIDataGridViewTextBoxColumn1"
-        Me.DNIDataGridViewTextBoxColumn1.ReadOnly = True
         Me.DNIDataGridViewTextBoxColumn1.Width = 54
         '
         'ContraseñaDataGridViewTextBoxColumn1
@@ -292,7 +370,6 @@ Partial Class FrmSolicitudes
         Me.ContraseñaDataGridViewTextBoxColumn1.DataPropertyName = "Contraseña"
         Me.ContraseñaDataGridViewTextBoxColumn1.HeaderText = "Contraseña"
         Me.ContraseñaDataGridViewTextBoxColumn1.Name = "ContraseñaDataGridViewTextBoxColumn1"
-        Me.ContraseñaDataGridViewTextBoxColumn1.ReadOnly = True
         Me.ContraseñaDataGridViewTextBoxColumn1.Width = 98
         '
         'NombresDataGridViewTextBoxColumn1
@@ -300,54 +377,7 @@ Partial Class FrmSolicitudes
         Me.NombresDataGridViewTextBoxColumn1.DataPropertyName = "Nombres"
         Me.NombresDataGridViewTextBoxColumn1.HeaderText = "Nombres"
         Me.NombresDataGridViewTextBoxColumn1.Name = "NombresDataGridViewTextBoxColumn1"
-        Me.NombresDataGridViewTextBoxColumn1.ReadOnly = True
         Me.NombresDataGridViewTextBoxColumn1.Width = 83
-        '
-        'APaternoDataGridViewTextBoxColumn1
-        '
-        Me.APaternoDataGridViewTextBoxColumn1.DataPropertyName = "A_ Paterno"
-        Me.APaternoDataGridViewTextBoxColumn1.HeaderText = "A_ Paterno"
-        Me.APaternoDataGridViewTextBoxColumn1.Name = "APaternoDataGridViewTextBoxColumn1"
-        Me.APaternoDataGridViewTextBoxColumn1.ReadOnly = True
-        Me.APaternoDataGridViewTextBoxColumn1.Width = 87
-        '
-        'AMaternoDataGridViewTextBoxColumn1
-        '
-        Me.AMaternoDataGridViewTextBoxColumn1.DataPropertyName = "A_ Materno"
-        Me.AMaternoDataGridViewTextBoxColumn1.HeaderText = "A_ Materno"
-        Me.AMaternoDataGridViewTextBoxColumn1.Name = "AMaternoDataGridViewTextBoxColumn1"
-        Me.AMaternoDataGridViewTextBoxColumn1.ReadOnly = True
-        Me.AMaternoDataGridViewTextBoxColumn1.Width = 89
-        '
-        'FechaDeNacimientoDataGridViewTextBoxColumn1
-        '
-        Me.FechaDeNacimientoDataGridViewTextBoxColumn1.DataPropertyName = "Fecha de Nacimiento"
-        Me.FechaDeNacimientoDataGridViewTextBoxColumn1.HeaderText = "Fecha de Nacimiento"
-        Me.FechaDeNacimientoDataGridViewTextBoxColumn1.Name = "FechaDeNacimientoDataGridViewTextBoxColumn1"
-        Me.FechaDeNacimientoDataGridViewTextBoxColumn1.ReadOnly = True
-        Me.FechaDeNacimientoDataGridViewTextBoxColumn1.Width = 137
-        '
-        'TurnoDataGridViewTextBoxColumn
-        '
-        Me.TurnoDataGridViewTextBoxColumn.DataPropertyName = "Turno"
-        Me.TurnoDataGridViewTextBoxColumn.HeaderText = "Turno"
-        Me.TurnoDataGridViewTextBoxColumn.Name = "TurnoDataGridViewTextBoxColumn"
-        Me.TurnoDataGridViewTextBoxColumn.ReadOnly = True
-        Me.TurnoDataGridViewTextBoxColumn.Width = 65
-        '
-        'VUsuariosBindingSource
-        '
-        Me.VUsuariosBindingSource.DataMember = "V_Usuarios"
-        Me.VUsuariosBindingSource.DataSource = Me.BD_TransporteUrbanoDataSet
-        '
-        'BD_TransporteUrbanoDataSet
-        '
-        Me.BD_TransporteUrbanoDataSet.DataSetName = "BD_TransporteUrbanoDataSet"
-        Me.BD_TransporteUrbanoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'V_UsuariosTableAdapter
-        '
-        Me.V_UsuariosTableAdapter.ClearBeforeFill = True
         '
         'VSolicitudesBindingSource
         '
@@ -358,93 +388,174 @@ Partial Class FrmSolicitudes
         '
         Me.V_SolicitudesTableAdapter.ClearBeforeFill = True
         '
-        'IDSolicitudDataGridViewTextBoxColumn
+        'VUsuariosBindingSource
         '
-        Me.IDSolicitudDataGridViewTextBoxColumn.DataPropertyName = "ID Solicitud"
-        Me.IDSolicitudDataGridViewTextBoxColumn.HeaderText = "ID Solicitud"
-        Me.IDSolicitudDataGridViewTextBoxColumn.Name = "IDSolicitudDataGridViewTextBoxColumn"
-        Me.IDSolicitudDataGridViewTextBoxColumn.ReadOnly = True
-        Me.IDSolicitudDataGridViewTextBoxColumn.Width = 98
+        Me.VUsuariosBindingSource.DataMember = "V_Usuarios"
+        Me.VUsuariosBindingSource.DataSource = Me.BD_TransporteUrbanoDataSet
         '
-        'TipoDataGridViewTextBoxColumn
+        'V_UsuariosTableAdapter
         '
-        Me.TipoDataGridViewTextBoxColumn.DataPropertyName = "Tipo"
-        Me.TipoDataGridViewTextBoxColumn.HeaderText = "Tipo"
-        Me.TipoDataGridViewTextBoxColumn.Name = "TipoDataGridViewTextBoxColumn"
-        Me.TipoDataGridViewTextBoxColumn.ReadOnly = True
-        Me.TipoDataGridViewTextBoxColumn.Width = 56
+        Me.V_UsuariosTableAdapter.ClearBeforeFill = True
         '
-        'EstadoDataGridViewTextBoxColumn
+        'UsuarioDataGridViewTextBoxColumn3
         '
-        Me.EstadoDataGridViewTextBoxColumn.DataPropertyName = "Estado"
-        Me.EstadoDataGridViewTextBoxColumn.HeaderText = "Estado"
-        Me.EstadoDataGridViewTextBoxColumn.Name = "EstadoDataGridViewTextBoxColumn"
-        Me.EstadoDataGridViewTextBoxColumn.ReadOnly = True
-        Me.EstadoDataGridViewTextBoxColumn.Width = 70
+        Me.UsuarioDataGridViewTextBoxColumn3.DataPropertyName = "Usuario"
+        Me.UsuarioDataGridViewTextBoxColumn3.HeaderText = "Usuario"
+        Me.UsuarioDataGridViewTextBoxColumn3.Name = "UsuarioDataGridViewTextBoxColumn3"
+        Me.UsuarioDataGridViewTextBoxColumn3.ReadOnly = True
+        Me.UsuarioDataGridViewTextBoxColumn3.Width = 75
         '
-        'IDUsuarioDataGridViewTextBoxColumn
+        'CorreoDataGridViewTextBoxColumn3
         '
-        Me.IDUsuarioDataGridViewTextBoxColumn.DataPropertyName = "ID Usuario"
-        Me.IDUsuarioDataGridViewTextBoxColumn.HeaderText = "ID Usuario"
-        Me.IDUsuarioDataGridViewTextBoxColumn.Name = "IDUsuarioDataGridViewTextBoxColumn"
-        Me.IDUsuarioDataGridViewTextBoxColumn.ReadOnly = True
-        Me.IDUsuarioDataGridViewTextBoxColumn.Width = 93
+        Me.CorreoDataGridViewTextBoxColumn3.DataPropertyName = "Correo"
+        Me.CorreoDataGridViewTextBoxColumn3.HeaderText = "Correo"
+        Me.CorreoDataGridViewTextBoxColumn3.Name = "CorreoDataGridViewTextBoxColumn3"
+        Me.CorreoDataGridViewTextBoxColumn3.ReadOnly = True
+        Me.CorreoDataGridViewTextBoxColumn3.Width = 72
         '
-        'UsuarioDataGridViewTextBoxColumn
+        'DNIDataGridViewTextBoxColumn3
         '
-        Me.UsuarioDataGridViewTextBoxColumn.DataPropertyName = "Usuario"
-        Me.UsuarioDataGridViewTextBoxColumn.HeaderText = "Usuario"
-        Me.UsuarioDataGridViewTextBoxColumn.Name = "UsuarioDataGridViewTextBoxColumn"
-        Me.UsuarioDataGridViewTextBoxColumn.ReadOnly = True
-        Me.UsuarioDataGridViewTextBoxColumn.Width = 75
+        Me.DNIDataGridViewTextBoxColumn3.DataPropertyName = "DNI"
+        Me.DNIDataGridViewTextBoxColumn3.HeaderText = "DNI"
+        Me.DNIDataGridViewTextBoxColumn3.Name = "DNIDataGridViewTextBoxColumn3"
+        Me.DNIDataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DNIDataGridViewTextBoxColumn3.Width = 54
         '
-        'CorreoDataGridViewTextBoxColumn
+        'ContraseñaDataGridViewTextBoxColumn3
         '
-        Me.CorreoDataGridViewTextBoxColumn.DataPropertyName = "Correo"
-        Me.CorreoDataGridViewTextBoxColumn.HeaderText = "Correo"
-        Me.CorreoDataGridViewTextBoxColumn.Name = "CorreoDataGridViewTextBoxColumn"
-        Me.CorreoDataGridViewTextBoxColumn.ReadOnly = True
-        Me.CorreoDataGridViewTextBoxColumn.Width = 72
+        Me.ContraseñaDataGridViewTextBoxColumn3.DataPropertyName = "Contraseña"
+        Me.ContraseñaDataGridViewTextBoxColumn3.HeaderText = "Contraseña"
+        Me.ContraseñaDataGridViewTextBoxColumn3.Name = "ContraseñaDataGridViewTextBoxColumn3"
+        Me.ContraseñaDataGridViewTextBoxColumn3.ReadOnly = True
+        Me.ContraseñaDataGridViewTextBoxColumn3.Width = 98
         '
-        'DNIDataGridViewTextBoxColumn
+        'NombresDataGridViewTextBoxColumn3
         '
-        Me.DNIDataGridViewTextBoxColumn.DataPropertyName = "DNI"
-        Me.DNIDataGridViewTextBoxColumn.HeaderText = "DNI"
-        Me.DNIDataGridViewTextBoxColumn.Name = "DNIDataGridViewTextBoxColumn"
-        Me.DNIDataGridViewTextBoxColumn.ReadOnly = True
-        Me.DNIDataGridViewTextBoxColumn.Width = 54
+        Me.NombresDataGridViewTextBoxColumn3.DataPropertyName = "Nombres"
+        Me.NombresDataGridViewTextBoxColumn3.HeaderText = "Nombres"
+        Me.NombresDataGridViewTextBoxColumn3.Name = "NombresDataGridViewTextBoxColumn3"
+        Me.NombresDataGridViewTextBoxColumn3.ReadOnly = True
+        Me.NombresDataGridViewTextBoxColumn3.Width = 83
         '
-        'ContraseñaDataGridViewTextBoxColumn
+        'ApellidoPaternoDataGridViewTextBoxColumn1
         '
-        Me.ContraseñaDataGridViewTextBoxColumn.DataPropertyName = "Contraseña"
-        Me.ContraseñaDataGridViewTextBoxColumn.HeaderText = "Contraseña"
-        Me.ContraseñaDataGridViewTextBoxColumn.Name = "ContraseñaDataGridViewTextBoxColumn"
-        Me.ContraseñaDataGridViewTextBoxColumn.ReadOnly = True
-        Me.ContraseñaDataGridViewTextBoxColumn.Width = 98
+        Me.ApellidoPaternoDataGridViewTextBoxColumn1.DataPropertyName = "Apellido Paterno"
+        Me.ApellidoPaternoDataGridViewTextBoxColumn1.HeaderText = "Apellido Paterno"
+        Me.ApellidoPaternoDataGridViewTextBoxColumn1.Name = "ApellidoPaternoDataGridViewTextBoxColumn1"
+        Me.ApellidoPaternoDataGridViewTextBoxColumn1.ReadOnly = True
+        Me.ApellidoPaternoDataGridViewTextBoxColumn1.Width = 114
         '
-        'NombresDataGridViewTextBoxColumn
+        'ApellidoMaternoDataGridViewTextBoxColumn1
         '
-        Me.NombresDataGridViewTextBoxColumn.DataPropertyName = "Nombres"
-        Me.NombresDataGridViewTextBoxColumn.HeaderText = "Nombres"
-        Me.NombresDataGridViewTextBoxColumn.Name = "NombresDataGridViewTextBoxColumn"
-        Me.NombresDataGridViewTextBoxColumn.ReadOnly = True
-        Me.NombresDataGridViewTextBoxColumn.Width = 83
+        Me.ApellidoMaternoDataGridViewTextBoxColumn1.DataPropertyName = "Apellido Materno"
+        Me.ApellidoMaternoDataGridViewTextBoxColumn1.HeaderText = "Apellido Materno"
+        Me.ApellidoMaternoDataGridViewTextBoxColumn1.Name = "ApellidoMaternoDataGridViewTextBoxColumn1"
+        Me.ApellidoMaternoDataGridViewTextBoxColumn1.ReadOnly = True
+        Me.ApellidoMaternoDataGridViewTextBoxColumn1.Width = 116
         '
-        'APaternoDataGridViewTextBoxColumn
+        'Turno
         '
-        Me.APaternoDataGridViewTextBoxColumn.DataPropertyName = "A_ Paterno"
-        Me.APaternoDataGridViewTextBoxColumn.HeaderText = "A_ Paterno"
-        Me.APaternoDataGridViewTextBoxColumn.Name = "APaternoDataGridViewTextBoxColumn"
-        Me.APaternoDataGridViewTextBoxColumn.ReadOnly = True
-        Me.APaternoDataGridViewTextBoxColumn.Width = 95
+        Me.Turno.DataPropertyName = "Turno"
+        Me.Turno.HeaderText = "Turno/Controles"
+        Me.Turno.Name = "Turno"
+        Me.Turno.ReadOnly = True
+        Me.Turno.Width = 125
         '
-        'AMaternoDataGridViewTextBoxColumn
+        'FechaDeNacimientoDataGridViewTextBoxColumn1
         '
-        Me.AMaternoDataGridViewTextBoxColumn.DataPropertyName = "A_ Materno"
-        Me.AMaternoDataGridViewTextBoxColumn.HeaderText = "A_ Materno"
-        Me.AMaternoDataGridViewTextBoxColumn.Name = "AMaternoDataGridViewTextBoxColumn"
-        Me.AMaternoDataGridViewTextBoxColumn.ReadOnly = True
-        Me.AMaternoDataGridViewTextBoxColumn.Width = 97
+        Me.FechaDeNacimientoDataGridViewTextBoxColumn1.DataPropertyName = "Fecha de Nacimiento"
+        Me.FechaDeNacimientoDataGridViewTextBoxColumn1.HeaderText = "Fecha de Nacimiento"
+        Me.FechaDeNacimientoDataGridViewTextBoxColumn1.Name = "FechaDeNacimientoDataGridViewTextBoxColumn1"
+        Me.FechaDeNacimientoDataGridViewTextBoxColumn1.ReadOnly = True
+        Me.FechaDeNacimientoDataGridViewTextBoxColumn1.Width = 137
+        '
+        'IDSolicitudDataGridViewTextBoxColumn1
+        '
+        Me.IDSolicitudDataGridViewTextBoxColumn1.DataPropertyName = "ID Solicitud"
+        Me.IDSolicitudDataGridViewTextBoxColumn1.HeaderText = "ID Solicitud"
+        Me.IDSolicitudDataGridViewTextBoxColumn1.Name = "IDSolicitudDataGridViewTextBoxColumn1"
+        Me.IDSolicitudDataGridViewTextBoxColumn1.ReadOnly = True
+        Me.IDSolicitudDataGridViewTextBoxColumn1.Width = 98
+        '
+        'TipoDataGridViewTextBoxColumn1
+        '
+        Me.TipoDataGridViewTextBoxColumn1.DataPropertyName = "Tipo"
+        Me.TipoDataGridViewTextBoxColumn1.HeaderText = "Tipo"
+        Me.TipoDataGridViewTextBoxColumn1.Name = "TipoDataGridViewTextBoxColumn1"
+        Me.TipoDataGridViewTextBoxColumn1.ReadOnly = True
+        Me.TipoDataGridViewTextBoxColumn1.Width = 56
+        '
+        'EstadoDataGridViewTextBoxColumn1
+        '
+        Me.EstadoDataGridViewTextBoxColumn1.DataPropertyName = "Estado"
+        Me.EstadoDataGridViewTextBoxColumn1.HeaderText = "Estado"
+        Me.EstadoDataGridViewTextBoxColumn1.Name = "EstadoDataGridViewTextBoxColumn1"
+        Me.EstadoDataGridViewTextBoxColumn1.ReadOnly = True
+        Me.EstadoDataGridViewTextBoxColumn1.Width = 70
+        '
+        'IDUsuarioDataGridViewTextBoxColumn1
+        '
+        Me.IDUsuarioDataGridViewTextBoxColumn1.DataPropertyName = "ID Usuario"
+        Me.IDUsuarioDataGridViewTextBoxColumn1.HeaderText = "ID Usuario"
+        Me.IDUsuarioDataGridViewTextBoxColumn1.Name = "IDUsuarioDataGridViewTextBoxColumn1"
+        Me.IDUsuarioDataGridViewTextBoxColumn1.ReadOnly = True
+        Me.IDUsuarioDataGridViewTextBoxColumn1.Width = 93
+        '
+        'UsuarioDataGridViewTextBoxColumn2
+        '
+        Me.UsuarioDataGridViewTextBoxColumn2.DataPropertyName = "Usuario"
+        Me.UsuarioDataGridViewTextBoxColumn2.HeaderText = "Usuario"
+        Me.UsuarioDataGridViewTextBoxColumn2.Name = "UsuarioDataGridViewTextBoxColumn2"
+        Me.UsuarioDataGridViewTextBoxColumn2.ReadOnly = True
+        Me.UsuarioDataGridViewTextBoxColumn2.Width = 75
+        '
+        'CorreoDataGridViewTextBoxColumn2
+        '
+        Me.CorreoDataGridViewTextBoxColumn2.DataPropertyName = "Correo"
+        Me.CorreoDataGridViewTextBoxColumn2.HeaderText = "Correo"
+        Me.CorreoDataGridViewTextBoxColumn2.Name = "CorreoDataGridViewTextBoxColumn2"
+        Me.CorreoDataGridViewTextBoxColumn2.ReadOnly = True
+        Me.CorreoDataGridViewTextBoxColumn2.Width = 72
+        '
+        'DNIDataGridViewTextBoxColumn2
+        '
+        Me.DNIDataGridViewTextBoxColumn2.DataPropertyName = "DNI"
+        Me.DNIDataGridViewTextBoxColumn2.HeaderText = "DNI"
+        Me.DNIDataGridViewTextBoxColumn2.Name = "DNIDataGridViewTextBoxColumn2"
+        Me.DNIDataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DNIDataGridViewTextBoxColumn2.Width = 54
+        '
+        'ContraseñaDataGridViewTextBoxColumn2
+        '
+        Me.ContraseñaDataGridViewTextBoxColumn2.DataPropertyName = "Contraseña"
+        Me.ContraseñaDataGridViewTextBoxColumn2.HeaderText = "Contraseña"
+        Me.ContraseñaDataGridViewTextBoxColumn2.Name = "ContraseñaDataGridViewTextBoxColumn2"
+        Me.ContraseñaDataGridViewTextBoxColumn2.ReadOnly = True
+        Me.ContraseñaDataGridViewTextBoxColumn2.Width = 98
+        '
+        'NombresDataGridViewTextBoxColumn2
+        '
+        Me.NombresDataGridViewTextBoxColumn2.DataPropertyName = "Nombres"
+        Me.NombresDataGridViewTextBoxColumn2.HeaderText = "Nombres"
+        Me.NombresDataGridViewTextBoxColumn2.Name = "NombresDataGridViewTextBoxColumn2"
+        Me.NombresDataGridViewTextBoxColumn2.ReadOnly = True
+        Me.NombresDataGridViewTextBoxColumn2.Width = 83
+        '
+        'ApellidoPaternoDataGridViewTextBoxColumn
+        '
+        Me.ApellidoPaternoDataGridViewTextBoxColumn.DataPropertyName = "Apellido Paterno"
+        Me.ApellidoPaternoDataGridViewTextBoxColumn.HeaderText = "Apellido Paterno"
+        Me.ApellidoPaternoDataGridViewTextBoxColumn.Name = "ApellidoPaternoDataGridViewTextBoxColumn"
+        Me.ApellidoPaternoDataGridViewTextBoxColumn.ReadOnly = True
+        Me.ApellidoPaternoDataGridViewTextBoxColumn.Width = 114
+        '
+        'ApellidoMaternoDataGridViewTextBoxColumn
+        '
+        Me.ApellidoMaternoDataGridViewTextBoxColumn.DataPropertyName = "Apellido Materno"
+        Me.ApellidoMaternoDataGridViewTextBoxColumn.HeaderText = "Apellido Materno"
+        Me.ApellidoMaternoDataGridViewTextBoxColumn.Name = "ApellidoMaternoDataGridViewTextBoxColumn"
+        Me.ApellidoMaternoDataGridViewTextBoxColumn.ReadOnly = True
+        Me.ApellidoMaternoDataGridViewTextBoxColumn.Width = 116
         '
         'FechaDeNacimientoDataGridViewTextBoxColumn
         '
@@ -472,10 +583,10 @@ Partial Class FrmSolicitudes
         Me.Name = "FrmSolicitudes"
         Me.Text = "FrmSolicitudes"
         CType(Me.dtg_usuarios, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.dtg_solicitudes, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.VUsuariosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BD_TransporteUrbanoDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtg_solicitudes, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VSolicitudesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.VUsuariosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -490,21 +601,11 @@ Partial Class FrmSolicitudes
     Friend WithEvents txt_id As TextBox
     Friend WithEvents txt_usuario As TextBox
     Friend WithEvents BD_TransporteUrbanoDataSet As BD_TransporteUrbanoDataSet
-    Friend WithEvents V_UsuariosTableAdapter As BD_TransporteUrbanoDataSetTableAdapters.V_UsuariosTableAdapter
-    Friend WithEvents IDDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents UsuarioDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents CorreoDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents DNIDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents ContraseñaDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents NombresDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents APaternoDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents AMaternoDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents FechaDeNacimientoDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents TurnoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents VUsuariosBindingSource As BindingSource
     Friend WithEvents dtg_solicitudes As DataGridView
-    Friend WithEvents VSolicitudesBindingSource As BindingSource
-    Friend WithEvents V_SolicitudesTableAdapter As BD_TransporteUrbanoDataSetTableAdapters.V_SolicitudesTableAdapter
+    Friend WithEvents APaternoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents AMaternoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents IDSolicitudDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents TipoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents EstadoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
@@ -514,7 +615,35 @@ Partial Class FrmSolicitudes
     Friend WithEvents DNIDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents ContraseñaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents NombresDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents APaternoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents AMaternoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents IDDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents UsuarioDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents CorreoDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DNIDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents ContraseñaDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents NombresDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents VSolicitudesBindingSource As BindingSource
+    Friend WithEvents V_SolicitudesTableAdapter As BD_TransporteUrbanoDataSetTableAdapters.V_SolicitudesTableAdapter
+    Friend WithEvents VUsuariosBindingSource As BindingSource
+    Friend WithEvents V_UsuariosTableAdapter As BD_TransporteUrbanoDataSetTableAdapters.V_UsuariosTableAdapter
+    Friend WithEvents UsuarioDataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents CorreoDataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents DNIDataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents ContraseñaDataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents NombresDataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents ApellidoPaternoDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents ApellidoMaternoDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents Turno As DataGridViewTextBoxColumn
+    Friend WithEvents FechaDeNacimientoDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents IDSolicitudDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents TipoDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents EstadoDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents IDUsuarioDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents UsuarioDataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents CorreoDataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents DNIDataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents ContraseñaDataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents NombresDataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents ApellidoPaternoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents ApellidoMaternoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents FechaDeNacimientoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 End Class

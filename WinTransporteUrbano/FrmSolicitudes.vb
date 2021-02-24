@@ -10,6 +10,10 @@ Public Class FrmSolicitudes
         Me.V_UsuariosTableAdapter.Fill(Me.BD_TransporteUrbanoDataSet.V_Usuarios)
         'TODO: esta línea de código carga datos en la tabla 'BD_TransporteUrbanoDataSet.V_Solicitudes' Puede moverla o quitarla según sea necesario.
         Me.V_SolicitudesTableAdapter.Fill(Me.BD_TransporteUrbanoDataSet.V_Solicitudes)
+        'TODO: esta línea de código carga datos en la tabla 'BD_TransporteUrbanoDataSet.V_Usuarios' Puede moverla o quitarla según sea necesario.
+        Me.V_UsuariosTableAdapter.Fill(Me.BD_TransporteUrbanoDataSet.V_Usuarios)
+        'TODO: esta línea de código carga datos en la tabla 'BD_TransporteUrbanoDataSet.V_Solicitudes' Puede moverla o quitarla según sea necesario.
+        Me.V_SolicitudesTableAdapter.Fill(Me.BD_TransporteUrbanoDataSet.V_Solicitudes)
 
     End Sub
 
