@@ -264,6 +264,31 @@ go
 
 
 
+CREATE TABLE SOLICITUDES
+( 
+	SOLI_IdSolicitud     int IDENTITY ( 1,1 ) ,
+	USU_IdUsuario        int  NOT NULL ,
+	USU_Usuario          varchar(30)  NULL ,
+	USU_Contrasena       varchar(30)  NULL ,
+	USU_Correo           varchar(60)  NULL ,
+	USU_DNI              char(8)  NULL ,
+	USU_NombresUsuario   varchar(50)  NULL ,
+	USU_ApellidoPaternoUsuario varchar(30)  NULL ,
+	USU_ApellidoMaternoUsuario varchar(30)  NULL ,
+	USU_FechaNacUsuario  datetime  NULL ,
+	SOLI_Estado          varchar(10)  NOT NULL ,
+	SOLI_Tipo            varchar(15)  NOT NULL 
+)
+go
+
+
+
+ALTER TABLE SOLICITUDES
+	ADD CONSTRAINT XPKAPROBACIONES PRIMARY KEY  CLUSTERED (SOLI_IdSolicitud ASC)
+go
+
+
+
 CREATE TABLE TARIFA
 ( 
 	TAR_IdTarifa         int IDENTITY ( 1,1 ) ,
@@ -475,6 +500,15 @@ ALTER TABLE SECRETARIA
 	ADD  FOREIGN KEY (USU_IdUsuario) REFERENCES USUARIO(USU_IdUsuario)
 		ON DELETE CASCADE
 		ON UPDATE CASCADE
+go
+
+
+
+
+ALTER TABLE SOLICITUDES
+	ADD CONSTRAINT R_169 FOREIGN KEY (USU_IdUsuario) REFERENCES USUARIO(USU_IdUsuario)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION
 go
 
 

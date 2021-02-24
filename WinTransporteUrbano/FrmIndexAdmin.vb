@@ -76,4 +76,10 @@ Public Class FrmIndexAdmin
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Me.Close()
     End Sub
+
+    Private Sub SolicitudesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SolicitudesToolStripMenuItem.Click
+        Dim ObjControl As New FrmSolicitudes
+        ObjControl.MdiParent = Me
+        ObjControl.Show()
+    End Sub
 End Class

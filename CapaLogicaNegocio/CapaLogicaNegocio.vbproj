@@ -92,6 +92,7 @@
     <Compile Include="Pago_ControlLN.vb" />
     <Compile Include="RutaLN.vb" />
     <Compile Include="SecretariaLN.vb" />
+    <Compile Include="SolicitudLN.vb" />
     <Compile Include="TarifaLN.vb" />
     <Compile Include="Tarifa_RutaLN.vb" />
     <Compile Include="UsuarioLN.vb" />

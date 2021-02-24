@@ -27,7 +27,7 @@ Public Class Controlador_PersonalAD
         End Try
     End Sub
 
-    Public Sub editar_controlador(objU As Usuario, objC As Controlador_Personal)
+    Public Sub editar_controlador(objU As Usuario, objC As Controlador_Personal, trg As Boolean)
         Dim oConexion As New SqlConnection("server=.; integrated security=true; database=BD_TransporteUrbano")
         Dim oComando As New SqlCommand("SP_ActualizaControlador", oConexion)
         Dim oLector As SqlDataReader
@@ -44,6 +44,7 @@ Public Class Controlador_PersonalAD
             oComando.Parameters.AddWithValue("@ApellidoPaternoUsuario", objU.ApellidoPaternoUsuario)
             oComando.Parameters.AddWithValue("@ApellidoMaternoUsuario", objU.ApellidoMaternoUsuario)
             oComando.Parameters.AddWithValue("@FechaNacUsuario", objU.FechaNacUsuario)
+            oComando.Parameters.AddWithValue("@TrgDiabler", trg)
             oComando.Connection = oConexion
             oLector = oComando.ExecuteReader()
             oConexion.Close()

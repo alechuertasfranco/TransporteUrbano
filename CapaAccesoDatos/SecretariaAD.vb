@@ -27,7 +27,7 @@ Public Class SecretariaAD
         End Try
     End Sub
 
-    Public Sub editar_secretaria(objU As Usuario, objS As Secretaria)
+    Public Sub editar_secretaria(objU As Usuario, objS As Secretaria, trg As Boolean)
         Dim oConexion As New SqlConnection("server=.; integrated security=true; database=BD_TransporteUrbano")
         Dim oComando As New SqlCommand("SP_ActualizaSecretaria", oConexion)
         Dim oLector As SqlDataReader
@@ -44,6 +44,7 @@ Public Class SecretariaAD
             oComando.Parameters.AddWithValue("@ApellidoPaternoUsuario", objU.ApellidoPaternoUsuario)
             oComando.Parameters.AddWithValue("@ApellidoMaternoUsuario", objU.ApellidoMaternoUsuario)
             oComando.Parameters.AddWithValue("@FechaNacUsuario", objU.FechaNacUsuario)
+            oComando.Parameters.AddWithValue("@TrgDiabler", trg)
             oComando.Connection = oConexion
             oLector = oComando.ExecuteReader()
             oConexion.Close()

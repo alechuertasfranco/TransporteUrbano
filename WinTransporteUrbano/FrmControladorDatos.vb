@@ -3,6 +3,10 @@ Imports CapaLogicaNegocio
 
 Public Class FrmControladorDatos
     Private Sub FrmControladorDatos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        getDatos()
+    End Sub
+
+    Private Sub getDatos()
         Dim datos() As String
         datos = Controlador_PersonalLN.consultar_controlador(usuario_ingresado)
         Me.txt_usuario.Text = datos(0)
@@ -54,8 +58,9 @@ Public Class FrmControladorDatos
                 obj.ApellidoPaternoUsuario = CType(txt_apellidop.Text, String)
                 obj.ApellidoMaternoUsuario = CType(txt_apellidom.Text, String)
                 obj.FechaNacUsuario = CType(txt_fecha.Text, Date)
-                Controlador_PersonalLN.editar_controlador(obj, objC)
-                MsgBox("Datos Actualizados")
+                Controlador_PersonalLN.editar_controlador(obj, objC, 0)
+                MsgBox("Su solicitud de actualización fue registrada")
+                getDatos()
             Else
                 MsgBox("Llene todos los campos de texto")
             End If

@@ -6,9 +6,9 @@ Public Class SecretariaLN
         objAD.agregar_secretaria(objU, objC)
     End Sub
 
-    Public Shared Sub editar_secretaria(objU As Usuario, objC As Secretaria)
+    Public Shared Sub editar_secretaria(objU As Usuario, objC As Secretaria, trg As Boolean)
         Dim objAD As New SecretariaAD
-        objAD.editar_secretaria(objU, objC)
+        objAD.editar_secretaria(objU, objC, trg)
     End Sub
 
     Public Shared Sub borrar_secretaria(IdUsuario As Integer)
