@@ -235,7 +235,7 @@ AS
 GO
 
 
-CREATE PROCEDURE SP_Detalle_Control
+create PROCEDURE SP_Detalle_Control
 	@IdControl			as INT,
 	@IdBus				as INT
 AS
@@ -246,7 +246,8 @@ AS
 				@TiempoAprox		INT,
 				@TiempoMax			TIME,
 				@MontoPen			MONEY,
-				@TotalPen			MONEY
+				@TotalPen			MONEY,
+				@diferencia			float
 		
 		SELECT	@IdHoja = DR.HCONT_IdHojaControl,
 				@Controles = DREC_Controles,
@@ -263,6 +264,7 @@ AS
 		FROM CONTROL_T WHERE CONT_IdControl = @IdControl
 
 		SET @TiempoMax = DATEADD(MINUTE, @TiempoAprox, @HoraSalida)
+		set @diferencia=(DATEDIFF(MINUTE, @TiempoMax, CAST(GETDATE() AS TIME)))
 		SET @TotalPen = (DATEDIFF(MINUTE, @TiempoMax, CAST(GETDATE() AS TIME))) * @MontoPen
 		IF (@TotalPen < 0) 
 			BEGIN
@@ -275,7 +277,8 @@ AS
 			HCONT_IdHojaControl,
 			DREC_Controles,
 			DCONT_FechaHora,
-			DCONT_MontoPenalizacion 
+			DCONT_MontoPenalizacion,
+			DCONT_Diferencia
 		)
 		VALUES (
 			@IdControl,
@@ -283,7 +286,8 @@ AS
 			@IdHoja,
 			@Controles,
 			GETDATE(),
-			@TotalPen
+			@TotalPen,
+			@diferencia
 		)
 	END
 GO
@@ -294,7 +298,8 @@ create procedure  SP_Detalle_Control_Diario
  @IdBus integer,
  @Controles integer,
  @IdHoja integer,
- @TotalPen money
+ @TotalPen money,
+ @diferencia float
 AS
 begin
 INSERT INTO DETALLE_CONTROL (
@@ -303,7 +308,8 @@ INSERT INTO DETALLE_CONTROL (
 			HCONT_IdHojaControl,
 			DREC_Controles,
 			DCONT_FechaHora,
-			DCONT_MontoPenalizacion 
+			DCONT_MontoPenalizacion,
+			DCONT_Diferencia
 		)
 		VALUES (
 			@IdControl,
@@ -311,11 +317,9 @@ INSERT INTO DETALLE_CONTROL (
 			@IdHoja,
 			@Controles,
 			GETDATE(),
-			@TotalPen
+			@TotalPen,
+			@diferencia
 		)
 end
 go
 
-select * from detalle_control
-
-select * from detalle_recorrido
