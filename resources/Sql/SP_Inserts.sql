@@ -36,12 +36,12 @@ AS
 	if @CONTDNI<1 and @CONTLICENCIA<1 and (DATEDIFF(YEAR,@FechaNacimiento,GETDATE())) >=  18
 		begin
 			print 'Conductor registrado correctamente'
-			commit tran TransacSecretaria
+			commit tran TRANSACCONDUCTOR
 		end
 		else
 		begin
 			print 'Ocurrió error al registrar el conductor'
-			rollback tran TransacSecretaria
+			rollback tran TRANSACCONDUCTOR
 	END
 GO
 
