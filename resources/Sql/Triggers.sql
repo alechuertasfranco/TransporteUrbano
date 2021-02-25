@@ -58,28 +58,50 @@ AS
 GO
 SELECT * FROM SOLICITUDES
 
-CREATE TRIGGER trg_DETALLE_CONTROL
+ALTER TRIGGER TRG_DETALLE_CONTROL
 	ON DETALLE_CONTROL
-	FOR INSERT 
+	AFTER INSERT 
 AS
-	DECLARE @Monto Money
-	DECLARE @ID_Hoja INT
-	DECLARE @ID_BUS INT
-	DECLARE @Controles INT
+	DECLARE @ID_Hoja			INT,
+			@ID_Bus				INT,
+			@ID_Control			INT,
+			@Controles			INT,
+			@TiempoAprox		INT,
+			@TiempoMax			TIME,
+			@HoraSalida			TIME,
+			@FechaHora			DATETIME,
+			@Diferencia			FLOAT,
+			@MontoPen			MONEY,
+			@TotalPen			MONEY
 
-	SELECT	@Monto = DCONT_MontoPenalizacion,
-			@ID_Hoja = HCONT_IdHojaControl,
-			@ID_BUS = BUS_IdBus,
-			@Controles = DREC_Controles
-	FROM INSERTED
- 
-	UPDATE DETALLE_RECORRIDO 
-		SET DREC_MontoPenalizacion = DREC_MontoPenalizacion + @Monto
-	WHERE HCONT_IdHojaControl = @ID_Hoja 
-	AND BUS_IdBus = @ID_BUS
-	AND DREC_Controles = @Controles
+	SELECT	@ID_Hoja = I.HCONT_IdHojaControl,
+			@ID_Bus = I.BUS_IdBus,
+			@ID_Control = I.CONT_IdControl,
+			@Controles = I.DREC_Controles,
+			@FechaHora = I.DCONT_FechaHora
+	FROM INSERTED I
+	
+	SELECT	@HoraSalida = DREC_HoraSalida,
+			@MontoPen = P.PEN_MontoMinuto
+	FROM DETALLE_RECORRIDO DR JOIN HOJA_CONTROL_RECORRIDOS HC
+	ON HC.HCONT_IdHojaControl = DR.HCONT_IdHojaControl
+	JOIN PENALIZACIONES P ON P.PEN_IdPenalizacion = HC.PEN_IdPenalizacion
+	WHERE BUS_IdBus = @ID_Bus
+	AND DR.HCONT_IdHojaControl = @ID_Hoja
 
-	UPDATE HOJA_CONTROL_RECORRIDOS
-		SET HCONT_TotalPenalizacion = HCONT_TotalPenalizacion + @Monto
-	WHERE HCONT_IdHojaControl = @ID_Hoja
+	SELECT @TiempoAprox = CONT_TiempoAprox
+	FROM CONTROL_T WHERE CONT_IdControl = @ID_Control
+
+	SET @TiempoMax = DATEADD(MINUTE, @TiempoAprox, @HoraSalida)
+	SET @TotalPen = (DATEDIFF(MINUTE, @TiempoMax, CAST(@FechaHora AS TIME))) * @MontoPen
+	IF (@TotalPen < 0) 
+		BEGIN
+			SET @TotalPen = 0
+		END
+
+	UPDATE DETALLE_CONTROL
+		SET DCONT_MontoPenalizacion = @TotalPen
+	WHERE BUS_IdBus = @ID_Bus
+	AND HCONT_IdHojaControl = @ID_Hoja
+	AND CONT_IdControl = @ID_Control
 GO
