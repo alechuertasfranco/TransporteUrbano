@@ -13,6 +13,7 @@ AS
 	END
 GO
 
+
 --Inserción en tabla Conductor
 create PROCEDURE sp_insertaConductor
 	@DNI 				CHAR(08),
@@ -32,7 +33,7 @@ AS
 		Select @CONTDNI = COUNT(COND_DNI) from CONDUCTORES WHERE COND_DNI = @DNI
 		Select @CONTLICENCIA = COUNT(COND_NumeroLicencia) from CONDUCTORES WHERE COND_NumeroLicencia = @NroLicencia
 
-	if @CONTDNI<=1 and @CONTLICENCIA<=1 and (DATEDIFF(YEAR,@FechaNacimiento,GETDATE())) >=  18
+	if @CONTDNI<1 and @CONTLICENCIA<1 and (DATEDIFF(YEAR,@FechaNacimiento,GETDATE())) >=  18
 		begin
 			print 'Conductor registrado correctamente'
 			commit tran TransacSecretaria

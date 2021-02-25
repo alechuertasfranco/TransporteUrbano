@@ -5,6 +5,15 @@
     Private m_controles As Integer
     Private m_hora As Date
     Private m_penalidad As Double
+    Private m_diferencia As Double
+    Public Property diferencia() As Double
+        Get
+            Return m_diferencia
+        End Get
+        Set(ByVal value As Double)
+            m_diferencia = value
+        End Set
+    End Property
     Public Property penalidad() As Double
         Get
             Return m_penalidad
