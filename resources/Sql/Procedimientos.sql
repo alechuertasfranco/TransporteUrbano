@@ -309,3 +309,32 @@ AS
 		AND DC.HCONT_IdHojaControl = @IdHoja
 	END
 GO
+
+create PROCEDURE sp_GenerarReporteSalida
+	@horaSalida as datetime
+AS
+	BEGIN
+	declare @tiempoAprox int
+	declare @tiempo time
+	declare @hSalida time
+	declare @codigo char(05)
+	create table #Tablita(codigo varchar(5),hora datetime)
+set @hSalida=CAST(@horaSalida AS DATETIME)
+DECLARE Horario CURSOR FOR SELECT C.CONT_TiempoAprox,Cu.CONTUB_Codigo FROM CONTROL_T C INNER JOIN CONTROL_UBICACION CU ON CU.CONTUB_IdControlUbicacion=C.CONTUB_IdControlUbicacion order by C.CONT_IdControl
+OPEN HORARIO
+FETCH NEXT FROM Horario INTO @tiempoAprox,@codigo
+WHILE @@fetch_status = 0
+BEGIN
+
+    set @tiempo=DATEADD(MINUTE, @tiempoAprox, @hSalida)
+	insert into #Tablita values (@codigo,@tiempo)
+     FETCH NEXT FROM Horario INTO @tiempoAprox,@codigo
+END
+CLOSE Horario
+DEALLOCATE Horario
+	select codigo,convert(char(8), hora, 108) Hora  from #Tablita
+	END
+GO
+
+execute sp_GenerarReporteSalida '22/02/2020 09:30:00'
+go
