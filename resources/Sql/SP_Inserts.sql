@@ -259,6 +259,7 @@ AS
 		DECLARE @IdHoja				INT,
 				@Controles			INT,
 				@HoraSalida			TIME
+
 		SELECT	@IdHoja = DR.HCONT_IdHojaControl,
 				@Controles = DREC_Controles,
 				@HoraSalida = CAST(DREC_HoraSalida AS DATETIME)
@@ -287,7 +288,6 @@ AS
 		)
 	END
 GO
-
 
 create procedure  SP_Detalle_Control_Diario
  @IdControl integer,

@@ -21,87 +21,87 @@ GO
     -- INSERT DETALLE DE RECORRIDO HOJA 1
         -- INSERT DETALLE DE RECORRIDO BUS 1 - HOJA 1
         INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
-        VALUES (1, 11, 20, convert(datetime,'22-02-21 06:00:00 AM',5), convert(datetime,'22-02-21 08:22:00 AM',5), 5)
+        VALUES (1, 11, 20, convert(datetime,'22-02-21 06:00:00 AM',5), convert(datetime,'22-02-21 08:22:00 AM',5), 0)
         -- INSERT DETALLE DE RECORRIDO BUS 2 - HOJA 1
         INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
-        VALUES (2, 11, 20, convert(datetime,'22-02-21 06:05:00 AM',5), convert(datetime,'22-02-21 08:27:00 AM',5), 5)
+        VALUES (2, 11, 20, convert(datetime,'22-02-21 06:05:00 AM',5), convert(datetime,'22-02-21 08:27:00 AM',5), 0)
         -- INSERT DETALLE DE RECORRIDO BUS 3 - HOJA 1
         INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
-        VALUES (3, 11, 20, convert(datetime,'22-02-21 06:10:00 AM',5), convert(datetime,'22-02-21 08:32:00 AM',5), 5)
+        VALUES (3, 11, 20, convert(datetime,'22-02-21 06:10:00 AM',5), convert(datetime,'22-02-21 08:32:00 AM',5), 0)
         -- INSERT DETALLE DE RECORRIDO BUS 4 - HOJA 1
         INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
-        VALUES (4, 11, 20, convert(datetime,'22-02-21 06:15:00 AM',5), convert(datetime,'22-02-21 08:37:00 AM',5), 5)
+        VALUES (4, 11, 20, convert(datetime,'22-02-21 06:15:00 AM',5), convert(datetime,'22-02-21 08:37:00 AM',5), 0)
         -- INSERT DETALLE DE RECORRIDO BUS 5 - HOJA 1
         INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
-        VALUES (5, 11, 20, convert(datetime,'22-02-21 06:20:00 AM',5), convert(datetime,'22-02-21 08:42:00 AM',5), 5)
+        VALUES (5, 11, 20, convert(datetime,'22-02-21 06:20:00 AM',5), convert(datetime,'22-02-21 08:42:00 AM',5), 0)
 
     -- INSERT DETALLE DE RECORRIDO HOJA 2
         -- INSERT DETALLE DE RECORRIDO BUS 1 - HOJA 2
         INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
-        VALUES (1, 12, 20, convert(datetime,'22-02-21 09:00:00 AM',5), convert(datetime,'22-02-21 11:22:00 AM',5), 5)
+        VALUES (1, 12, 20, convert(datetime,'22-02-21 09:00:00 AM',5), convert(datetime,'22-02-21 11:22:00 AM',5), 0)
         -- INSERT DETALLE DE RECORRIDO BUS 2 - HOJA 2
         INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
-        VALUES (2, 12, 20, convert(datetime,'22-02-21 09:05:00 AM',5), convert(datetime,'22-02-21 11:27:00 AM',5), 5)
+        VALUES (2, 12, 20, convert(datetime,'22-02-21 09:05:00 AM',5), convert(datetime,'22-02-21 11:27:00 AM',5), 0)
         -- INSERT DETALLE DE RECORRIDO BUS 3 - HOJA 2
         INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
-        VALUES (3, 12, 20, convert(datetime,'22-02-21 09:10:00 AM',5), convert(datetime,'22-02-21 11:32:00 AM',5), 5)
+        VALUES (3, 12, 20, convert(datetime,'22-02-21 09:10:00 AM',5), convert(datetime,'22-02-21 11:32:00 AM',5), 0)
         -- INSERT DETALLE DE RECORRIDO BUS 4 - HOJA 2
         INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
-        VALUES (4, 12, 20, convert(datetime,'22-02-21 09:15:00 AM',5), convert(datetime,'22-02-21 11:37:00 AM',5), 5)
+        VALUES (4, 12, 20, convert(datetime,'22-02-21 09:15:00 AM',5), convert(datetime,'22-02-21 11:37:00 AM',5), 0)
         -- INSERT DETALLE DE RECORRIDO BUS 5 - HOJA 2
         INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
-        VALUES (5, 12, 20, convert(datetime,'22-02-21 09:20:00 AM',5), convert(datetime,'22-02-21 11:42:00 AM',5), 5)
+        VALUES (5, 12, 20, convert(datetime,'22-02-21 09:20:00 AM',5), convert(datetime,'22-02-21 11:42:00 AM',5), 0)
 
     -- INSERT DETALLE DE RECORRIDO HOJA 3
         -- INSERT DETALLE DE RECORRIDO BUS 1 - HOJA 3
         INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
-        VALUES (1, 13, 20, convert(datetime,'22-02-21 12:00:00 PM',5), convert(datetime,'22-02-21 02:22:00 PM',5), 5)
+        VALUES (1, 13, 20, convert(datetime,'22-02-21 12:00:00 PM',5), convert(datetime,'22-02-21 02:22:00 PM',5), 0)
         -- INSERT DETALLE DE RECORRIDO BUS 2 - HOJA 3
         INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
-        VALUES (2, 13, 20, convert(datetime,'22-02-21 12:05:00 PM',5), convert(datetime,'22-02-21 02:27:00 PM',5), 5)
+        VALUES (2, 13, 20, convert(datetime,'22-02-21 12:05:00 PM',5), convert(datetime,'22-02-21 02:27:00 PM',5), 0)
         -- INSERT DETALLE DE RECORRIDO BUS 3 - HOJA 3
         INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
-        VALUES (3, 13, 20, convert(datetime,'22-02-21 12:10:00 PM',5), convert(datetime,'22-02-21 02:32:00 PM',5), 5)
+        VALUES (3, 13, 20, convert(datetime,'22-02-21 12:10:00 PM',5), convert(datetime,'22-02-21 02:32:00 PM',5), 0)
         -- INSERT DETALLE DE RECORRIDO BUS 4 - HOJA 3
         INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
-        VALUES (4, 13, 20, convert(datetime,'22-02-21 12:15:00 PM',5), convert(datetime,'22-02-21 02:37:00 PM',5), 5)
+        VALUES (4, 13, 20, convert(datetime,'22-02-21 12:15:00 PM',5), convert(datetime,'22-02-21 02:37:00 PM',5), 0)
         -- INSERT DETALLE DE RECORRIDO BUS 5 - HOJA 3
         INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
-        VALUES (5, 13, 20, convert(datetime,'22-02-21 12:20:00 PM',5), convert(datetime,'22-02-21 02:42:00 PM',5), 5)
+        VALUES (5, 13, 20, convert(datetime,'22-02-21 12:20:00 PM',5), convert(datetime,'22-02-21 02:42:00 PM',5), 0)
 
     -- INSERT DETALLE DE RECORRIDO HOJA 4
         -- INSERT DETALLE DE RECORRIDO BUS 1 - HOJA 4
         INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
-        VALUES (1, 14, 20, convert(datetime,'22-02-21 03:00:00 PM',5), convert(datetime,'22-02-21 05:22:00 PM',5), 5)
+        VALUES (1, 14, 20, convert(datetime,'22-02-21 03:00:00 PM',5), convert(datetime,'22-02-21 05:22:00 PM',5), 0)
         -- INSERT DETALLE DE RECORRIDO BUS 2 - HOJA 4
         INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
-        VALUES (2, 14, 20, convert(datetime,'22-02-21 03:05:00 PM',5), convert(datetime,'22-02-21 05:27:00 PM',5), 5)
+        VALUES (2, 14, 20, convert(datetime,'22-02-21 03:05:00 PM',5), convert(datetime,'22-02-21 05:27:00 PM',5), 0)
         -- INSERT DETALLE DE RECORRIDO BUS 3 - HOJA 4
         INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
-        VALUES (3, 14, 20, convert(datetime,'22-02-21 03:10:00 PM',5), convert(datetime,'22-02-21 05:32:00 PM',5), 5)
+        VALUES (3, 14, 20, convert(datetime,'22-02-21 03:10:00 PM',5), convert(datetime,'22-02-21 05:32:00 PM',5), 0)
         -- INSERT DETALLE DE RECORRIDO BUS 4 - HOJA 4
         INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
-        VALUES (4, 14, 20, convert(datetime,'22-02-21 03:15:00 PM',5), convert(datetime,'22-02-21 05:37:00 PM',5), 5)
+        VALUES (4, 14, 20, convert(datetime,'22-02-21 03:15:00 PM',5), convert(datetime,'22-02-21 05:37:00 PM',5), 0)
         -- INSERT DETALLE DE RECORRIDO BUS 5 - HOJA 4
         INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
-        VALUES (5, 14, 20, convert(datetime,'22-02-21 03:20:00 PM',5), convert(datetime,'22-02-21 05:42:00 PM',5), 5)
+        VALUES (5, 14, 20, convert(datetime,'22-02-21 03:20:00 PM',5), convert(datetime,'22-02-21 05:42:00 PM',5), 0)
 
     -- INSERT DETALLE DE RECORRIDO HOJA 5
         -- INSERT DETALLE DE RECORRIDO BUS 1 - HOJA 5
         INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
-        VALUES (1, 15, 20, convert(datetime,'22-02-21 06:00:00 PM',5), convert(datetime,'22-02-21 08:22:00 PM',5), 5)
+        VALUES (1, 15, 20, convert(datetime,'22-02-21 06:00:00 PM',5), convert(datetime,'22-02-21 08:22:00 PM',5), 0)
         -- INSERT DETALLE DE RECORRIDO BUS 2 - HOJA 5
         INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
-        VALUES (2, 15, 20, convert(datetime,'22-02-21 06:05:00 PM',5), convert(datetime,'22-02-21 08:27:00 PM',5), 5)
+        VALUES (2, 15, 20, convert(datetime,'22-02-21 06:05:00 PM',5), convert(datetime,'22-02-21 08:27:00 PM',5), 0)
         -- INSERT DETALLE DE RECORRIDO BUS 3 - HOJA 5
         INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
-        VALUES (3, 15, 20, convert(datetime,'22-02-21 06:10:00 PM',5), convert(datetime,'22-02-21 08:32:00 PM',5), 5)
+        VALUES (3, 15, 20, convert(datetime,'22-02-21 06:10:00 PM',5), convert(datetime,'22-02-21 08:32:00 PM',5), 0)
         -- INSERT DETALLE DE RECORRIDO BUS 4 - HOJA 5
         INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
-        VALUES (4, 15, 20, convert(datetime,'22-02-21 06:15:00 PM',5), convert(datetime,'22-02-21 08:37:00 PM',5), 5)
+        VALUES (4, 15, 20, convert(datetime,'22-02-21 06:15:00 PM',5), convert(datetime,'22-02-21 08:37:00 PM',5), 0)
         -- INSERT DETALLE DE RECORRIDO BUS 5 - HOJA 5
         INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
-        VALUES (5, 15, 20, convert(datetime,'22-02-21 06:20:00 PM',5), convert(datetime,'22-02-21 08:42:00 PM',5), 5)
+        VALUES (5, 15, 20, convert(datetime,'22-02-21 06:20:00 PM',5), convert(datetime,'22-02-21 08:42:00 PM',5), 0)
 
     SELECT * FROM DETALLE_RECORRIDO
     GO
