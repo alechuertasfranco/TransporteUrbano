@@ -57,9 +57,9 @@ AS
 	END
 GO
 
-CREATE TRIGGER TRG_DetalleControl
+CREATE TRIGGER TRG_SumarPenalizaciones
 	ON DETALLE_CONTROL
-	AFTER INSERT 
+	AFTER UPDATE 
 AS
 	DECLARE @ID_Hoja			INT,
 			@ID_Bus				INT,
@@ -106,34 +106,24 @@ AS
 	AND HCONT_IdHojaControl = @ID_Hoja
 	AND CONT_IdControl = @ID_Control
 GO
-
-create TRIGGER TRG_SumarPenalizaciones
-	ON DETALLE_RECORRIDO
-	FOR UPDATE 
+CREATE TRIGGER trg_DETALLE_CONTROL
+ON DETALLE_CONTROL
+FOR INSERT 
 AS
+	DECLARE @Monto Money
 	DECLARE @ID_Hoja INT
 	DECLARE @ID_BUS INT
 	DECLARE @Controles INT
-	DECLARE @IdConductor INT
-	DECLARE @Cont INT
-	
-	SELECT	@ID_Hoja = HCONT_IdHojaControl,
-			@ID_BUS = BUS_IdBus,
-			@Controles = DREC_Controles
-	FROM INSERTED
 
-	SELECT @IdConductor = COND_IdConductor FROM BUSES WHERE BUS_IdBus = @ID_BUS
+	SET @Monto = (SELECT DCONT_MontoPenalizacion FROM Inserted)
+	SET @ID_Hoja = (SELECT HCONT_IdHojaControl FROM Inserted)
+	SET @ID_BUS = (SELECT BUS_IdBus FROM Inserted)
+	SET @Controles = (SELECT DREC_Controles FROM Inserted)
+ 
+	UPDATE DETALLE_RECORRIDO SET DREC_MontoPenalizacion = DREC_MontoPenalizacion + @Monto where HCONT_IdHojaControl = @ID_Hoja 
+	and BUS_IdBus = @ID_BUS and DREC_Controles = @Controles
 
-	SELECT @Cont=COUNT(DR.BUS_IdBus) FROM DETALLE_RECORRIDO DR 
-		inner join BUSES B on B.BUS_IdBus = DR.BUS_IdBus
-		Inner join CONDUCTORES C on C.COND_IdConductor = B.COND_IdConductor 
-	 WHERE HCONT_IdHojaControl = @ID_Hoja AND C.COND_IdConductor = @IdConductor
-
-	if (@Cont >= 2)
-		BEGIN
-			ROLLBACK TRANSACTION
-			RAISERROR('El conductor de este bus no puede registrar otro bus en la misma vuelta',16,10)
-		END
+	UPDATE HOJA_CONTROL_RECORRIDOS SET HCONT_TotalPenalizacion = HCONT_TotalPenalizacion + @Monto where HCONT_IdHojaControl = @ID_Hoja
 GO
 
 create TRIGGER trg_DETALLE_RECORRIDO
