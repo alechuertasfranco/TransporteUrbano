@@ -106,20 +106,22 @@ AS
 	AND HCONT_IdHojaControl = @ID_Hoja
 	AND CONT_IdControl = @ID_Control
 GO
-CREATE TRIGGER trg_DETALLE_CONTROL
+
+CREATE TRIGGER trg_DETALLE_CONTROL_UPDATE
 ON DETALLE_CONTROL
-FOR INSERT 
+FOR UPDATE 
 AS
 	DECLARE @Monto Money
 	DECLARE @ID_Hoja INT
 	DECLARE @ID_BUS INT
 	DECLARE @Controles INT
 
-	SET @Monto = (SELECT DCONT_MontoPenalizacion FROM Inserted)
-	SET @ID_Hoja = (SELECT HCONT_IdHojaControl FROM Inserted)
-	SET @ID_BUS = (SELECT BUS_IdBus FROM Inserted)
-	SET @Controles = (SELECT DREC_Controles FROM Inserted)
- 
+	SELECT	@Monto = DCONT_MontoPenalizacion,
+			@ID_Hoja = HCONT_IdHojaControl,
+			@ID_BUS = BUS_IdBus,
+			@Controles = DREC_Controles
+	FROM INSERTED
+	 
 	UPDATE DETALLE_RECORRIDO SET DREC_MontoPenalizacion = DREC_MontoPenalizacion + @Monto where HCONT_IdHojaControl = @ID_Hoja 
 	and BUS_IdBus = @ID_BUS and DREC_Controles = @Controles
 
