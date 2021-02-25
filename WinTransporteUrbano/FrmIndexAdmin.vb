@@ -78,8 +78,8 @@ Public Class FrmIndexAdmin
     End Sub
 
     Private Sub SolicitudesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SolicitudesToolStripMenuItem.Click
-        Dim ObjControl As New FrmSolicitudes
-        ObjControl.MdiParent = Me
-        ObjControl.Show()
+        'Dim ObjControl As New FrmSolicitudes
+        'ObjControl.MdiParent = Me
+        'ObjControl.Show()
     End Sub
 End Class

@@ -58,6 +58,7 @@ Public Class Detalle_ControlAD
                 cmdD.Parameters.Add("@Controles", SqlDbType.Int).Value = det.controles
                 cmdD.Parameters.Add("@IdHoja", SqlDbType.Int).Value = det.idHojaRecorrido
                 cmdD.Parameters.Add("@TotalPen", SqlDbType.Money).Value = det.penalidad
+                cmdD.Parameters.Add("@diferencia", SqlDbType.Money).Value = det.diferencia
                 cmdD.ExecuteNonQuery()
             Next
             tr.Commit()

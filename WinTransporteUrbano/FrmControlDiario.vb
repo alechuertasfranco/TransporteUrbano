@@ -1,5 +1,6 @@
 ﻿Imports CapaEntidad
 Imports CapaLogicaNegocio
+Imports System.Math
 Public Class FrmControlDiario
     Dim codigos(,) As String
     Dim idHojaControl
@@ -21,6 +22,7 @@ Public Class FrmControlDiario
             Me.txt_CodControl.Text = datos(0)
             Me.txt_Control.Text = datos(1)
             Me.txt_IdControl.Text = datos(3)
+
             Me.txt_TiempoAprox.Text = datos(4)
             tiempoAprox = datos(4)
         Catch ex As Exception
@@ -57,17 +59,15 @@ Public Class FrmControlDiario
         Dim cod = ""
         cod = cbxCodigoHojaR.SelectedIndex
         obj.controles = codigos(cod, 4)
-
         horaEnControl = CType(txt_hora.Text + " " + DateTime.Now.ToString("dd/MM/yyyy"), Date)
-        MsgBox(horaEnControl)
         horaSalida = CType(Me.dtgBuses_control.SelectedCells.Item(0).Value, Date)
-        MsgBox(horaSalida)
-        Dim ts As TimeSpan = horaEnControl.Subtract(horaSalida)
+        Dim horaAproximada As Date = horaSalida.AddMinutes(tiempoAprox)
+        Dim ts As TimeSpan = horaEnControl.Subtract(horaAproximada)
         diferenciaMinutos = ts.TotalMinutes
-        MsgBox(diferenciaMinutos)
         obj.penalidad = codigos(cod, 3) * diferenciaMinutos
         obj.idBus = CType(Me.dtgBuses_control.SelectedCells.Item(3).Value, Integer)
         obj.hora = CType(txt_hora.Text + " " + DateTime.Now.ToString("dd/MM/yyyy"), Date)
+        obj.diferencia = Round(diferenciaMinutos, 2)
         lista.Add(obj)
         listarbuses_controlados()
     End Sub
@@ -106,5 +106,7 @@ Public Class FrmControlDiario
         listarbuses_controlados()
     End Sub
 
-
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Me.Close()
+    End Sub
 End Class
