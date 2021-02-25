@@ -136,16 +136,14 @@ Public Class FrmHojaControl
                 'Actualizar la Base
                 Try
                     taDetalleHoja.Update(dtDetalleHoja)
-
                     Try
                         Detalle_ControlLN.agregar_detalle(1, cmb_bus.SelectedValue)
                     Catch ex As Exception
                         MsgBox(ex.Message)
                     End Try
-
                     MsgBox("Bus agregado exitosamente")
                 Catch ex As Exception
-                    MsgBox(ex.Message)
+                    MsgBox("El conductor de este bus no puede registrar otro bus en la misma vuelta")
                 End Try
             Catch ex As Exception
                 MsgBox("Ese bus ya esta registrado en esta hoja de control")

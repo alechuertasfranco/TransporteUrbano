@@ -169,6 +169,9 @@ AS
 			HOJA_CONTROL_RECORRIDOS HR
 			ON HR.HCONT_IdHojaControl = DR.HCONT_IdHojaControl
 		WHERE DREC_HoraLlegada = DREC_HoraSalida AND BUS_IdBus = @IdBus
+		
+		if @Monto>=0
+		begin
 
 		INSERT INTO BUSES_CONTROL(BUS_IdBus,HCONT_Codigo, CONT_IdControl)
 		VALUES (@IdBus, @HCont_Codigo, @IdControl)
@@ -176,8 +179,6 @@ AS
 		INSERT INTO PAGO_CONTROL(BUS_IdBus,COND_IdConductor,HCONT_Codigo,PC_Fecha,PC_Monto)
 		VALUES (@IdBus,@IdConductor, @HCont_Codigo,GETDATE(),@Monto)
 		
-		if @@error=0
-		begin
 			print 'Pago registrado correctamente'
 			commit tran TransacPago
 		end
