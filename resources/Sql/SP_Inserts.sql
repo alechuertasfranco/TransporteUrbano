@@ -242,34 +242,14 @@ AS
 	BEGIN
 		DECLARE @IdHoja				INT,
 				@Controles			INT,
-				@HoraSalida			TIME,
-				@TiempoAprox		INT,
-				@TiempoMax			TIME,
-				@MontoPen			MONEY,
-				@TotalPen			MONEY,
-				@diferencia			float
-		
+				@HoraSalida			TIME
 		SELECT	@IdHoja = DR.HCONT_IdHojaControl,
 				@Controles = DREC_Controles,
-				@HoraSalida = CAST(DREC_HoraSalida AS DATETIME),
-				@MontoPen = PEN_MontoMinuto
+				@HoraSalida = CAST(DREC_HoraSalida AS DATETIME)
 		FROM DETALLE_RECORRIDO DR INNER JOIN
 			HOJA_CONTROL_RECORRIDOS HR
 			ON HR.HCONT_IdHojaControl = DR.HCONT_IdHojaControl
-			INNER JOIN PENALIZACIONES P
-			ON P.PEN_IdPenalizacion = HR.PEN_IdPenalizacion
-		WHERE DREC_HoraLlegada = DREC_HoraSalida AND BUS_IdBus = @IdBus 
-
-		SELECT @TiempoAprox = CONT_TiempoAprox
-		FROM CONTROL_T WHERE CONT_IdControl = @IdControl
-
-		SET @TiempoMax = DATEADD(MINUTE, @TiempoAprox, @HoraSalida)
-		set @diferencia=(DATEDIFF(MINUTE, @TiempoMax, CAST(GETDATE() AS TIME)))
-		SET @TotalPen = (DATEDIFF(MINUTE, @TiempoMax, CAST(GETDATE() AS TIME))) * @MontoPen
-		IF (@TotalPen < 0) 
-			BEGIN
-				SET @TotalPen = 0
-			END
+		WHERE DREC_HoraLlegada = DREC_HoraSalida AND BUS_IdBus = @IdBus
 
 		INSERT INTO DETALLE_CONTROL (
 			CONT_IdControl,
@@ -286,8 +266,8 @@ AS
 			@IdHoja,
 			@Controles,
 			GETDATE(),
-			@TotalPen,
-			@diferencia
+			0,
+			0
 		)
 	END
 GO

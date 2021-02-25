@@ -1,17 +1,6 @@
 USE BD_TransporteUrbano
 GO
 
-CREATE VIEW V_Usuarios
-AS
-    SELECT	ID, Usuario, Correo, DNI, Contraseña, Nombres, [Apellido Paterno], [Apellido Materno],
-			[Fecha de Nacimiento], Turno
-	FROM V_Secretarias
-	UNION
-    SELECT ID, Usuario, Correo, DNI, Contraseña, Nombres, [Apellido Paterno], [Apellido Materno],
-			[Fecha de Nacimiento], CAST([Nro de Controles] AS varchar(02))
-	FROM V_Controladores
-GO
-
 CREATE VIEW V_Solicitudes
 AS
     SELECT	SOLI_IdSolicitud as [ID Solicitud],
@@ -76,4 +65,15 @@ AS
     SELECT *
     FROM HOJA_CONTROL_RECORRIDOS
     WHERE HCONT_Fecha = CAST(GETDATE() AS DATE)
+GO
+
+CREATE VIEW V_Usuarios
+AS
+    SELECT	ID, Usuario, Correo, DNI, Contraseña, Nombres, [Apellido Paterno], [Apellido Materno],
+			[Fecha de Nacimiento], Turno
+	FROM V_Secretarias
+	UNION
+    SELECT ID, Usuario, Correo, DNI, Contraseña, Nombres, [Apellido Paterno], [Apellido Materno],
+			[Fecha de Nacimiento], CAST([Nro de Controles] AS varchar(02))
+	FROM V_Controladores
 GO

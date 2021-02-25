@@ -56,9 +56,8 @@ AS
 			END
 	END
 GO
-SELECT * FROM SOLICITUDES
 
-ALTER TRIGGER TRG_DETALLE_CONTROL
+CREATE TRIGGER TRG_DetalleControl
 	ON DETALLE_CONTROL
 	AFTER INSERT 
 AS
@@ -93,17 +92,48 @@ AS
 	FROM CONTROL_T WHERE CONT_IdControl = @ID_Control
 
 	SET @TiempoMax = DATEADD(MINUTE, @TiempoAprox, @HoraSalida)
-	SET @TotalPen = (DATEDIFF(MINUTE, @TiempoMax, CAST(@FechaHora AS TIME))) * @MontoPen
+	SET @Diferencia = DATEDIFF(MINUTE, @TiempoMax, CAST(@FechaHora AS TIME))
+	SET @TotalPen = @Diferencia * @MontoPen
 	IF (@TotalPen < 0) 
 		BEGIN
 			SET @TotalPen = 0
 		END
 
 	UPDATE DETALLE_CONTROL
-		SET DCONT_MontoPenalizacion = @TotalPen
+		SET DCONT_MontoPenalizacion = @TotalPen,
+			DCONT_Diferencia = @Diferencia
 	WHERE BUS_IdBus = @ID_Bus
 	AND HCONT_IdHojaControl = @ID_Hoja
 	AND CONT_IdControl = @ID_Control
+GO
+
+create TRIGGER TRG_SumarPenalizaciones
+	ON DETALLE_RECORRIDO
+	FOR UPDATE 
+AS
+	DECLARE @ID_Hoja INT
+	DECLARE @ID_BUS INT
+	DECLARE @Controles INT
+	DECLARE @IdConductor INT
+	DECLARE @Cont INT
+	
+	SELECT	@ID_Hoja = HCONT_IdHojaControl,
+			@ID_BUS = BUS_IdBus,
+			@Controles = DREC_Controles
+	FROM INSERTED
+
+	SELECT @IdConductor = COND_IdConductor FROM BUSES WHERE BUS_IdBus = @ID_BUS
+
+	SELECT @Cont=COUNT(DR.BUS_IdBus) FROM DETALLE_RECORRIDO DR 
+		inner join BUSES B on B.BUS_IdBus = DR.BUS_IdBus
+		Inner join CONDUCTORES C on C.COND_IdConductor = B.COND_IdConductor 
+	 WHERE HCONT_IdHojaControl = @ID_Hoja AND C.COND_IdConductor = @IdConductor
+
+	if (@Cont >= 2)
+		BEGIN
+			ROLLBACK TRANSACTION
+			RAISERROR('El conductor de este bus no puede registrar otro bus en la misma vuelta',16,10)
+		END
 GO
 
 create TRIGGER trg_DETALLE_RECORRIDO
