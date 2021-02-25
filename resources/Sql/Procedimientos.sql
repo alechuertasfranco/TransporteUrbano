@@ -335,6 +335,3 @@ DEALLOCATE Horario
 	select codigo,convert(char(8), hora, 108) Hora  from #Tablita
 	END
 GO
-
-execute sp_GenerarReporteSalida '22/02/2020 09:30:00'
-go

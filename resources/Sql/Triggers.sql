@@ -56,11 +56,10 @@ AS
 			END
 	END
 GO
-SELECT * FROM SOLICITUDES
 
-ALTER TRIGGER TRG_DETALLE_CONTROL
+CREATE TRIGGER TRG_SumarPenalizaciones
 	ON DETALLE_CONTROL
-	AFTER INSERT 
+	AFTER UPDATE 
 AS
 	DECLARE @ID_Hoja			INT,
 			@ID_Bus				INT,
@@ -93,17 +92,40 @@ AS
 	FROM CONTROL_T WHERE CONT_IdControl = @ID_Control
 
 	SET @TiempoMax = DATEADD(MINUTE, @TiempoAprox, @HoraSalida)
-	SET @TotalPen = (DATEDIFF(MINUTE, @TiempoMax, CAST(@FechaHora AS TIME))) * @MontoPen
+	SET @Diferencia = DATEDIFF(MINUTE, @TiempoMax, CAST(@FechaHora AS TIME))
+	SET @TotalPen = @Diferencia * @MontoPen
 	IF (@TotalPen < 0) 
 		BEGIN
 			SET @TotalPen = 0
 		END
 
 	UPDATE DETALLE_CONTROL
-		SET DCONT_MontoPenalizacion = @TotalPen
+		SET DCONT_MontoPenalizacion = @TotalPen,
+			DCONT_Diferencia = @Diferencia
 	WHERE BUS_IdBus = @ID_Bus
 	AND HCONT_IdHojaControl = @ID_Hoja
 	AND CONT_IdControl = @ID_Control
+GO
+
+CREATE TRIGGER trg_DETALLE_CONTROL_UPDATE
+ON DETALLE_CONTROL
+FOR UPDATE 
+AS
+	DECLARE @Monto Money
+	DECLARE @ID_Hoja INT
+	DECLARE @ID_BUS INT
+	DECLARE @Controles INT
+
+	SELECT	@Monto = DCONT_MontoPenalizacion,
+			@ID_Hoja = HCONT_IdHojaControl,
+			@ID_BUS = BUS_IdBus,
+			@Controles = DREC_Controles
+	FROM INSERTED
+	 
+	UPDATE DETALLE_RECORRIDO SET DREC_MontoPenalizacion = DREC_MontoPenalizacion + @Monto where HCONT_IdHojaControl = @ID_Hoja 
+	and BUS_IdBus = @ID_BUS and DREC_Controles = @Controles
+
+	UPDATE HOJA_CONTROL_RECORRIDOS SET HCONT_TotalPenalizacion = HCONT_TotalPenalizacion + @Monto where HCONT_IdHojaControl = @ID_Hoja
 GO
 
 create TRIGGER trg_DETALLE_RECORRIDO

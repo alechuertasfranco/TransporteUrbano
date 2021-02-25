@@ -1,7 +1,7 @@
 USE BD_TransporteUrbano
 GO
 
-ALTER PROCEDURE SP_ActualizaUsuario
+CREATE PROCEDURE SP_ActualizaUsuario
     @IdUsuario				as INT,
 	@Usuario                as VARCHAR(30),
     @Contrasena             as VARCHAR(30),
@@ -35,7 +35,7 @@ AS
 	END
 GO
 
-ALTER PROCEDURE SP_ActualizaControlador
+CREATE PROCEDURE SP_ActualizaControlador
     @IdUsuario				as INT,
     @NroControles 			as INT,
 	@Usuario                as VARCHAR(30),

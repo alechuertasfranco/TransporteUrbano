@@ -15,7 +15,7 @@ GO
 
 
 --Inserción en tabla Conductor
-CREATE PROCEDURE sp_insertaConductor
+create PROCEDURE sp_insertaConductor
 	@DNI 				CHAR(08),
 	@Nombres 			VARCHAR(50),
 	@ApellidoPaterno 	VARCHAR(30),
@@ -24,9 +24,24 @@ CREATE PROCEDURE sp_insertaConductor
 	@FechaNacimiento	DATE,
 	@NroLicencia		CHAR(9)
 AS
-	BEGIN
+	DECLARE @CONTDNI int
+	DECLARE @CONTLICENCIA int
+	BEGIN TRANSACTION TRANSACCONDUCTOR
 		INSERT INTO CONDUCTORES(COND_DNI,COND_Nombres,COND_ApellidoPaterno,COND_ApellidoMaterno,COND_Telefono,COND_FechaNacConductor,COND_NumeroLicencia)
 		VALUES (@DNI, @Nombres,@ApellidoPaterno ,@ApellidoMaterno ,@Telefono ,@FechaNacimiento ,@NroLicencia )
+		
+		Select @CONTDNI = COUNT(COND_DNI) from CONDUCTORES WHERE COND_DNI = @DNI
+		Select @CONTLICENCIA = COUNT(COND_NumeroLicencia) from CONDUCTORES WHERE COND_NumeroLicencia = @NroLicencia
+
+	if @CONTDNI<1 and @CONTLICENCIA<1 and (DATEDIFF(YEAR,@FechaNacimiento,GETDATE())) >=  18
+		begin
+			print 'Conductor registrado correctamente'
+			commit tran TransacSecretaria
+		end
+		else
+		begin
+			print 'Ocurrió error al registrar el conductor'
+			rollback tran TransacSecretaria
 	END
 GO
 
@@ -243,34 +258,14 @@ AS
 	BEGIN
 		DECLARE @IdHoja				INT,
 				@Controles			INT,
-				@HoraSalida			TIME,
-				@TiempoAprox		INT,
-				@TiempoMax			TIME,
-				@MontoPen			MONEY,
-				@TotalPen			MONEY,
-				@diferencia			float
-		
+				@HoraSalida			TIME
 		SELECT	@IdHoja = DR.HCONT_IdHojaControl,
 				@Controles = DREC_Controles,
-				@HoraSalida = CAST(DREC_HoraSalida AS DATETIME),
-				@MontoPen = PEN_MontoMinuto
+				@HoraSalida = CAST(DREC_HoraSalida AS DATETIME)
 		FROM DETALLE_RECORRIDO DR INNER JOIN
 			HOJA_CONTROL_RECORRIDOS HR
 			ON HR.HCONT_IdHojaControl = DR.HCONT_IdHojaControl
-			INNER JOIN PENALIZACIONES P
-			ON P.PEN_IdPenalizacion = HR.PEN_IdPenalizacion
-		WHERE DREC_HoraLlegada = DREC_HoraSalida AND BUS_IdBus = @IdBus 
-
-		SELECT @TiempoAprox = CONT_TiempoAprox
-		FROM CONTROL_T WHERE CONT_IdControl = @IdControl
-
-		SET @TiempoMax = DATEADD(MINUTE, @TiempoAprox, @HoraSalida)
-		set @diferencia=(DATEDIFF(MINUTE, @TiempoMax, CAST(GETDATE() AS TIME)))
-		SET @TotalPen = (DATEDIFF(MINUTE, @TiempoMax, CAST(GETDATE() AS TIME))) * @MontoPen
-		IF (@TotalPen < 0) 
-			BEGIN
-				SET @TotalPen = 0
-			END
+		WHERE DREC_HoraLlegada = DREC_HoraSalida AND BUS_IdBus = @IdBus
 
 		INSERT INTO DETALLE_CONTROL (
 			CONT_IdControl,
@@ -287,8 +282,8 @@ AS
 			@IdHoja,
 			@Controles,
 			GETDATE(),
-			@TotalPen,
-			@diferencia
+			0,
+			0
 		)
 	END
 GO
