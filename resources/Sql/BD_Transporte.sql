@@ -134,11 +134,13 @@ CREATE TABLE DETALLE_CONTROL
 	HCONT_IdHojaControl		int  NOT NULL ,
 	DREC_Controles			int  NOT NULL ,
 	DCONT_FechaHora			datetime  NOT NULL ,
-	DCONT_MontoPenalizacion money  NOT NULL 
+	DCONT_MontoPenalizacion money  NOT NULL ,
+	
 )
 go
 
-
+alter table DETALLE_CONTROL
+  add DCONT_Diferencia float not null default 0
 
 ALTER TABLE DETALLE_CONTROL
 	ADD CONSTRAINT XPKDETALLE_CONTROL PRIMARY KEY  CLUSTERED (CONT_IdControl ASC,BUS_IdBus ASC,HCONT_IdHojaControl ASC,DREC_Controles ASC)
