@@ -14,7 +14,7 @@ AS
 GO
 
 --Inserción en tabla Conductor
-CREATE PROCEDURE sp_insertaConductor
+create PROCEDURE sp_insertaConductor
 	@DNI 				CHAR(08),
 	@Nombres 			VARCHAR(50),
 	@ApellidoPaterno 	VARCHAR(30),
@@ -23,9 +23,24 @@ CREATE PROCEDURE sp_insertaConductor
 	@FechaNacimiento	DATE,
 	@NroLicencia		CHAR(9)
 AS
-	BEGIN
+	DECLARE @CONTDNI int
+	DECLARE @CONTLICENCIA int
+	BEGIN TRANSACTION TRANSACCONDUCTOR
 		INSERT INTO CONDUCTORES(COND_DNI,COND_Nombres,COND_ApellidoPaterno,COND_ApellidoMaterno,COND_Telefono,COND_FechaNacConductor,COND_NumeroLicencia)
 		VALUES (@DNI, @Nombres,@ApellidoPaterno ,@ApellidoMaterno ,@Telefono ,@FechaNacimiento ,@NroLicencia )
+		
+		Select @CONTDNI = COUNT(COND_DNI) from CONDUCTORES WHERE COND_DNI = @DNI
+		Select @CONTLICENCIA = COUNT(COND_NumeroLicencia) from CONDUCTORES WHERE COND_NumeroLicencia = @NroLicencia
+
+	if @CONTDNI<=1 and @CONTLICENCIA<=1 and (DATEDIFF(YEAR,@FechaNacimiento,GETDATE())) >=  18
+		begin
+			print 'Conductor registrado correctamente'
+			commit tran TransacSecretaria
+		end
+		else
+		begin
+			print 'Ocurrió error al registrar el conductor'
+			rollback tran TransacSecretaria
 	END
 GO
 
