@@ -55,19 +55,19 @@ GO
     -- INSERT DETALLE DE RECORRIDO HOJA 3
         -- INSERT DETALLE DE RECORRIDO BUS 1 - HOJA 3
         INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
-        VALUES (1, 88, 20, convert(datetime,'18-02-211 12:00:00 PM',5), convert(datetime,'18-02-21 2:20:02 PM',5), 0)
+        VALUES (1, 88, 20, convert(datetime,'18-02-21 12:00:00 PM',5), convert(datetime,'18-02-21 2:20:02 PM',5), 0)
         -- INSERT DETALLE DE RECORRIDO BUS 2 - HOJA 3
         INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
-        VALUES (2, 88, 20, convert(datetime,'18-02-211 12:05:00 PM',5), convert(datetime,'18-02-21 2:25:57 PM',5), 0)
+        VALUES (2, 88, 20, convert(datetime,'18-02-21 12:05:00 PM',5), convert(datetime,'18-02-21 2:25:57 PM',5), 0)
         -- INSERT DETALLE DE RECORRIDO BUS 3 - HOJA 3
         INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
-        VALUES (3, 88, 20, convert(datetime,'18-02-211 12:10:00 PM',5), convert(datetime,'18-02-21 2:25:51 PM',5), 0)
+        VALUES (3, 88, 20, convert(datetime,'18-02-21 12:10:00 PM',5), convert(datetime,'18-02-21 2:25:51 PM',5), 0)
         -- INSERT DETALLE DE RECORRIDO BUS 4 - HOJA 3
         INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
-        VALUES (4, 88, 20, convert(datetime,'18-02-211 12:15:00 PM',5), convert(datetime,'18-02-21 2:50:13 PM',5), 0)
+        VALUES (4, 88, 20, convert(datetime,'18-02-21 12:15:00 PM',5), convert(datetime,'18-02-21 2:50:13 PM',5), 0)
         -- INSERT DETALLE DE RECORRIDO BUS 5 - HOJA 3
         INSERT INTO DETALLE_RECORRIDO (BUS_IdBus, HCONT_IdHojaControl, DREC_Controles, DREC_HoraSalida, DREC_HoraLlegada, DREC_MontoPenalizacion)
-        VALUES (5, 88, 20, convert(datetime,'18-02-211 12:20:00 PM',5), convert(datetime,'18-02-21 2:59:38 PM',5), 0)
+        VALUES (5, 88, 20, convert(datetime,'18-02-21 12:20:00 PM',5), convert(datetime,'18-02-21 2:59:38 PM',5), 0)
 
     -- INSERT DETALLE DE RECORRIDO HOJA 4
         -- INSERT DETALLE DE RECORRIDO BUS 1 - HOJA 4
