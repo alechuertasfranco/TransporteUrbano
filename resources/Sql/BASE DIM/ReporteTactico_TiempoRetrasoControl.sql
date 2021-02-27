@@ -37,5 +37,4 @@ select
 		as Dias,DAY(T.Dia)-1 as idDia
 		from dimTiempo T
 		group by T.Dia
-		order by idDia
 go
