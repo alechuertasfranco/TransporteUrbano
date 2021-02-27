@@ -18,9 +18,11 @@ create table dimBus
 	 ApellidoPaterno_Conductor	varchar(30)  NOT NULL ,
 	 ApellidoMaterno_Conductor	varchar(30)  NOT NULL ,
 	 NumeroLicencia		char(9)  NULL,
+	 Edad_Conductor				int,
 	 IdBus			  int
 	)
 go
+
 
 --Creacion de la tabla de dimensiones de Docente
 
@@ -31,9 +33,6 @@ create table dimControl
 	 Direccion				varchar(120)  NOT NULL,
 	 Ruta					char(01)  NOT NULL ,
 	 TiempoAprox			float  NOT NULL,
-	 Nombres_Controlador	varchar(50)  NOT NULL ,
-	 ApellidoPaterno_Controlador	varchar(30)  NOT NULL ,
-	 ApellidoMaterno_Controlador	varchar(30)  NOT NULL ,
 	 IdControl				int not null
 	)
 go
@@ -45,7 +44,6 @@ create table dimTiempo
 	 Dia				int null,
 	 Semana				int null,
 	 Mes				varchar(12) null,
-	 FechaRegistro		char(10) null,
 	 IdFecha			char(10) not null
 	)
 go
