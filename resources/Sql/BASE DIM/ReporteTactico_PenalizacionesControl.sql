@@ -1,4 +1,6 @@
 --Determinar monto de penalizacion que se registraron en cada control seleccionando la cantidad de controles que se quiere vizualizar, ademas ingrese como parametro la semana
+USE BD_DimTransporteUrbano
+GO
 
 create PROCEDURE sp_Penalizaciones_Controles
 	@orden		char(4),
@@ -47,5 +49,9 @@ go
 
 execute SP_Cantidad
 
-
+create view V_Semanas
+AS
+	SELECT distinct T.semana					as Semana
+		FROM dimTiempo T
+GO
 			
