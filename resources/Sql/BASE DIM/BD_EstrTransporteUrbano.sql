@@ -169,6 +169,9 @@ AS
 	END
 GO
 
+EXECUTE SP_BeneficiosEdad '10 - 20'
+GO
+
 CREATE VIEW V_EncuestaPrecio
 AS
 	SELECT	E.Conteo		as [Total],
