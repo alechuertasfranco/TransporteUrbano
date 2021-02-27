@@ -52,6 +52,7 @@ go
 create table hechoTransporte
 (TiempoRetraso			int null,
  Penalizacion			money null,
+ TotalVueltas           int null,
  keyTiempo				integer not null
 	foreign key
 	references dimTiempo(keyTiempo),
