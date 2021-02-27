@@ -73,6 +73,7 @@ using
 	(select	keyBus = db.keyBus,
 			keyControl = dc.keyControl,
 			keyTiempo = dt.keyTiempo,
+			TotalVueltas = count(D.DCONT_MontoPenalizacion),
 			Penalizacion = sum(D.DCONT_MontoPenalizacion),
 			TiempoRetraso = SUM(case 
 									when DATEDIFF(MINUTE,DATEADD(minute,CT.CONT_TiempoAprox,DR.DREC_HoraSalida),D.DCONT_FechaHora)> 0 
@@ -91,11 +92,12 @@ using
 	and oltp.keyControl = dim.keyControl
 	and oltp.keyTiempo = dim.keyTiempo
 when not matched then
-	insert (keyBus,keyControl,keyTiempo,TiempoRetraso,Penalizacion)
-	values (keyBus,keyControl,keyTiempo,TiempoRetraso,Penalizacion);
+	insert (keyBus,keyControl,keyTiempo,TiempoRetraso,Penalizacion,TotalVueltas)
+	values (keyBus,keyControl,keyTiempo,TiempoRetraso,Penalizacion,TotalVueltas);
 
 --Mostrar tabla de hechos
 
 select * from hechoTransporte
+delete from hechoTransporte
 
 
