@@ -40,16 +40,16 @@ Partial Class FrmIndexAdmin
         Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripSeparator()
         Me.SolicitudesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TacticosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EstratégicosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RangosDeEdadToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EconómicoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VentanaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CascadaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripSeparator()
         Me.HorizontalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VerticalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TacticosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EstratégicosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RangosDeEdadToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EconómicoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -161,6 +161,31 @@ Partial Class FrmIndexAdmin
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
         Me.ReportesToolStripMenuItem.Text = "Reportes"
         '
+        'TacticosToolStripMenuItem
+        '
+        Me.TacticosToolStripMenuItem.Name = "TacticosToolStripMenuItem"
+        Me.TacticosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.TacticosToolStripMenuItem.Text = "Tacticos"
+        '
+        'EstratégicosToolStripMenuItem
+        '
+        Me.EstratégicosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RangosDeEdadToolStripMenuItem, Me.EconómicoToolStripMenuItem})
+        Me.EstratégicosToolStripMenuItem.Name = "EstratégicosToolStripMenuItem"
+        Me.EstratégicosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.EstratégicosToolStripMenuItem.Text = "Estratégicos"
+        '
+        'RangosDeEdadToolStripMenuItem
+        '
+        Me.RangosDeEdadToolStripMenuItem.Name = "RangosDeEdadToolStripMenuItem"
+        Me.RangosDeEdadToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.RangosDeEdadToolStripMenuItem.Text = "Rangos de edad"
+        '
+        'EconómicoToolStripMenuItem
+        '
+        Me.EconómicoToolStripMenuItem.Name = "EconómicoToolStripMenuItem"
+        Me.EconómicoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.EconómicoToolStripMenuItem.Text = "Económico"
+        '
         'VentanaToolStripMenuItem
         '
         Me.VentanaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CascadaToolStripMenuItem, Me.ToolStripMenuItem3, Me.HorizontalToolStripMenuItem, Me.VerticalToolStripMenuItem})
@@ -196,31 +221,6 @@ Partial Class FrmIndexAdmin
         Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
         Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
         Me.SalirToolStripMenuItem.Text = "Salir"
-        '
-        'TacticosToolStripMenuItem
-        '
-        Me.TacticosToolStripMenuItem.Name = "TacticosToolStripMenuItem"
-        Me.TacticosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.TacticosToolStripMenuItem.Text = "Tacticos"
-        '
-        'EstratégicosToolStripMenuItem
-        '
-        Me.EstratégicosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RangosDeEdadToolStripMenuItem, Me.EconómicoToolStripMenuItem})
-        Me.EstratégicosToolStripMenuItem.Name = "EstratégicosToolStripMenuItem"
-        Me.EstratégicosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.EstratégicosToolStripMenuItem.Text = "Estratégicos"
-        '
-        'RangosDeEdadToolStripMenuItem
-        '
-        Me.RangosDeEdadToolStripMenuItem.Name = "RangosDeEdadToolStripMenuItem"
-        Me.RangosDeEdadToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.RangosDeEdadToolStripMenuItem.Text = "Rangos de edad"
-        '
-        'EconómicoToolStripMenuItem
-        '
-        Me.EconómicoToolStripMenuItem.Name = "EconómicoToolStripMenuItem"
-        Me.EconómicoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.EconómicoToolStripMenuItem.Text = "Económico"
         '
         'FrmIndexAdmin
         '
