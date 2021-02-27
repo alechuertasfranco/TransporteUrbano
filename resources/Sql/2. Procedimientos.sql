@@ -311,14 +311,17 @@ AS
 GO
 
 create PROCEDURE sp_GenerarReporteSalida
-	@horaSalida as datetime
+	@idBus int,
+	@idHojaControl int
 AS
 	BEGIN
+	declare @horaSalida datetime
 	declare @tiempoAprox int
 	declare @tiempo time
 	declare @hSalida time
 	declare @codigo char(05)
 	create table #Tablita(codigo varchar(5),hora datetime)
+	select @horaSalida=D.DREC_HoraSalida from DETALLE_RECORRIDO D where D.HCONT_IdHojaControl=@idHojaControl and D.BUS_IdBus=@idBus
 set @hSalida=CAST(@horaSalida AS DATETIME)
 DECLARE Horario CURSOR FOR SELECT C.CONT_TiempoAprox,Cu.CONTUB_Codigo FROM CONTROL_T C INNER JOIN CONTROL_UBICACION CU ON CU.CONTUB_IdControlUbicacion=C.CONTUB_IdControlUbicacion order by C.CONT_IdControl
 OPEN HORARIO
@@ -335,6 +338,8 @@ DEALLOCATE Horario
 	select codigo,convert(char(8), hora, 108) Hora  from #Tablita
 	END
 GO
+
+
 
 create PROCEDURE sp_Penalidades_Totales
 	@fecha as date
