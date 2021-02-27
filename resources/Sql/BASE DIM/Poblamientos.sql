@@ -98,6 +98,3 @@ when not matched then
 --Mostrar tabla de hechos
 
 select * from hechoTransporte
-delete from hechoTransporte
-
-
