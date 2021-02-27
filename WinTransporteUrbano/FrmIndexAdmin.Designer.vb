@@ -37,6 +37,8 @@ Partial Class FrmIndexAdmin
         Me.TafiraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PasajeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PenalizaciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripSeparator()
+        Me.SolicitudesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VentanaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CascadaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -44,8 +46,10 @@ Partial Class FrmIndexAdmin
         Me.HorizontalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VerticalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SolicitudesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripSeparator()
+        Me.TacticosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EstratégicosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RangosDeEdadToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EconómicoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -69,43 +73,43 @@ Partial Class FrmIndexAdmin
         'ConductorToolStripMenuItem
         '
         Me.ConductorToolStripMenuItem.Name = "ConductorToolStripMenuItem"
-        Me.ConductorToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ConductorToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
         Me.ConductorToolStripMenuItem.Text = "Conductor"
         '
         'ControladorToolStripMenuItem
         '
         Me.ControladorToolStripMenuItem.Name = "ControladorToolStripMenuItem"
-        Me.ControladorToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ControladorToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
         Me.ControladorToolStripMenuItem.Text = "Controlador"
         '
         'UsuarioToolStripMenuItem
         '
         Me.UsuarioToolStripMenuItem.Name = "UsuarioToolStripMenuItem"
-        Me.UsuarioToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.UsuarioToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
         Me.UsuarioToolStripMenuItem.Text = "Secretaria"
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(135, 6)
         '
         'BusToolStripMenuItem
         '
         Me.BusToolStripMenuItem.Name = "BusToolStripMenuItem"
-        Me.BusToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.BusToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
         Me.BusToolStripMenuItem.Text = "Bus"
         '
         'RutaToolStripMenuItem
         '
         Me.RutaToolStripMenuItem.Name = "RutaToolStripMenuItem"
-        Me.RutaToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.RutaToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
         Me.RutaToolStripMenuItem.Text = "Ruta"
         '
         'ControlToolStripMenuItem
         '
         Me.ControlToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ControlUbicaciónToolStripMenuItem, Me.ControlTiempoToolStripMenuItem})
         Me.ControlToolStripMenuItem.Name = "ControlToolStripMenuItem"
-        Me.ControlToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ControlToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
         Me.ControlToolStripMenuItem.Text = "Control"
         '
         'ControlUbicaciónToolStripMenuItem
@@ -124,23 +128,35 @@ Partial Class FrmIndexAdmin
         '
         Me.TafiraToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PasajeToolStripMenuItem, Me.PenalizaciónToolStripMenuItem})
         Me.TafiraToolStripMenuItem.Name = "TafiraToolStripMenuItem"
-        Me.TafiraToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.TafiraToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
         Me.TafiraToolStripMenuItem.Text = "Tarifa"
         '
         'PasajeToolStripMenuItem
         '
         Me.PasajeToolStripMenuItem.Name = "PasajeToolStripMenuItem"
-        Me.PasajeToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.PasajeToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
         Me.PasajeToolStripMenuItem.Text = "Pasaje"
         '
         'PenalizaciónToolStripMenuItem
         '
         Me.PenalizaciónToolStripMenuItem.Name = "PenalizaciónToolStripMenuItem"
-        Me.PenalizaciónToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.PenalizaciónToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
         Me.PenalizaciónToolStripMenuItem.Text = "Penalización"
+        '
+        'ToolStripMenuItem4
+        '
+        Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
+        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(135, 6)
+        '
+        'SolicitudesToolStripMenuItem
+        '
+        Me.SolicitudesToolStripMenuItem.Name = "SolicitudesToolStripMenuItem"
+        Me.SolicitudesToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
+        Me.SolicitudesToolStripMenuItem.Text = "Solicitudes"
         '
         'ReportesToolStripMenuItem
         '
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TacticosToolStripMenuItem, Me.EstratégicosToolStripMenuItem})
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
         Me.ReportesToolStripMenuItem.Text = "Reportes"
@@ -181,16 +197,30 @@ Partial Class FrmIndexAdmin
         Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
         Me.SalirToolStripMenuItem.Text = "Salir"
         '
-        'SolicitudesToolStripMenuItem
+        'TacticosToolStripMenuItem
         '
-        Me.SolicitudesToolStripMenuItem.Name = "SolicitudesToolStripMenuItem"
-        Me.SolicitudesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.SolicitudesToolStripMenuItem.Text = "Solicitudes"
+        Me.TacticosToolStripMenuItem.Name = "TacticosToolStripMenuItem"
+        Me.TacticosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.TacticosToolStripMenuItem.Text = "Tacticos"
         '
-        'ToolStripMenuItem4
+        'EstratégicosToolStripMenuItem
         '
-        Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
-        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(177, 6)
+        Me.EstratégicosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RangosDeEdadToolStripMenuItem, Me.EconómicoToolStripMenuItem})
+        Me.EstratégicosToolStripMenuItem.Name = "EstratégicosToolStripMenuItem"
+        Me.EstratégicosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.EstratégicosToolStripMenuItem.Text = "Estratégicos"
+        '
+        'RangosDeEdadToolStripMenuItem
+        '
+        Me.RangosDeEdadToolStripMenuItem.Name = "RangosDeEdadToolStripMenuItem"
+        Me.RangosDeEdadToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.RangosDeEdadToolStripMenuItem.Text = "Rangos de edad"
+        '
+        'EconómicoToolStripMenuItem
+        '
+        Me.EconómicoToolStripMenuItem.Name = "EconómicoToolStripMenuItem"
+        Me.EconómicoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.EconómicoToolStripMenuItem.Text = "Económico"
         '
         'FrmIndexAdmin
         '
@@ -237,4 +267,8 @@ Partial Class FrmIndexAdmin
     Friend WithEvents VerticalToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem4 As ToolStripSeparator
     Friend WithEvents SolicitudesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TacticosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents EstratégicosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RangosDeEdadToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents EconómicoToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -1,4 +1,5 @@
-use BD_DimTransporteUrbano;
+USE BD_DimTransporteUrbano;
+GO
 
 --Poblamiento de la tabla DimBus
 merge BD_DimTransporteUrbano.dbo.dimBus			as dim
