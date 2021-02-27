@@ -82,4 +82,16 @@ Public Class FrmIndexAdmin
         'ObjControl.MdiParent = Me
         'ObjControl.Show()
     End Sub
+
+    Private Sub RangosDeEdadToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RangosDeEdadToolStripMenuItem.Click
+        Dim obj As New FrmReporteEstrEdades
+        obj.MdiParent = Me
+        obj.Show()
+    End Sub
+
+    Private Sub EconómicoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EconómicoToolStripMenuItem.Click
+        Dim obj As New FrmReporteEstrPrecio
+        obj.MdiParent = Me
+        obj.Show()
+    End Sub
 End Class
