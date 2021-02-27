@@ -310,36 +310,50 @@ AS
 	END
 GO
 
-create PROCEDURE sp_GenerarReporteSalida
+ALTER PROCEDURE sp_GenerarReporteSalida
 	@idBus int,
 	@idHojaControl int
 AS
+	IF 1=0 BEGIN
+		SET FMTONLY OFF
+	END
 	BEGIN
-	declare @horaSalida datetime
-	declare @tiempoAprox int
-	declare @tiempo time
-	declare @hSalida time
-	declare @codigo char(05)
-	create table #Tablita(codigo varchar(5),hora datetime)
-	select @horaSalida=D.DREC_HoraSalida from DETALLE_RECORRIDO D where D.HCONT_IdHojaControl=@idHojaControl and D.BUS_IdBus=@idBus
-set @hSalida=CAST(@horaSalida AS DATETIME)
-DECLARE Horario CURSOR FOR SELECT C.CONT_TiempoAprox,Cu.CONTUB_Codigo FROM CONTROL_T C INNER JOIN CONTROL_UBICACION CU ON CU.CONTUB_IdControlUbicacion=C.CONTUB_IdControlUbicacion order by C.CONT_IdControl
-OPEN HORARIO
-FETCH NEXT FROM Horario INTO @tiempoAprox,@codigo
-WHILE @@fetch_status = 0
-BEGIN
+		DECLARE @horaSalida DATETIME
+		DECLARE @tiempoAprox INT
+		DECLARE @tiempo TIME
+		DECLARE @hSalida TIME
+		DECLARE @codigo CHAR(05)
+		
+		CREATE TABLE #Tablita(codigo VARCHAR(5),hora DATETIME)
+		SELECT @horaSalida=D.DREC_HoraSalida
+		FROM DETALLE_RECORRIDO D
+		WHERE D.HCONT_IdHojaControl=@idHojaControl
+		AND D.BUS_IdBus=@idBus
 
-    set @tiempo=DATEADD(MINUTE, @tiempoAprox, @hSalida)
-	insert into #Tablita values (@codigo,@tiempo)
-     FETCH NEXT FROM Horario INTO @tiempoAprox,@codigo
-END
-CLOSE Horario
-DEALLOCATE Horario
-	select codigo,convert(char(8), hora, 108) Hora  from #Tablita
+		set @hSalida=CAST(@horaSalida AS DATETIME)
+		DECLARE Horario CURSOR FOR
+			SELECT C.CONT_TiempoAprox,Cu.CONTUB_Codigo
+			FROM CONTROL_T C INNER JOIN CONTROL_UBICACION CU
+			ON CU.CONTUB_IdControlUbicacion=C.CONTUB_IdControlUbicacion
+			ORDER BY C.CONT_IdControl
+
+		OPEN HORARIO
+			FETCH NEXT FROM Horario INTO @tiempoAprox,@codigo
+			WHILE @@fetch_status = 0
+			BEGIN
+
+				set @tiempo=DATEADD(MINUTE, @tiempoAprox, @hSalida)
+				insert into #Tablita values (@codigo,@tiempo)
+				 FETCH NEXT FROM Horario INTO @tiempoAprox,@codigo
+			END
+		CLOSE Horario
+		DEALLOCATE Horario
+		select Codigo,convert(char(8), hora, 108) Hora  from #Tablita
 	END
 GO
 
-
+EXEC sp_GenerarReporteSalida 1, 1
+GO
 
 create PROCEDURE sp_Penalidades_Totales
 	@fecha as date
