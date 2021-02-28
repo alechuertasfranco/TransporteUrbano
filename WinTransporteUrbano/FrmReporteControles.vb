@@ -18,7 +18,6 @@ Public Class FrmReporteControles
         Me.SP_ListarDetallesControlTableAdapter.Fill(Me.BD_TransporteUrbanoDataSet.SP_ListarDetallesControl, IdControl, IdHoja)
 
         Me.rv_DetallesControl.RefreshReport()
-        Me.rv_DetallesControl.RefreshReport()
     End Sub
 
     Private Sub txt_fecha_ValueChanged(sender As Object, e As EventArgs) Handles txt_fecha.ValueChanged

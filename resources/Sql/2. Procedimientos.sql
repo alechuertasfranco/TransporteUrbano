@@ -26,17 +26,18 @@ AS
 GO
 
 -- Retorna la información de todas las hojas de control de una fecha
-create PROCEDURE sp_BuscarCodigoHojaRecorrido
+CREATE PROCEDURE sp_BuscarCodigoHojaRecorrido
 	@fecha date
 AS
 	BEGIN
-	declare @penalizacion			int
-	declare @cantidadControles		int
+	declare @penalizacion			FLOAT
+	declare @cantidadControles		INT
 	begin
 
 	select TOP 1 @penalizacion=P.PEN_MontoMinuto 
 	from PENALIZACIONES P 
 	order by P.PEN_IdPenalizacion desc
+
 
 	select @cantidadControles=count(C.CONT_IdControl) 
 	from CONTROL_T C 
@@ -310,7 +311,7 @@ AS
 	END
 GO
 
-ALTER PROCEDURE sp_GenerarReporteSalida
+CREATE PROCEDURE sp_GenerarReporteSalida
 	@idBus int,
 	@idHojaControl int
 AS
@@ -359,54 +360,81 @@ create PROCEDURE sp_Penalidades_Totales
 	@fecha as date
 AS
 	BEGIN
-	declare @idHojaRecorrido int
-	declare @idControl int
-	declare @idBus int
-	declare @promedio float
-	declare @sumatoria float
-	declare @cantidadDetalles int
-	declare @diferencia int
-	declare @penalidad int
-	declare @penalidadBus int
+		declare @idHojaRecorrido int
+		declare @idControl int
+		declare @idBus int
+		declare @promedio float
+		declare @sumatoria float
+		declare @cantidadDetalles int
+		declare @diferencia int
+		declare @penalidad int
+		declare @penalidadBus int
 
-DECLARE HojasRecorrido CURSOR FOR SELECT HCONT_IdHojaControl FROM HOJA_CONTROL_RECORRIDOS where HCONT_Fecha	= @fecha
-DECLARE Control_Tr CURSOR FOR SELECT CONT_IdControl FROM CONTROL_T
-SELECT TOP 1 @penalidad= PEN_MontoMinuto FROM PENALIZACIONES ORDER BY PEN_IdPenalizacion DESC
-OPEN HojasRecorrido
-FETCH NEXT FROM HojasRecorrido INTO @idHojaRecorrido
-WHILE @@fetch_status = 0
-	BEGIN
-			OPEN Control_Tr
-			FETCH NEXT FROM Control_Tr INTO @idControl
-			WHILE @@fetch_status = 0	
-			BEGIN
+		DECLARE HojasRecorrido CURSOR FOR
+		SELECT HCONT_IdHojaControl
+		FROM HOJA_CONTROL_RECORRIDOS
+		where HCONT_Fecha	= @fecha
+
+		DECLARE Control_Tr CURSOR FOR
+		SELECT CONT_IdControl
+		FROM CONTROL_T
+
+		SELECT TOP 1 @penalidad= PEN_MontoMinuto
+		FROM PENALIZACIONES
+		ORDER BY PEN_IdPenalizacion DESC
+		
+		OPEN HojasRecorrido
+			FETCH NEXT FROM HojasRecorrido INTO @idHojaRecorrido
+			WHILE @@fetch_status = 0
 				BEGIN
-				DECLARE Detalle_Control CURSOR FOR SELECT BUS_IdBus,DCONT_Diferencia FROM DETALLE_CONTROL WHERE HCONT_IdHojaControl=@idHojaRecorrido AND CONT_IdControl=@idControl
-				select @sumatoria=sum(DCONT_Diferencia),@cantidadDetalles=Count(*) from DETALLE_CONTROL WHERE HCONT_IdHojaControl=@idHojaRecorrido AND CONT_IdControl=@idControl
-				set @promedio=@sumatoria/@cantidadDetalles
+					OPEN Control_Tr
+						FETCH NEXT FROM Control_Tr INTO @idControl
+						WHILE @@fetch_status = 0	
+						BEGIN
+							BEGIN
+								DECLARE Detalle_Control CURSOR FOR
+								SELECT BUS_IdBus,DCONT_Diferencia
+								FROM DETALLE_CONTROL
+								WHERE HCONT_IdHojaControl=@idHojaRecorrido
+								AND CONT_IdControl=@idControl
+
+								select @sumatoria=sum(DCONT_Diferencia),@cantidadDetalles=Count(*)
+								from DETALLE_CONTROL
+								WHERE HCONT_IdHojaControl=@idHojaRecorrido
+								AND CONT_IdControl=@idControl
+								
+								set @promedio=@sumatoria/@cantidadDetalles
+							END
+								OPEN Detalle_Control
+								FETCH NEXT FROM Detalle_Control INTO @idBus,@diferencia
+								WHILE @@fetch_status = 0
+								BEGIN
+										if @diferencia<=@promedio 
+											UPDATE DETALLE_CONTROL
+											SET DCONT_MontoPenalizacion = 0
+											WHERE HCONT_IdHojaControl=@idHojaRecorrido
+											AND CONT_IdControl=@idControl
+											AND BUS_IdBus=@idBus
+										ELSE
+											begin
+												set @penalidadBus=@penalidad*(@diferencia-@promedio)
+												UPDATE DETALLE_CONTROL
+												SET DCONT_MontoPenalizacion = @penalidadBus
+												WHERE HCONT_IdHojaControl=@idHojaRecorrido
+												AND CONT_IdControl=@idControl
+												AND BUS_IdBus=@idBus					 
+											end
+									FETCH NEXT FROM Detalle_Control INTO @idBus,@diferencia
+								END
+									CLOSE Detalle_Control
+									DEALLOCATE Detalle_Control
+						FETCH NEXT FROM Control_Tr INTO @idControl
+						END
+					CLOSE Control_Tr
+					DEALLOCATE Control_Tr
+					FETCH NEXT FROM HojasRecorrido INTO @idHojaRecorrido
 				END
-					OPEN Detalle_Control
-					FETCH NEXT FROM Detalle_Control INTO @idBus,@diferencia
-					WHILE @@fetch_status = 0
-					BEGIN
-							if @diferencia<=@promedio 
-							UPDATE DETALLE_CONTROL SET DCONT_MontoPenalizacion = 0 WHERE HCONT_IdHojaControl=@idHojaRecorrido AND CONT_IdControl=@idControl AND BUS_IdBus=@idBus
-							ELSE
-							begin
-							set @penalidadBus=@penalidad*(@diferencia-@promedio)
-							UPDATE DETALLE_CONTROL SET DCONT_MontoPenalizacion = @penalidadBus WHERE HCONT_IdHojaControl=@idHojaRecorrido AND CONT_IdControl=@idControl AND BUS_IdBus=@idBus					 
-							end
-						FETCH NEXT FROM Detalle_Control INTO @idBus,@diferencia
-					END
-						CLOSE Detalle_Control
-						DEALLOCATE Detalle_Control
-			FETCH NEXT FROM Control_Tr INTO @idControl
-			END
-			CLOSE Control_Tr
-			DEALLOCATE Control_Tr
-     FETCH NEXT FROM HojasRecorrido INTO @idHojaRecorrido
-END
-CLOSE HojasRecorrido
-DEALLOCATE HojasRecorrido
+		CLOSE HojasRecorrido
+		DEALLOCATE HojasRecorrido
 	END
 GO
